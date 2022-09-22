@@ -43,8 +43,10 @@
   margin: 0;
   line-height: 1.15;
   font-size: 5em;
+  color: white;
   font-family: socium;
   font-weight: normal;
+  text-align: center;
   word-spacing: -15px;
 }
 
