@@ -1,9 +1,14 @@
+@font-face {
+  font-family: socium;
+  src: url(../assets/fonts/socium.otf);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, socium;
       background-size: cover;
   background-position: center;
   background: linear-gradient(to bottom, #87517f 0%, #513b4a 100%),
