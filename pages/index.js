@@ -4,17 +4,18 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.container} style={{height: '100vh', width: '100vw'}}>
+    <div
+      className={styles.container}
+      style={{ height: "100vh", width: "100vw" }}
+    >
       <Head>
-        <title>Create Next App</title>
+        <title>HackTUES 9</title>
         <meta name="description" content="HackTUES 9" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          HackTUES 9
-        </h1>
+        <h1 className={styles.title}>HackTUES 9</h1>
       </main>
     </div>
-  )
+  );
 }
