@@ -1,13 +1,14 @@
-const Card  = ({ title, description, image }) => {
-    return (
-        <div className="card">
-        <div className="card-image">
-            <img src={image} />
-        </div>
-        <div className="card-title">{title}</div>
-        <div className="card-description">{description}</div>
-        </div>
-    );
+import Image from "next/image";
+import styles from "../styles/Arc.Card.module.css";
+
+const Card = ({ name, shortDescription, logo, backgroundImg }) => {
+  return (
+    <div className={styles.card}>
+      <Image src={logo} alt={name} width={16} height={5} layout="responsive"/>
+      <div className="card-title">{name}</div>
+      <div className="card-description">{shortDescription}</div>
+    </div>
+  );
 };
 
 export default Card;

@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import arc from "../constants/arc";
-
-import Card from "../components/card";
+import CardContainer from "../partials/Arc/CardsContainer";
 
 export default function Home() {
   return (
@@ -18,16 +16,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>HackTUES 9</h1>
-        {Object.keys(arc).map((hackathon) => {
-          return (
-            <Card
-              key={hackathon}
-              title={hackathon}
-              description={arc[hackathon].shortDescription}
-              image={arc[hackathon].logo}
-            />
-          );
-        })}
+        <CardContainer />
       </main>
     </div>
   );
