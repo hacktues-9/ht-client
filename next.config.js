@@ -3,7 +3,7 @@ const path = require("node:path");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-/*   webpack: (config, { isServer }) => {
+  /*   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
     }
@@ -12,7 +12,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
-  ima
+  images: {
+    domains: ["i.imgur.com"],
+  },
 };
 
 module.exports = nextConfig;
