@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>HackTUES 9</h1>
-        {Object.keys(arc).map((hackathon) => {
+        {/* {Object.keys(arc).map((hackathon) => {
           return (
             <Card
               key={hackathon}
@@ -27,7 +27,7 @@ export default function Home() {
               image={arc[hackathon].logo}
             />
           );
-        })}
+        })} */}
       </main>
     </div>
   );
