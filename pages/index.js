@@ -17,7 +17,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>HackTUES 9</h1>
+        <div className={styles.stack}>
+          <span id={styles.stack0}>HackTUES 9</span>
+          <span id={styles.stack1}>HackTUES 9</span>
+          <span id={styles.stack2}>HackTUES 9</span>
+        </div>
         {/* {Object.keys(arc).map((hackathon) => {
           return (
             <Card
