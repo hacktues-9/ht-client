@@ -6,7 +6,7 @@ export const METADATA = {
   title: TITLE,
   description:
     "Hack TUES е единственият хакатон в България, организиран от ученици за ученици.🙌 ",
-  image: "https://hacktues.bg/logo.png",
+  image: "https://hacktues.bg/favicon.png",
   url: "https://hacktues.bg",
   twitter: "@hacktues",
   themeColor: "#000000",
