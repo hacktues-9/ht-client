@@ -1,5 +1,12 @@
 .card_container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(23.3rem, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
 }
