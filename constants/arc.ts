@@ -10,7 +10,7 @@ export const METADATA = {
   url: "https://hacktues.bg",
   twitter: "@hacktues",
   themeColor: "#000000",
-  favicon: "/public/favicon.png",
+  favicon: "/favicon.png",
   keywords: [
     "hackathon",
     "hacktues",
