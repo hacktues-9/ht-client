@@ -36,9 +36,16 @@ const Home = () => {
         <link rel="icon" href={METADATA.favicon} />
       </Head>
       <main className={styles.main}>
-        <div>
-          <h1 className={styles.title}>{TITLE}</h1>
+        <div className={styles.front}>
+          <div className={styles.stack}>
+            <span id={styles.stack0}>{TITLE}</span>
+            <span id={styles.stack1}>{TITLE}</span>
+            <span id={styles.stack2}>{TITLE}</span>
+          </div>
         </div>
+        <a className={styles.button} href="#arc">
+          Get Started
+        </a>
         <CardContainer />
       </main>
     </div>

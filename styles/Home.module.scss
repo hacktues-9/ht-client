@@ -39,6 +39,15 @@
   text-decoration: none;
 }
 
+.front {
+  height: 100vh;
+  margin-top: calc(-15px - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .stack {
   display: grid;
   grid-template-columns: 1fr;

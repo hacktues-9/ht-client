@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 
 const CardContainer = () => {
   return (
-    <div className={styles.card_container}>
+    <div id="arc" className={styles.card_container}>
       {CARDS.map((hackathon) => {
         return <Card key={hackathon.id} {...hackathon} />;
       })}
