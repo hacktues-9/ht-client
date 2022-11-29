@@ -20,8 +20,8 @@ const Home = () => {
         <meta name="twitter:type" content="website" />
         <meta name="twitter:site" content={METADATA.twitter} />
         <meta name="twitter:creator" content={METADATA.twitter} />
-        <meta name="twitter:title" content={TITLE} />
-        <meta name="twitter:description" content={TITLE} />
+        <meta name="twitter:title" content={METADATA.title} />
+        <meta name="twitter:description" content={METADATA.description} />
         <meta name="twitter:image" content={METADATA.image} />
 
         <meta property="og:title" content={TITLE} />
