@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import CardContainer from "../partials/Arc/CardsContainer";
 import { METADATA, TITLE } from "../constants/arc";
+import { TbChevronDown } from "react-icons/tb";
 
 const Home = () => {
   return (
@@ -42,10 +43,10 @@ const Home = () => {
             <span id={styles.stack1}>{TITLE}</span>
             <span id={styles.stack2}>{TITLE}</span>
           </div>
+          <a className={styles.button} href="#arc">
+            <TbChevronDown />
+          </a>
         </div>
-        <a className={styles.button} href="#arc">
-          Get Started
-        </a>
         <CardContainer />
       </main>
     </div>
