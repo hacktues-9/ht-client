@@ -16,7 +16,7 @@
 
 .hacktues-1 {
   background-color: rgba(31, 31, 31, 0.151);
-  height: 10rem;
+  height: 12rem;
   border-radius: 18px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   display: flex;
@@ -48,9 +48,9 @@
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 600px) {
+/*   @media screen and (max-width: 600px) {
     font-size: 2em;
-  }
+  } */
 
   z-index: 3;
 }
@@ -60,7 +60,7 @@
 }
 
 .desc {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: normal;
   margin: 0;
   margin-bottom: 0.5rem;
@@ -68,9 +68,9 @@
   opacity: 0.8;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
-  @media screen and (max-width: 600px) {
+/*   @media screen and (max-width: 600px) {
     font-size: 1em;
-  }
+  } */
 
   z-index: 3;
 }
@@ -146,11 +146,7 @@
     repeat scroll 0 0;
   position: relative;
   margin-top: 0;
-  height: 10rem;
-
-  @media screen and (max-width: 600px) {
-    height: 10rem
-  }
+  height: 12rem;
 
   z-index: 2;
 }
