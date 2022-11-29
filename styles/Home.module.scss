@@ -156,6 +156,10 @@
   @supports (-webkit-touch-callout: inherit) {
     bottom: 11rem;
   }
+
+  @media screen and (max-width: 600px) {
+    bottom: 11rem;
+  }
 }
 
 .title,
