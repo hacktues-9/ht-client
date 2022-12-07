@@ -1,0 +1,46 @@
+.containerd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "card1 card2"
+    "card3 card4";
+  grid-gap: 20px;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  width: 100%;
+}
+
+.cardSelected {
+  background-color: rgba(255, 255, 255, 0.174);
+  border-radius: 6px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  width: 100%;
+}
