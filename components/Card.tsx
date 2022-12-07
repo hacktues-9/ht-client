@@ -15,7 +15,6 @@ const Card = ({
 }: ICard) => {
   return (
     <div className={card[classNames]}>
-      {/* <Image src={logo} alt={name} width={16} height={5} layout="responsive"/> */}
       <div className={card.title} dangerouslySetInnerHTML={{ __html: name }} />
       <div className={card.desc}>{shortDescription}</div>
       <div className={card.info}>
