@@ -8,6 +8,7 @@ import MultipleChoiceContainer, {
   ContainerTshirt,
 } from "../../components/form/signup/multipleChoice/Container";
 import { IInput } from "../../constants/form/IInput";
+import ElsysTab from "../../partials/SignUp/Elsys";
 import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
@@ -127,74 +128,6 @@ const SignUp = () => {
         required: true,
         value: form.confirmPassword,
         onChange: (e) => setForm({ ...form, confirmPassword: e.target.value }),
-      },
-    ] as IInput[],
-    elsys: [
-      {
-        label: "First Name",
-        classes: ["form-control"],
-        id: "firstName",
-        name: "firstName",
-        type: "text",
-        placeholder: "First Name",
-        required: true,
-        value: form.firstName,
-        onChange: (e) => setForm({ ...form, firstName: e.target.value }),
-      },
-      {
-        label: "Last Name",
-        classes: ["form-control"],
-        id: "lastName",
-        name: "lastName",
-        type: "text",
-        placeholder: "Last Name",
-        required: true,
-        value: form.lastName,
-        onChange: (e) => setForm({ ...form, lastName: e.target.value }),
-      },
-      {
-        label: "Phone",
-        classes: ["form-control"],
-        id: "phone",
-        name: "phone",
-        type: "text",
-        placeholder: "Phone",
-        required: true,
-        value: form.phone,
-        onChange: (e) => setForm({ ...form, phone: e.target.value }),
-      },
-      {
-        label: "Elsys Email",
-        classes: ["form-control"],
-        id: "elsysEmail",
-        name: "elsysEmail",
-        type: "email",
-        placeholder: "Elsys Email",
-        required: true,
-        value: form.elsysEmail,
-        onChange: (e) => setForm({ ...form, elsysEmail: e.target.value }),
-      },
-      {
-        label: "Class Number",
-        classes: ["form-control"],
-        id: "classNumber",
-        name: "classNumber",
-        type: "number",
-        placeholder: "Class Number",
-        required: true,
-        value: form.classNumber,
-        onChange: (e) => setForm({ ...form, classNumber: e.target.value }),
-      },
-      {
-        label: "Class Letter",
-        classes: ["form-control"],
-        id: "classLetter",
-        name: "classLetter",
-        type: "text",
-        placeholder: "Class Letter",
-        required: true,
-        value: form.classLetter,
-        onChange: (e) => setForm({ ...form, classLetter: e.target.value }),
       },
     ] as IInput[],
     preferences: [
@@ -336,6 +269,7 @@ const SignUp = () => {
           Submit
         </button>
       </form> */}
+      <ElsysTab form={form} setForm={setForm} />
       <PreferencesTab />
       <TechnologiesTab />
     </div>

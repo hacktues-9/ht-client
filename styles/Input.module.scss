@@ -1,0 +1,19 @@
+.text_input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    outline: none;
+  }
+}

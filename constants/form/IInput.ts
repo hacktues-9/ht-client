@@ -7,5 +7,13 @@ export interface IInput {
   placeholder: string;
   required: boolean;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  options?: IOption[];
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+}
+
+export interface IOption {
+  value: string;
+  label: string;
 }
