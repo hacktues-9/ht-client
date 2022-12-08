@@ -4,6 +4,8 @@ import Link from "next/link";
 import { AuthProvider } from "../context/authContext";
 import "../styles/globals.scss";
 
+import navbar from "../styles/Navbar.module.scss";
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const noNav = ["/login", "/signup", "/forgot-password", "/_error"];
@@ -11,8 +13,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       {router && !noNav.includes(router.pathname) && (
-        <nav>
-          <ul>
+        <nav className={navbar.nav}>
+          <ul className={navbar.ul}>
             <Link href="/">
               <li>начало</li>
             </Link>

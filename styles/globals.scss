@@ -55,12 +55,15 @@ body {
 }
 
 #__next {
+  min-height: 100%;
   height: 100%;
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+    position: relative;
+
 }
 
 * {
@@ -100,7 +103,8 @@ a {
 
     width: 100%;
 
-    position: relative;
+      position: relative;
+
 
     @supports (-webkit-touch-callout: inherit) {
       background-attachment: scroll;
