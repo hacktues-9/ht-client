@@ -18,32 +18,35 @@ export default function App({ Component, pageProps }: AppProps) {
             <Link href="/">
               <li>начало</li>
             </Link>
-            <Link href="/about">
+            <Link href="/timetable">
               <li>програма</li>
             </Link>
-            <Link href="/blog">
+            <Link href="/teams">
               <li>отбори</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/rankings">
               <li>класация</li>
             </Link>
-            <Link href="/contact">
-              <li>победители</li>
-            </Link>
-            <Link href="/contact">
+            <Link href="/themes">
               <li>теми</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/mentors">
               <li>ментори</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/archive">
               <li>архив</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/regulation">
               <li>регламент</li>
             </Link>
-            <Link href="/contact">
-              <li>за HackTUES 9</li>
+            <Link href="/ourteam">
+              <li>нашият екип</li>
+            </Link>
+            <Link href="/tuestalks">
+              <li>TUES Talks</li>
+            </Link>
+            <Link href="/tinder">
+              <li>tinder</li>
             </Link>
             <Link href="/login">
               <li>влез</li>
