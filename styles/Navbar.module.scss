@@ -1,0 +1,40 @@
+.nav {}
+
+.ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        margin: 0 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    a:hover {
+        color: #ccc;
+    }
+
+    .active {
+        color: #ccc;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .logo:hover {
+        color: #ccc;
+    }
+
+    .logo:active {
+        color: #ccc;
+    }
+}
