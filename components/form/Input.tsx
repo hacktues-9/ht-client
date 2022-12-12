@@ -4,7 +4,7 @@ import style from "../../styles/Input.module.scss";
 const Input = ({ label, id, ...props }: IInput) => {
   if (props.type === "select") {
     return (
-      <div className={style[props.classes[0]]}>
+      <div className={`${props.classes.map((item) => style[item]).join(' ')}`}>
         <label htmlFor={id}>{label}</label>
         <select id={id} {...props}>
           {props.options.map((option) => (
@@ -17,7 +17,7 @@ const Input = ({ label, id, ...props }: IInput) => {
     );
   }
   return (
-    <div className={style[props.classes[0]]}>
+    <div className={`${props.classes.map((item) => style[item]).join(' ')}`}>
       <label htmlFor={id}>{label}</label>
       <input {...props} />
     </div>
