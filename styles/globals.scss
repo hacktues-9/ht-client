@@ -48,11 +48,25 @@ body {
 
   position: relative;
 
+  // Remove scroll bar
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/
+  }
+
   @supports (-webkit-touch-callout: inherit) {
     background-attachment: scroll;
     background-size: cover;
   }
 }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.body {}
 
 #__next {
   height: 100%;
@@ -84,6 +98,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: linear-gradient(to bottom, #87517f 0%, #513b4a 100%),
