@@ -6,19 +6,19 @@
   min-height: 100vh;
   padding: 15px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background: rgba(0, 0, 0, 0.5);
 
   @supports (-webkit-touch-callout: inherit) {
     //border-top: #d62c35 solid 20px;
 
-    background: rgba(255, 255, 255, 0)
-      linear-gradient(
-        to bottom,
+    background: rgba(255, 255, 255, 0) linear-gradient(to bottom,
         rgba(110, 93, 6, 0) 0%,
         rgb(43, 12, 42) 3.5%,
-        rgb(17, 12, 43) 20%
-      )
-      repeat scroll 0 0;
+        rgb(17, 12, 43) 20%) repeat scroll 0 0;
 
     background-blend-mode: difference;
 
@@ -34,8 +34,8 @@
         )
         repeat scroll 0 0; */
 
-        background:rgb(17, 12, 43);
-        border-top: #41002a91 solid 5px;
+      background: rgb(17, 12, 43);
+      border-top: #41002a91 solid 5px;
     }
   }
 }
@@ -48,12 +48,14 @@
 }
 
 .card_container_grid {
+  width: 100%;
+  max-width: 1600px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(23.3rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(max(23.3rem, calc((100% - 6rem) / 3)), 1fr));
   grid-gap: 2rem;
   align-content: start;
 
-  @media (max-width: 600px) {
+/*   @media (max-width: 600px) {
     grid-template-columns: repeat(auto-fill, 100%);
-  }
+  } */
 }
