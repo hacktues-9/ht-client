@@ -1,4 +1,6 @@
-.nav {}
+.nav {
+    font-size: 14px;
+}
 
 .ul {
     display: flex;
@@ -26,8 +28,9 @@
     }
 
     .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
+        // font-size: 1.5rem;
+        // font-weight: bold;
+        font-family: ll_pixel;
     }
 
     .logo:hover {
