@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "../../../../styles/0/login/Selectable.module.scss";
 
-const SelectableCard = ({ children, selected, onClick, ...props }) => {
+const SelectableCard = ({ children, selected, styles, onClick, ...props }) => {
   const handleClick = () => {
     console.log("clicked");
     onClick();
@@ -19,7 +19,7 @@ const SelectableCard = ({ children, selected, onClick, ...props }) => {
   }, [selected]);
 
   return (
-    <div className={className} {...props} onClick={handleClick}>
+    <div className={className} style={styles} {...props} onClick={handleClick}>
       {children}
     </div>
   );
@@ -31,6 +31,7 @@ interface SelectableTshirtProps {
   size: string;
   icon?: string;
   selected: boolean;
+  style?: React.CSSProperties;
   onClick: () => void;
 }
 
@@ -39,10 +40,11 @@ export const SelectableTshirt = ({
   icon,
   selected,
   onClick,
+  style,
   ...props
 }: SelectableTshirtProps) => {
   return (
-    <SelectableCard selected={selected} onClick={onClick} {...props}>
+    <SelectableCard selected={selected} styles={style} onClick={onClick} {...props}>
       <div>{size}</div>
       {icon && <div>{icon}</div>}
     </SelectableCard>

@@ -24,6 +24,22 @@ import { useRouter } from "next/router";
     "isCaptain": false
 } */
 
+/* interface IUser {
+  emailVerified: boolean;
+
+  email: string;
+  firstName: string;
+  lastName: string;
+
+  hasTeam: boolean;
+
+  discordId: string;
+
+  isCaptain: boolean;
+
+
+} */
+
 const AuthContext = createContext(
   {} as {
     authState: {

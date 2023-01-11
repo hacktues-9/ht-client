@@ -1,6 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { IInput } from "../../constants/form/IInput";
 import Input from "../../components/form/Input";
+
+import style from "../../styles/0/signup/Signup.module.scss";
+import { SignUpErrors } from "../../types/ISignUp";
 
 interface SignUpForm {
     // initial
@@ -30,57 +33,67 @@ interface SignUpForm {
 
     // discord
 
-    isDiscord: boolean;
+    isDiscord: string;
 }
 
 interface ITab {
     form: SignUpForm;
     setForm: Dispatch<SetStateAction<SignUpForm>>;
+    errors: SignUpErrors;
 }
 
-const InitialTab = ({ form, setForm }: ITab) => {
+const InitialTab = ({ form, setForm, errors }: ITab) => {
     const initial: IInput[] = [
         {
             label: "имейл",
-            classes: ["text_input"],
+            classes: ["email"],
             id: "email",
             name: "email",
             type: "email",
             placeholder: "boris.elsys@gmail.com",
             required: true,
             value: form.email,
+            error: errors.email,
             onChange: (e) => setForm({ ...form, email: e.target.value }),
         },
         {
             label: "парола",
-            classes: ["text_input"],
+            classes: ["email"],
             id: "password",
             name: "password",
             type: "password",
             placeholder: "********",
             required: true,
             value: form.password,
+            error: errors.password,
             onChange: (e) => setForm({ ...form, password: e.target.value }),
         },
         {
             label: "потвърди парола",
-            classes: ["text_input"],
+            classes: ["email"],
             id: "confirmPassword",
             name: "confirmPassword",
             type: "password",
             placeholder: "********",
             required: true,
             value: form.confirmPassword,
+            error: errors.confirmPassword,
             onChange: (e) => setForm({ ...form, confirmPassword: e.target.value }),
         }
     ];
 
+    useEffect(() => {
+        console.log("TEST -> ", errors)
+    }, [errors])
+
     return (
         <div>
             <h2>регистрация</h2>
-            {initial.map((input) => (
-                <Input key={input.id} {...input} />
-            ))}
+            <div className={style.grid}>
+                {initial.map((input) => (
+                    <Input key={input.id} error={input.error} {...input} />
+                ))}
+            </div>
         </div>
     );
 };

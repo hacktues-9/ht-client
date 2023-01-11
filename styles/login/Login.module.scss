@@ -200,7 +200,7 @@
   }
 
   @media screen and (max-width: 360px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -230,5 +230,9 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
   }
 }

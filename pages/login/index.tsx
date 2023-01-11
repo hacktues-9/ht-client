@@ -5,63 +5,68 @@ import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import Input from "../../components/form/Input";
 
 import style from "../../styles/login/Login.module.scss";
+import logo from "../../styles/Home.module.scss";
+import { TITLE } from "../../constants/arc";
+
 
 const LogIN = () => {
   const [error, setError] = useState<string | null>(null);
 
   const { push } = useRouter();
 
-/*   const login = async (email: string, password: string) => {
-    const response = await fetch(
-      "https://orca-app-g2n2e.ondigitalocean.app/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+  /*   const login = async (email: string, password: string) => {
+      const response = await fetch(
+        "https://orca-app-g2n2e.ondigitalocean.app/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message);
+      } else {
+        localStorage.setItem("token", data.token);
       }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.message);
-    } else {
-      localStorage.setItem("token", data.token);
-    }
-    return data;
-  }; */
+      return data;
+    }; */
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password }: any = e.target;
-/*     try {
-      setError(null);
-      await login(email.value, password.value);
-      push("/");
-    } catch (error) {
-      console.log("TEST", error);
-      if (error.message === "user not found") {
-        setError("Няма такъв потребител");
-      } else if (error.message === "invalid password") {
-        setError("Грешна парола");
-      } else {
-        setError("Нещо се обърка");
-      }
-    } */
+    /*     try {
+          setError(null);
+          await login(email.value, password.value);
+          push("/");
+        } catch (error) {
+          console.log("TEST", error);
+          if (error.message === "user not found") {
+            setError("Няма такъв потребител");
+          } else if (error.message === "invalid password") {
+            setError("Грешна парола");
+          } else {
+            setError("Нещо се обърка");
+          }
+        } */
   };
-
-  console.log(style.title);
 
   return (
     <div className={style.container}>
       <div className={style.image}>
-        <img src="/assets/login/graphic.png" alt="login" />
+        <Link className={logo.stack} href={'/'}>
+          <span id={logo.stack0}>{TITLE}</span>
+          <span id={logo.stack1}>{TITLE}</span>
+          <span id={logo.stack2}>{TITLE}</span>
+        </Link>
       </div>
       <form className={style.form} onSubmit={handleLogin}>
-        <h1 className={style.title}>хей, отново</h1>
+        <h1 className={style.title}>здравей</h1>
         <div className={style.inputs}>
           <Input
             label="имейл"
@@ -103,7 +108,7 @@ const LogIN = () => {
           нямаш акаунт? <Link href="/signup">регистрирай се</Link>
         </p>
       </form>
-    </div>
+    </div >
   );
 };
 

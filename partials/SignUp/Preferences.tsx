@@ -7,6 +7,7 @@ import {
 const PreferencesTab = () => {
   return (
     <div>
+      <h2>преференции</h2>
       <ContainerEatingPreferences />
       <ContainerAlergies />
       <ContainerTshirt />
