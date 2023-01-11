@@ -1,0 +1,85 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #848484, $alpha: 0.3);
+  padding: 15px;
+  border-radius: 30px;
+
+  gap: 15px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+  
+
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  input,
+  button {
+    width: 400px;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px #848484;
+    }
+
+    &::placeholder {
+      color: white;
+    }
+
+    &:disabled {
+      background-color: rgba($color: #848484, $alpha: 0.5);
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
+  }
+
+  .login_form__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .login_form__input {
+    width: 20rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  .login_form__button {
+    width: 20rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+  }
+}
