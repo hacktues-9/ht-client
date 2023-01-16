@@ -58,7 +58,7 @@ const SignUp = () => {
     // setStep(step + 1);
 
     if (step == Steps.initial) validateInitial(form, setErrors);
-    if(step == Steps.elsys) setErrors(validateElsys(form, errors) as any);
+    if (step == Steps.elsys) setErrors(validateElsys(form, errors) as any);
     // if(step == Steps.preferences) setErrors(validatePreferences(form, errors));
     // if(step == Steps.technologies) setErrors(validateTechnologies(form, errors));    
 
