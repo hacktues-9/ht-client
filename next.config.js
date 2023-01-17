@@ -19,6 +19,8 @@ const nextConfig = {
     locales: ["bg", /*"en"*/],
     defaultLocale: "bg",
   },
+  // valid page extensions
+  pageExtensions: ["page.tsx"],
 };
 
 module.exports = nextConfig;
