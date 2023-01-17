@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.scss";
 import CardContainer from "../partials/Arc/CardsContainer";
 import { METADATA, TITLE } from "../constants/arc";
 import { TbChevronDown } from "react-icons/tb";
+import Countdown from "../partials/home/Countdown";
 
 const Home = () => {
   return (
@@ -43,6 +44,7 @@ const Home = () => {
             <span id={styles.stack1}>{TITLE}</span>
             <span id={styles.stack2}>{TITLE}</span>
           </div>
+          <Countdown />
           <a className={styles.button} href="#arc">
             <TbChevronDown />
           </a>
