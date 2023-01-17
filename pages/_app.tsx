@@ -1,15 +1,17 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
-import { Analytics } from '@vercel/analytics/react';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
+
+import type { AppProps } from "next/app";
 
 import AuthProvider from "../context/authContext";
 
-import '../styles/globals.scss'
-
 import navbar from "../styles/Navbar.module.scss";
-import Image from "next/image";
-import { useEffect } from "react";
+
+import "../styles/globals.scss";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -17,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "dark");
-  }, [])
+  }, []);
 
   return (
     <>
@@ -80,4 +82,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
