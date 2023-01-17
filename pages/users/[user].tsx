@@ -44,8 +44,8 @@ const User = () => {
           style={{ width: "100px", height: "100px" }}
         />
         <ul>
-          {technologies.map((tech) => (
-            <li>{tech}</li>
+          {technologies.map((tech, i) => (
+            <li key={i}>{tech}</li>
           ))}
         </ul>
       </div>
