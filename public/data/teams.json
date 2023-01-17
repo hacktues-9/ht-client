@@ -1,0 +1,29 @@
+{
+    "teams": [{
+            "id": 1,
+            "name": "Team 1",
+            "players": [{
+                    "id": 1,
+                    "name": "Player 1"
+                },
+                {
+                    "id": 2,
+                    "name": "Player 2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Team 2",
+            "players": [{
+                    "id": 3,
+                    "name": "Player 3"
+                },
+                {
+                    "id": 4,
+                    "name": "Player 4"
+                }
+            ]
+        }
+    ]
+}
