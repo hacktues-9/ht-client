@@ -1,8 +1,13 @@
+import type { AppProps } from 'next/app'
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import Link from "next/link";
+
+import { Analytics } from '@vercel/analytics/react';
+
 import AuthProvider from "../context/authContext";
-import "../styles/globals.scss";
+
+import '../styles/globals.scss'
 
 import navbar from "../styles/Navbar.module.scss";
 import Image from "next/image";
@@ -65,5 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
       )}
       <Component {...pageProps} />
     </AuthProvider>
+    <Analytics />
   );
 }
+
