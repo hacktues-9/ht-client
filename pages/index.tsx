@@ -1,9 +1,12 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
-import CardContainer from "../partials/Arc/CardsContainer";
-import { METADATA, TITLE } from "../constants/arc";
 import { TbChevronDown } from "react-icons/tb";
+
 import Countdown from "../partials/home/Countdown";
+import CardContainer from "../partials/Arc/CardsContainer";
+
+import styles from "../styles/Home.module.scss";
+
+import { METADATA, TITLE } from "../constants/arc";
 
 const Home = () => {
   return (
@@ -36,6 +39,32 @@ const Home = () => {
         <meta name="keywords" content={METADATA.keywords.join(", ")}></meta>
 
         <link rel="icon" href={METADATA.favicon} />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "url": "${METADATA.url}",
+              "logo": "${METADATA.image}",
+              "name": "${TITLE}",
+              "startDate": "2023-03-08T17:00",
+              "endDate": "2023-03-11T21:00",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "hacktuespartners@elsys-bg.org",
+                "contactType": "customer support and partnership"
+              },
+              "location": {
+                "@type": "Place",
+                "name": "TUES",
+              }, 
+              "description": "${METADATA.description}",
+              "image": "${METADATA.image}",
+              "sameAs": ["https://www.facebook.com/HackTUES/", "https://www.linkedin.com/company/hack-tues-%C2%A7-tues-fest/"]
+            }
+          `}
+        </script>
       </Head>
       <main className={styles.main}>
         <div className={styles.front}>
