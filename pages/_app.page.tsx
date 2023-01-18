@@ -14,8 +14,6 @@ import "../styles/globals.scss";
 import Navigation from "../partials/Navigation/Navigation";
 
 export default function App({ Component, pageProps }: AppProps) {
-
-
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "dark");
   }, []);
