@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../../styles/0/teams/Teams.module.scss";
 
 import Image from "next/image";
+import Technologies from "../technologies/Technologies";
 
 const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
   const { name, logo, members, project, technologies } = team;
@@ -30,7 +31,10 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
     // calculate the position of the card
     // fix for scrolling
 
-    let { posX, posY } = { posX: x + width / 2 + scrollX, posY: y + width / 2 + scrollY };
+    let { posX, posY } = {
+      posX: x + width / 2 + scrollX,
+      posY: y + width / 2 + scrollY,
+    };
 
     // fix for card out of screen - card width is 320px
     console.log(posX + 320, window.innerWidth);
@@ -66,8 +70,13 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
           <p>{project.name}</p>
         </div>
       </div>
-      <div>
-        <p>участници</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+        }}
+      >
         <div className={styles.members}>
           {members.map((member) => (
             <img
@@ -80,16 +89,21 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
             />
           ))}
         </div>
-      </div>
-      <div>
-        <p>технологии</p>
         <div>
-          {
-            // limit to fit in the card
-            technologies.slice(0, 3).map((tech) => (
-              <span key={tech}>{tech}</span>
-            ))
-          }
+          <div style={{ display: "flex", gap: ".25rem" }}>
+            {
+              // limit to fit in the card
+              technologies.slice(0, 3).map((tech) => (
+                <Technologies key={tech.id} technology={tech} />
+              ))
+            }
+            {
+              // show how many more technologies are there in number
+              technologies.length > 3 && (
+                <Technologies technology={`+${technologies.length - 3}`} />
+              )
+            }
+          </div>
         </div>
       </div>
     </div>

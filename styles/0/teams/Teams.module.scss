@@ -59,6 +59,11 @@
     justify-content: flex-start;
     align-items: center;
 
+    border: 1px solid rgba(255, 255, 255, 0.214);
+    border-style: none none solid none;
+
+    padding-bottom: 1rem;
+
     img {
         width: 3rem;
         height: 3rem;
@@ -87,15 +92,26 @@
 .members {
     width: 100%;
 
-    display: grid;
+    // display: grid;
     // 5 fixed columns
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
+    // grid-template-columns: repeat(5, 1fr);
+    // justify-items: space-between;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: calc((100% - (5 * 2.3rem)) / 4);
+
+    border:rgba(190, 190, 190, 0.194);
+    border-style: none none solid none;
+
+    padding: 1rem 0;
 
     img {
-        width: 2rem;
-        height: 2rem;
+        width: 2.3rem;
+        height: 2.3rem;
         aspect-ratio: 1/1;
 
 
@@ -103,6 +119,12 @@
 
         object-fit: cover;
         border: 1px solid rgba(255, 255, 255, 0.214);
+
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -110,6 +132,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.214);
+    border-style: none none solid none;
+
+    padding-bottom: 1rem;
 
     img {
         width: 3rem;
