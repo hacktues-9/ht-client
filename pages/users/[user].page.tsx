@@ -1,4 +1,6 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { TITLE } from "../../constants/arc";
 import { useAuthContext } from "../../context/authContext";
 import { isUser } from "../../utils/auth";
 
@@ -31,24 +33,29 @@ const User = () => {
 
   if (isUser(authState.userId, user))
     return (
-      <div>
-        <h1>{name}</h1>
-        <p>{email}</p>
-        <p>{phone}</p>
-        <p>{sclass}</p>
-        <p>{shirtSize}</p>
-        <p>{emailVerified}</p>
-        <img
-          src={profilePic}
-          alt="profile picture"
-          style={{ width: "100px", height: "100px" }}
-        />
-        <ul>
-          {technologies.map((tech, i) => (
-            <li key={i}>{tech}</li>
-          ))}
-        </ul>
-      </div>
+      <>
+        <Head>
+          <title>{name} | {TITLE}</title>
+        </Head>
+        <div>
+          <h1>{name}</h1>
+          <p>{email}</p>
+          <p>{phone}</p>
+          <p>{sclass}</p>
+          <p>{shirtSize}</p>
+          <p>{emailVerified}</p>
+          <img
+            src={profilePic}
+            alt="profile picture"
+            style={{ width: "100px", height: "100px" }}
+          />
+          <ul>
+            {technologies.map((tech, i) => (
+              <li key={i}>{tech}</li>
+            ))}
+          </ul>
+        </div>
+      </>
     );
 
   return <div>Profile {user}</div>;
