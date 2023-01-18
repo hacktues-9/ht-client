@@ -17,6 +17,7 @@
 .hacktues-1 {
   background-color: rgba(31, 31, 31, 0.151);
   height: 12rem;
+  width: 25em;
   border-radius: 18px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   display: flex;
@@ -27,6 +28,18 @@
   position: relative;
   transition: all 0.2s ease-in-out;
   border: 1px solid rgba(235, 235, 235, 0.08);
+
+  @media screen and (max-width: 880px) {
+    width: 23rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+  }
+  
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 /* p {

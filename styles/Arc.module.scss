@@ -50,10 +50,16 @@
 .card_container_grid {
   width: 100%;
   max-width: 1600px;
-  display: grid;
+/*   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(max(23.3rem, calc((100% - 6rem) / 3)), 1fr));
   grid-gap: 2rem;
-  align-content: start;
+  align-content: start; */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 
 /*   @media (max-width: 600px) {
     grid-template-columns: repeat(auto-fill, 100%);
