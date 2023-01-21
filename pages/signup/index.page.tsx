@@ -116,8 +116,8 @@ const SignUp = () => {
         } else if (response.data.success) {
           console.log(response.data.success);
           // save user data to context and get authentication token + refresh token
-          const { user, token, refreshToken } = response.data.success;
-          //setAuthState({ user, token, refreshToken });
+          const { user } = response.data;
+          setAuthState( user.id,  true);
           router.push('/signup/success')
         }
       })
