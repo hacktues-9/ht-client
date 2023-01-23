@@ -30,5 +30,5 @@ const ThemeProvider = ({ children }) => {
     );
 };
 
-export const useAuthContext = () => useContext(ThemeContext);
+export const useThemeContext = () => useContext(ThemeContext);
 export default ThemeProvider;

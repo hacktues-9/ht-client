@@ -13,7 +13,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["i.imgur.com", "cdn.thebrandingjournal.com", "https://www.thebrandingjournal.com/"],
+    domains: ["i.imgur.com", "cdn.thebrandingjournal.com", "https://www.thebrandingjournal.com/", "picsum.photos"],
   },
   i18n: {
     locales: ["bg", /*"en"*/],
