@@ -214,6 +214,7 @@ const CreateTeam = () => {
                   multi={true}
                   required={true}
                   keepSelectedInList={true}
+                  dropdownHandle={false}
                   debounceDelay={300}
                   style={{
                     backgroundColor: "rgba(255, 255, 255, 0.1)",
