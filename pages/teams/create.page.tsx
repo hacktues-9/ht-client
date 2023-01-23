@@ -80,7 +80,7 @@ const SearchPeople = () => {
         name="search"
         type="text"
         placeholder="Мартин Божинов"
-        required={true}
+        required={false}
         onChange={(e) => setSearch(e.target.value)}
       />
 
