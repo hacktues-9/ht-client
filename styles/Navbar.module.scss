@@ -1,5 +1,16 @@
 .nav {
     font-size: 14px;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    z-index: 1000;
+    width: 100%;
+
+    backdrop-filter: blur(15px);
 }
 
 .ul {
