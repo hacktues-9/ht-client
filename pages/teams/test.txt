@@ -1,0 +1,51 @@
+const InviteTeammates = () => {
+  // search
+  // dropdown with profile pics, names and select button
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+/*   useEffect(() => {
+    const url = "/api/users";
+
+    fetcher(url).then((data) => {
+      const results = data.filter((team) =>
+        team.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(results);
+    });
+  }, [searchQuery]); */
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  return (
+    <div>
+      <form>
+{/*         <Input
+          label="търси приятел"
+          classes={["email"]}
+          id="searchTeammates"
+          name="searchTeammates"
+          type="text"
+          placeholder="търси приятел"
+          onChange={handleSearch}
+
+          required={true}
+        /> */}
+      </form>
+      {/* {searchResults && (
+        <div>
+          {searchResults.map((result) => (
+            <div key={result.id}>
+              <p>{result.name}</p>
+
+              <button>покани</button>
+            </div>
+          ))}
+        </div>
+      )} */}
+    </div>
+  );
+};

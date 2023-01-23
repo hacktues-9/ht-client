@@ -10,40 +10,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { ROLES } from "../../constants/teams";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
+import { ITeam } from "../../types/ITeam";
 
 const url = "/data/teams.json";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-interface ITeam {
-  id: string; // or maybe a hash string instead of db id - actually a good idea
-  name: string;
-  logo: string;
-
-  members: {
-    id: string;
-    name: string;
-    profilePicture: string;
-    role: string;
-    class: string;
-    email?: string;
-    discord?: string;
-    github?: string;
-  }[];
-
-  project: {
-    id: string;
-    name: string;
-    description: string;
-
-    github: string;
-    website?: string;
-
-    technologies: string[];
-    photos?: string[];
-  };
-
-  technologies: string[];
-}
 
 const MemberInfoCard = ({ member, position }) => {
   const { name, profilePicture, role, class: class_, discord, github } = member;
