@@ -8,6 +8,7 @@ import Image from "next/image";
 
 import Select from "react-dropdown-select";
 import style from "../../styles/0/teams/Create.module.scss";
+import ProtectedRoute from "../../wrappers/ProtectedRoute";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -239,10 +240,10 @@ const CreateTeam = () => {
   );
 };
 
-/* const CreateTeamPage = () => (
+const CreateTeamPage = () => (
   <ProtectedRoute>
     <CreateTeam />
   </ProtectedRoute>
-); */
+);
 
-export default CreateTeam;
+export default CreateTeamPage;

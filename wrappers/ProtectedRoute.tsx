@@ -1,18 +1,21 @@
 // protected route component for authenticated users - next.js
 
 import router from "next/router";
-import { useEffect } from "react";
-import { useAuthContext } from "../context/authContext";
 
 const ProtectedRoute = ({ children }) => {
-  const { isUserAuthenticated } = useAuthContext();
+  /*   const { isUserAuthenticated } = useAuthContext();
 
-  useEffect(() => {
-    // checks if the user is authenticated
-    isUserAuthenticated() ? router.push("/dashboard") : router.push("/");
-  }, []);
+  if(!isUserAuthenticated) {
+    router.push("/");
+  } else {
+    return children;
+  } */
 
-  return children;
+  if (false) {
+    router.push("/");
+  } else {
+    return children;
+  }
 };
 
 export default ProtectedRoute;
