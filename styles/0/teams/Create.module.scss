@@ -200,6 +200,13 @@
     flex-direction: row;
     justify-content: space-around;
 
+    @media screen and (max-width: 860px) {
+        flex-direction: column;
+        align-items: center;
+
+        gap: 2rem;
+    }
+
     //gap: 5rem;
 
     &_info {
@@ -209,6 +216,12 @@
 
         input {
             width: 24rem;
+
+            @media screen and (max-width: 860px) {
+                max-width: 24rem;
+                min-width: 24rem;
+                width: 100%;
+            }
         }
     }
 }
