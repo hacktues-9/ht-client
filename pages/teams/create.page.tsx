@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Select from "react-dropdown-select";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
+import { TbUserCheck } from "react-icons/tb";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -111,7 +112,7 @@ const SearchPeople = () => {
                   type="button"
                   className={style.person_invite}
                 >
-                  icon
+                  <TbUserCheck />
                 </button>
               </li>
             ))}
