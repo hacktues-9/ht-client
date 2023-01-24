@@ -207,6 +207,10 @@ $profilePicSize: 10rem;
                 gap: .5rem;
             }
 
+            @media screen and (max-width: 430px) {
+                flex-direction: column;
+            }
+
             .discord {
                 background-color: #5765f2;
                 color: white;
@@ -254,6 +258,10 @@ $profilePicSize: 10rem;
 
             @media screen and (max-width: 860px) {
                 gap: .5rem;
+            }
+
+            @media screen and (max-width: 430px) {
+                flex-direction: column;
             }
         }
 
