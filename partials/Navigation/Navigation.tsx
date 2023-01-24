@@ -13,7 +13,6 @@ const Navigation = () => {
   const noNav = [
     "/login",
     "/signup",
-    "/teams/[teamId]",
     "/teams/create",
     "/teams/[teamId]/project/[projectId]",
     "/teams/[teamId]/project/create",
