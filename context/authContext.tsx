@@ -54,8 +54,8 @@ const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
-    userId: "",
-    token: "",
+    userId: "goshotest",
+    token: "goshotest",
   });
 
   const setUserAuthInfo = (data: any) => {
@@ -63,8 +63,8 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("token", data.data);
 
     setAuthState({
-      userId: " ",
-      token,
+      userId: "goshotest",
+      token: "goshotest",
     });
   };
 
