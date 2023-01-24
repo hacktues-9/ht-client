@@ -1,8 +1,12 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
-import CardContainer from "../partials/Arc/CardsContainer";
-import { METADATA, TITLE } from "../constants/arc";
 import { TbChevronDown } from "react-icons/tb";
+
+import CardContainer from "../partials/Arc/CardsContainer";
+import Countdown from "../partials/home/Countdown";
+
+import styles from "../styles/Home.module.scss";
+
+import { METADATA, RICH, TITLE } from "../constants/arc";
 
 const Home = () => {
   return (
@@ -35,6 +39,14 @@ const Home = () => {
         <meta name="keywords" content={METADATA.keywords.join(", ")}></meta>
 
         <link rel="icon" href={METADATA.favicon} />
+
+        <script
+          key="ld:json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(RICH),
+          }}
+        />
       </Head>
       <main className={styles.main}>
         <div className={styles.front}>
@@ -43,6 +55,7 @@ const Home = () => {
             <span id={styles.stack1}>{TITLE}</span>
             <span id={styles.stack2}>{TITLE}</span>
           </div>
+          <Countdown />
           <a className={styles.button} href="#arc">
             <TbChevronDown />
           </a>

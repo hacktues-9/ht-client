@@ -1,6 +1,7 @@
 import { CARDS } from "../../constants/arc";
 import styles from "../../styles/Arc.module.scss";
 import Card from "../../components/Card";
+import GlitchyComponent from "../../wrappers/GlitchyComponent";
 
 const CardContainer = () => {
   return (
