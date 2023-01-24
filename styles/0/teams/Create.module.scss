@@ -374,3 +374,12 @@
         background-color: #24292e45;
     }
 }
+
+.buttons {
+    width: 100%;
+    max-width: 1024px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

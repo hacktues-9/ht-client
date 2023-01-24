@@ -6,6 +6,7 @@ import { TECHNOLOGIES } from "../../constants/technologies";
 
 import Image from "next/image";
 
+import { useRouter } from "next/router";
 import Select from "react-dropdown-select";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
@@ -155,6 +156,12 @@ const CreateTeam = () => {
     teamTechnologies: [],
   });
 
+  const router = useRouter();
+
+  const returnBack = () => {
+    router && router.back();
+  };
+
   return (
     <>
       <Head>
@@ -231,9 +238,18 @@ const CreateTeam = () => {
               <InviteTeammates />
             </div>
           </div>
-          <button type="submit" className={style.form_button}>
-            създай
-          </button>
+          <div className={style.buttons}>
+            <button
+              type="button"
+              className={style.form_button}
+              onClick={returnBack}
+            >
+              назад
+            </button>
+            <button type="submit" className={style.form_button}>
+              създай
+            </button>
+          </div>
         </form>
       </div>
     </>

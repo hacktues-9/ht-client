@@ -1,10 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useRouter } from "next/router";
 
 import TUESTalksNavbar from "../TUESTalks/Navbar";
 
+import { useAuthContext } from "../../context/authContext";
 import navbar from "../../styles/Navbar.module.scss";
 
 const Navigation = () => {
@@ -16,10 +17,14 @@ const Navigation = () => {
     "/teams/create",
     "/teams/[teamId]/project/[projectId]",
     "/teams/[teamId]/project/create",
-    "/users/[userId]",
+    "/users/",
     "/forgot-password",
     "/_error",
   ];
+
+  const { authState, isUserAuthenticated } = useAuthContext();
+
+  const userId = authState?.userId;
 
   if (router.pathname.includes("/tuestalks/")) return <TUESTalksNavbar />;
 
@@ -65,15 +70,25 @@ const Navigation = () => {
           <Link href="/tuestalks">
             <li>TUES Talks</li>
           </Link>
-          <Link href="/tinder">
-            <li>tinder</li>
-          </Link>
-          <Link href="/login">
-            <li>влез</li>
-          </Link>
-          <Link href="/signup">
-            <li>регистрация</li>
-          </Link>
+          {isUserAuthenticated && userId ? (
+            <>
+              <Link href="/tinder">
+                <li>tinder</li>
+              </Link>
+              <Link href={`users/${userId}`}>
+                <li>профил</li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <li>влез</li>
+              </Link>
+              <Link href="/signup">
+                <li>регистрация</li>
+              </Link>
+            </>
+          )}
         </ul>
       </nav>
     )
