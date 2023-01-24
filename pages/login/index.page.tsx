@@ -38,14 +38,9 @@ const LogIN = () => {
         credentials: "include",
       }
     );
-    const data = await response.json();
     if (!response.ok) {
       throw new Error(data.message);
-    } else {
-      const { user } = data;
-      setAuthState( "",  true);
     }
-    return data;
   };
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,7 +49,6 @@ const LogIN = () => {
     try {
       setError(null);
       await login(email.value, password.value);
-      push("/");
     } catch (error) {
       console.log("TEST", error);
       if (error.message === "user not found") {
