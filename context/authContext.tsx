@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 
@@ -69,6 +69,25 @@ const AuthProvider = ({ children }) => {
 
   // checks if the user is authenticated or not
   const isUserAuthenticated = () => authState.isLoggedIn;
+
+  useEffect(() => {
+    if (!isUserAuthenticated()) {
+      //use fetch to get the user info with credentials
+      fetch("http://localhost:8080/api/auth/me", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        }
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            setUserAuthInfo(data.id, true);
+          }
+        });
+    }
+  }, []);
 
   return (
     <Provider

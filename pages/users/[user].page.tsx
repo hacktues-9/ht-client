@@ -18,7 +18,7 @@ import {
 } from "react-icons/tb";
 import { connect } from "http2";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
 const isUser = (authUserId: string, userId: string) => authUserId === userId;
 
 interface USER_INFO {
@@ -47,6 +47,14 @@ const User = () => {
   const router = useRouter();
   const { user } = router.query as { user: string };
   const { authState } = useAuthContext();
+  
+  const githubClientID = "4f5f1918bf58eb0cccd4";
+  const discordClientID = "1009547623637712977";
+  const githubRedirectURI = "http://localhost:8080/api/user/github"
+  const discordRedirectURI = "http://localhost:8080/api/user/discord"
+
+  const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&state=" + user + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
+  const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&state=" + user +  "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
 
   // check if user has right to see personal info
 
@@ -56,7 +64,7 @@ const User = () => {
 
   useEffect(() => {
     if (user) {
-      fetcher(`/api/users/${user}`)
+      fetcher(`http://localhost:8080/api/user/${user}`)
         .then((res) => {
           setUserInfo(res);
           setNewUserInfo(res);
@@ -87,8 +95,12 @@ const User = () => {
     }
   };
 
-  const connectDiscord = () => {};
-  const connectGithub = () => {};
+  const connectDiscord = () => {
+    location.href = discordLoginLink;
+  };
+  const connectGithub = () => {
+    location.href = githubLoginLink;
+  };
 
   const handleChange = (e) => {};
   const hadnleUpdate = (e) => {
@@ -204,7 +216,7 @@ const User = () => {
                   options={TECHNOLOGIES.map((tech) => {
                     return { value: tech.name, label: tech.name, ...tech };
                   })}
-                  values={newUserInfo.technologies.map((tech) => {
+                  values={newUserInfo.technologies?.map((tech) => {
                     return { value: tech, label: tech };
                   })}
                   onChange={(e) =>
