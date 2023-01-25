@@ -3,14 +3,14 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 
+import { MouseEventHandler, forwardRef, useRef, useState } from "react";
+
 import TUESTalksNavbar from "../TUESTalks/Navbar";
 
 import { useAuthContext } from "../../context/authContext";
-
-import { forwardRef, useRef, useState } from "react";
+import { TbMenu2 } from "react-icons/tb";
 import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
-import { TbMenu, TbMenu2 } from "react-icons/tb";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -106,44 +106,49 @@ const DesktopBar = () => {
   return <div>Desktop</div>;
 };
 
-const MobileBar = forwardRef<HTMLDivElement>((props, ref) => {
-  return (
-    <div className={navbar.mobile_dropdown}>
-      <div className={navbar.mobile_dropdown_content} ref={ref}>
-        <Link href="/teams" onClick={props.handleMobileDropdownClicked}>
-          <li>отбори</li>
-        </Link>
-        <Link href="/mentors" onClick={props.handleMobileDropdownClicked}>
-          <li>ментори</li>
-        </Link>
-        <Link href="/themes" onClick={props.handleMobileDropdownClicked}>
-          <li>теми</li>
-        </Link>
-        <Link href="/timetable" onClick={props.handleMobileDropdownClicked}>
-          <li>програма</li>
-        </Link>
-        <Link href="/archive" onClick={props.handleMobileDropdownClicked}>
-          <li>архив</li>
-        </Link>
-        <Link href="/regulation" onClick={props.handleMobileDropdownClicked}>
-          <li>регламент</li>
-        </Link>
-        <Link href="/ourteam" onClick={props.handleMobileDropdownClicked}>
-          <li>нашият екип</li>
-        </Link>
-        <Link href="/rankings" onClick={props.handleMobileDropdownClicked}>
-          <li>класация</li>
-        </Link>
-        <Link href="/archive" onClick={props.handleMobileDropdownClicked}>
-          <li>архив</li>
-        </Link>
-        <Link href="/tuestalks" onClick={props.handleMobileDropdownClicked}>
-          <li>tuestalks</li>
-        </Link>
+// eslint-disable-next-line react/display-name
+const MobileBar = forwardRef<HTMLDivElement>(
+  (props: { handleMobileDropdownClicked: MouseEventHandler }, ref) => {
+    const handleMobileDropdownClicked = props.handleMobileDropdownClicked;
+
+    return (
+      <div className={navbar.mobile_dropdown}>
+        <div className={navbar.mobile_dropdown_content} ref={ref}>
+          <Link href="/teams" onClick={handleMobileDropdownClicked}>
+            <li>отбори</li>
+          </Link>
+          <Link href="/mentors" onClick={handleMobileDropdownClicked}>
+            <li>ментори</li>
+          </Link>
+          <Link href="/themes" onClick={handleMobileDropdownClicked}>
+            <li>теми</li>
+          </Link>
+          <Link href="/timetable" onClick={handleMobileDropdownClicked}>
+            <li>програма</li>
+          </Link>
+          <Link href="/archive" onClick={handleMobileDropdownClicked}>
+            <li>архив</li>
+          </Link>
+          <Link href="/regulation" onClick={handleMobileDropdownClicked}>
+            <li>регламент</li>
+          </Link>
+          <Link href="/ourteam" onClick={handleMobileDropdownClicked}>
+            <li>нашият екип</li>
+          </Link>
+          <Link href="/rankings" onClick={handleMobileDropdownClicked}>
+            <li>класация</li>
+          </Link>
+          <Link href="/archive" onClick={handleMobileDropdownClicked}>
+            <li>архив</li>
+          </Link>
+          <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
+            <li>tuestalks</li>
+          </Link>
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 const Navigation = () => {
   const router = useRouter();
@@ -170,15 +175,11 @@ const Navigation = () => {
     setShowMobileDropdown(!showMobileDropdown);
   };
 
-  const handleMobileDropdownClicked = () => {
+  const handleClicked = () => {
     setShowMobileDropdown(false);
   };
 
-  useOutsideAlerter(
-    mobileDropdownRef,
-    mobileDropdownButtonRef,
-    handleMobileDropdownClicked
-  );
+  useOutsideAlerter(mobileDropdownRef, mobileDropdownButtonRef, handleClicked);
 
   if (router.pathname.includes("/tuestalks")) return <TUESTalksNavbar />;
 
@@ -231,15 +232,15 @@ const Navigation = () => {
                 <li>TUES Talks</li>
               </Link>
               {isUserAuthenticated && userId && (
-                <Link href="/tinder" onClick={handleMobileDropdownClicked}>
+                <Link href="/tinder">
                   <li>tinder</li>
                 </Link>
               )}
             </div>
             {showMobileDropdown && (
               <MobileBar
-                handleMobileDropdownClicked={handleMobileDropdownClicked}
                 ref={mobileDropdownRef}
+                {...{ handleMobileDropdownClicked: handleClicked }}
               />
             )}
             {
