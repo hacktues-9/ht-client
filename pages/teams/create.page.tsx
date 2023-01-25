@@ -1,75 +1,66 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Dispatch, SetStateAction, FunctionComponent } from "react";
 import Input from "../../components/form/Input";
 import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
+import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { useRouter } from "next/router";
 import Select from "react-dropdown-select";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
-import { TbUserCheck } from "react-icons/tb";
+import { TbUserCheck } from "react-icons/tb"
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
+
+
+
+interface formData {
+  teamName: string,
+  teamDescription: string,
+  teamTechnologies: any[],
+  teamInvitees: any[],
+}
+
+interface functionFormData {
+  form: formData,
+  setForm: Dispatch<SetStateAction<formData>>
+}
 
 // Client side search
 
-const SearchPeople = () => {
+const handleInvite = (user: any, form: formData, setForm: Dispatch<SetStateAction<formData>>) => {
+  if (!user.isInvited) {
+    setForm({
+      ...form,
+      teamInvitees: [...form.teamInvitees, user],
+    });
+  }
+};
+
+const SearchPeople : FunctionComponent<functionFormData> = (props : functionFormData) => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
   useEffect(() => {
     if (search.length > 0) {
-      fetcher(`/api/users/search?search=${search}`)
+      fetcher(`http://localhost:8080/api/team/users/search?search=${search}`)
         .then((res) => {
-          // max 3 results
-          //setResults(res.slice(0, 3));
-          setResults([
-            {
-              id: 1,
-              name: "Иван Петров",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: false,
-            },
-            {
-              id: 2,
-              name: "Петър Георгиев",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: false,
-            },
-            {
-              id: 3,
-              name: "Георги Иванов",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: true,
-            },
-          ]);
+          if (res){
+            res.map((user) => {
+              if (props.form.teamInvitees.find((invitee) => invitee.id === user.id)) {
+                user.isInvited = true;
+              }
+              return user;
+            })
+            setResults(res);
+          }else{
+            setResults([]);
+          }
         })
         .catch((err) => {
           console.log(err);
-          // test
-          /*           setResults([
-            {
-              id: 1,
-              name: "Иван Петров",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: false,
-            },
-            {
-              id: 2,
-              name: "Петър Георгиев",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: false,
-            },
-            {
-              id: 3,
-              name: "Георги Иванов",
-              profilePicture: "https://picsum.photos/200",
-              isInvited: true,
-            },
-          ]); */
         });
     }
   }, [search]);
@@ -99,7 +90,7 @@ const SearchPeople = () => {
               <li key={result.id} className={style.person}>
                 <div className={style.person_info}>
                   <Image
-                    src={result.profilePicture}
+                    src={result.profile_picture}
                     alt={result.name}
                     width={64}
                     height={64}
@@ -111,6 +102,10 @@ const SearchPeople = () => {
                   disabled={result.isInvited}
                   type="button"
                   className={style.person_invite}
+                  onClick={() => {
+                    handleInvite(result, props.form, props.setForm)
+                    result.isInvited = true;
+                  }}
                 >
                   <TbUserCheck />
                 </button>
@@ -122,10 +117,10 @@ const SearchPeople = () => {
   );
 };
 
-const InviteTeammates = () => {
+const InviteTeammates : FunctionComponent<functionFormData> = (props : functionFormData) => {
   return (
     <>
-      <SearchPeople />
+      <SearchPeople form={props.form} setForm={props.setForm} />
     </>
   );
 };
@@ -151,17 +146,52 @@ const colourStyles = {
 
 const CreateTeam = () => {
   // if in team redirect to team page
-  const [form, setForm] = useState({
-    teamName: "",
-    teamDescription: "",
-    teamTechnologies: [],
-  });
+  const [form, setForm] = useState<formData>({ teamName: "", teamDescription: "", teamTechnologies: [], teamInvitees: [] });
+  const [technologies, setTechnologies] = useState([]);
 
   const router = useRouter();
 
+  const handleTechnologies = (e: any) => {
+    setTechnologies(e);
+    //go through the array and get the names
+    let techs = [];
+    e.map((tech) => {
+      techs.push(tech.name);
+    });
+    setForm({
+      ...form,
+      teamTechnologies: techs,
+    });
+  };
+
   const returnBack = () => {
     router && router.back();
-  };
+  }
+
+
+  const handleCreateTeam = async (e: any) => {
+    e.preventDefault();
+    console.log(form);
+    const res = await fetch("http://localhost:8080/api/team/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+      credentials: "include",
+    });
+    const data = await res.json();
+    console.log(data);
+    if (!res.ok) {
+      throw new Error(data.message);
+    } else {
+      //redirect to team page
+      router.push("/team/${data.id}");
+      console.log(data.id)
+    }
+    return data;
+    };
+  
 
   return (
     <>
@@ -169,7 +199,7 @@ const CreateTeam = () => {
         <title>Създай отбор | {TITLE}</title>
       </Head>
       <div>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handleCreateTeam}> 
           <h1>Създай отбор</h1>
           <div className={style.team}>
             <div className={style.team_info}>
@@ -214,8 +244,8 @@ const CreateTeam = () => {
                   options={TECHNOLOGIES.map((tech) => {
                     return { value: tech.name, label: tech.name, ...tech };
                   })}
-                  values={form.teamTechnologies}
-                  onChange={(e) => setForm({ ...form, teamTechnologies: e })}
+                  values={technologies}
+                  onChange={handleTechnologies}
                   className={style.select}
                   placeholder="C++ Java Angular"
                   searchBy="label"
@@ -236,7 +266,7 @@ const CreateTeam = () => {
                   }}
                 />
               </div>
-              <InviteTeammates />
+              <InviteTeammates form={form} setForm={setForm} />
             </div>
           </div>
           <div className={style.buttons}>
