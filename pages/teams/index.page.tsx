@@ -13,7 +13,7 @@ import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import { ITeam } from "../../types/ITeam";
 
 const url = "/data/teams.json";
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, { credentials: "include"}).then((res) => res.json());
 
 const MemberInfoCard = ({ member, position }) => {
   const { name, profilePicture, role, class: class_, discord, github } = member;
@@ -66,13 +66,14 @@ const Teams = () => {
     position: { x: 0, y: 0 },
   });
 
-  const { data, isLoading, error } = useSWR("/data/teams.json", fetcher);
+  const { data, isLoading, error } = useSWR("http://localhost:8080/api/team/get", fetcher);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;
 
   const { teams }: { teams: ITeam[] } = data;
 
+  console.log(data)
   return (
     <>
       <Head>
@@ -102,7 +103,7 @@ const Teams = () => {
           {/* <p>1/10</p> */}
         </div>
         <ul className={styles.cards_grid}>
-          {teams.map((team: ITeam) => (
+          {teams && teams.map((team: ITeam) => (
             <TeamCard
               key={team.id}
               team={team}
@@ -110,6 +111,7 @@ const Teams = () => {
               setShowMemberInfoCard={setShowMemberInfoCard}
             />
           ))}
+          
         </ul>
       </div>
     </>

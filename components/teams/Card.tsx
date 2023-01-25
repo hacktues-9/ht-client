@@ -93,13 +93,13 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
           <div style={{ display: "flex", gap: ".25rem" }}>
             {
               // limit to fit in the card
-              technologies.slice(0, 3).map((tech) => (
+              technologies && technologies.slice(0, 3).map((tech) => (
                 <Technologies key={tech.id} technology={tech} />
               ))
             }
             {
               // show how many more technologies are there in number
-              technologies.length > 3 && (
+              technologies && technologies.length > 3 && (
                 <Technologies technology={`+${technologies.length - 3}`} />
               )
             }

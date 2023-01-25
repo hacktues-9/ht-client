@@ -12,27 +12,18 @@ import { TbMenu2 } from "react-icons/tb";
 import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url, {credentials: "include"}).then((r) => r.json());
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  //const { data, error } = useSWR(`/api/users/${userId}`, fetcher); // -> MARTO: za marto
+  const { data : user, error : errUser } = useSWR(`http://localhost:8080/api/user/${userId}`, fetcher);
+  const {data: team} = useSWR(() => `http://localhost:8080/api/team/${userId}`, fetcher);
+  
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
-
-  //if (error) return <div>failed to load</div>;
-  //if (!data) return <div>loading...</div>;
-  // use this above in production - za marto
-
-  //const team = useSWR(`/api/teams/${userId}`, fetcher); // or something like this -> marto api
-  const team = "team"; // -> MARTO: za marto
-
-  // test data
-  const data = {
-    name: "Mартин",
-    profilePicture: "https://i.imgur.com/0R4Z9X1.jpg",
-  };
 
   // dropdown menu with profile picture and name
   // and logout button
@@ -47,6 +38,9 @@ const Profile = ({ userId }) => {
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
 
+  if (errUser) return <div>failed to load</div>;
+  if (!user) return <div>loading...</div>;
+
   return (
     <>
       <div
@@ -58,9 +52,9 @@ const Profile = ({ userId }) => {
         onClick={handleDropdown}
         ref={dropdownButtonRef}
       >
-        <p>{data.name}</p>
+        <p>{user.name}</p>
         <Image
-          src={data.profilePicture}
+          src={user.profilePicture}
           alt={"Profile Picture"}
           width={36}
           height={36}
@@ -78,7 +72,7 @@ const Profile = ({ userId }) => {
             профил
           </Link>
           {team && (
-            <Link href={`/teams/${team}`} onClick={handleClicked}>
+            <Link href={`/teams/${team?.data}`} onClick={handleClicked}>
               отбор
             </Link>
           )}
@@ -90,7 +84,10 @@ const Profile = ({ userId }) => {
           <button
             onClick={() => {
               handleClicked();
-              //localStorage.removeItem("authState"); // -> MARTO
+              fetch("http://localhost:8080/api/auth/logout", {
+                method: "POST",
+                credentials: "include",
+              });
               window.location.reload();
             }}
           >

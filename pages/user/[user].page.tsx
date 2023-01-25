@@ -250,7 +250,7 @@ const User = () => {
                 <button
                   className={style.discord}
                   type="button"
-                  onClick={connectDiscord}
+                  onClick={() => { !newUserInfo.discord ? connectDiscord() : window.open(`https://discord.com/users/${newUserInfo.discord}`)}}
                 >
                   {!newUserInfo.discord && `свържи се с `}
                   <TbBrandDiscord size={32} />
@@ -259,7 +259,7 @@ const User = () => {
                 <button
                   className={style.github}
                   type="button"
-                  onClick={connectGithub}
+                  onClick={() => { newUserInfo.github ? window.open(`https://github.com/${newUserInfo.github}`) : connectGithub() }}
                 >
                   {!newUserInfo.github && `свържи се с `}
                   <TbBrandGithub size={32} />
