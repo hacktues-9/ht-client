@@ -7,8 +7,9 @@ import TUESTalksNavbar from "../TUESTalks/Navbar";
 
 import { useAuthContext } from "../../context/authContext";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import navbar from "../../styles/Navbar.module.scss";
+import { useOutsideAlerter } from "./useOutsideAlerter";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -16,6 +17,8 @@ const Profile = ({ userId }) => {
   // get profile picture and name from api
   //const { data, error } = useSWR(`/api/users/${userId}`, fetcher); // -> MARTO: za marto
   const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   //if (error) return <div>failed to load</div>;
   //if (!data) return <div>loading...</div>;
@@ -37,17 +40,22 @@ const Profile = ({ userId }) => {
     setShowDropdown(!showDropdown);
   };
 
+  const handleClicked = () => {
+    setShowDropdown(false);
+  };
+
+  useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
+
   return (
     <>
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          cursor: "pointer",
-          gap: "1rem",
-          position: "relative",
-        }}
+        className={
+          !showDropdown
+            ? navbar.profile
+            : navbar.profile + " " + navbar.profile_active
+        }
         onClick={handleDropdown}
+        ref={dropdownButtonRef}
       >
         <p>{data.name}</p>
         <Image
@@ -61,12 +69,32 @@ const Profile = ({ userId }) => {
           }}
         />
       </div>
+
+      {/* add handleClickOutside */}
       {showDropdown && (
-        <div className={navbar.dropdown}>
-          <Link href={`/user/${userId}`}>профил</Link>
-          {team && <Link href={`/teams/${team}`}>отбор</Link>}
-          {!team && <Link href={``}>покани</Link>}
-          <button onClick={() => {}}>изход</button>
+        <div className={navbar.dropdown} ref={dropdownRef}>
+          <Link href={`/user/${userId}`} onClick={handleClicked}>
+            профил
+          </Link>
+          {team && (
+            <Link href={`/teams/${team}`} onClick={handleClicked}>
+              отбор
+            </Link>
+          )}
+          {!team && (
+            <Link href={``} onClick={handleClicked}>
+              покани
+            </Link>
+          )}
+          <button
+            onClick={() => {
+              handleClicked();
+              //localStorage.removeItem("authState"); // -> MARTO
+              window.location.reload();
+            }}
+          >
+            изход
+          </button>
         </div>
       )}
     </>
@@ -147,7 +175,7 @@ const Navigation = () => {
               <li>нашият екип</li>
             </Link> */}
               <Link href="/tuestalks">
-                <li>TUES Talks</li>
+                <li>TUESTalks</li>
               </Link>
               {isUserAuthenticated && userId && (
                 <Link href="/tinder">

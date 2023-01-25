@@ -24,6 +24,8 @@
     border: 1px solid rgba(171, 171, 171, 0.415);
     border-radius: 1rem;
 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
     padding: .25rem 2rem;
     margin: 0 0;
 
@@ -31,15 +33,24 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        @media screen and (max-width: 1200px) {
+            gap: .5rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            li:not(.logo) {
+                display: none;
+            }
+        }
     }
 
     li {
         display: flex;
         align-items: center;
 
-
-        padding: .5rem 1rem;
         border-radius: .5rem;
+        padding: .5rem 1rem;
 
         transition: all .1s ease-in-out;
 
@@ -78,6 +89,28 @@
     }
 }
 
+.profile {
+    height: 52px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 3px .5rem;
+    border-radius: .5rem;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(151, 151, 151, 0.244);
+    }
+}
+
+.profile_active {
+    background-color: rgba(151, 151, 151, 0.244);
+}
+
 .dropdown {
     position: absolute;
     top: 100%;
@@ -102,6 +135,7 @@
         justify-content: center;
         text-decoration: none;
         color: #fff;
+        font-size: 1rem;
 
         padding: .5rem 1rem;
         //border-radius: .5rem;
@@ -111,10 +145,14 @@
         border-style: solid;
         border-width: 0 0 1px 0;
         border-color: rgba(171, 171, 171, 0.415);
-        border-radius: .5rem;
+
+        margin-top: 1px;
 
 
         &:hover {
+            margin-top: 0px;
+            border: 1px solid rgba(171, 171, 171, 0.415);
+            border-radius: .5rem;
             background-color: rgba(151, 151, 151, 0.244);
         }
     }
@@ -125,6 +163,7 @@
         justify-content: center;
         text-decoration: none;
         color: #fff;
+        font-size: 1rem;
 
         padding: .5rem 1rem;
         //border-radius: .5rem;
@@ -132,9 +171,7 @@
 
         transition: all .1s ease-in-out;
 
-        border-style: solid;
-        border-width: 0 0 1px 0;
-        border-color: rgba(107, 107, 107, 0.188) !important;
+        border: 1px solid rgba(171, 171, 171, 0.415);
 
         border-radius: .5rem;
 
