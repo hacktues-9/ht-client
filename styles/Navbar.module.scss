@@ -13,6 +13,7 @@
 }
 
 .ul {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +41,22 @@
 
         @media screen and (max-width: 1024px) {
             li:not(.logo) {
+                display: none;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        @media screen and (max-width: 1200px) {
+            gap: .5rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            li:not(.profile) {
                 display: none;
             }
         }
@@ -113,8 +130,8 @@
 
 .dropdown {
     position: absolute;
-    top: 100%;
-    right: 1rem;
+    top: 4.5rem;
+    right: 0;
     width: 12rem;
     background-color: rgba(151, 151, 151, 0.244);
     backdrop-filter: blur(15px);
@@ -128,6 +145,14 @@
     flex-direction: column;
     gap: .5rem;
 
+
+    @media screen and (max-width: 640px) {
+        top: 4.5rem;
+        right: 0;
+        width: 100%;
+        padding: 1rem 1rem;
+        margin: 0 0;
+    }
 
     a {
         display: flex;
@@ -177,6 +202,86 @@
 
         &:hover {
             background-color: rgba(151, 151, 151, 0.244);
+        }
+    }
+}
+
+.hamburger {
+    &_button {
+        display: none !important;
+        position: relative;
+        height: 52px;
+        cursor: pointer;
+
+        padding: .5rem;
+
+        @media screen and (max-width: 1024px) {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    &_icon {
+        height: 1.7rem;
+        width: 1.7rem;
+        padding: 0 0;
+        margin: 0 0;
+    }
+}
+
+.mobile {
+    &_dropdown {
+        position: fixed;
+        top: 4.5rem;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+
+        &_content {
+            background-color: rgba(151, 151, 151, 0.244);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(171, 171, 171, 0.415);
+            border-radius: 1rem;
+            padding: .5rem 1rem;
+            margin: 0 0;
+            z-index: 3;
+
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+
+            padding: .5rem 1rem;
+            //border-radius: .5rem;
+
+            transition: all .1s ease-in-out;
+
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: rgba(171, 171, 171, 0.415);
+
+            margin-top: 1px;
+
+            &:last-child {
+                border: none;
+                //margin-b: 0px;
+            }
+
         }
     }
 }

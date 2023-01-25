@@ -7,9 +7,10 @@ import TUESTalksNavbar from "../TUESTalks/Navbar";
 
 import { useAuthContext } from "../../context/authContext";
 
-import { useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
+import { TbMenu, TbMenu2 } from "react-icons/tb";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -105,9 +106,44 @@ const DesktopBar = () => {
   return <div>Desktop</div>;
 };
 
-const MobileBar = () => {
-  return <div>Mobile</div>;
-};
+const MobileBar = forwardRef<HTMLDivElement>((props, ref) => {
+  return (
+    <div className={navbar.mobile_dropdown}>
+      <div className={navbar.mobile_dropdown_content} ref={ref}>
+        <Link href="/teams" onClick={props.handleMobileDropdownClicked}>
+          <li>отбори</li>
+        </Link>
+        <Link href="/mentors" onClick={props.handleMobileDropdownClicked}>
+          <li>ментори</li>
+        </Link>
+        <Link href="/themes" onClick={props.handleMobileDropdownClicked}>
+          <li>теми</li>
+        </Link>
+        <Link href="/timetable" onClick={props.handleMobileDropdownClicked}>
+          <li>програма</li>
+        </Link>
+        <Link href="/archive" onClick={props.handleMobileDropdownClicked}>
+          <li>архив</li>
+        </Link>
+        <Link href="/regulation" onClick={props.handleMobileDropdownClicked}>
+          <li>регламент</li>
+        </Link>
+        <Link href="/ourteam" onClick={props.handleMobileDropdownClicked}>
+          <li>нашият екип</li>
+        </Link>
+        <Link href="/rankings" onClick={props.handleMobileDropdownClicked}>
+          <li>класация</li>
+        </Link>
+        <Link href="/archive" onClick={props.handleMobileDropdownClicked}>
+          <li>архив</li>
+        </Link>
+        <Link href="/tuestalks" onClick={props.handleMobileDropdownClicked}>
+          <li>tuestalks</li>
+        </Link>
+      </div>
+    </div>
+  );
+});
 
 const Navigation = () => {
   const router = useRouter();
@@ -123,9 +159,26 @@ const Navigation = () => {
   ];
 
   const { authState, isUserAuthenticated } = useAuthContext();
-  //const [selected, setSelected] = useState("home");
+  const [showMobileDropdown, setShowMobileDropdown] = useState(false);
+
+  const mobileDropdownButtonRef = useRef(null);
+  const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
   const userId = authState?.userId;
+
+  const handleMobileDropdown = () => {
+    setShowMobileDropdown(!showMobileDropdown);
+  };
+
+  const handleMobileDropdownClicked = () => {
+    setShowMobileDropdown(false);
+  };
+
+  useOutsideAlerter(
+    mobileDropdownRef,
+    mobileDropdownButtonRef,
+    handleMobileDropdownClicked
+  );
 
   if (router.pathname.includes("/tuestalks")) return <TUESTalksNavbar />;
 
@@ -175,27 +228,48 @@ const Navigation = () => {
               <li>нашият екип</li>
             </Link> */}
               <Link href="/tuestalks">
-                <li>TUESTalks</li>
+                <li>TUES Talks</li>
               </Link>
               {isUserAuthenticated && userId && (
-                <Link href="/tinder">
+                <Link href="/tinder" onClick={handleMobileDropdownClicked}>
                   <li>tinder</li>
                 </Link>
               )}
             </div>
-
-            {isUserAuthenticated && userId ? (
-              <Profile userId={userId} />
-            ) : (
-              <>
-                <Link href="/login">
-                  <li>влез</li>
-                </Link>
-                <Link href="/signup">
-                  <li>регистрация</li>
-                </Link>
-              </>
+            {showMobileDropdown && (
+              <MobileBar
+                handleMobileDropdownClicked={handleMobileDropdownClicked}
+                ref={mobileDropdownRef}
+              />
             )}
+            {
+              <div className={navbar.right}>
+                {isUserAuthenticated && userId ? (
+                  <Profile userId={userId} />
+                ) : (
+                  <>
+                    <Link href="/login">
+                      <li>влез</li>
+                    </Link>
+                    <Link href="/signup">
+                      <li>регистрация</li>
+                    </Link>
+                  </>
+                )}
+                {
+                  // hamburger menu
+                  <li
+                    className={navbar.hamburger_button}
+                    onClick={handleMobileDropdown}
+                    ref={mobileDropdownButtonRef}
+                  >
+                    <div>
+                      <TbMenu2 className={navbar.hamburger_icon} />
+                    </div>
+                  </li>
+                }
+              </div>
+            }
           </ul>
         </nav>
       </div>
