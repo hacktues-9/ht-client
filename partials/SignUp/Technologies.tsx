@@ -5,8 +5,19 @@ import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/signup/Technologies.module.scss";
 
-const TechnologiesTab = () => {
-  const [isSelected, setIsSelected] = useState({ });
+const TechnologiesTab = ({ form, setForm, errors }) => {
+  const [isSelected, setIsSelected] = useState({});
+
+  const handleOnChange = (value) => {
+    setForm({
+      ...form,
+      technologies: value,
+    });
+    setIsSelected({
+      ...isSelected,
+      [value]: !isSelected[value],
+    });
+  };
 
   return (
     <div className="technologies">
@@ -18,15 +29,11 @@ const TechnologiesTab = () => {
             size={technology.name}
             selected={isSelected[technology.name]}
             style={{ backgroundColor: technology.color }}
-            onClick={() =>
-              setIsSelected({
-                ...isSelected,
-                [technology.name]: !isSelected[technology.name],
-              })
-            }
+            onClick={() => handleOnChange(technology.name)}
           />
         ))}
       </div>
+      <p className="error">{errors.technologies}</p>
     </div>
   );
 };
