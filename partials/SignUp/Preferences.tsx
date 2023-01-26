@@ -8,7 +8,7 @@ const PreferencesTab = ({ form, setForm, errors }) => {
   const handleEatingPreferencesChange = (value) => {
     setForm({
       ...form,
-      eatingPreferences: value,
+      eatingPreferences: form.eatingPreferences === value ? "" : value,
     });
   };
 
@@ -29,7 +29,7 @@ const PreferencesTab = ({ form, setForm, errors }) => {
   const handleTshirtChange = (value) => {
     setForm({
       ...form,
-      shirtSize: value,
+      shirtSize: form.shirtSize === value ? "" : value,
     });
   };
 

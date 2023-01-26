@@ -11,7 +11,7 @@ const TechnologiesTab = ({ form, setForm, errors }) => {
   const handleOnChange = (value) => {
     setForm({
       ...form,
-      technologies: value,
+      technologies: [...form.technologies, value],
     });
     setIsSelected({
       ...isSelected,

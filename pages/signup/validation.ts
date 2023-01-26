@@ -75,7 +75,7 @@ const validateElsys: validate = (form, setErrors) => {
     //new_errors.phone = "REQ_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "REQ_PHONE_NUMBER" }));
   } else if (
-    !/^\+359+[0-9]{9}$/.test(form.phone) 
+    !/^\+359+[0-9]{9}$/.test(form.phone)
     // ||
     // !/^08+[0-9]{8}$/.test(form.phone) ||
     // !/^09+[0-9]{8}$/.test(form.phone)
@@ -145,7 +145,7 @@ const validatePreferences: validate = (form, setErrors) => {
     //errors.eatingPreferences = "REQ_FOOD";
     setErrors((prev: any) => ({ ...prev, eatingPreferences: "REQ_FOOD" }));
   } else if (
-    Object.values(EATING_PREFERENCES).indexOf(form.eatingPreferences) < 0
+    Object.keys(EATING_PREFERENCES).indexOf(form.eatingPreferences) < 0
   ) {
     //errors.eatingPreferences = "INVALID_FOOD";
     setErrors((prev: any) => ({
@@ -163,7 +163,7 @@ const validatePreferences: validate = (form, setErrors) => {
     setErrors((prev: any) => ({ ...prev, alergies: "REQ_ALERGIES" }));
   } else {
     form.alergies.forEach((alergy) => {
-      if (Object.values(ALERGIES).indexOf(alergy) < 0) {
+      if (Object.keys(ALERGIES).indexOf(alergy) < 0) {
         //errors.alergies = "INVALID_ALERGIES";
         setErrors((prev: any) => ({
           ...prev,
@@ -178,7 +178,9 @@ const validatePreferences: validate = (form, setErrors) => {
   if (form.shirtSize.length === 0) {
     //errors.shirtSize = "REQ_SHIRT_SIZE";
     setErrors((prev: any) => ({ ...prev, shirtSize: "REQ_SHIRT_SIZE" }));
-  } else if (Object.values(TSHIRT_SIZE)["size"].indexOf(form.shirtSize) < 0) {
+  } else if (
+    TSHIRT_SIZE.map((tshirt) => tshirt.size).indexOf(form.shirtSize) < 0
+  ) {
     // errors.shirtSize = "INVALID_SHIRT_SIZE";
     setErrors((prev: any) => ({
       ...prev,
