@@ -64,7 +64,7 @@ const User = () => {
 
   useEffect(() => {
     if (user) {
-      fetcher(`http://localhost:8080/api/user/${user}`)
+      fetcher(`http://localhost:8080/api/user/get/${user}`)
         .then((res) => {
           setUserInfo(res);
           setNewUserInfo(res);
@@ -108,6 +108,23 @@ const User = () => {
     setChanged(false);
 
     // send api request to update user info
+    fetch("http://localhost:8080/api/user/update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "id" : parseInt(user),
+        "technologies": newUserInfo.technologies,
+        "lookingForTeam": newUserInfo.lookingForTeam,
+      }),
+      credentials: "include",
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        console.log("success");
+      }
+    });
 
     // if successfull, update userInfo
     setUserInfo(newUserInfo);

@@ -66,12 +66,12 @@ const Teams = () => {
     position: { x: 0, y: 0 },
   });
 
-  const { data, isLoading, error } = useSWR("http://localhost:8080/api/team/get", fetcher);
+  const { data : resp, isLoading, error } = useSWR("http://localhost:8080/api/team/get", fetcher);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;
 
-  const { teams }: { teams: ITeam[] } = data;
+  const { data }: { data: ITeam[] } = resp;
 
   console.log(data)
   return (
@@ -103,7 +103,7 @@ const Teams = () => {
           {/* <p>1/10</p> */}
         </div>
         <ul className={styles.cards_grid}>
-          {teams && teams.map((team: ITeam) => (
+          {data && data.map((team: ITeam) => (
             <TeamCard
               key={team.id}
               team={team}

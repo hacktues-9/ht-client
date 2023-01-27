@@ -83,8 +83,11 @@ const AuthProvider = ({ children }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data) {
-            setUserAuthInfo(data.id, true);
+            setUserAuthInfo(data.data, true);
           }
+        })
+        .catch((err) => {
+          console.log(err);
         });
     }
   }, []);

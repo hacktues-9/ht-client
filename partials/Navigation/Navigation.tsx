@@ -18,7 +18,7 @@ const fetcher = (url) => fetch(url, {credentials: "include"}).then((r) => r.json
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  const { data : user, error : errUser } = useSWR(`http://localhost:8080/api/user/${userId}`, fetcher);
+  const { data : user, error : errUser } = useSWR(`http://localhost:8080/api/user/get/${userId}`, fetcher);
   const {data: team} = useSWR(() => `http://localhost:8080/api/team/${userId}`, fetcher);
   
   const [showDropdown, setShowDropdown] = useState(false);

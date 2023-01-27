@@ -134,20 +134,20 @@ const SignUp = () => {
     // api post req using axios
 
     axios
-      .post("/api/signup", JSON.stringify(form), {
+      .post("http://localhost:8080/api/auth/register", JSON.stringify(form), {
         headers: {
           "Content-Type": "application/json",
         },
       })
       .then((response) => {
-        console.log(response);
         if (response.data.error) {
           console.log(response.data.error);
-        } else if (response.data.success) {
-          console.log(response.data.success);
+        } else if (response.status == 200) {
+          console.log(response.data);
           // save user data to context and get authentication token + refresh token
-          const { user } = response.data;
-          setAuthState(user.id, true);
+          const { data } = response.data;
+          console.log(data)
+          setAuthState(data, true);
           router.push("/signup/success");
         }
       })

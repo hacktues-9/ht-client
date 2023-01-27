@@ -33,15 +33,17 @@ const LogIN = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "http://localhost:8080",
         },
         body: JSON.stringify({ identifier: email, password}),
         credentials: "include",
       }
     );
     const data = await response.json();
-    if (!response.ok) {
+    if (response.status != 200) {
       throw new Error(data.message);
+    }else{
+      push("/");
     }
   };
 

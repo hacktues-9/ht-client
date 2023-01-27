@@ -48,7 +48,7 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
       fetcher(`http://localhost:8080/api/team/users/search?search=${search}`)
         .then((res) => {
           if (res){
-            res.map((user) => {
+            res.data.map((user) => {
               if (props.form.teamInvitees.find((invitee) => invitee.id === user.id)) {
                 user.isInvited = true;
               }
