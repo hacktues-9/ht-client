@@ -133,20 +133,49 @@ const SignUp = () => {
 
     // api post req using axios
 
-    axios
-      .post("http://localhost:8080/api/auth/register", JSON.stringify(form), {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+    // axios
+    //   .post("http://localhost:8080/api/auth/register", JSON.stringify(form), {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     if (response.data.error) {
+    //       console.log(response.data.error);
+    //     } else if (response.status == 200) {
+    //       console.log(response.data);
+    //       // save user data to context and get authentication token + refresh token
+    //       const { data } = response.data;
+    //       console.log(data)
+    //       setAuthState(data, true);
+    //       router.push("/signup/success");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    
+
+   fetch("http://localhost:8080/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(form),
+    })
       .then((response) => {
-        if (response.data.error) {
-          console.log(response.data.error);
-        } else if (response.status == 200) {
-          console.log(response.data);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.error) {
+          console.log(data.error);
+        } else {
           // save user data to context and get authentication token + refresh token
-          const { data } = response.data;
-          console.log(data)
+          console.log(data);
           setAuthState(data, true);
           router.push("/signup/success");
         }
@@ -154,22 +183,6 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
       });
-
-    /*     const response = await fetch("/api/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    const data = await response.json();
-
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log(data);
-    } */
 
     setIsSubmitting(false);
   };
