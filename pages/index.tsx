@@ -7,6 +7,7 @@ import Countdown from "../partials/home/Countdown";
 import styles from "../styles/Home.module.scss";
 
 import { METADATA, RICH, TITLE } from "../constants/arc";
+import Medias from "../partials/home/Medias";
 
 const Home = () => {
   return (
@@ -56,11 +57,13 @@ const Home = () => {
             <span id={styles.stack2}>{TITLE}</span>
           </div>
           <Countdown />
-          <a className={styles.button} href="#arc">
+          <a className={styles.button} href="#sponsors_media">
             <TbChevronDown />
           </a>
         </div>
-        <CardContainer />
+        <section id="sponsors_media">
+          <Medias />
+        </section>
       </main>
     </div>
   );
