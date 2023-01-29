@@ -132,8 +132,6 @@ const Countdown = () => {
 
   // call countdown function
   useEffect(() => {
-    console.warn("useEffect", getFinalValue("hours"));
-
     startCountdown();
     const interval = setInterval(count, 1000);
     return () => clearInterval(interval);
