@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.scss";
 
 import { METADATA, RICH, TITLE } from "../constants/arc";
 import Medias from "../partials/home/Medias";
+import Sponsors from "../partials/home/Sponsors";
 
 const Home = () => {
   return (
@@ -61,7 +62,8 @@ const Home = () => {
             <TbChevronDown />
           </a>
         </div>
-        <section id="sponsors_media">
+        <section id="sponsors_media" className={styles.sponsors_media}>
+          <Sponsors />
           <Medias />
         </section>
       </main>

@@ -10,6 +10,11 @@
         font-weight: 800;
     }
 
+    @media screen and (max-width: 800px) {
+        padding: .5rem;
+    }
+    
+
     &_grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
