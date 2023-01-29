@@ -8,34 +8,29 @@ const MEDIAS = [
         title: "224 ученици и 25 фирми участват в осмия хакатон на ТУЕС",
         icon: "/assets/medias/bnr.png",
         link: "https://bnr.bg/sofia/post/101613996/tues",
-        date: "03-10-2022"
+        date: "10 март 2022 г."
     },
     {
         title: "Започна осмият хакатон на Технологично училище в София",
         icon: "/assets/medias/capital.png",
         link: "https://stolica.bg/sofia/zapochna-osmiyat-hakaton-na-tehnologichno-uchilishte-v-sofiya",
-        date: "03-10-2022"
+        date: "10 март 2022 г."
     },
     {
         title: "Знания и талант ще демонстрират ученици в осмото издание на хакатона HackTUES",
         icon: "/assets/medias/investor.png",
         link: "https://www.investor.bg/a/261-novini/347522-znaniya-i-talant-shte-demonstrirat-uchenitsi-v-osmoto-izdanie-na-hakatona-hacktues",
-        date: "03-08-2022"
+        date: "8 март 2022 г."
     },
     {
         title: "Ученици демонстрират знания и талант в осмото издание на хакатона HackTUES",
         icon: "/assets/medias/bloomberg.png",
         link: "https://www.bloombergtv.bg/a/16-biznes-start/104120-uchenitsi-demonstrirat-znaniya-i-talant-osmoto-izdanie-na-hakatona-hacktues",
-        date: "03-08-2022"
+        date: "8 март 2022 г."
     },
 ]
 
 const Media = ({ title, icon, link, date }) => {
-  // format date from dd-mm-yyyy to dd month yyyy
-    const dateFormatted = format(new Date(date), 'dd MMMM yyyy', {
-        locale: bg,
-    });
-
   return (
     <a className={style.media} href={link}>
       {icon && (
@@ -44,7 +39,7 @@ const Media = ({ title, icon, link, date }) => {
         </div>
       )}
       <h4>{title}</h4>
-      <p>{dateFormatted}</p>
+      <p>{date}</p>
     </a>
   );
 };
