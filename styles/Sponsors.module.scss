@@ -1,26 +1,34 @@
 .sponsors {
+    position: relative;
     display: flex;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 .5rem;
 
     @media (max-width: 768px) {
         padding: 0 1rem;
     }
 
-    &__container {
+    &_container {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 2rem 0;
+        padding: 2rem .5rem;
 
         @media screen and (max-width: 1280px) {
-            width: 784px
+            width: 784px;
+            padding: 2rem 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            max-width: 32rem;
+            padding: 2rem 0;
         }
 
         h2 {
@@ -30,6 +38,7 @@
         p {
             margin-bottom: 0;
         }
+
     }
 }
 
@@ -38,6 +47,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     &_title {
         width: 100%;
@@ -57,17 +67,8 @@
     &_content {
         display: flex;
         flex-direction: row;
+        width: 100%;
 
-        @media screen and (max-width: 1280px) {
-            width: 784px
-        }
-
-        @media screen and (max-width: 800px) {
-            width: calc(100vw - 2rem);
-            max-width: 32rem;
-        }
-
-        max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
         overflow-x: auto;
