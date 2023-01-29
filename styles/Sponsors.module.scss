@@ -1,8 +1,39 @@
 .sponsors {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 .5rem;
 
+    @media (max-width: 768px) {
+        padding: 0 1rem;
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 0;
+
+        @media screen and (max-width: 1280px) {
+            width: 784px
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
 }
 
-.sponsors_scrollable{
+.sponsors_scrollable {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,46 +48,103 @@
 
         h2 {
             text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
             margin-bottom: 1rem;
         }
     }
 
     &_content {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+        flex-direction: row;
+
+        @media screen and (max-width: 1280px) {
+            width: 784px
+        }
+
+        @media screen and (max-width: 800px) {
+            width: calc(100vw - 2rem);
+            max-width: 32rem;
+        }
+
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
 
-        @media screen and (min-width: 768px) {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        &::-webkit-scrollbar {
+            display: none;
         }
+
+        // disable for firefox
+        scrollbar-width: none;
+
+
+        background-color: rgba(135, 135, 135, 0.116);
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        border: 1px solid rgba(135, 135, 135, 0.225);
+        border-radius: 1rem;
+
+        // animate infinite scroll on inner scroll without affecting the outer scroll
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100% - 2rem));
+            }
+        }
+
+        @keyframes scroll-reverse {
+            0% {
+                transform: translateX(calc(-100% - 2rem));
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
     }
-} 
+}
 
 .sponsor {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 1rem;
     padding: 1rem;
-    border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
     transition: all 0.2s ease-in-out;
+
+    // infinite scroll
+    //animation: scroll 20s linear infinite;
+    //animation-direction: alternate;
+
+
+    scroll-snap-align: start;
 
     &:hover {
         transform: scale(1.05);
     }
 
     img {
-        height: 6rem;
+        padding: 2rem 1rem;
+        height: 8rem;
+        width: 12rem;
+        object-fit: contain;
+
+        background-color: rgba(135, 135, 135, 0.116);
+        border-radius: .5rem;
+        border: 1px solid rgba(135, 135, 135, 0.225);
     }
 
     h3 {
@@ -67,4 +155,3 @@
         margin-bottom: 0;
     }
 }
-

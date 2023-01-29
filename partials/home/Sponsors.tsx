@@ -117,8 +117,8 @@ const SPONSORS = [
 
 const Sponsors = () => {
   return (
-    <div className="sponsors">
-      <div className="container">
+    <div className={style.sponsors}>
+      <div className={style.sponsors_container}>
         {SPONSORS.map((sponsor, index) => (
           <SponaoersScrollable key={sponsor.type} {...sponsor} />
         ))}
