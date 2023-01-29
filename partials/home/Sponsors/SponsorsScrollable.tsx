@@ -9,7 +9,7 @@ const SponaoersScrollable = ({ type, sponsors }) => {
       <div className="sponsors-scrollable__content">
         <ul className="sponsors-scrollable__content__inner">
           {sponsors.map((sponsor, index) => (
-            <Sponsor key={index} {...sponsor} />
+            <Sponsor key={sponsor.url} {...sponsor} />
           ))}
         </ul>
       </div>

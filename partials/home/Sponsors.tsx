@@ -1,20 +1,72 @@
+import SponaoersScrollable from "./Sponsors/SponsorsScrollable";
+
 const SPONSORS = [
-    {
-        type: "алфа спонсори",
-        sponsors: [
-            {
-                name: "Алфа Банк",
-                logo: "https://www.alfa-bank.com/images/alfa-logo.svg",
-                url: "https://www.alfa-bank.com/",
-            },
-            {
-                name: "Алфа Банк",
-                logo: "https://www.alfa-bank.com/images/alfa-logo.svg",
-                url: "https://www.alfa-bank.com/",
-            }
-        ]
-    },
-    {
+  {
+    type: "алфа спонсори",
+    sponsors: [
+      {
+        name: "A1",
+        logo: "/assets/sponsors/a1.png",
+        url: "https://www.a1.bg/",
+      },
+      {
+        name: "Appolica",
+        logo: "/assets/sponsors/appolica.png",
+        url: "https://www.appolica.com/",
+      },
+      {
+        name: "Bosch Digital",
+        logo: "/assets/sponsors/bosch.png",
+        url: "https://www.bosch-digital.com/",
+      },
+      {
+        name: "DXC",
+        logo: "/assets/sponsors/dxc.png",
+        url: "https://dxc.com/",
+      },
+      {
+        name: "Excitel Technology",
+        logo: "/assets/sponsors/excitel.png",
+        url: "https://excitel.tech/",
+      },
+      {
+        name: "Experian",
+        logo: "/assets/sponsors/experian.png",
+        url: "https://www.experian.com/",
+      },
+      {
+        name: "M2M Solutions",
+        logo: "/assets/sponsors/m2m.png",
+        url: "https://www.m2msolutions.com/",
+      },
+      {
+        name: "SAP",
+        logo: "/assets/sponsors/sap.png",
+        url: "https://www.sap.com/",
+      },
+      {
+        name: "StamSoft",
+        logo: "/assets/sponsors/stamsoft.png",
+        url: "https://www.stamsoft.com/",
+      },
+      {
+        name: "TBS",
+        logo: "/assets/sponsors/tbs.png",
+        url: "https://www.tbs.tech/",
+      },
+      {
+        name: "Telebid Pro",
+        logo: "/assets/sponsors/telebid.png",
+        url: "https://telebid-pro.com/",
+      },
+      {
+        name: "Trading 212",
+        logo: "/assets/sponsors/trading212.png",
+        url: "https://www.trading212.com/",
+      },
+    ],
+  },
+  /* {
         type: "бета спонсори",
         sponsors: [
             {
@@ -58,15 +110,19 @@ const SPONSORS = [
                 url: "https://www.alfa-bank.com/",
             }
         ]
-    }
+    } */
 ];
 
 const Sponsors = () => {
-    return (
-        <div className="sponsors">
-            <div className="container">
-                
-    )
+  return (
+    <div className="sponsors">
+      <div className="container">
+        {SPONSORS.map((sponsor, index) => (
+          <SponaoersScrollable key={sponsor.type} {...sponsor} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default Sponsors
+export default Sponsors;
