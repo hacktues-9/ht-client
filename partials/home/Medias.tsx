@@ -1,4 +1,7 @@
-import style from "../../styles/Medias.module.scss"
+import { format } from "date-fns";
+
+import style from "../../styles/Medias.module.scss";
+import { bg } from "date-fns/locale";
 
 const MEDIAS = [
     {
@@ -28,38 +31,34 @@ const MEDIAS = [
 ]
 
 const Media = ({ title, icon, link, date }) => {
-    // format date from dd-mm-yyyy to dd month yyyy
-    const dateFormatted = new Date(date).toLocaleDateString("bg-BG", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
+  // format date from dd-mm-yyyy to dd month yyyy
+    const dateFormatted = format(new Date(date), 'dd MMMM yyyy', {
+        locale: bg,
     });
 
-    return (
-        <a className={style.media} href={link}>
-            <div className={style.media_image}>
-                <img
-                    src={icon}
-                    alt={title}
-                />
-            </div>
-            <h4>{title}</h4>
-            <p>{dateFormatted}</p>
-        </a>
-    );
-}
+  return (
+    <a className={style.media} href={link}>
+      {icon && (
+        <div className={style.media_image}>
+          <img src={icon} alt={title} />
+        </div>
+      )}
+      <h4>{title}</h4>
+      <p>{dateFormatted}</p>
+    </a>
+  );
+};
 
 const Medias = () => {
-    return (
-        <div className={style.medias}>
-            <h2>медиите за нас</h2>
-            <div className={style.medias_grid}>
-                {
-                    MEDIAS && MEDIAS.map((media) => <Media key={media.title} {...media} />)
-                }
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className={style.medias}>
+      <h2>медиите за нас</h2>
+      <div className={style.medias_grid}>
+        {MEDIAS &&
+          MEDIAS.map((media) => <Media key={media.title} {...media} />)}
+      </div>
+    </div>
+  );
+};
 
 export default Medias;
