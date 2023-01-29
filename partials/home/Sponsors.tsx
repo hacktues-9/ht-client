@@ -1,5 +1,7 @@
 import SponaoersScrollable from "./Sponsors/SponsorsScrollable";
 
+import style from "../../styles/Sponsors.module.scss";
+
 const SPONSORS = [
   {
     type: "алфа спонсори",

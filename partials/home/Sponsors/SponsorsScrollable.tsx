@@ -1,18 +1,18 @@
 import Sponsor from "./Sponsor";
 
+import style from "../../../styles/Sponsors.module.scss";
+
 const SponaoersScrollable = ({ type, sponsors }) => {
   return (
-    <div className="sponsors-scrollable">
-      <div className="sponsors-scrollable__title">
+    <div className={style.sponsors_scrollable}>
+      <div className={style.sponsors_scrollable_title}>
         <h2>{type}</h2>
       </div>
-      <div className="sponsors-scrollable__content">
-        <ul className="sponsors-scrollable__content__inner">
-          {sponsors.map((sponsor, index) => (
-            <Sponsor key={sponsor.url} {...sponsor} />
-          ))}
-        </ul>
-      </div>
+      <ul className={style.sponsors_scrollable_content}>
+        {sponsors.map((sponsor) => (
+          <Sponsor key={sponsor.url} {...sponsor} />
+        ))}
+      </ul>
     </div>
   );
 };
