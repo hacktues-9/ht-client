@@ -7,6 +7,7 @@ import Countdown from "../partials/home/Countdown";
 import styles from "../styles/Home.module.scss";
 
 import { METADATA, RICH, TITLE } from "../constants/arc";
+import Medias from "../partials/home/Medias";
 
 const Home = () => {
   return (
@@ -60,7 +61,8 @@ const Home = () => {
             <TbChevronDown />
           </a>
         </div>
-        <CardContainer />
+{/*         <CardContainer />
+ */}        <Medias />
       </main>
     </div>
   );
