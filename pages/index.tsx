@@ -57,12 +57,13 @@ const Home = () => {
             <span id={styles.stack2}>{TITLE}</span>
           </div>
           <Countdown />
-          <a className={styles.button} href="#arc">
+          <a className={styles.button} href="#sponsors_media">
             <TbChevronDown />
           </a>
         </div>
-{/*         <CardContainer />
- */}        <Medias />
+        <section id="sponsors_media">
+          <Medias />
+        </section>
       </main>
     </div>
   );

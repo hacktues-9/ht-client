@@ -40,6 +40,8 @@
 }
 
 .front {
+  position: relative;
+  
   height: 100vh;
   margin-top: calc(-15px - 4rem);
   display: flex;
