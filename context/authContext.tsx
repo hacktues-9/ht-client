@@ -73,7 +73,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!isUserAuthenticated()) {
       //use fetch to get the user info with credentials
-      fetch("http://localhost:8080/api/auth/me", {
+      fetch("https://api.hacktues.bg/api/auth/me", {
         method: "GET",
         credentials: "include",
         headers: {

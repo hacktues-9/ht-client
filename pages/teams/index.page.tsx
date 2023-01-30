@@ -1,15 +1,14 @@
 import useSWR from "swr";
 
-import { useRouter } from "next/router";
 import TeamCard from "../../components/teams/Card";
 
-import styles from "../../styles/0/teams/Teams.module.scss";
-import { TITLE } from "../../constants/arc";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { ROLES } from "../../constants/teams";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
+import { TITLE } from "../../constants/arc";
+import { ROLES } from "../../constants/teams";
+import styles from "../../styles/0/teams/Teams.module.scss";
 import { ITeam } from "../../types/ITeam";
 
 const url = "/data/teams.json";
@@ -66,7 +65,7 @@ const Teams = () => {
     position: { x: 0, y: 0 },
   });
 
-  const { data : resp, isLoading, error } = useSWR("http://localhost:8080/api/team/get", fetcher);
+  const { data : resp, isLoading, error } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;

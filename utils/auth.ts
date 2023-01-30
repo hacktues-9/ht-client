@@ -3,7 +3,7 @@ export const inTeam = async (userId: string, teamId: string) => {
   // in team -> return 1
   // captain -> return 2
   let userTeamId = "";
-  await fetch(`http://localhost:8080/api/team/${userId}`, {
+  await fetch(`https://api.hacktues.bg/api/team/${userId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const inTeam = async (userId: string, teamId: string) => {
     if (userTeamId !== teamId) return 0;
   
   let captainId = "";
-  await fetch(`http://localhost:8080/api/team/${teamId}/captain`, {
+  await fetch(`https://api.hacktues.bg/api/team/${teamId}/captain`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

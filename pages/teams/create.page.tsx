@@ -1,16 +1,16 @@
 import Head from "next/head";
-import { useEffect, useState, Dispatch, SetStateAction, FunctionComponent } from "react";
+import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from "react";
 import Input from "../../components/form/Input";
 import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
-import { useRouter } from "next/router";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import Select from "react-dropdown-select";
+import { TbUserCheck } from "react-icons/tb";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
-import { TbUserCheck } from "react-icons/tb"
 
 const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
 
@@ -45,7 +45,7 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
 
   useEffect(() => {
     if (search.length > 0) {
-      fetcher(`http://localhost:8080/api/team/users/search?search=${search}`)
+      fetcher(`https://api.hacktues.bg/api/team/users/search?search=${search}`)
         .then((res) => {
           if (res){
             res.data.map((user) => {
@@ -172,7 +172,7 @@ const CreateTeam = () => {
   const handleCreateTeam = async (e: any) => {
     e.preventDefault();
     console.log(form);
-    const res = await fetch("http://localhost:8080/api/team/create", {
+    const res = await fetch("https://api.hacktues.bg/api/team/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
