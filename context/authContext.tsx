@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 
@@ -44,9 +44,9 @@ const AuthContext = createContext(
   {} as {
     authState: {
       userId: string;
-      token: string;
+      isLoggedIn: boolean;
     };
-    setAuthState: (userAuthInfo: string) => void;
+    setAuthState: (userId : string, isLoggedIn : boolean) => void;
     isUserAuthenticated: () => boolean;
   }
 );
@@ -54,28 +54,49 @@ const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
-    userId: "goshotest",
-    token: "goshotest",
+    userId: "",
+    isLoggedIn: false,
   });
 
-  const setUserAuthInfo = (data: any) => {
-    const token: string = data.data;
-    localStorage.setItem("token", data.data);
+  const setUserAuthInfo = (userId : string, isLoggedIn : boolean) => {
+    localStorage.setItem("isLoggedIn", isLoggedIn.toString());
 
     setAuthState({
-      userId: "goshotest",
-      token: "goshotest",
+      userId,
+      isLoggedIn,
     });
   };
 
   // checks if the user is authenticated or not
-  const isUserAuthenticated = () => !!authState.token;
+  const isUserAuthenticated = () => authState.isLoggedIn;
+
+  useEffect(() => {
+    if (!isUserAuthenticated()) {
+      //use fetch to get the user info with credentials
+      fetch("https://api.hacktues.bg/api/auth/me", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        }
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            setUserAuthInfo(data.data, true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   return (
     <Provider
       value={{
         authState,
-        setAuthState: (userAuthInfo: string) => setUserAuthInfo(userAuthInfo),
+        setAuthState: (userId : string, isLoggedIn : boolean) => setUserAuthInfo(userId, isLoggedIn),
         isUserAuthenticated,
       }}
     >

@@ -4,9 +4,12 @@ import { useState } from "react";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import Input from "../../components/form/Input";
 
-import style from "../../styles/login/Login.module.scss";
-import logo from "../../styles/Home.module.scss";
 import { TITLE } from "../../constants/arc";
+import logo from "../../styles/Home.module.scss";
+import style from "../../styles/login/Login.module.scss";
+
+
+import { useAuthContext } from "../../context/authContext";
 
 
 const LogIN = () => {
@@ -14,46 +17,52 @@ const LogIN = () => {
 
   const { push } = useRouter();
 
-  /*   const login = async (email: string, password: string) => {
-      const response = await fetch(
-        "https://orca-app-g2n2e.ondigitalocean.app/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        }
-      );
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message);
-      } else {
-        localStorage.setItem("token", data.token);
+  const { setAuthState } = useAuthContext();
+
+  const githubClientID = "4f5f1918bf58eb0cccd4";
+  const discordClientID = "1009547623637712977";
+  const githubRedirectURI = "https://api.hacktues.bg/api/auth/github"
+  const discordRedirectURI = "https://api.hacktues.bg/api/auth/discord"
+
+  const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
+  const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
+  const login = async (email: string, password: string) => {
+    const response = await fetch(
+      "https://api.hacktues.bg/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
+        },
+        body: JSON.stringify({ identifier: email, password}),
+        credentials: "include",
       }
-      return data;
-    }; */
+    );
+    const data = await response.json();
+    if (response.status != 200) {
+      throw new Error(data.message);
+    }else{
+      push("/");
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password }: any = e.target;
-    /*     try {
-          setError(null);
-          await login(email.value, password.value);
-          push("/");
-        } catch (error) {
-          console.log("TEST", error);
-          if (error.message === "user not found") {
-            setError("Няма такъв потребител");
-          } else if (error.message === "invalid password") {
-            setError("Грешна парола");
-          } else {
-            setError("Нещо се обърка");
-          }
-        } */
+    try {
+      setError(null);
+      await login(email.value, password.value);
+    } catch (error) {
+      console.log("TEST", error);
+      if (error.message === "user not found") {
+        setError("Няма такъв потребител");
+      } else if (error.message === "invalid password") {
+        setError("Грешна парола");
+      } else {
+        setError("Нещо се обърка");
+      }
+    }
   };
 
   return (
@@ -95,11 +104,11 @@ const LogIN = () => {
         </button>
         <p className={style.alt_login_title}>или със</p>
         <div className={style.alt_login}>
-          <button className={style.discord}>
+          <button className={style.discord} onClick={() => {location.href = discordLoginLink}}>
             <TbBrandDiscord />
             <p>discord</p>
           </button>
-          <button className={style.github}>
+          <button className={style.github} onClick={() => {location.href = githubLoginLink}}>
             <TbBrandGithub />
             <p>github</p>
           </button>

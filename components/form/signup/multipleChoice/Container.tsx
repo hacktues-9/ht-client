@@ -37,8 +37,16 @@ const SELECTED_EATING_PREFERENCES = {
   NONE: false,
 };
 
-export const ContainerEatingPreferences = () => {
+export const ContainerEatingPreferences = ({ value, onChange, error }) => {
   const [isSelected, setIsSelected] = useState(SELECTED_EATING_PREFERENCES);
+
+  const handleOnChange = (value) => {
+    onChange(value);
+    setIsSelected({
+      ...SELECTED_EATING_PREFERENCES,
+      [value]: !isSelected[value],
+    });
+  };
 
   return (
     <SelectableContainer title="ядене">
@@ -47,12 +55,7 @@ export const ContainerEatingPreferences = () => {
           key={preference}
           size={EATING_PREFERENCES[preference]}
           selected={isSelected[preference]}
-          onClick={() =>
-            setIsSelected({
-              ...SELECTED_EATING_PREFERENCES,
-              [preference]: !isSelected[preference],
-            })
-          }
+          onClick={() => handleOnChange(preference)}
         />
       ))}
     </SelectableContainer>
@@ -73,26 +76,32 @@ const ICONS_ALERGIES = {
   GLUTEN: <TbEgg />,
 };
 
-export const ContainerAlergies = () => {
+export const ContainerAlergies = ({ value, onChange, error }) => {
   const [isSelected, setIsSelected] = useState(SELECTED_ALERGIES);
 
+  const handleOnChange = (value) => {
+    onChange(value);
+    setIsSelected({
+      ...isSelected,
+      [value]: !isSelected[value],
+    });
+  };
+
   return (
-    <SelectableContainer title="алергии">
-      {Object.keys(SELECTED_ALERGIES).map((alergy) => (
-        <SelectableTshirt
-          key={alergy}
-          size={ALERGIES[alergy]}
-          /* icon={ICONS_ALERGIES[alergy]} */
-          selected={isSelected[alergy]}
-          onClick={() =>
-            setIsSelected({
-              ...isSelected,
-              [alergy]: !isSelected[alergy],
-            })
-          }
-        />
-      ))}
-    </SelectableContainer>
+    <>
+      <SelectableContainer title="алергии">
+        {Object.keys(SELECTED_ALERGIES).map((alergy) => (
+          <SelectableTshirt
+            key={alergy}
+            size={ALERGIES[alergy]}
+            /* icon={ICONS_ALERGIES[alergy]} */
+            selected={isSelected[alergy]}
+            onClick={() => handleOnChange(alergy)}
+          />
+        ))}
+      </SelectableContainer>
+      <p className={style.error}>{error}</p>
+    </>
   );
 };
 
@@ -105,8 +114,15 @@ const SELECTED_TSHIRT = {
   XXXL: false,
 };
 
-export const ContainerTshirt = () => {
+export const ContainerTshirt = ({ value, onChange, error }) => {
   const [isSelected, setIsSelected] = useState(SELECTED_TSHIRT);
+  const handleOnChange = (value) => {
+    onChange(value);
+    setIsSelected({
+      ...SELECTED_TSHIRT,
+      [value]: !isSelected[value],
+    });
+  };
 
   return (
     <SelectableContainer title="тениска">
@@ -116,12 +132,7 @@ export const ContainerTshirt = () => {
           size={tshirt.size}
           icon={tshirt.icon}
           selected={isSelected[tshirt.size]}
-          onClick={() =>
-            setIsSelected({
-              ...SELECTED_TSHIRT,
-              [tshirt.size]: !isSelected[tshirt.size],
-            })
-          }
+          onClick={() => handleOnChange(tshirt.size)}
         />
       ))}
     </SelectableContainer>

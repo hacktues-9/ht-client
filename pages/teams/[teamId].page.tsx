@@ -9,9 +9,7 @@ const Team = () => {
 
   // check if user has rights to edit this team
 
-
   if (inTeam(authState.userId, teamId)) return <div>Your Team {teamId}</div>;
-
   return <div>Team {teamId}</div>;
 };
 

@@ -13,10 +13,18 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["i.imgur.com", "cdn.thebrandingjournal.com", "https://www.thebrandingjournal.com/", "picsum.photos"],
+    domains: [
+      "i.imgur.com",
+      "cdn.thebrandingjournal.com",
+      "https://www.thebrandingjournal.com/",
+      "picsum.photos",
+      "i.stack.imgur.com",
+      "api.hacktues.bg",
+      "hacktues.bg",
+    ],
   },
   i18n: {
-    locales: ["bg", /*"en"*/],
+    locales: ["bg" /*"en"*/],
     defaultLocale: "bg",
   },
   // valid page extensions

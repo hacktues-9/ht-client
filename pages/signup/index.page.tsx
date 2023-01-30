@@ -1,18 +1,28 @@
-import router from "next/router";
 import Link from "next/link";
-import axios from "axios";
+import router from "next/router";
 
 import { FormEvent, useEffect, useState } from "react";
 
 import { useAuthContext } from "../../context/authContext";
 
-import InitialTab from "../../partials/SignUp/Initial";
 import ElsysTab from "../../partials/SignUp/Elsys";
+import InitialTab from "../../partials/SignUp/Initial";
 import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
-import { validateElsys, validateInitial, validatePreferences, validateTechnologies } from "./validation";
-import { SIGN_UP_ERRORS, SIGN_UP_FORM, SignUpErrors, SignUpForm, Steps } from "../../types/ISignUp";
+import {
+    SIGN_UP_ERRORS,
+    SIGN_UP_FORM,
+    SignUpErrors,
+    SignUpForm,
+    Steps,
+} from "../../types/ISignUp";
+import {
+    validateElsys,
+    validateInitial,
+    validatePreferences,
+    validateTechnologies,
+} from "./validation";
 
 import styles from "../../styles/login/Login.module.scss";
 
@@ -37,13 +47,12 @@ const SignUp = () => {
     return errors_val;
   };
 
-
   const handleNextStep = () => {
     // validate current step
     // if there are errors, exit the function
     // if not, continue with the next step
 
-    console.log("handleNextStep")
+    console.log("handleNextStep -> current step", step, step == Steps.elsys);
 
     /*     validate().then((error_res) => {
           console.log("validate", error_res)
@@ -58,9 +67,9 @@ const SignUp = () => {
     // setStep(step + 1);
 
     if (step == Steps.initial) validateInitial(form, setErrors);
-    if (step == Steps.elsys) setErrors(validateElsys(form, errors) as any);
-    // if(step == Steps.preferences) setErrors(validatePreferences(form, errors));
-    // if(step == Steps.technologies) setErrors(validateTechnologies(form, errors));    
+    if (step == Steps.elsys) validateElsys(form, setErrors);
+    if (step == Steps.preferences) validatePreferences(form, setErrors);
+    if (step == Steps.technologies) validateTechnologies(form, setErrors);
 
     //
     // next step
@@ -73,7 +82,30 @@ const SignUp = () => {
           console.log("handlePrevStep with errors")
           setErrors(SIGN_UP_ERRORS);
         } */
-    setStep(step - 1);
+
+    // clear errors for the next step and THEN go to the previous step
+
+    if (step == Steps.elsys)
+      setErrors({
+        ...errors,
+        firstName: "",
+        lastName: "",
+        phone: "",
+        elsysEmail: "",
+        classNumber: "",
+        classLetter: "",
+      });
+    if (step == Steps.preferences)
+      setErrors({
+        ...errors,
+        eatingPreferences: "",
+        alergies: "",
+        shirtSize: "",
+      });
+    if (step == Steps.technologies) setErrors({ ...errors, technologies: "" });
+
+    // previous step
+    setNextStep(step - 1);
   };
 
   const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (event) => {
@@ -85,75 +117,119 @@ const SignUp = () => {
 
     // client-side validation
 
-    const errors: SignUpErrors = SIGN_UP_ERRORS;
+    validateInitial(form, setErrors);
+    validateElsys(form, setErrors);
+    validatePreferences(form, setErrors);
+    validateTechnologies(form, setErrors);
 
-    validateInitial(form, errors);
-    validateElsys(form, errors);
-    validatePreferences(form, errors);
-    validateTechnologies(form, errors);
-
-    // check all errors and if there are any errors, exit the function, if not, continue with api post req
+    // if there are errors, exit the function
 
     if (Object.values(errors).some((error) => error.length > 0)) {
-      setErrors(errors);
+      console.log("handleSubmit with errors");
       setIsSubmitting(false);
-    } else {
-      setErrors(errors);
-      setIsSubmitting(true);
+      return;
     }
 
     // api post req using axios
 
-    axios.post("/api/signup", JSON.stringify(form), {
+    // axios
+    //   .post("https://api.hacktues.bg/api/auth/register", JSON.stringify(form), {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     if (response.data.error) {
+    //       console.log(response.data.error);
+    //     } else if (response.status == 200) {
+    //       console.log(response.data);
+    //       // save user data to context and get authentication token + refresh token
+    //       const { data } = response.data;
+    //       console.log(data)
+    //       setAuthState(data, true);
+    //       router.push("/signup/success");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    
+
+   fetch("https://api.hacktues.bg/api/auth/register", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
+      body: JSON.stringify(form),
     })
       .then((response) => {
-        console.log(response);
-        if (response.data.error) {
-          console.log(response.data.error);
-        } else if (response.data.success) {
-          console.log(response.data.success);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.error) {
+          console.log(data.error);
+        } else {
           // save user data to context and get authentication token + refresh token
-          const { user, token, refreshToken } = response.data.success;
-          //setAuthState({ user, token, refreshToken });
-          router.push('/signup/success')
+          console.log(data);
+          setAuthState(data, true);
+          router.push("/signup/success");
         }
       })
       .catch((error) => {
         console.log(error);
       });
 
-    /*     const response = await fetch("/api/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    const data = await response.json();
-
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log(data);
-    } */
-
     setIsSubmitting(false);
   };
 
   // handle step change - after error validation and prevent going next if there are errors
 
+  // TODO: Optimize this shit - it's so down bad, i don't even know how to explain it
+  // fix it during the holidays
   useEffect(() => {
     console.log("useEffect step", errors);
     console.log(!Object.values(errors).some((error) => error.length > 0));
-    if (step !== null && step !== undefined && step < 4 && step >= 0 && nextStep !== null && nextStep !== undefined && nextStep < 4 && nextStep >= 0) {
-      if (!Object.values(errors).some((error) => error.length > 0) && step === nextStep - 1) {
-        setStep(step + 1);
+    if (
+      step !== null &&
+      step !== undefined &&
+      step < 4 &&
+      step >= 0 &&
+      nextStep !== null &&
+      nextStep !== undefined &&
+      nextStep < 4 &&
+      nextStep >= 0
+    ) {
+      if (
+        !Object.values(errors).some((error) => error.length > 0) &&
+        step === nextStep - 1
+      ) {
+        console.log("useEffect step -> setStep");
+        setStep(nextStep);
+      } else if (
+        Object.values(errors).some((error) => error.length > 0) &&
+        step === nextStep
+      ) {
+        console.log("useEffect step -> setStep");
+        setStep(nextStep - 1);
+      } else if (
+        Object.values(errors).some((error) => error.length > 0) &&
+        step === nextStep - 1
+      ) {
+        console.log("useEffect step -> setStep");
+        setStep(nextStep - 1);
+      } else if (
+        !Object.values(errors).some((error) => error.length > 0) &&
+        step === nextStep
+      ) {
+        console.log("useEffect step -> setStep");
+        setStep(nextStep);
       } else {
-        setNextStep(step);
+        console.log("useEffect step -> setStep");
+        setStep(nextStep);
       }
     }
   }, [errors]);
@@ -163,26 +239,37 @@ const SignUp = () => {
       setStep(0);
       setNextStep(0);
     }
+    // if (step < nextStep) {
+    //   setErrors(SIGN_UP_ERRORS);
+    // }
   }, [step]);
 
-  useEffect(() => {
-    /*     if (nextStep !== null && nextStep !== undefined && nextStep < 4 && nextStep >= 0) {
+  /*   useEffect(() => {
+        if (nextStep !== null && nextStep !== undefined && nextStep < 4 && nextStep >= 0) {
           if (step !== nextStep)
             setStep(nextStep);
-        } */
-  }, [nextStep]);
+        }
+  }, [nextStep]); */
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="tabs">
-          {step == Steps.initial && <InitialTab form={form} setForm={setForm} errors={errors} />}
-          {step == Steps.elsys && <ElsysTab form={form} setForm={setForm} errors={errors} />}
-          {step == Steps.preferences && <PreferencesTab />}
-          {step == Steps.technologies && <TechnologiesTab />}
+          {step == Steps.initial && (
+            <InitialTab form={form} setForm={setForm} errors={errors} />
+          )}
+          {step == Steps.elsys && (
+            <ElsysTab form={form} setForm={setForm} errors={errors} />
+          )}
+          {step == Steps.preferences && (
+            <PreferencesTab form={form} setForm={setForm} errors={errors} />
+          )}
+          {step == Steps.technologies && (
+            <TechnologiesTab form={form} setForm={setForm} errors={errors} />
+          )}
           {/* <SubmitTab /> */}
         </div>
-        <div className="buttons" style={{ marginTop: '1rem' }}>
+        <div className="buttons" style={{ marginTop: "1rem" }}>
           {step > 0 && (
             <button
               className={styles.login}
@@ -201,18 +288,18 @@ const SignUp = () => {
               напред
             </button>
           )}
-          {step == 3 && (<>
-            <Link href="https://discord.com" />
-            <button
-              className={styles.login}
-              disabled={isSubmitting}
-              type="submit"
-              onClick={() => handleSubmit}
-            >
-              регистрирай се
-            </button>
-          </>
-
+          {step == 3 && (
+            <>
+              <Link href="https://discord.com" />
+              <button
+                className={styles.login}
+                disabled={isSubmitting}
+                type="submit"
+                onClick={() => handleSubmit}
+              >
+                регистрирай се
+              </button>
+            </>
           )}
         </div>
       </form>

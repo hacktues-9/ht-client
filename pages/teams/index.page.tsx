@@ -1,19 +1,18 @@
 import useSWR from "swr";
 
-import { useRouter } from "next/router";
 import TeamCard from "../../components/teams/Card";
 
-import styles from "../../styles/0/teams/Teams.module.scss";
-import { TITLE } from "../../constants/arc";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { ROLES } from "../../constants/teams";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
+import { TITLE } from "../../constants/arc";
+import { ROLES } from "../../constants/teams";
+import styles from "../../styles/0/teams/Teams.module.scss";
 import { ITeam } from "../../types/ITeam";
 
 const url = "/data/teams.json";
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, { credentials: "include"}).then((res) => res.json());
 
 const MemberInfoCard = ({ member, position }) => {
   const { name, profilePicture, role, class: class_, discord, github } = member;
@@ -66,13 +65,14 @@ const Teams = () => {
     position: { x: 0, y: 0 },
   });
 
-  const { data, isLoading, error } = useSWR("/data/teams.json", fetcher);
+  const { data : resp, isLoading, error } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;
 
-  const { teams }: { teams: ITeam[] } = data;
+  const { data }: { data: ITeam[] } = resp;
 
+  console.log(data)
   return (
     <>
       <Head>
@@ -102,7 +102,7 @@ const Teams = () => {
           {/* <p>1/10</p> */}
         </div>
         <ul className={styles.cards_grid}>
-          {teams.map((team: ITeam) => (
+          {data && data.map((team: ITeam) => (
             <TeamCard
               key={team.id}
               team={team}
@@ -110,6 +110,7 @@ const Teams = () => {
               setShowMemberInfoCard={setShowMemberInfoCard}
             />
           ))}
+          
         </ul>
       </div>
     </>

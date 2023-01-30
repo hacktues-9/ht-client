@@ -8,17 +8,16 @@ import { useAuthContext } from "../../context/authContext";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 
 import Select from "react-dropdown-select";
+import {
+    TbBrandDiscord,
+    TbBrandGithub,
+    TbClock,
+    TbShirt,
+} from "react-icons/tb";
 import { TECHNOLOGIES } from "../../constants/technologies";
 import style from "../../styles/0/profile/Profile.module.scss";
-import {
-  TbBrandDiscord,
-  TbBrandGithub,
-  TbClock,
-  TbShirt,
-} from "react-icons/tb";
-import { connect } from "http2";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
 const isUser = (authUserId: string, userId: string) => authUserId === userId;
 
 interface USER_INFO {
@@ -47,6 +46,14 @@ const User = () => {
   const router = useRouter();
   const { user } = router.query as { user: string };
   const { authState } = useAuthContext();
+  
+  const githubClientID = "4f5f1918bf58eb0cccd4";
+  const discordClientID = "1009547623637712977";
+  const githubRedirectURI = "https://api.hacktues.bg/api/user/github"
+  const discordRedirectURI = "https://api.hacktues.bg/api/user/discord"
+
+  const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&state=" + user + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
+  const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&state=" + user +  "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
 
   // check if user has right to see personal info
 
@@ -56,7 +63,7 @@ const User = () => {
 
   useEffect(() => {
     if (user) {
-      fetcher(`/api/users/${user}`)
+      fetcher(`https://api.hacktues.bg/api/user/get/${user}`)
         .then((res) => {
           setUserInfo(res);
           setNewUserInfo(res);
@@ -87,8 +94,12 @@ const User = () => {
     }
   };
 
-  const connectDiscord = () => {};
-  const connectGithub = () => {};
+  const connectDiscord = () => {
+    location.href = discordLoginLink;
+  };
+  const connectGithub = () => {
+    location.href = githubLoginLink;
+  };
 
   const handleChange = (e) => {};
   const hadnleUpdate = (e) => {
@@ -96,6 +107,23 @@ const User = () => {
     setChanged(false);
 
     // send api request to update user info
+    fetch("https://api.hacktues.bg/api/user/update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "id" : parseInt(user),
+        "technologies": newUserInfo.technologies,
+        "lookingForTeam": newUserInfo.lookingForTeam,
+      }),
+      credentials: "include",
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        console.log("success");
+      }
+    });
 
     // if successfull, update userInfo
     setUserInfo(newUserInfo);
@@ -204,7 +232,7 @@ const User = () => {
                   options={TECHNOLOGIES.map((tech) => {
                     return { value: tech.name, label: tech.name, ...tech };
                   })}
-                  values={newUserInfo.technologies.map((tech) => {
+                  values={newUserInfo.technologies?.map((tech) => {
                     return { value: tech, label: tech };
                   })}
                   onChange={(e) =>
@@ -238,16 +266,16 @@ const User = () => {
                 <button
                   className={style.discord}
                   type="button"
-                  onClick={connectDiscord}
+                  onClick={() => { newUserInfo.discord === "#" ? connectDiscord() : window.open(`https://discord.com/users/${newUserInfo.discord}`)}}
                 >
-                  {!newUserInfo.discord && `свържи се с `}
+                  {newUserInfo.discord === "#" && `свържи се с `}
                   <TbBrandDiscord size={32} />
-                  {newUserInfo.discord && newUserInfo.discord}
+                  {newUserInfo.discord !== "#" && newUserInfo.discord}
                 </button>
                 <button
                   className={style.github}
                   type="button"
-                  onClick={connectGithub}
+                  onClick={() => { newUserInfo.github ? window.open(`https://github.com/${newUserInfo.github}`) : connectGithub() }}
                 >
                   {!newUserInfo.github && `свържи се с `}
                   <TbBrandGithub size={32} />
