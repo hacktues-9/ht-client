@@ -7,8 +7,8 @@ import { MouseEventHandler, forwardRef, useRef, useState } from "react";
 
 import TUESTalksNavbar from "../TUESTalks/Navbar";
 
-import { useAuthContext } from "../../context/authContext";
 import { TbMenu2 } from "react-icons/tb";
+import { useAuthContext } from "../../context/authContext";
 import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
 
@@ -18,8 +18,8 @@ const fetcher = (url) => fetch(url, {credentials: "include"}).then((r) => r.json
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  const { data : user, error : errUser } = useSWR(`http://localhost:8080/api/user/get/${userId}`, fetcher);
-  const {data: team} = useSWR(() => `http://localhost:8080/api/team/${userId}`, fetcher);
+  const { data : user, error : errUser } = useSWR(`https://api.hacktues.bg/api/user/get/${userId}`, fetcher);
+  const {data: team} = useSWR(() => `https://api.hacktues.bg/api/team/${userId}`, fetcher);
   
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
@@ -84,7 +84,7 @@ const Profile = ({ userId }) => {
           <button
             onClick={() => {
               handleClicked();
-              fetch("http://localhost:8080/api/auth/logout", {
+              fetch("https://api.hacktues.bg/api/auth/logout", {
                 method: "POST",
                 credentials: "include",
               });

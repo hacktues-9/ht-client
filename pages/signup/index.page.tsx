@@ -1,29 +1,28 @@
-import router from "next/router";
 import Link from "next/link";
-import axios from "axios";
+import router from "next/router";
 
 import { FormEvent, useEffect, useState } from "react";
 
 import { useAuthContext } from "../../context/authContext";
 
-import InitialTab from "../../partials/SignUp/Initial";
 import ElsysTab from "../../partials/SignUp/Elsys";
+import InitialTab from "../../partials/SignUp/Initial";
 import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
 import {
-  validateElsys,
-  validateInitial,
-  validatePreferences,
-  validateTechnologies,
-} from "./validation";
-import {
-  SIGN_UP_ERRORS,
-  SIGN_UP_FORM,
-  SignUpErrors,
-  SignUpForm,
-  Steps,
+    SIGN_UP_ERRORS,
+    SIGN_UP_FORM,
+    SignUpErrors,
+    SignUpForm,
+    Steps,
 } from "../../types/ISignUp";
+import {
+    validateElsys,
+    validateInitial,
+    validatePreferences,
+    validateTechnologies,
+} from "./validation";
 
 import styles from "../../styles/login/Login.module.scss";
 
@@ -134,7 +133,7 @@ const SignUp = () => {
     // api post req using axios
 
     // axios
-    //   .post("http://localhost:8080/api/auth/register", JSON.stringify(form), {
+    //   .post("https://api.hacktues.bg/api/auth/register", JSON.stringify(form), {
     //     headers: {
     //       "Content-Type": "application/json",
     //     },
@@ -158,7 +157,7 @@ const SignUp = () => {
 
     
 
-   fetch("http://localhost:8080/api/auth/register", {
+   fetch("https://api.hacktues.bg/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

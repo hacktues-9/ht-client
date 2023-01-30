@@ -4,9 +4,9 @@ import { useState } from "react";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import Input from "../../components/form/Input";
 
-import style from "../../styles/login/Login.module.scss";
-import logo from "../../styles/Home.module.scss";
 import { TITLE } from "../../constants/arc";
+import logo from "../../styles/Home.module.scss";
+import style from "../../styles/login/Login.module.scss";
 
 
 import { useAuthContext } from "../../context/authContext";
@@ -21,19 +21,19 @@ const LogIN = () => {
 
   const githubClientID = "4f5f1918bf58eb0cccd4";
   const discordClientID = "1009547623637712977";
-  const githubRedirectURI = "http://localhost:8080/api/auth/github"
-  const discordRedirectURI = "http://localhost:8080/api/auth/discord"
+  const githubRedirectURI = "https://api.hacktues.bg/api/auth/github"
+  const discordRedirectURI = "https://api.hacktues.bg/api/auth/discord"
 
   const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
   const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
   const login = async (email: string, password: string) => {
     const response = await fetch(
-      "http://localhost:8080/api/auth/login",
+      "https://api.hacktues.bg/api/auth/login",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:8080",
+          "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
         },
         body: JSON.stringify({ identifier: email, password}),
         credentials: "include",

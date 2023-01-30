@@ -8,15 +8,14 @@ import { useAuthContext } from "../../context/authContext";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 
 import Select from "react-dropdown-select";
+import {
+    TbBrandDiscord,
+    TbBrandGithub,
+    TbClock,
+    TbShirt,
+} from "react-icons/tb";
 import { TECHNOLOGIES } from "../../constants/technologies";
 import style from "../../styles/0/profile/Profile.module.scss";
-import {
-  TbBrandDiscord,
-  TbBrandGithub,
-  TbClock,
-  TbShirt,
-} from "react-icons/tb";
-import { connect } from "http2";
 
 const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
 const isUser = (authUserId: string, userId: string) => authUserId === userId;
@@ -50,8 +49,8 @@ const User = () => {
   
   const githubClientID = "4f5f1918bf58eb0cccd4";
   const discordClientID = "1009547623637712977";
-  const githubRedirectURI = "http://localhost:8080/api/user/github"
-  const discordRedirectURI = "http://localhost:8080/api/user/discord"
+  const githubRedirectURI = "https://api.hacktues.bg/api/user/github"
+  const discordRedirectURI = "https://api.hacktues.bg/api/user/discord"
 
   const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&state=" + user + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
   const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&state=" + user +  "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
@@ -64,7 +63,7 @@ const User = () => {
 
   useEffect(() => {
     if (user) {
-      fetcher(`http://localhost:8080/api/user/get/${user}`)
+      fetcher(`https://api.hacktues.bg/api/user/get/${user}`)
         .then((res) => {
           setUserInfo(res);
           setNewUserInfo(res);
@@ -108,7 +107,7 @@ const User = () => {
     setChanged(false);
 
     // send api request to update user info
-    fetch("http://localhost:8080/api/user/update", {
+    fetch("https://api.hacktues.bg/api/user/update", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
