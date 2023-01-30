@@ -323,10 +323,12 @@ $profilePicSize: 10rem;
 }
 
 .select {
+    position: relative;
     width: 100%;
+    height: 100%;
 
     max-width: 355.733px;
-    height: 332.733px;
+    min-height: 332.733px;
 
     display: flex;
     flex-direction: column;
@@ -381,6 +383,9 @@ $profilePicSize: 10rem;
         padding: 0.3rem;
         border-radius: .3rem;
 
+        display: flex;
+        align-items: center;
+
         border: 1px solid #e1e4e83b !important;
         vertical-align: middle;
     }
@@ -394,6 +399,19 @@ $profilePicSize: 10rem;
         border: 1px solid #3d404360;
         border-radius: 1rem;
         padding: 0.5rem;
+
+
+        // overflow-y: scroll;
+
+    }
+
+    div:nth-child(1) {
+        max-height: 100%;
+        overflow: scroll;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     div:nth-child(3) {
@@ -409,6 +427,7 @@ $profilePicSize: 10rem;
 
         border: 1px solid #e1e4e83b;
         border-radius: .5rem;
+
 
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
