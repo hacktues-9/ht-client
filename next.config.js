@@ -19,6 +19,8 @@ const nextConfig = {
       "https://www.thebrandingjournal.com/",
       "picsum.photos",
       "i.stack.imgur.com",
+      "api.hacktues.bg",
+      "hacktues.bg",
     ],
   },
   i18n: {

@@ -13,14 +13,22 @@ import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
 
 import useSWR from "swr";
+import Notifications from "./Notifications";
 
-const fetcher = (url) => fetch(url, {credentials: "include"}).then((r) => r.json());
+const fetcher = (url) =>
+  fetch(url, { credentials: "include" }).then((r) => r.json());
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  const { data : user, error : errUser } = useSWR(`https://api.hacktues.bg/api/user/get/${userId}`, fetcher);
-  const {data: team} = useSWR(() => `https://api.hacktues.bg/api/team/${userId}`, fetcher);
-  
+  const { data: user, error: errUser } = useSWR(
+    `https://api.hacktues.bg/api/user/get/${userId}`,
+    fetcher
+  );
+  const { data: team } = useSWR(
+    () => `https://api.hacktues.bg/api/team/${userId}`,
+    fetcher
+  );
+
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -166,7 +174,7 @@ const Navigation = () => {
   const mobileDropdownButtonRef = useRef(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
-  const userId = authState?.userId;
+  const userId = authState?.userId || "hello";
 
   const handleMobileDropdown = () => {
     setShowMobileDropdown(!showMobileDropdown);
@@ -243,7 +251,10 @@ const Navigation = () => {
             {
               <div className={navbar.right}>
                 {isUserAuthenticated && userId ? (
-                  <Profile userId={userId} />
+                  <>
+                    <Notifications userId={userId} />
+                    <Profile userId={userId} />
+                  </>
                 ) : (
                   <>
                     <Link href="/login">
