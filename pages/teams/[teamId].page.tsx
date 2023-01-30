@@ -5,10 +5,21 @@ import { inTeam } from "../../utils/auth";
 import style from "../../styles/0/teams/Team.module.scss";
 import Select from "react-dropdown-select";
 import { TECHNOLOGIES } from "../../constants/technologies";
-import { useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import Image from "next/image";
-import { TbBrandGithub, TbGlobe, TbMinus, TbPlus, TbX } from "react-icons/tb";
+import {
+  TbBrandGithub,
+  TbGlobe,
+  TbMinus,
+  TbPlus,
+  TbUserCheck,
+  TbX,
+} from "react-icons/tb";
 import { ROLES } from "../../constants/teams";
+import Input from "../../components/form/Input";
+
+const fetcher = (url: string) =>
+  fetch(url, { credentials: "include" }).then((res) => res.json());
 
 const Technologies = ({ team, setTeam, disabled, isEditable }) => {
   return (
@@ -123,7 +134,99 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
   );
 };
 
+const handleInvite = (user: any, team: any) => {
+  // TODO: invite user to team - API
+};
+
+const SearchPeople = ({ teamId }) => {
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([]);
+  const [alreadyInvited, setAlreadyInvited] = useState([]);
+
+  useEffect(() => {
+    // TODO: get already invited users or members - API
+    // setAlreadyInvited([...alreadyInvited, ...res.data]);
+  }, []);
+
+  useEffect(() => {
+    if (search.length > 0) {
+      fetcher(`https://api.hacktues.bg/api/team/users/search?search=${search}`)
+        .then((res) => {
+          if (res) {
+            res.data.map((user) => {
+              if (
+                alreadyInvited.find((invited) => invited.email === user.email)
+              ) {
+                user.isInvited = true;
+              }
+              return user;
+            });
+            setResults(res);
+          } else {
+            setResults([]);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [search]);
+
+  return (
+    <div className={style.search}>
+      <Input
+        label="търси хора"
+        classes={["email"]}
+        id="search"
+        name="search"
+        type="text"
+        placeholder="Мартин Божинов"
+        required={false}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {search.length > 0 && (
+        <ul className={style.results}>
+          {results.length === 0 && (
+            <li className={style.person}>
+              <p>Няма резултати</p>
+            </li>
+          )}
+          {results &&
+            results.map((result) => (
+              <li key={result.id} className={style.person}>
+                <div className={style.person_info}>
+                  <Image
+                    src={result.profile_picture}
+                    alt={result.name}
+                    width={64}
+                    height={64}
+                    className={style.person_avatar}
+                  />
+                  <p>{result.name}</p>
+                </div>
+                <button
+                  disabled={result.isInvited}
+                  type="button"
+                  className={style.person_invite}
+                  onClick={() => {
+                    handleInvite(result, teamId);
+                    result.isInvited = true;
+                  }}
+                >
+                  <TbUserCheck />
+                </button>
+              </li>
+            ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
 const TeamMembers = ({ team, setTeam, isEditable }) => {
+  const [isInviting, setIsInviting] = useState(false);
+
   const kickMember = (id) => {
     // TODO: kick member from team API
 
@@ -138,12 +241,16 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
     // TODO: Kalata -> make custom right click menu -> kick member or make captain
   };
 
+  const handleInviteMember = () => {
+    setIsInviting(!isInviting);
+  };
+
   return (
     <div className={style.members}>
       <div className={style.members_header}>
         <h2>участници</h2>
         {isEditable && team?.members?.length < 5 && (
-          <button>
+          <button onClick={handleInviteMember}>
             <TbPlus size={32} />
           </button>
         )}
@@ -176,12 +283,12 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
           );
         })}
       </div>
+      {isInviting && <SearchPeople teamId={team.id} />}
     </div>
   );
 };
 
-
-// TODO: FINISH PROJECTS WITH API AND FRONT 
+// TODO: FINISH PROJECTS WITH API AND FRONT
 const TeamProject = ({ team, setTeam, isEditable }) => {
   const [edit, setEdit] = useState(false);
   //const [project, setProject] = useState(team?.project);
