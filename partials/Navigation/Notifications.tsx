@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOutsideAlerter } from "./useOutsideAlerter";
 
 import useSWR from "swr";
@@ -9,21 +9,31 @@ import { useRouter } from "next/router";
 import navbar from "../../styles/Navbar.module.scss";
 import { TbBell, TbBellRinging, TbCheck, TbX } from "react-icons/tb";
 
-const fetcher = (url) =>
-  fetch(url, { credentials: "include" }).then((r) => r.json());
+const fetcher = async(url) =>
+  await fetch(url, { credentials: "include" }).then((r) => r.json()).catch((err) => {throw err;});
 
 const Notifications = ({ userId }) => {
   // TODO: Fix async bullshit
-  
-  const { data: numberOfNotifications } =
-    useSWR(`https://api.hacktues.bg/api/user/notifications`, fetcher);
-
-  const [notifications, setNotifications] = useState(numberOfNotifications?.data);
-
-  
+  const [notifications, setNotifications] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
+
+  // get notifications from API
+  
+  const { data: numberOfNotifications, error: error } = useSWR(
+    `https://api.hacktues.bg/api/user/notifications`,
+    fetcher
+  );
+
+
+  useEffect(() => {
+    if(numberOfNotifications) {
+      console.log("numberOfNotifications", numberOfNotifications);
+      setNotifications(numberOfNotifications.data);
+    }
+  }, [numberOfNotifications])
+  
 
   // dropdown menu with profile picture and name
   // and logout button
@@ -70,6 +80,11 @@ const Notifications = ({ userId }) => {
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
 
+  if(error) {
+    console.log("error", error);
+    return null;
+  }
+  
   return (
     <>
       <div

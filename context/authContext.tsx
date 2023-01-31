@@ -88,9 +88,10 @@ const AuthProvider = ({ children }) => {
         })
         .catch((err) => {
           console.log(err);
+          setUserAuthInfo("", false);
         });
     }
-  }, []);
+  }, [authState.isLoggedIn]);
 
   return (
     <Provider

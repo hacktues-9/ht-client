@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import Input from "../../components/form/Input";
 
@@ -8,9 +8,7 @@ import { TITLE } from "../../constants/arc";
 import logo from "../../styles/Home.module.scss";
 import style from "../../styles/login/Login.module.scss";
 
-
 import { useAuthContext } from "../../context/authContext";
-
 
 const LogIN = () => {
   const [error, setError] = useState<string | null>(null);
@@ -21,29 +19,39 @@ const LogIN = () => {
 
   const githubClientID = "4f5f1918bf58eb0cccd4";
   const discordClientID = "1009547623637712977";
-  const githubRedirectURI = "https://api.hacktues.bg/api/auth/github"
-  const discordRedirectURI = "https://api.hacktues.bg/api/auth/discord"
+  const githubRedirectURI = "https://api.hacktues.bg/api/auth/github";
+  const discordRedirectURI = "https://api.hacktues.bg/api/auth/discord";
 
-  const githubLoginLink = "https://github.com/login/oauth/authorize?client_id=" + githubClientID + "&redirect_uri=" + githubRedirectURI + "&scope=user:email"
-  const discordLoginLink = "https://discord.com/api/oauth2/authorize?client_id=" + discordClientID + "&redirect_uri="+ discordRedirectURI +"&response_type=code&scope=identify"
+  const githubLoginLink =
+    "https://github.com/login/oauth/authorize?client_id=" +
+    githubClientID +
+    "&redirect_uri=" +
+    githubRedirectURI +
+    "&scope=user:email";
+  const discordLoginLink =
+    "https://discord.com/api/oauth2/authorize?client_id=" +
+    discordClientID +
+    "&redirect_uri=" +
+    discordRedirectURI +
+    "&response_type=code&scope=identify";
   const login = async (email: string, password: string) => {
-    const response = await fetch(
-      "https://api.hacktues.bg/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
-        },
-        body: JSON.stringify({ identifier: email, password}),
-        credentials: "include",
-      }
-    );
+    const response = await fetch("https://api.hacktues.bg/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
+      },
+      body: JSON.stringify({ identifier: email, password }),
+      credentials: "include",
+    });
     const data = await response.json();
     if (response.status != 200) {
       throw new Error(data.message);
-    }else{
-      push("/");
+    } else {
+      console.log("VERY IMPORTANT", data);
+      // setAuthState(null, true);
+      // TODO: Fix this instead of reloadig
+      push("/").then(() => window.location.reload());
     }
   };
 
@@ -65,10 +73,29 @@ const LogIN = () => {
     }
   };
 
+  // check if user is logged in
+  useEffect(() => {
+    const checkIfLoggedIn = async () => {
+      const response = await fetch("https://api.hacktues.bg/api/auth/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
+        },
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (response.status == 200) {
+        push("/");
+      }
+    };
+    checkIfLoggedIn();
+  }, []);
+
   return (
     <div className={style.container}>
       <div className={style.image}>
-        <Link className={logo.stack} href={'/'}>
+        <Link className={logo.stack} href={"/"}>
           <span id={logo.stack0}>{TITLE}</span>
           <span id={logo.stack1}>{TITLE}</span>
           <span id={logo.stack2}>{TITLE}</span>
@@ -104,11 +131,21 @@ const LogIN = () => {
         </button>
         <p className={style.alt_login_title}>или със</p>
         <div className={style.alt_login}>
-          <button className={style.discord} onClick={() => {location.href = discordLoginLink}}>
+          <button
+            className={style.discord}
+            onClick={() => {
+              location.href = discordLoginLink;
+            }}
+          >
             <TbBrandDiscord />
             <p>discord</p>
           </button>
-          <button className={style.github} onClick={() => {location.href = githubLoginLink}}>
+          <button
+            className={style.github}
+            onClick={() => {
+              location.href = githubLoginLink;
+            }}
+          >
             <TbBrandGithub />
             <p>github</p>
           </button>
@@ -117,7 +154,7 @@ const LogIN = () => {
           нямаш акаунт? <Link href="/signup">регистрирай се</Link>
         </p>
       </form>
-    </div >
+    </div>
   );
 };
 

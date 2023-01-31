@@ -196,21 +196,35 @@ const validatePreferences: validate = (form, setErrors) => {
 
 const validateTechnologies: validate = (form, setErrors) => {
   // check if technologies are valid and within the array of accepted technologies (empty is also valid)
-  if (form.technologies.length > 0) {
+  if(form.technologies === undefined || form.technologies === null) {
+    setErrors((prev: any) => ({ ...prev, technologies: "" }));
+    return;
+  }
+
+  if(form.technologies.length > 0) {
     form.technologies.forEach((technology) => {
-      if (Object.values(TECHNOLOGIES)["name"].indexOf(technology) < 0) {
+      if(Object.keys(TECHNOLOGIES).indexOf(technology) < 0) {
         // errors.technologies = "INVALID_TECHNOLOGIES";
-        setErrors((prev: any) => ({
-          ...prev,
-          technologies: "INVALID_TECHNOLOGIES",
-        }));
-        return;
+        setErrors((prev: any) => ({ ...prev, technologies: "INVALID_TECHNOLOGIES" }));
       }
     });
-  } else {
-    //errors.technologies = "";
-    setErrors((prev: any) => ({ ...prev, technologies: "" }));
   }
+
+  // if (form.technologies.length > 0) {
+  //   form.technologies.forEach((technology) => {
+  //     if (Object.values(TECHNOLOGIES)["name"].indexOf(technology) < 0) {
+  //       // errors.technologies = "INVALID_TECHNOLOGIES";
+  //       setErrors((prev: any) => ({
+  //         ...prev,
+  //         technologies: "INVALID_TECHNOLOGIES",
+  //       }));
+  //       return;
+  //     }
+  //   });
+  // } else {
+  //   //errors.technologies = "";
+  //   setErrors((prev: any) => ({ ...prev, technologies: "" }));
+  // }
 
   //return errors;
 };

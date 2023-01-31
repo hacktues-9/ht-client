@@ -1,5 +1,11 @@
 import Head from "next/head";
-import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from "react";
+import {
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import Input from "../../components/form/Input";
 import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
@@ -12,25 +18,28 @@ import { TbUserCheck } from "react-icons/tb";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 
-const fetcher = (url: string) => fetch(url, {credentials:"include"}).then((res) => res.json());
-
-
+const fetcher = (url: string) =>
+  fetch(url, { credentials: "include" }).then((res) => res.json());
 
 interface formData {
-  teamName: string,
-  teamDescription: string,
-  teamTechnologies: any[],
-  teamInvitees: any[],
+  teamName: string;
+  teamDescription: string;
+  teamTechnologies: any[];
+  teamInvitees: any[];
 }
 
 interface functionFormData {
-  form: formData,
-  setForm: Dispatch<SetStateAction<formData>>
+  form: formData;
+  setForm: Dispatch<SetStateAction<formData>>;
 }
 
 // Client side search
 
-const handleInvite = (user: any, form: formData, setForm: Dispatch<SetStateAction<formData>>) => {
+const handleInvite = (
+  user: any,
+  form: formData,
+  setForm: Dispatch<SetStateAction<formData>>
+) => {
   if (!user.isInvited) {
     setForm({
       ...form,
@@ -39,7 +48,9 @@ const handleInvite = (user: any, form: formData, setForm: Dispatch<SetStateActio
   }
 };
 
-const SearchPeople : FunctionComponent<functionFormData> = (props : functionFormData) => {
+const SearchPeople: FunctionComponent<functionFormData> = (
+  props: functionFormData
+) => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
@@ -47,15 +58,19 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
     if (search.length > 0) {
       fetcher(`https://api.hacktues.bg/api/team/users/search?search=${search}`)
         .then((res) => {
-          if (res.data){
+          if (res.data) {
             res.data.map((user) => {
-              if (props.form.teamInvitees.find((invitee) => invitee.id === user.id)) {
+              if (
+                props.form.teamInvitees.find(
+                  (invitee) => invitee.id === user.id
+                )
+              ) {
                 user.isInvited = true;
               }
               return user;
-            })
+            });
             setResults(res.data);
-          }else{
+          } else {
             setResults([]);
           }
         })
@@ -103,7 +118,7 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
                   type="button"
                   className={style.person_invite}
                   onClick={() => {
-                    handleInvite(result, props.form, props.setForm)
+                    handleInvite(result, props.form, props.setForm);
                     result.isInvited = true;
                   }}
                 >
@@ -117,7 +132,9 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
   );
 };
 
-const InviteTeammates : FunctionComponent<functionFormData> = (props : functionFormData) => {
+const InviteTeammates: FunctionComponent<functionFormData> = (
+  props: functionFormData
+) => {
   return (
     <>
       <SearchPeople form={props.form} setForm={props.setForm} />
@@ -146,7 +163,12 @@ const colourStyles = {
 
 const CreateTeam = () => {
   // if in team redirect to team page
-  const [form, setForm] = useState<formData>({ teamName: "", teamDescription: "", teamTechnologies: [], teamInvitees: [] });
+  const [form, setForm] = useState<formData>({
+    teamName: "",
+    teamDescription: "",
+    teamTechnologies: [],
+    teamInvitees: [],
+  });
   const [technologies, setTechnologies] = useState([]);
 
   const router = useRouter();
@@ -166,32 +188,79 @@ const CreateTeam = () => {
 
   const returnBack = () => {
     router && router.back();
-  }
+  };
 
-
-  const handleCreateTeam = async (e: any) => {
+  const handleCreateTeam = (e: any) => {
     e.preventDefault();
     console.log(form);
-    const res = await fetch("https://api.hacktues.bg/api/team/create", {
+
+    fetch("https://api.hacktues.bg/api/team/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(form),
       credentials: "include",
-    });
-    const data = await res.json();
-    console.log(data);
-    if (!res.ok) {
-      throw new Error(data.message);
-    } else {
-      //redirect to team page
-      router.push(`/teams/${data.id}`);
-      console.log(data.id)
-    }
-    return data;
-    };
-  
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("DATA", data);
+        if (data.satatus !== 200) {
+          // show error on the page
+
+          // if error is 401 redirect to login
+          if (data.status === 401) {
+            router.push("/login");
+          }
+
+          if (data.status === 403) {
+            console.log("ALREADY IN TEAM, pushing to team page", data.teamId);
+            // TODO: Marto
+            router.push(`/teams/${data.teamId}`);
+          }
+        } else {
+          router.push(`/teams/${data.id}`);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        // show error on the page
+
+        // if error is 401 redirect to login
+        if (err.status === 401) {
+          router.push("/login");
+        }
+
+        if (err.status === 403) {
+          router.push(`/teams/${err.teamId}`);
+        }
+      });
+  };
+
+  // TODO: Marto
+  // check if user is in team, if so redirect to team page
+  useEffect(() => {
+    fetch("https://api.hacktues.bg/api/team/check", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("DATA", data);
+        if(data.status === 200) {
+          if(!data.teamId) {
+            console.log("NO TEAM ID");
+          } else {
+            router.push(`/teams/${data.teamId}`);
+          }
+        } else {
+          console.log("NO TEAM");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>
@@ -199,7 +268,7 @@ const CreateTeam = () => {
         <title>Създай отбор | {TITLE}</title>
       </Head>
       <div>
-        <form className={style.form} onSubmit={handleCreateTeam}> 
+        <form className={style.form} onSubmit={handleCreateTeam}>
           <h1>Създай отбор</h1>
           <div className={style.team}>
             <div className={style.team_info}>

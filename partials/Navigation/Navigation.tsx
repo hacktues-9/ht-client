@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 
-import { MouseEventHandler, forwardRef, useRef, useState } from "react";
+import { MouseEventHandler, forwardRef, useEffect, useRef, useState } from "react";
 
 import TUESTalksNavbar from "../TUESTalks/Navbar";
 
@@ -20,7 +20,7 @@ const fetcher = (url) =>
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  const { data: user, error: errUser } = useSWR(
+  const { data: user, mutate, error: errUser } = useSWR(
     `https://api.hacktues.bg/api/user/get/${userId}`,
     fetcher
   );
@@ -45,6 +45,20 @@ const Profile = ({ userId }) => {
   };
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
+
+
+  // fix after login / signup / logout
+  useEffect(() => {
+    if (!userId) {
+      setShowDropdown(false);
+    } 
+
+    // refetch user data
+    if (userId) {
+      mutate();
+    }
+  }, [userId]);
+  
 
   if (errUser) return <div>failed to load</div>;
   if (!user) return <div>loading...</div>;
@@ -95,8 +109,9 @@ const Profile = ({ userId }) => {
               fetch("https://api.hacktues.bg/api/auth/logout", {
                 method: "POST",
                 credentials: "include",
+              }).then(() => {
+                window.location.reload();
               });
-              window.location.reload();
             }}
           >
             изход
@@ -174,7 +189,7 @@ const Navigation = () => {
   const mobileDropdownButtonRef = useRef(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
-  const userId = authState?.userId || "hello";
+ const [userId, setUserId] = useState<string | null>(null);
 
   const handleMobileDropdown = () => {
     setShowMobileDropdown(!showMobileDropdown);
@@ -185,6 +200,12 @@ const Navigation = () => {
   };
 
   useOutsideAlerter(mobileDropdownRef, mobileDropdownButtonRef, handleClicked);
+
+  useEffect(() => {
+    if (isUserAuthenticated) {
+      setUserId(authState.userId);
+    }
+  }, [authState.userId, isUserAuthenticated]);
 
   if (router.pathname.includes("/tuestalks")) return <TUESTalksNavbar />;
 

@@ -132,31 +132,6 @@ const SignUp = () => {
 
     // api post req using axios
 
-    // axios
-    //   .post("https://api.hacktues.bg/api/auth/register", JSON.stringify(form), {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     if (response.data.error) {
-    //       console.log(response.data.error);
-    //     } else if (response.status == 200) {
-    //       console.log(response.data);
-    //       // save user data to context and get authentication token + refresh token
-    //       const { data } = response.data;
-    //       console.log(data)
-    //       setAuthState(data, true);
-    //       router.push("/signup/success");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
-    
-
    fetch("https://api.hacktues.bg/api/auth/register", {
       method: "POST",
       headers: {
@@ -172,6 +147,7 @@ const SignUp = () => {
         console.log(data);
         if (data.error) {
           console.log(data.error);
+          setIsSubmitting(false);
         } else {
           // save user data to context and get authentication token + refresh token
           console.log(data);
@@ -180,6 +156,7 @@ const SignUp = () => {
         }
       })
       .catch((error) => {
+        setIsSubmitting(false);
         console.log(error);
       });
 
