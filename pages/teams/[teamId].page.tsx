@@ -55,7 +55,7 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
         keepSelectedInList={true}
         dropdownHandle={false}
         debounceDelay={300}
-        disabled={disabled}
+        disabled={disabled || !isEditable}
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           borderRadius: "6px",
@@ -157,7 +157,7 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
         </div>
       </div>
       <div className={style.team_info_technologies}>
-        <Technologies team={team} setTeam={setTeam} disabled={!edit} />
+        <Technologies team={team} setTeam={setTeam} disabled={!edit} isEditable={isEditable} />
       </div>
     </div>
   );
