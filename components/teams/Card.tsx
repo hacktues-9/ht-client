@@ -3,6 +3,7 @@ import styles from "../../styles/0/teams/Teams.module.scss";
 
 import Image from "next/image";
 import Technologies from "../technologies/Technologies";
+import Link from "next/link";
 
 const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
   const { name, logo, members, project, technologies } = team;
@@ -62,7 +63,13 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
   };
 
   return (
-    <div className={styles.card}>
+    <Link
+      className={styles.card}
+      href={{
+        pathname: "/teams/[team]",
+        query: { team: team.id },
+      }}
+    >
       <div className={styles.card_header}>
         <Image width={64} height={64} src={logo} alt={"logo"} />
         <div>
@@ -93,9 +100,12 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
           <div style={{ display: "flex", gap: ".25rem" }}>
             {
               // limit to fit in the card
-              technologies && technologies.slice(0, 3).map((tech) => (
-                <Technologies key={tech.id} technology={tech} />
-              ))
+              technologies &&
+                technologies
+                  .slice(0, 3)
+                  .map((tech) => (
+                    <Technologies key={tech.id} technology={tech} />
+                  ))
             }
             {
               // show how many more technologies are there in number
@@ -106,7 +116,7 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
