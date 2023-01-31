@@ -70,6 +70,114 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
 };
 
 const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
+  const [error, setError] = useState({
+    name: null,
+    description: null,
+    technologies: null,
+    profilePicture: null,
+    general: null,
+  });
+
+  const validateName = async (team, error) => {
+    if (!team.name) {
+      return {
+        ...error,
+        name: "Моля въведете име на екипа",
+      };
+    } else if (team.name.length < 3) {
+      return {
+        ...error,
+        name: "Името на екипа трябва да е поне 3 символа",
+      };
+    } else if (team.name.length > 28) {
+      return {
+        ...error,
+        name: "Името на екипа трябва да е по-малко от 28 символа",
+      };
+    } else {
+      return {
+        ...error,
+        name: null,
+      };
+    }
+  };
+
+  const validateDescription = async (team, error) => {
+    if (!team.description) {
+      return {
+        ...error,
+        description: "Моля въведете описание на екипа",
+      };
+    } else if (team.description.length < 10) {
+      return {
+        ...error,
+        description: "Описанието на екипа трябва да е поне 10 символа",
+      };
+    } else if (team.description.length > 140) {
+      return {
+        ...error,
+        description:
+          "Описанието на екипа трябва да е по-малко от 140 символа, или колкото един tweet",
+      };
+    } else {
+      return {
+        ...error,
+        description: null,
+      };
+    }
+  };
+
+  const validateTeam = async (team) => {
+    let error = {
+      name: null,
+      description: null,
+      technologies: null,
+      profilePicture: null,
+      general: null,
+    };
+
+    error = await validateName(team, error);
+    error = await validateDescription(team, error);
+
+    return error;
+  };
+
+  const handleEdit = async () => {
+    if (edit) {
+      // validate team
+      const error = await validateTeam(team);
+      setError(error);
+      if (error.name || error.description) {
+        return;
+      }
+
+      // TODO: Send request to update team MARTO
+      fetch(`/api/teams/${team._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(team),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // TODO: If successfull, set edit to false
+          setEdit(false);
+          // TODO: If not, show error
+          setError({
+            ...error,
+            general: data.error,
+          });
+        })
+        .catch((err) => {
+          // TODO: remove next line in real use
+          setEdit(false);
+          console.log("UPDATE TEAM INFO", err);
+        });
+    }
+  };
+
   return (
     <div className={style.team_info}>
       <div className={style.team_info_information}>
@@ -82,25 +190,41 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
           />
           <h1>
             {isEditable && edit ? (
-              <input
-                type="text"
-                name="teamName"
-                id="teamName"
-                value={team.name}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  color: "white",
-                  fontSize: "2rem",
-                  fontWeight: "800",
-                  fontFamily: "inherit",
-                  margin: "0",
-                  padding: "0",
-                  outline: "none",
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-                onChange={(e) => setTeam({ ...team, name: e.target.value })}
-              />
+              <>
+                <input
+                  type="text"
+                  name="teamName"
+                  id="teamName"
+                  value={team.name}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    color: "white",
+                    fontSize: "2rem",
+                    fontWeight: "800",
+                    fontFamily: "inherit",
+                    margin: "0",
+                    padding: "0",
+                    outline: "none",
+                    borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                  }}
+                  onChange={(e) => setTeam({ ...team, name: e.target.value })}
+                />
+                {error.name && (
+                  <p
+                    style={{
+                      color: "red",
+                      fontSize: "1rem",
+                      fontWeight: "400",
+                      fontFamily: "inherit",
+                      margin: "0",
+                      padding: "0",
+                    }}
+                  >
+                    {error.name}
+                  </p>
+                )}
+              </>
             ) : (
               team.name
             )}
@@ -108,7 +232,7 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
           {isEditable && (
             <button
               onClick={() => {
-                setEdit(!edit);
+                edit ? handleEdit() : setEdit(true);
               }}
             >
               {edit ? "запази" : "промени"}
@@ -116,34 +240,53 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
           )}
         </div>
         <div className={style.team_info_information_description}>
-          <p style={{
-            position: "relative",
-            display: "flex",
-          }}>
+          <p
+            style={{
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             {edit ? (
-              <textarea
-                name="teamDescription"
-                id="teamDescription"
-                value={team.description}
-                style={{
-                  backgroundColor: "transparent",
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                  color: "white",
-                  fontSize: "1.2rem",
-                  fontWeight: "400",
-                  fontFamily: "inherit",
-                  margin: "0",
-                  padding: "0",
-                  resize: "none",
-                  outline: "none",
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-                onChange={(e) =>
-                  setTeam({ ...team, description: e.target.value })
-                }
-              ></textarea>
+              <>
+                <textarea
+                  name="teamDescription"
+                  id="teamDescription"
+                  value={team.description}
+                  style={{
+                    backgroundColor: "transparent",
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    color: "white",
+                    fontSize: "1.2rem",
+                    fontWeight: "400",
+                    fontFamily: "inherit",
+                    margin: "0",
+                    padding: "0",
+                    resize: "none",
+                    outline: "none",
+                    borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                  }}
+                  onChange={(e) =>
+                    setTeam({ ...team, description: e.target.value })
+                  }
+                ></textarea>
+                {error.description && (
+                  <p
+                    style={{
+                      color: "red",
+                      fontSize: "1rem",
+                      fontWeight: "400",
+                      fontFamily: "inherit",
+                      margin: "0",
+                      padding: "0",
+                    }}
+                  >
+                    {error.description}
+                  </p>
+                )}
+              </>
             ) : (
               team.description
             )}
@@ -157,7 +300,12 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
         </div>
       </div>
       <div className={style.team_info_technologies}>
-        <Technologies team={team} setTeam={setTeam} disabled={!edit} isEditable={isEditable} />
+        <Technologies
+          team={team}
+          setTeam={setTeam}
+          disabled={!edit}
+          isEditable={isEditable}
+        />
       </div>
     </div>
   );
@@ -319,7 +467,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
 
 // TODO: FINISH PROJECTS WITH API AND FRONT
 const TeamProject = ({ team, setTeam, isEditable }) => {
-/*   const [edit, setEdit] = useState(false);
+  /*   const [edit, setEdit] = useState(false);
   //const [project, setProject] = useState(team?.project);
 
   // only one project per team
@@ -367,13 +515,16 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
   // TODO: Change on the 8th of March
 
   return (
-    <div className={style.project} style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
+    <div
+      className={style.project}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       за проект са ти нужни теми пръво?
-      </div>
+    </div>
   );
 };
 
