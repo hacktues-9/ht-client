@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useAuthContext } from "../../context/authContext";
 import { inTeam } from "../../utils/auth";
 
+import useSWR from "swr";
+
 import style from "../../styles/0/teams/Team.module.scss";
 import Select from "react-dropdown-select";
 import { TECHNOLOGIES } from "../../constants/technologies";
@@ -136,6 +138,27 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
 
 const handleInvite = (user: any, team: any) => {
   // TODO: invite user to team - API
+
+  fetch(`https://api.hacktues.bg/api/team/invite`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      teamId: team,
+      userId: user,
+    }),
+    credentials: "include",
+  })
+  .then((res) =>{
+    console.log(res);
+
+    if (res.status === 200) {
+      console.log("User invited successfully");
+    } else {
+      console.log("Error inviting user");
+    }
+  })
 };
 
 const SearchPeople = ({ teamId }) => {
@@ -146,13 +169,21 @@ const SearchPeople = ({ teamId }) => {
   useEffect(() => {
     // TODO: get already invited users or members - API
     // setAlreadyInvited([...alreadyInvited, ...res.data]);
+
+    fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`)
+    .then((res) => {
+      console.log(res);
+      if (res?.data) {
+        setAlreadyInvited([...alreadyInvited, ...res.data]);
+      }
+    })
   }, []);
 
   useEffect(() => {
     if (search.length > 0) {
       fetcher(`https://api.hacktues.bg/api/team/users/search?search=${search}`)
         .then((res) => {
-          if (res) {
+          if (res?.data) {
             res.data.map((user) => {
               if (
                 alreadyInvited.find((invited) => invited.email === user.email)
@@ -161,7 +192,7 @@ const SearchPeople = ({ teamId }) => {
               }
               return user;
             });
-            setResults(res);
+            setResults(res?.data);
           } else {
             setResults([]);
           }
@@ -210,7 +241,7 @@ const SearchPeople = ({ teamId }) => {
                   type="button"
                   className={style.person_invite}
                   onClick={() => {
-                    handleInvite(result, teamId);
+                    handleInvite(result.id, teamId);
                     result.isInvited = true;
                   }}
                 >
@@ -229,7 +260,16 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
 
   const kickMember = (id) => {
     // TODO: kick member from team API
-
+    fetcher(`https://api.hacktues.bg/api/team/kick/${id}`)
+    .then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        console.log("User kicked successfully");
+      } else {
+        console.log("Error kicking user");
+      }
+    })
+        
     setTeam({
       ...team,
       members: team.members.filter((member) => member.id !== id),
@@ -342,69 +382,55 @@ const Team = () => {
   const { authState } = useAuthContext();
 
   // TODO: check if user has rights to edit this team - aka is captain
+
+  // api call to https://api.hacktues.bg/api/team/captain/{teamId} -> returns captain id and compare with userId
+
   // TODO: check if user is in this team
+
+  // use member list from team api call to check if user is in team
 
   /* if (!inTeam(authState.userId, teamId)) {
   } */
+
+
 
   const editable = true;
 
   // TODO: Get Team Info form api
   // swr
+  const { data: teamData } = useSWR(`https://api.hacktues.bg/api/team/get/${teamId}`,
+    fetcher
+  );
 
-  const [team, setTeam] = useState({
-    name: "Team Name",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur, nisl nec ultricies lacinia, nisl nisl aliquet nisl, nec",
-    technologies: ["C++", "Java", "Angular"],
-    members: [
-      {
-        id: "1",
-        name: "Калоян Георгиев",
-        avatar: "/images/avatar.png",
-        role: "CAPTAIN",
-      },
-      {
-        id: "2",
-        name: "Лъчезар Топалов",
-        avatar: "/images/avatar.png",
-        role: "MEMBER",
-      },
-      {
-        id: "3",
-        name: "Калина Вълева",
-        avatar: "/images/avatar.png",
-        role: "MEMBER",
-      },
-      {
-        id: "4",
-        name: "Мина Славова",
-        avatar: "/images/avatar.png",
-        role: "MEMBER",
-      },
-      /*       {
-        id: "3",
-        name: "John Doe",
-        avatar: "/images/avatar.png",
-        role: "MEMBER",
-      }, */
-    ],
-    project: {
-      name: "Project Name",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      logo: "/images/project.png",
-      links: {
-        github: "https://github.com",
-        website: "https://github.com",
-      },
-    },
-  });
+  console.log(teamData?.data);
+
+  const [team, setTeam] = useState(teamData?.data);
 
   const [edit, setEdit] = useState(false);
 
   const handleEdit = () => {
     setEdit(!edit);
     // TODO: send team info to api
+    fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(team),
+        credentials: "include",
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.status === 200) {
+          setTeam(data.data);
+          setEdit(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
