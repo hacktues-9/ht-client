@@ -47,14 +47,14 @@ const SearchPeople : FunctionComponent<functionFormData> = (props : functionForm
     if (search.length > 0) {
       fetcher(`https://api.hacktues.bg/api/team/users/search?search=${search}`)
         .then((res) => {
-          if (res){
+          if (res.data){
             res.data.map((user) => {
               if (props.form.teamInvitees.find((invitee) => invitee.id === user.id)) {
                 user.isInvited = true;
               }
               return user;
             })
-            setResults(res);
+            setResults(res.data);
           }else{
             setResults([]);
           }
@@ -186,7 +186,7 @@ const CreateTeam = () => {
       throw new Error(data.message);
     } else {
       //redirect to team page
-      router.push("/team/${data.id}");
+      router.push(`/teams/${data.id}`);
       console.log(data.id)
     }
     return data;

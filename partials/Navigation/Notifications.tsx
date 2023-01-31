@@ -13,37 +13,14 @@ const fetcher = (url) =>
   fetch(url, { credentials: "include" }).then((r) => r.json());
 
 const Notifications = ({ userId }) => {
-  // TODO: Get notifications (invites) for current user
-  // TODO: Display ping on notification bell icon if there are any notifications
-  // TODO: Display notifications in dropdown menu on click (they should contain the team name and the team's logo)
-  // TODO: Accept or decline invite - buttons in dropdown menu
+  // TODO: Fix async bullshit
+  
+  const { data: numberOfNotifications } =
+    useSWR(`https://api.hacktues.bg/api/user/notifications`, fetcher);
 
-  const [notifications, setNotifications] = useState([
-    {
-      teamId: 1,
-      teamName: "Team 1",
-      teamLogo: "https://api.hacktues.bg/api/team/logo/1",
-    },
-    {
-      teamId: 2,
-      teamName: "Team 2",
-      teamLogo: "https://api.hacktues.bg/api/team/logo/2",
-    },
-    {
-      teamId: 3,
-      teamName: "Team 3",
-      teamLogo: "https://api.hacktues.bg/api/team/logo/3",
-    },
-  ]);
+  const [notifications, setNotifications] = useState(numberOfNotifications?.data);
 
-  const { data: numberOfNotifications, error: errNumberOfNotifications } =
-    useSWR(`https://api.hacktues.bg/api/notifications/${userId}`, fetcher);
-
-  /*   const { data: notifications, error: errNotifications } = useSWR(
-    `https://api.hacktues.bg/api/notifications/${userId}`,
-    fetcher
-  ); */
-
+  
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -63,6 +40,13 @@ const Notifications = ({ userId }) => {
     console.log("Accept invite for team " + teamId);
     // TODO: Send request to API to accept invite
     // remove notification from dropdown menu
+
+    // const { data: acceptResp } =
+    //   useSWR(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, fetcher);
+
+    // TODO: Check if status is 200
+    // TODO: Fix error with useSWR
+    
     setNotifications(
       notifications.filter((notification) => notification.teamId !== teamId)
     );
@@ -72,6 +56,13 @@ const Notifications = ({ userId }) => {
     console.log("Decline invite for team " + teamId);
     // TODO: Send request to API to decline invite
     // remove notification from dropdown menu
+
+    // const { data: declineResp } =
+    //   useSWR(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, fetcher);
+
+    // TODO: Check if status is 200
+    // TODO: Fix error with useSWR
+
     setNotifications(
       notifications.filter((notification) => notification.teamId !== teamId)
     );
