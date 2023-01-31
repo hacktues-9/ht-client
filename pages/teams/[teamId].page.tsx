@@ -625,6 +625,14 @@ const Team = () => {
       });
   };
 
+  useEffect(() => {
+    if (teamData?.data) {
+      setTeam(teamData?.data);
+    }
+  }, [teamData]);
+
+  if(!team) return <div>loading...</div>
+
   return (
     <div className={style.page}>
       <div className={style.page_top}>
