@@ -13,6 +13,7 @@ import {
   TbMinus,
   TbPlus,
   TbUserCheck,
+  TbUserPlus,
   TbX,
 } from "react-icons/tb";
 import { ROLES } from "../../constants/teams";
@@ -86,6 +87,18 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
                 name="teamName"
                 id="teamName"
                 value={team.name}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "white",
+                  fontSize: "2rem",
+                  fontWeight: "800",
+                  fontFamily: "inherit",
+                  margin: "0",
+                  padding: "0",
+                  outline: "none",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
                 onChange={(e) => setTeam({ ...team, name: e.target.value })}
               />
             ) : (
@@ -103,14 +116,30 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
           )}
         </div>
         <div className={style.team_info_information_description}>
-          <p>
+          <p style={{
+            position: "relative",
+            display: "flex",
+          }}>
             {edit ? (
               <textarea
                 name="teamDescription"
                 id="teamDescription"
-                cols={30}
-                rows={10}
                 value={team.description}
+                style={{
+                  backgroundColor: "transparent",
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  color: "white",
+                  fontSize: "1.2rem",
+                  fontWeight: "400",
+                  fontFamily: "inherit",
+                  margin: "0",
+                  padding: "0",
+                  resize: "none",
+                  outline: "none",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
                 onChange={(e) =>
                   setTeam({ ...team, description: e.target.value })
                 }
@@ -251,7 +280,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
         <h2>участници</h2>
         {isEditable && team?.members?.length < 5 && (
           <button onClick={handleInviteMember}>
-            <TbPlus size={32} />
+            {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
           </button>
         )}
       </div>
@@ -290,7 +319,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
 
 // TODO: FINISH PROJECTS WITH API AND FRONT
 const TeamProject = ({ team, setTeam, isEditable }) => {
-  const [edit, setEdit] = useState(false);
+/*   const [edit, setEdit] = useState(false);
   //const [project, setProject] = useState(team?.project);
 
   // only one project per team
@@ -333,6 +362,18 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
 
       <div className={style.project_technologies}></div>
     </div>
+  ); */
+
+  // TODO: Change on the 8th of March
+
+  return (
+    <div className={style.project} style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      за проект са ти нужни теми пръво?
+      </div>
   );
 };
 
