@@ -28,7 +28,7 @@ interface USER_INFO {
   elsysEmail: string;
   phone: string;
 
-  sclass: string;
+  class: string;
   shirtSize: string;
 
   emailVerified: boolean;
@@ -181,7 +181,7 @@ const User = () => {
                   </div>
                   <div>
                     <TbClock />
-                    <p>{userInfo.sclass}</p>
+                    <p>{userInfo.class}</p>
                   </div>
                 </div>
               </div>
