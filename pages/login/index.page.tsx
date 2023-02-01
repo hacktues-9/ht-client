@@ -60,7 +60,9 @@ const LogIN = () => {
       console.log("VERY IMPORTANT", response);
       // fix safari bug - set cookie and reload
       if (navigator.userAgent.indexOf("Safari") != -1) {
-        push("/");
+        push("/").then(() => {
+          window.location.reload();
+        });
       } else {
         push("/").then(() => {
           window.location.reload();
