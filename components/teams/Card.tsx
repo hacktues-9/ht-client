@@ -88,7 +88,7 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
           {members.map((member) => (
             <img
               key={member.id}
-              src={member.profilePicture}
+              src={member.profile_picture}
               alt="profile"
               className="w-10 h-10 rounded-full"
               onMouseEnter={(e) => onHoverMember(e, member)}

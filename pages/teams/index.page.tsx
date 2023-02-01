@@ -11,11 +11,10 @@ import { ROLES } from "../../constants/teams";
 import styles from "../../styles/0/teams/Teams.module.scss";
 import { ITeam } from "../../types/ITeam";
 
-const url = "/data/teams.json";
 const fetcher = (url: string) => fetch(url, { credentials: "include"}).then((res) => res.json());
 
 const MemberInfoCard = ({ member, position }) => {
-  const { name, profilePicture, role, class: class_, discord, github } = member;
+  const { name, profile_picture, role, class: class_, discord, github } = member;
 
   // position is the position of the member's profile picture
   // the card should be positioned relative to the member's profile picture
@@ -30,7 +29,7 @@ const MemberInfoCard = ({ member, position }) => {
         <Image
           width={64}
           height={64}
-          src={profilePicture}
+          src={profile_picture}
           alt={"profile picture"}
         />
         <div>

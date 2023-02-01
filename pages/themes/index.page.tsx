@@ -1,5 +1,5 @@
 const Theme = () => {
-  return <h1>Theme Page</h1>;
+  return <h1>скоро</h1>;
 };
 
 export default Theme;

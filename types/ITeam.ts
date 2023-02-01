@@ -7,7 +7,7 @@ export interface ITeam {
   members: {
     id: string;
     name: string;
-    profilePicture: string;
+    profile_picture: string;
     role: string;
     class: string;
     email?: string;
