@@ -75,12 +75,12 @@ const validateElsys: validate = (form, setErrors) => {
     //new_errors.phone = "REQ_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "REQ_PHONE_NUMBER" }));
   } else if (
-    !/^\+359+[0-9]{9}$/.test(form.phone) ||
+    !/^\+359+[0-9]{9}$/.test(form.phone)/*  ||
     !/^08+[0-9]{8}$/.test(form.phone) ||
     !/^09+[0-9]{8}$/.test(form.phone) ||
     !/^\+359+[0-9]{3}+[0-9]{3}+[0-9]{3}$/.test(form.phone) ||
     !/^\+08+[0-9]{3}+[0-9]{3}+[0-9]{3}$/.test(form.phone) ||
-    !/^\+09+[0-9]{3}+[0-9]{3}+[0-9]{3}$/.test(form.phone)
+    !/^\+09+[0-9]{3}+[0-9]{3}+[0-9]{3}$/.test(form.phone) */
   ) {
     //new_errors.phone = "INVALID_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "INVALID_PHONE_NUMBER" }));

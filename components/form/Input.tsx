@@ -28,7 +28,13 @@ const Input = ({ label, id, error, ...props }: IInput) => {
               key={option.value}
               value={option.value}
               style={{
-                color: '#000',
+                backgroundColor: "#000",
+                borderRadius: "5px",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                padding: "0 10px",
+                fontSize: "16px",
+                outline: "none",
+                appearance: "none",
               }}
             >
               {option.label}
