@@ -3,7 +3,13 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 
-import { MouseEventHandler, forwardRef, useEffect, useRef, useState } from "react";
+import {
+  MouseEventHandler,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import TUESTalksNavbar from "../TUESTalks/Navbar";
 
@@ -20,10 +26,11 @@ const fetcher = (url) =>
 
 const Profile = ({ userId }) => {
   // get profile picture and name from api
-  const { data: user, mutate, error: errUser } = useSWR(
-    `https://api.hacktues.bg/api/user/get/${userId}`,
-    fetcher
-  );
+  const {
+    data: user,
+    mutate,
+    error: errUser,
+  } = useSWR(`https://api.hacktues.bg/api/user/get/${userId}`, fetcher);
   const { data: team, error: teamError } = useSWR(
     () => `https://api.hacktues.bg/api/team/${userId}`,
     fetcher
@@ -46,19 +53,17 @@ const Profile = ({ userId }) => {
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
 
-
   // fix after login / signup / logout
   useEffect(() => {
     if (!userId) {
       setShowDropdown(false);
-    } 
+    }
 
     // refetch user data
     if (userId) {
       mutate();
     }
   }, [userId]);
-  
 
   if (errUser) return <div>failed to load</div>;
   if (!user) return <div>loading...</div>;
@@ -74,7 +79,7 @@ const Profile = ({ userId }) => {
         onClick={handleDropdown}
         ref={dropdownButtonRef}
       >
-        <p>{user.name}</p>
+        <p>{user.firstName}</p>
         <Image
           src={user.profilePicture}
           alt={"Profile Picture"}
@@ -193,7 +198,7 @@ const Navigation = () => {
   const mobileDropdownButtonRef = useRef(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
- const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
 
   const handleMobileDropdown = () => {
     setShowMobileDropdown(!showMobileDropdown);

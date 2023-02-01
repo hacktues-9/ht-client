@@ -142,27 +142,13 @@ const InviteTeammates: FunctionComponent<functionFormData> = (
   );
 };
 
-/*
-
-
-
-*/
-
-const colourStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "white" }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    //const color = chroma(data.color);
-    return {
-      ...styles,
-      backgroundColor: isDisabled ? "red" : "red",
-      // color: '#FFF',
-      cursor: isDisabled ? "not-allowed" : "default",
-    };
-  },
-};
-
 const CreateTeam = () => {
   // if in team redirect to team page
+  const [errors, setErrors] = useState({
+    teamName: null,
+    teamDescription: null,
+  });
+
   const [form, setForm] = useState<formData>({
     teamName: "",
     teamDescription: "",
@@ -190,9 +176,80 @@ const CreateTeam = () => {
     router && router.back();
   };
 
-  const handleCreateTeam = (e: any) => {
+  const validateName = async (form, errors) => {
+    if (!form.teamName) {
+      errors = {
+        ...errors,
+        teamName: "Моля въведете име на екипа",
+      };
+    } else if (form.teamName.length < 3) {
+      errors = {
+        ...errors,
+        teamName: "Името на екипа трябва да е поне 3 символа",
+      };
+    } else if (form.teamName.length > 28) {
+      errors = {
+        ...errors,
+        teamName: "Името на екипа трябва да е по-малко от 28 символа",
+      };
+    } else {
+      errors = {
+        ...errors,
+        teamName: null,
+      };
+    }
+
+    return errors;
+  };
+
+  const validateDescription = async (form, errors) => {
+    if (!form.teamDescription) {
+      errors = {
+        ...errors,
+        teamDescription: "Моля въведете описание на екипа",
+      };
+    } else if (form.teamDescription.length < 10) {
+      errors = {
+        ...errors,
+        teamDescription: "Описанието на екипа трябва да е поне 10 символа",
+      };
+    } else if (form.teamDescription.length > 140) {
+      errors = {
+        ...errors,
+        teamDescription:
+          "Описанието на екипа трябва да е по-малко от 140 символа",
+      };
+    } else {
+      errors = {
+        ...errors,
+        teamDescription: null,
+      };
+    }
+
+    return errors;
+  };
+
+  const validateTeam = async (form) => {
+    let errors = {
+      teamName: null,
+      teamDescription: null,
+    };
+
+    errors = await validateName(form, errors);
+    errors = await validateDescription(form, errors);
+
+    return errors;
+  };
+
+  const handleCreateTeam = async (e: any) => {
     e.preventDefault();
     console.log(form);
+
+    const newErrors = await validateTeam(form);
+    setErrors(newErrors);
+    if (newErrors.teamName || newErrors.teamDescription) {
+      return;
+    }
 
     fetch("https://api.hacktues.bg/api/team/create", {
       method: "POST",
@@ -247,8 +304,8 @@ const CreateTeam = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("DATA", data);
-        if(data.status === 200) {
-          if(!data.teamId) {
+        if (data.status === 200) {
+          if (!data.teamId) {
             console.log("NO TEAM ID");
           } else {
             router.push(`/teams/${data.teamId}`);
@@ -283,6 +340,9 @@ const CreateTeam = () => {
                 value={form.teamName}
                 onChange={(e) => setForm({ ...form, teamName: e.target.value })}
               />
+              {errors.teamName && (
+                <p className={style.error}>{errors.teamName}</p>
+              )}
 
               <Input
                 label="описание"
@@ -297,6 +357,9 @@ const CreateTeam = () => {
                   setForm({ ...form, teamDescription: e.target.value })
                 }
               />
+              {errors.teamDescription && (
+                <p className={style.error}>{errors.teamDescription}</p>
+              )}
             </div>
 
             <div className={style.team_info}>
@@ -320,7 +383,7 @@ const CreateTeam = () => {
                   searchBy="label"
                   searchable={true}
                   multi={true}
-                  required={true}
+                  required={false}
                   keepSelectedInList={true}
                   dropdownHandle={false}
                   debounceDelay={300}
