@@ -16,6 +16,7 @@ import {
   TbPlus,
   TbUserCheck,
   TbUserPlus,
+  TbUserX,
   TbX,
 } from "react-icons/tb";
 import { ROLES } from "../../constants/teams";
@@ -166,15 +167,15 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
         .then((data) => {
           console.log(data);
           // TODO: If successfull, set edit to false
-          if (data.status === 200){
-          setEdit(false);
-          // TODO: If not, show error
+          if (data.status === 200) {
+            setEdit(false);
+            // TODO: If not, show error
           } else {
-          setError({
-            ...error,
-            general: data.error,
-          });
-        }
+            setError({
+              ...error,
+              general: data.error,
+            });
+          }
         })
         .catch((err) => {
           // TODO: remove next line in real use
@@ -330,8 +331,7 @@ const handleInvite = (user: any, team: any) => {
       userId: user,
     }),
     credentials: "include",
-  })
-  .then((res) =>{
+  }).then((res) => {
     console.log(res);
 
     if (res.status === 200) {
@@ -339,7 +339,7 @@ const handleInvite = (user: any, team: any) => {
     } else {
       console.log("Error inviting user");
     }
-  })
+  });
 };
 
 const SearchPeople = ({ teamId }) => {
@@ -351,13 +351,14 @@ const SearchPeople = ({ teamId }) => {
     // TODO: get already invited users or members - API
     // setAlreadyInvited([...alreadyInvited, ...res.data]);
 
-    fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`)
-    .then((res) => {
-      console.log(res);
-      if (res?.data) {
-        setAlreadyInvited([...alreadyInvited, ...res.data]);
+    fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`).then(
+      (res) => {
+        console.log(res);
+        if (res?.data) {
+          setAlreadyInvited([...alreadyInvited, ...res.data]);
+        }
       }
-    })
+    );
   }, []);
 
   useEffect(() => {
@@ -436,21 +437,47 @@ const SearchPeople = ({ teamId }) => {
   );
 };
 
+const ContextMenu = ({ id, kickMember }) => {
+  return (
+    <div className={style.context_menu}>
+      <button
+        type="button"
+        className={style.context_menu_button}
+        style={{
+          // calculete position
+          width: "fit-content",
+          height: "fit-content",
+          borderRadius: "0.5rem",
+          padding: "0.5rem",
+          position: "absolute",
+          top: "calc(100% + 1rem)",
+          right: "0",
+          
+        }}
+        onClick={() => kickMember(id)}
+      >
+        <TbUserX />
+        <p>премахни</p>
+      </button>
+    </div>
+  );
+};
+
 const TeamMembers = ({ team, setTeam, isEditable }) => {
   const [isInviting, setIsInviting] = useState(false);
+  const [openContextMenu, setOpenContextMenu] = useState(false);
 
   const kickMember = (id) => {
     // TODO: kick member from team API
-    fetcher(`https://api.hacktues.bg/api/team/kick/${id}`)
-    .then((res) => {
+    fetcher(`https://api.hacktues.bg/api/team/kick/${id}`).then((res) => {
       console.log(res);
       if (res.status === 200) {
         console.log("User kicked successfully");
       } else {
         console.log("Error kicking user");
       }
-    })
-        
+    });
+
     setTeam({
       ...team,
       members: team.members.filter((member) => member.id !== id),
@@ -460,6 +487,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
   const contextMenu = (e) => {
     e.preventDefault();
     // TODO: Kalata -> make custom right click menu -> kick member or make captain
+    setOpenContextMenu(true);
   };
 
   const handleInviteMember = () => {
@@ -483,7 +511,13 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
               className={style.member}
               onContextMenu={contextMenu}
               key={member}
+              style={{
+                position: "relative",
+              }}
             >
+              {openContextMenu && (
+                <ContextMenu id={member.id} kickMember={kickMember} />
+              )}
               <div className={style.member_info}>
                 <Image
                   src={member.avatar}
@@ -581,7 +615,10 @@ const Team = () => {
   // TODO: check if user has rights to edit this team - aka is captain
 
   // api call to https://api.hacktues.bg/api/team/captain/{teamId} -> returns captain id and compare with userId
-  const { data: isCaptainResp } = useSWR(`https://api.hacktues.bg/api/team/captain/${teamId}`, fetcher);
+  const { data: isCaptainResp } = useSWR(
+    `https://api.hacktues.bg/api/team/captain/${teamId}`,
+    fetcher
+  );
 
   // TODO: check if user is in this team
 
@@ -592,7 +629,8 @@ const Team = () => {
 
   // TODO: Get Team Info form api
   // swr
-  const { data: teamData } = useSWR(`https://api.hacktues.bg/api/team/get/${teamId}`,
+  const { data: teamData } = useSWR(
+    `https://api.hacktues.bg/api/team/get/${teamId}`,
     fetcher
   );
 
@@ -601,7 +639,7 @@ const Team = () => {
   const [team, setTeam] = useState(teamData?.data);
 
   if (isCaptainResp?.data === authState.userId) {
-    editable = true
+    editable = true;
   }
 
   const [edit, setEdit] = useState(false);
@@ -637,7 +675,7 @@ const Team = () => {
     }
   }, [teamData]);
 
-  if(!team) return <div>loading...</div>
+  if (!team) return <div>loading...</div>;
 
   return (
     <div className={style.page}>
