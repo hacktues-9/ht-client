@@ -21,6 +21,7 @@ const nextConfig = {
       "i.stack.imgur.com",
       "api.hacktues.bg",
       "hacktues.bg",
+      "api.hacktues.com",
     ],
   },
   i18n: {
