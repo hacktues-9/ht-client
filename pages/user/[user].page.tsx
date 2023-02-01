@@ -98,10 +98,12 @@ const User = () => {
   };
 
   const connectDiscord = () => {
-    location.href = discordLoginLink;
+    // open discord login link on a new tab 
+    window.open(discordLoginLink, "_blank");
   };
   const connectGithub = () => {
-    location.href = githubLoginLink;
+    // open github login link on a new tab
+    window.open(githubLoginLink, "_blank");
   };
 
   const handleChange = (e) => {};
