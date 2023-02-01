@@ -34,6 +34,7 @@ const LogIN = () => {
     "&redirect_uri=" +
     discordRedirectURI +
     "&response_type=code&scope=identify";
+
   const login = async (email: string, password: string) => {
     const response = await fetch("https://api.hacktues.bg/api/auth/login", {
       method: "POST",
@@ -44,9 +45,17 @@ const LogIN = () => {
       body: JSON.stringify({ identifier: email, password }),
       credentials: "include",
     });
+
     const data = await response.json();
     if (response.status != 200) {
-      throw new Error(data.message);
+      console.log("VERY IMPORTANT", response.status, data);
+      if (data.description === "user: find: record not found") {
+        setError("Няма такъв потребител");
+      } else if (data.description === "password: compare: wrong password") {
+        setError("Грешна парола");
+      } else {
+        setError("Нещо се обърка");
+      }
     } else {
       console.log("VERY IMPORTANT", data);
       // setAuthState(null, true);
@@ -123,9 +132,31 @@ const LogIN = () => {
             required={true}
           />
         </div>
-        <Link className={style.forgor} href="/forgotten-password">
-          забравена парола?
-        </Link>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          {error && (
+            <p
+              style={{
+                color: "red",
+                textAlign: "center",
+                margin: "0",
+                fontSize: ".8rem",
+              }}
+            >
+              {error}
+            </p>
+          )}
+          <Link className={style.forgor} href="/forgotten-password" style={{
+            margin: "0 0 0 auto"
+          }}>
+            забравена парола?
+          </Link>
+        </div>
         <button className={style.login} type="submit">
           влез
         </button>
