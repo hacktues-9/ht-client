@@ -38,7 +38,7 @@ interface USER_INFO {
   github: string;
   lookingForTeam: boolean;
 
-  profilePic: string;
+  profilePicture: string;
   technologies: string[];
 }
 
@@ -147,9 +147,9 @@ const User = () => {
           <div className={style.profile_container}>
             <div className={style.info}>
               <div className={style.profilepic}>
-                {userInfo.profilePic && userInfo.profilePicVerified && (
-                  <Image
-                    src={userInfo.profilePic}
+                {userInfo.profilePicture && (
+                  /* userInfo.profilePicVerified && */ <Image
+                    src={userInfo.profilePicture}
                     width={200}
                     height={200}
                     alt="profile picture"
@@ -280,7 +280,9 @@ const User = () => {
                   {newUserInfo.discord === "#" ||
                     (newUserInfo.discord === "" && `свържи се с `)}
                   <TbBrandDiscord size={32} />
-                  {(newUserInfo.discord !== "#" && newUserInfo.discord !== "") && newUserInfo.discord}
+                  {newUserInfo.discord !== "#" &&
+                    newUserInfo.discord !== "" &&
+                    newUserInfo.discord}
                 </button>
                 <button
                   className={style.github}
