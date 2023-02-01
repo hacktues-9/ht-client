@@ -28,7 +28,7 @@ const TechnologiesTab = ({ form, setForm, errors }) => {
             key={technology.name}
             size={technology.name}
             selected={isSelected[technology.name]}
-            style={{ backgroundColor: technology.color }}
+            style={{ backgroundColor: technology.backgroundColor, color: technology.color, opacity: isSelected[technology.name] ? 1 : 0.7 }}
             onClick={() => handleOnChange(technology.name)}
           />
         ))}

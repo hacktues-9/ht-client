@@ -26,6 +26,8 @@ import {
 
 import styles from "../../styles/login/Login.module.scss";
 
+import style from "./style.module.scss";
+
 const SignUp = () => {
   const [form, setForm] = useState<SignUpForm>(SIGN_UP_FORM);
   const [errors, setErrors] = useState<SignUpErrors>(SIGN_UP_ERRORS);
@@ -229,9 +231,9 @@ const SignUp = () => {
   }, [nextStep]); */
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div className="tabs">
+    <div className={style.sign_container}>
+      <form className={style.sign_form} onSubmit={handleSubmit}>
+        <div className={style.tabs}>
           {step == Steps.initial && (
             <InitialTab form={form} setForm={setForm} errors={errors} />
           )}
@@ -246,7 +248,7 @@ const SignUp = () => {
           )}
           {/* <SubmitTab /> */}
         </div>
-        <div className="buttons" style={{ marginTop: "1rem" }}>
+        <div className={style.buttons} style={{ marginTop: "1rem" }}>
           {step > 0 && (
             <button
               className={styles.login}
