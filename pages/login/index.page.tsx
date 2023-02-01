@@ -57,10 +57,10 @@ const LogIN = () => {
         setError("Нещо се обърка");
       }
     } else {
-      console.log("VERY IMPORTANT", data);
+      console.log("VERY IMPORTANT", response);
       // fix safari bug - set cookie and reload
       if (navigator.userAgent.indexOf("Safari") != -1) {
-        //push("/");
+        push("/");
       } else {
         push("/").then(() => {
           window.location.reload();
