@@ -71,7 +71,7 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
   );
 };
 
-const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
+const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
   const [error, setError] = useState({
     name: null,
     description: null,
@@ -154,23 +154,27 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable }) => {
       }
 
       // TODO: Send request to update team MARTO
-      fetch(`/api/teams/${team._id}`, {
+      fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(team),
+        credentials: "include",
       })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
           // TODO: If successfull, set edit to false
+          if (data.status === 200){
           setEdit(false);
           // TODO: If not, show error
+          } else {
           setError({
             ...error,
             general: data.error,
           });
+        }
         })
         .catch((err) => {
           // TODO: remove next line in real use
@@ -572,10 +576,12 @@ const Team = () => {
   const router = useRouter();
   const { teamId } = router.query as { teamId: string };
   const { authState } = useAuthContext();
+  let editable = false;
 
   // TODO: check if user has rights to edit this team - aka is captain
 
   // api call to https://api.hacktues.bg/api/team/captain/{teamId} -> returns captain id and compare with userId
+  const { data: isCaptainResp } = useSWR(`https://api.hacktues.bg/api/team/captain/${teamId}`, fetcher);
 
   // TODO: check if user is in this team
 
@@ -583,10 +589,6 @@ const Team = () => {
 
   /* if (!inTeam(authState.userId, teamId)) {
   } */
-
-
-
-  const editable = true;
 
   // TODO: Get Team Info form api
   // swr
@@ -598,32 +600,36 @@ const Team = () => {
 
   const [team, setTeam] = useState(teamData?.data);
 
+  if (isCaptainResp?.data === authState.userId) {
+    editable = true
+  }
+
   const [edit, setEdit] = useState(false);
 
-  const handleEdit = () => {
-    setEdit(!edit);
-    // TODO: send team info to api
-    fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify(team),
-        credentials: "include",
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+  // const handleEdit = () => {
+  //   setEdit(!edit);
+  //   // TODO: send team info to api
+  //   fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(team),
+  //       credentials: "include",
+  //     })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
 
-        if (data.status === 200) {
-          setTeam(data.data);
-          setEdit(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //       if (data.status === 200) {
+  //         setTeam(data.data);
+  //         setEdit(false);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   useEffect(() => {
     if (teamData?.data) {
@@ -642,6 +648,7 @@ const Team = () => {
           edit={edit}
           setEdit={setEdit}
           isEditable={editable}
+          teamId={teamId}
         />
       </div>
       <div className={style.page_bottom}>

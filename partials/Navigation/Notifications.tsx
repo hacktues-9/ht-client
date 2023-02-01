@@ -51,8 +51,13 @@ const Notifications = ({ userId }) => {
     // TODO: Send request to API to accept invite
     // remove notification from dropdown menu
 
-    // const { data: acceptResp } =
-    //   useSWR(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, fetcher);
+    fetch(`https://api.hacktues.bg/api/team/accept/${teamId}/${userId}`, {
+      method: "POST",
+      credentials: "include",
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
 
     // TODO: Check if status is 200
     // TODO: Fix error with useSWR
@@ -67,8 +72,13 @@ const Notifications = ({ userId }) => {
     // TODO: Send request to API to decline invite
     // remove notification from dropdown menu
 
-    // const { data: declineResp } =
-    //   useSWR(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, fetcher);
+    fetch(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, {
+      method: "POST",
+      credentials: "include",
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
 
     // TODO: Check if status is 200
     // TODO: Fix error with useSWR

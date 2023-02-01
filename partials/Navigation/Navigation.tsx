@@ -31,7 +31,7 @@ const Profile = ({ userId }) => {
     mutate,
     error: errUser,
   } = useSWR(`https://api.hacktues.bg/api/user/get/${userId}`, fetcher);
-  const { data: team, error: teamError } = useSWR(
+  const { data: team } = useSWR(
     () => `https://api.hacktues.bg/api/team/${userId}`,
     fetcher
   );
@@ -98,7 +98,7 @@ const Profile = ({ userId }) => {
           <Link href={`/user/${userId}`} onClick={handleClicked}>
             профил
           </Link>
-          {team && team.status === "200" ? (
+          {team && team?.status === 200 ? (
             <Link href={`/teams/${team?.data}`} onClick={handleClicked}>
               отбор
             </Link>

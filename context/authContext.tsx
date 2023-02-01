@@ -82,8 +82,10 @@ const AuthProvider = ({ children }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data) {
+          if (data.status === 200) {
             setUserAuthInfo(data.data, true);
+          }else{
+            setUserAuthInfo("", false);
           }
         })
         .catch((err) => {
