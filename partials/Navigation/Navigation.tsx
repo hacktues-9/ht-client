@@ -140,7 +140,7 @@ const MobileBar = forwardRef<HTMLDivElement>(
   (
     props: {
       handleMobileDropdownClicked: MouseEventHandler;
-      isUserAuthenticated;
+      isUserAuthenticated: boolean;
     },
     ref
   ) => {
@@ -173,9 +173,6 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
             <li>класация</li>
           </Link>
-          <Link href="/archive" onClick={handleMobileDropdownClicked}>
-            <li>архив</li>
-          </Link>
 {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
           </Link> */}
@@ -183,7 +180,6 @@ const MobileBar = forwardRef<HTMLDivElement>(
           {/* login or registration */}
           {!props.isUserAuthenticated && (
             <>
-              {" "}
               <Link href="/login" onClick={handleMobileDropdownClicked}>
                 <li>вход</li>
               </Link>
@@ -296,7 +292,7 @@ const Navigation = () => {
                 ref={mobileDropdownRef}
                 {...{
                   handleMobileDropdownClicked: handleClicked,
-                  isUserAuthenticated,
+                  isUserAuthenticated : isUserAuthenticated(),
                 }}
               />
             )}
