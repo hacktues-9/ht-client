@@ -370,36 +370,38 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
           )}
 
           {/* // TODO _ IMPORTANT */}
-          <div
-            style={{
-              margin: "0 0 0 auto",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "flex-end",
-              gap: "1rem",
-            }}
-          >
-            <button
+          {inTeam && (
+            <div
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                padding: ".5rem",
-                border: "none",
-                borderRadius: "5px",
-              }} /* onClick={() => handleLeave()} */
+                margin: "0 0 0 auto",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "flex-end",
+                gap: "1rem",
+              }}
             >
-              напусни
-            </button>
-            <button
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                padding: ".5rem",
-                border: "none",
-                borderRadius: "5px",
-              }} /* onClick={() => hanldeDelete()} */
-            >
-              изтрий
-            </button>
-          </div>
+              <button
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: ".5rem",
+                  border: "none",
+                  borderRadius: "5px",
+                }} /* onClick={() => handleLeave()} */
+              >
+                напусни
+              </button>
+              <button
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: ".5rem",
+                  border: "none",
+                  borderRadius: "5px",
+                }} /* onClick={() => hanldeDelete()} */
+              >
+                изтрий
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div className={style.team_info_technologies}>
@@ -552,7 +554,6 @@ const ContextMenu = ({ id, kickMember }) => {
           position: "absolute",
           top: "calc(100% + 1rem)",
           right: "0",
-          
         }}
         onClick={() => kickMember(id)}
       >
