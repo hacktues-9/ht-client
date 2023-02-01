@@ -266,16 +266,27 @@ const User = () => {
                 <button
                   className={style.discord}
                   type="button"
-                  onClick={() => { newUserInfo.discord === "#" ? connectDiscord() : window.open(`https://discord.com/users/${newUserInfo.discord}`)}}
+                  onClick={() => {
+                    newUserInfo.discord === "#" || newUserInfo.discord === ""
+                      ? connectDiscord()
+                      : window.open(
+                          `https://discord.com/users/${newUserInfo.discord}`
+                        );
+                  }}
                 >
-                  {newUserInfo.discord === "#" && `свържи се с `}
+                  {newUserInfo.discord === "#" ||
+                    (newUserInfo.discord === "" && `свържи се с `)}
                   <TbBrandDiscord size={32} />
-                  {newUserInfo.discord !== "#" && newUserInfo.discord}
+                  {(newUserInfo.discord !== "#" && newUserInfo.discord !== "") && newUserInfo.discord}
                 </button>
                 <button
                   className={style.github}
                   type="button"
-                  onClick={() => { newUserInfo.github ? window.open(`https://github.com/${newUserInfo.github}`) : connectGithub() }}
+                  onClick={() => {
+                    newUserInfo.github
+                      ? window.open(`https://github.com/${newUserInfo.github}`)
+                      : connectGithub();
+                  }}
                 >
                   {!newUserInfo.github && `свържи се с `}
                   <TbBrandGithub size={32} />

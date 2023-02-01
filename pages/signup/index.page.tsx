@@ -11,17 +11,17 @@ import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
 import {
-    SIGN_UP_ERRORS,
-    SIGN_UP_FORM,
-    SignUpErrors,
-    SignUpForm,
-    Steps,
+  SIGN_UP_ERRORS,
+  SIGN_UP_FORM,
+  SignUpErrors,
+  SignUpForm,
+  Steps,
 } from "../../types/ISignUp";
 import {
-    validateElsys,
-    validateInitial,
-    validatePreferences,
-    validateTechnologies,
+  validateElsys,
+  validateInitial,
+  validatePreferences,
+  validateTechnologies,
 } from "./validation";
 
 import styles from "../../styles/login/Login.module.scss";
@@ -31,6 +31,7 @@ import style from "./style.module.scss";
 const SignUp = () => {
   const [form, setForm] = useState<SignUpForm>(SIGN_UP_FORM);
   const [errors, setErrors] = useState<SignUpErrors>(SIGN_UP_ERRORS);
+  const [finalError, setFinalError] = useState<string | null>(null);
   const [step, setStep] = useState<Steps | null>(null);
   const [nextStep, setNextStep] = useState<Steps | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean | null>(false);
@@ -134,7 +135,7 @@ const SignUp = () => {
 
     // api post req using axios
 
-   fetch("https://api.hacktues.bg/api/auth/register", {
+    fetch("https://api.hacktues.bg/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -152,7 +153,16 @@ const SignUp = () => {
           setIsSubmitting(false);
         } else {
           // save user data to context and get authentication token + refresh token
-          console.log(data);
+          // check status code
+          if (data.status !== 200) {
+            if (data.message === "Duplicate entry") {
+              setFinalError("Вече съществува потребител с този имейл адрес.");
+            } else {
+              setFinalError("Възникна грешка при регистрацията.");
+            }
+            setIsSubmitting(false);
+            return;
+          }
           setAuthState(data, true);
           router.push("/signup/success");
         }
@@ -275,6 +285,8 @@ const SignUp = () => {
                 disabled={isSubmitting}
                 type="submit"
                 onClick={() => handleSubmit}
+                style={{
+                }}
               >
                 регистрирай се
               </button>
