@@ -71,14 +71,15 @@ const validateElsys: validate = (form, setErrors) => {
 
   // check if phone number is empty and if it's valid +359 phone number
   // TODO: allow different ways of writing - come up with more
-  form.phone = form.phone.replace(/\s/g, "");
-  if (form.phone.length === 0) {
+  let phone = form.phone.replace(/\s/g, "");
+  console.warn("PHONE -> ", phone);
+  if (phone.length === 0) {
     //new_errors.phone = "REQ_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "REQ_PHONE_NUMBER" }));
   } else if (
-    !/^\+359[0-9]{9}$/.test(form.phone) ||
-    !/^08[0-9]{8}$/.test(form.phone) ||
-    !/^09[0-9]{8}$/.test(form.phone)
+    !/^\+359[0-9]{9}$/.test(phone) &&
+    !/^08[0-9]{8}$/.test(phone) &&
+    !/^09[0-9]{8}$/.test(phone)
   ) {
     //new_errors.phone = "INVALID_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "INVALID_PHONE_NUMBER" }));
