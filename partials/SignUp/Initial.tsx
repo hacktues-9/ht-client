@@ -87,7 +87,7 @@ const InitialTab = ({ form, setForm, errors }: ITab) => {
     }, [errors])
 
     return (
-        <div>
+        <div className={style.tab}>
             <h2>регистрация</h2>
             <div className={style.grid}>
                 {initial.map((input) => (

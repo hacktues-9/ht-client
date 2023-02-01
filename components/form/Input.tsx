@@ -7,7 +7,17 @@ const Input = ({ label, id, error, ...props }: IInput) => {
     return (
       <div className={`${props.classes.map((item) => style[item]).join(" ")}`}>
         <label htmlFor={id}>{label}</label>
-        <select id={id} {...props} multiple>
+        <select id={id} {...props} style={{
+          width: "100%",
+          height: "40px",
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "5px",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          padding: "0 10px",
+          fontSize: "16px",
+          outline: "none",
+          
+        }} >
           {props.options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

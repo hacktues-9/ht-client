@@ -112,7 +112,7 @@ const ElsysTab = ({ form, setForm, errors }: ITab) => {
   ] as IInput[];
 
   return (
-    <div>
+    <div className={style.tab}>
       <h2>{`//elsys`}</h2>
       <div className={style.grid}>
         {elsys.map((input) => (

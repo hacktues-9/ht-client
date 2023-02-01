@@ -137,7 +137,13 @@ const DesktopBar = () => {
 
 // eslint-disable-next-line react/display-name
 const MobileBar = forwardRef<HTMLDivElement>(
-  (props: { handleMobileDropdownClicked: MouseEventHandler }, ref) => {
+  (
+    props: {
+      handleMobileDropdownClicked: MouseEventHandler;
+      isUserAuthenticated;
+    },
+    ref
+  ) => {
     const handleMobileDropdownClicked = props.handleMobileDropdownClicked;
 
     return (
@@ -170,9 +176,22 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/archive" onClick={handleMobileDropdownClicked}>
             <li>архив</li>
           </Link>
-          <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
+{/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
-          </Link>
+          </Link> */}
+          {/* tinder if logged in */}
+          {/* login or registration */}
+          {!props.isUserAuthenticated && (
+            <>
+              {" "}
+              <Link href="/login" onClick={handleMobileDropdownClicked}>
+                <li>вход</li>
+              </Link>
+              <Link href="/signup" onClick={handleMobileDropdownClicked}>
+                <li>регистрация</li>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     );
@@ -263,19 +282,22 @@ const Navigation = () => {
             <Link href="/ourteam">
               <li>нашият екип</li>
             </Link> */}
-              <Link href="/tuestalks">
+              {/*               <Link href="/tuestalks">
                 <li>TUES Talks</li>
               </Link>
               {isUserAuthenticated && userId && (
                 <Link href="/tinder">
                   <li>tinder</li>
                 </Link>
-              )}
+              )} */}
             </div>
             {showMobileDropdown && (
               <MobileBar
                 ref={mobileDropdownRef}
-                {...{ handleMobileDropdownClicked: handleClicked }}
+                {...{
+                  handleMobileDropdownClicked: handleClicked,
+                  isUserAuthenticated,
+                }}
               />
             )}
             {

@@ -57,10 +57,17 @@ const LogIN = () => {
         setError("Нещо се обърка");
       }
     } else {
-      console.log("VERY IMPORTANT", data);
-      // setAuthState(null, true);
-      // TODO: Fix this instead of reloadig
-      push("/").then(() => window.location.reload());
+      console.log("VERY IMPORTANT", response);
+      // fix safari bug - set cookie and reload
+      if (navigator.userAgent.indexOf("Safari") != -1) {
+        push("/").then(() => {
+          window.location.reload();
+        });
+      } else {
+        push("/").then(() => {
+          window.location.reload();
+        });
+      }
     }
   };
 
@@ -98,6 +105,7 @@ const LogIN = () => {
         push("/");
       }
     };
+
     checkIfLoggedIn();
   }, []);
 
@@ -151,9 +159,13 @@ const LogIN = () => {
               {error}
             </p>
           )}
-          <Link className={style.forgor} href="/forgotten-password" style={{
-            margin: "0 0 0 auto"
-          }}>
+          <Link
+            className={style.forgor}
+            href="/forgotten-password"
+            style={{
+              margin: "0 0 0 auto",
+            }}
+          >
             забравена парола?
           </Link>
         </div>

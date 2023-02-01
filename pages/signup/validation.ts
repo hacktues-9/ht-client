@@ -158,21 +158,17 @@ const validatePreferences: validate = (form, setErrors) => {
   }
 
   // check if alergies is empty or if it's not valid - within the selecatble multichoice
-  if (form.alergies.length === 0) {
-    // errors.alergies = "REQ_ALERGIES";
-    setErrors((prev: any) => ({ ...prev, alergies: "REQ_ALERGIES" }));
-  } else {
-    form.alergies.forEach((alergy) => {
-      if (Object.keys(ALERGIES).indexOf(alergy) < 0) {
-        //errors.alergies = "INVALID_ALERGIES";
-        setErrors((prev: any) => ({
-          ...prev,
-          alergies: "INVALID_ALERGIES",
-        }));
-        return;
-      }
-    });
-  }
+
+  form.alergies.forEach((alergy) => {
+    if (Object.keys(ALERGIES).indexOf(alergy) < 0) {
+      //errors.alergies = "INVALID_ALERGIES";
+      setErrors((prev: any) => ({
+        ...prev,
+        alergies: "INVALID_ALERGIES",
+      }));
+      return;
+    }
+  });
 
   // check if shirt size is empty or if it's not valid - within the array
   if (form.shirtSize.length === 0) {
@@ -196,16 +192,19 @@ const validatePreferences: validate = (form, setErrors) => {
 
 const validateTechnologies: validate = (form, setErrors) => {
   // check if technologies are valid and within the array of accepted technologies (empty is also valid)
-  if(form.technologies === undefined || form.technologies === null) {
+  if (form.technologies === undefined || form.technologies === null) {
     setErrors((prev: any) => ({ ...prev, technologies: "" }));
     return;
   }
 
-  if(form.technologies.length > 0) {
+  if (form.technologies.length > 0) {
     form.technologies.forEach((technology) => {
-      if(Object.keys(TECHNOLOGIES).indexOf(technology) < 0) {
+      if (Object.keys(TECHNOLOGIES).indexOf(technology) < 0) {
         // errors.technologies = "INVALID_TECHNOLOGIES";
-        setErrors((prev: any) => ({ ...prev, technologies: "INVALID_TECHNOLOGIES" }));
+        setErrors((prev: any) => ({
+          ...prev,
+          technologies: "INVALID_TECHNOLOGIES",
+        }));
       }
     });
   }
