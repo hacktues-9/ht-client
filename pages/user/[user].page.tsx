@@ -65,6 +65,9 @@ const User = () => {
     if (user) {
       fetcher(`https://api.hacktues.bg/api/user/get/${user}`)
         .then((res) => {
+          // mobile -> phone
+          res.phone = res.mobile;
+          delete res.mobile;
           setUserInfo(res);
           setNewUserInfo(res);
         })

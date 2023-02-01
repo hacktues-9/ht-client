@@ -16,6 +16,7 @@ import {
   TbPlus,
   TbUserCheck,
   TbUserPlus,
+  TbUserX,
   TbX,
 } from "react-icons/tb";
 import { ROLES } from "../../constants/teams";
@@ -536,8 +537,35 @@ const SearchPeople = ({ teamId }) => {
   );
 };
 
+const ContextMenu = ({ id, kickMember }) => {
+  return (
+    <div className={style.context_menu}>
+      <button
+        type="button"
+        className={style.context_menu_button}
+        style={{
+          // calculete position
+          width: "fit-content",
+          height: "fit-content",
+          borderRadius: "0.5rem",
+          padding: "0.5rem",
+          position: "absolute",
+          top: "calc(100% + 1rem)",
+          right: "0",
+          
+        }}
+        onClick={() => kickMember(id)}
+      >
+        <TbUserX />
+        <p>премахни</p>
+      </button>
+    </div>
+  );
+};
+
 const TeamMembers = ({ team, setTeam, isEditable }) => {
   const [isInviting, setIsInviting] = useState(false);
+  const [openContextMenu, setOpenContextMenu] = useState(false);
 
   const kickMember = (id) => {
     // TODO: kick member from team API
@@ -559,6 +587,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
   const contextMenu = (e) => {
     e.preventDefault();
     // TODO: Kalata -> make custom right click menu -> kick member or make captain
+    setOpenContextMenu(true);
   };
 
   const handleInviteMember = () => {
@@ -582,7 +611,13 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
               className={style.member}
               onContextMenu={contextMenu}
               key={member}
+              style={{
+                position: "relative",
+              }}
             >
+              {openContextMenu && (
+                <ContextMenu id={member.id} kickMember={kickMember} />
+              )}
               <div className={style.member_info}>
                 <Image
                   src={member.avatar}
