@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 80px);
-    width: 100vw;
+    width: 100%;
+
+    padding: 1rem;
 
     .sign_form {
         display: flex;
@@ -14,10 +16,15 @@
 
         min-width: 28rem;
         padding: 2rem 3rem;
-        
+
         background-color: rgba(181, 181, 181, 0.044);
         border-radius: 10px;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+        @media screen and (max-width: 768px) {
+            min-width: 100%;
+            padding: 1rem 1.5rem;
+        }
     }
 
     .tabs {
