@@ -45,11 +45,9 @@ const SignUp = () => {
     if (step == Steps.preferences)
       newErrors = await validatePreferences(form, errors);
 
-    console.log("handleNextStep", step);
     // if there are errors, exit the function
     if (newErrors == null) return;
     if (Object.values(newErrors).some((error: string) => error.length > 0)) {
-      console.log("handleNextStep with errors");
       setErrors(newErrors);
       return;
     }
@@ -99,7 +97,6 @@ const SignUp = () => {
 
     // if there are errors, exit the function
     if (Object.values(newErrors).some((error: string) => error.length > 0)) {
-      console.log("handleSubmit with errors");
       setErrors(newErrors);
       setIsSubmitting(false);
       return;
@@ -119,9 +116,8 @@ const SignUp = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.error) {
-          console.log(data.error);
+          setFinalError(data.message);
           setIsSubmitting(false);
         } else {
           // save user data to context and get authentication token + refresh token
@@ -144,7 +140,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         setIsSubmitting(false);
-        console.log(error);
+        setFinalError("Възникна грешка при регистрацията.");
       });
 
     setIsSubmitting(false);

@@ -148,7 +148,6 @@ export const ContainerTshirt = ({ value, onChange, error }) => {
   };
 
   useEffect(() => {
-    console.log("WHYYY", value, (TSHIRT_SIZE.map((tshirt) => tshirt.size)))
     if (!value) return;
     if (TSHIRT_SIZE.map((tshirt) => tshirt.size).indexOf(value) === -1) return;
 

@@ -88,7 +88,6 @@ const validateElsys: validate = async (form, error) => {
 
   // check if phone number is empty and if it's valid +359 phone number
   let phone = form.phone.replace(/\s/g, "");
-  console.warn("PHONE -> ", phone);
   if (phone.length === 0) {
     // await setErrors((prev: any) => ({ ...prev, phone: "REQ_PHONE_NUMBER" }));
     newError = { ...newError, phone: "REQ_PHONE_NUMBER" };
@@ -234,9 +233,7 @@ const validateTechnologies: validate = async (form, error) => {
   }
 
   let newErrorsNum = 0;
-  console.log(TECHNOLOGIES);
   form.technologies.forEach(async (tech) => {
-    console.log(TECHNOLOGIES.map(({ name }) => name), tech);
     if (TECHNOLOGIES.map(({ name }) => name).indexOf(tech) < 0) {
       // await setErrors((prev: any) => ({
       //   ...prev,
