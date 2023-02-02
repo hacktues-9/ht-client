@@ -39,7 +39,9 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
           })
         }
         className={style.select}
-        placeholder={isEditable ? "Изберете технологии" : "Няма избрани технологии"}
+        placeholder={
+          isEditable ? "Изберете технологии" : "Няма избрани технологии"
+        }
         searchBy="label"
         searchable={true}
         multi={true}
@@ -406,8 +408,6 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
 };
 
 const handleInvite = (user: any, team: any) => {
-  // TODO: invite user to team - API
-
   fetch(`https://api.hacktues.bg/api/team/invite`, {
     method: "POST",
     headers: {
@@ -698,11 +698,13 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
 
 const Team = () => {
   const router = useRouter();
+
   const { teamId } = router.query as { teamId: string };
   const { authState } = useAuthContext();
-  let editable = false;
 
-  // TODO: check if user has rights to edit this team - aka is captain
+  const [edit, setEdit] = useState(false);
+
+  let editable = false;
 
   // api call to https://api.hacktues.bg/api/team/captain/{teamId} -> returns captain id and compare with userId
   const { data: isCaptainResp } = useSWR(
@@ -710,21 +712,11 @@ const Team = () => {
     fetcher
   );
 
-  // TODO: check if user is in this team
-
-  // use member list from team api call to check if user is in team
-
-  /* if (!inTeam(authState.userId, teamId)) {
-  } */
-
-  // TODO: Get Team Info form api
-  // swr
+  // Get team info
   const { data: teamData } = useSWR(
     `https://api.hacktues.bg/api/team/get/${teamId}`,
     fetcher
   );
-
-  console.log(teamData?.data);
 
   const [team, setTeam] = useState(teamData?.data);
 
@@ -732,37 +724,10 @@ const Team = () => {
     editable = true;
   }
 
-  const [edit, setEdit] = useState(false);
-
-  // const handleEdit = () => {
-  //   setEdit(!edit);
-  //   // TODO: send team info to api
-  //   fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(team),
-  //       credentials: "include",
-  //     })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-
-  //       if (data.status === 200) {
-  //         setTeam(data.data);
-  //         setEdit(false);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   useEffect(() => {
-    if (teamData?.data) {
-      setTeam(teamData?.data);
-    }
+    if (!teamData) return;
+
+    if (teamData?.data) setTeam(teamData?.data);
   }, [teamData]);
 
   if (!team) return <div>loading...</div>;
