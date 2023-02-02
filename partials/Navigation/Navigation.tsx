@@ -39,6 +39,7 @@ const Profile = ({ userId }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
+  const router = useRouter();
 
   // dropdown menu with profile picture and name
   // and logout button
@@ -119,7 +120,9 @@ const Profile = ({ userId }) => {
                 method: "POST",
                 credentials: "include",
               }).then(() => {
-                window.location.reload();
+                router.push("/").then(() => {
+                  window.location.reload();
+                });
               });
             }}
           >
@@ -173,7 +176,7 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
             <li>класация</li>
           </Link>
-{/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
+          {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
           </Link> */}
           {/* tinder if logged in */}
@@ -292,7 +295,7 @@ const Navigation = () => {
                 ref={mobileDropdownRef}
                 {...{
                   handleMobileDropdownClicked: handleClicked,
-                  isUserAuthenticated : isUserAuthenticated(),
+                  isUserAuthenticated: isUserAuthenticated(),
                 }}
               />
             )}
