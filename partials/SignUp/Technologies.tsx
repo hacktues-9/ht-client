@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { SelectableTshirt } from "../../components/form/signup/multipleChoice/Card";
 import { TECHNOLOGIES } from "../../constants/technologies";
@@ -11,13 +11,28 @@ const TechnologiesTab = ({ form, setForm, errors }) => {
   const handleOnChange = (value) => {
     setForm({
       ...form,
-      technologies: [...form.technologies, value],
+      technologies: form.technologies.includes(value)
+        ? form.technologies.filter((technology) => technology !== value)
+        : [...form.technologies, value],
     });
     setIsSelected({
       ...isSelected,
       [value]: !isSelected[value],
     });
   };
+
+  useEffect(() => {
+    if (!form.technologies) return;
+    if (form.technologies.length === 0) return;
+
+    const newIsSelected = {};
+
+    form.technologies.forEach((technology) => {
+      newIsSelected[technology] = true;
+    });
+
+    setIsSelected(newIsSelected);
+  }, []);
 
   return (
     <div className="technologies">
