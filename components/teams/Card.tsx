@@ -96,8 +96,11 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
             />
           ))}
         </div>
-        <div>
-          <div style={{ display: "flex", gap: ".25rem" }}>
+        <div style={{
+          marginBottom: "0rem",
+          height: "2rem"
+        }}>
+          <div style={{ display: "flex", height: "100%", alignItems: "center", gap: ".25rem" }}>
             {
               // limit to fit in the card
               technologies &&
@@ -107,6 +110,9 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
                     <Technologies key={tech.id} technology={tech} />
                   ))
             }
+            {technologies && technologies.length === 0 && <p style={{
+              margin: "auto auto",
+            }}>няма технологии :(</p>}
             {
               // show how many more technologies are there in number
               technologies && technologies.length > 3 && (
