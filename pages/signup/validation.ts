@@ -46,10 +46,11 @@ const validateElsys: validate = (form, setErrors) => {
   //const new_errors = errors;
 
   // check if first name is empty and if it's not in cyrillic
-  if (form.firstName.length === 0) {
+  let firstName = form.firstName.replace(/\s/g, "");
+  if (firstName.length === 0) {
     //new_errors.firstName = "REQ_FIRST_NAME";
     setErrors((prev: any) => ({ ...prev, firstName: "REQ_FIRST_NAME" }));
-  } else if (!/^[а-яА-Я]+$/.test(form.firstName)) {
+  } else if (!/^[а-яА-Я]+$/.test(firstName)) {
     //new_errors.firstName = "INVALID_FIRST_NAME";
     setErrors((prev: any) => ({ ...prev, firstName: "INVALID_FIRST_NAME" }));
   } else {
@@ -58,10 +59,11 @@ const validateElsys: validate = (form, setErrors) => {
   }
 
   // check if last name is empty
-  if (form.lastName.length === 0) {
+  let lastName = form.lastName.replace(/\s/g, "");
+  if (lastName.length === 0) {
     //new_errors.lastName = "REQ_LAST_NAME";
     setErrors((prev: any) => ({ ...prev, lastName: "REQ_LAST_NAME" }));
-  } else if (!/^[а-яА-Я]+$/.test(form.lastName)) {
+  } else if (!/^[а-яА-Я]+$/.test(lastName)) {
     //new_errors.lastName = "INVALID_LAST_NAME";
     setErrors((prev: any) => ({ ...prev, lastName: "INVALID_LAST_NAME" }));
   } else {
@@ -79,7 +81,8 @@ const validateElsys: validate = (form, setErrors) => {
   } else if (
     !/^\+359[0-9]{9}$/.test(phone) &&
     !/^08[0-9]{8}$/.test(phone) &&
-    !/^09[0-9]{8}$/.test(phone)
+    !/^09[0-9]{8}$/.test(phone) &&
+    !/^00359[0-9]{9}$/.test(phone)
   ) {
     //new_errors.phone = "INVALID_PHONE_NUMBER";
     setErrors((prev: any) => ({ ...prev, phone: "INVALID_PHONE_NUMBER" }));
