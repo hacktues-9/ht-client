@@ -152,6 +152,26 @@ const SignUp = () => {
     }
   }, [step]);
 
+  // check if user is logged in
+  useEffect(() => {
+    const checkIfLoggedIn = async () => {
+      const response = await fetch("https://api.hacktues.bg/api/auth/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://api.hacktues.bg/",
+        },
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (response.status == 200) {
+        router.push("/");
+      }
+    };
+
+    checkIfLoggedIn();
+  }, []);
+
   return (
     <div className={style.sign_container}>
       <form className={style.sign_form} onSubmit={handleSubmit}>
