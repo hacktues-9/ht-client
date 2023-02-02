@@ -155,12 +155,10 @@ const User = () => {
     user === "undefined" ||
     user === "" ||
     user === "Object object" ||
-    !user ||
+    user === "[object Object]" ||
     user === "null" ||
-    user === "NaN" ||
-    user === "[object%20Object]" ||
-    user === "NaN%20NaN" ||
-    user === "[object Object]"
+    user === "NaN NaN" ||
+    user === "[object%20Object]"
   )
     router.push("/404");
 
