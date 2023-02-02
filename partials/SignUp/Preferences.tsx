@@ -48,7 +48,7 @@ const PreferencesTab = ({ form, setForm, errors }) => {
         error={ERRORS_TEXT.alergies[errors.alergies]}
       />
       <ContainerTshirt
-        value={form.tshirt}
+        value={form.shirtSize}
         onChange={handleTshirtChange}
         error={ERRORS_TEXT.shirtSize[errors.shirtSize]}
       />

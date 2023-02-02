@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SelectableTshirt } from "./Card";
 import style from "../../../../styles/0/login/Selectable.module.scss";
 import {
@@ -52,6 +52,16 @@ export const ContainerEatingPreferences = ({ value, onChange, error }) => {
     });
   };
 
+  useEffect(() => {
+    if (!value) return;
+    if (EATING_PREFERENCES[value] === undefined) return;
+
+    setIsSelected({
+      ...SELECTED_EATING_PREFERENCES,
+      [value]: true,
+    });
+  }, []);
+
   return (
     <SelectableContainer title="ядене" error={error}>
       {Object.keys(SELECTED_EATING_PREFERENCES).map((preference) => (
@@ -91,6 +101,16 @@ export const ContainerAlergies = ({ value, onChange, error }) => {
     });
   };
 
+  useEffect(() => {
+    if (!value) return;
+    if (ALERGIES[value] === undefined) return;
+
+    setIsSelected({
+      ...SELECTED_ALERGIES,
+      [value]: true,
+    });
+  }, []);
+
   return (
     <>
       <SelectableContainer title="алергии" error={error}>
@@ -126,6 +146,17 @@ export const ContainerTshirt = ({ value, onChange, error }) => {
       [value]: !isSelected[value],
     });
   };
+
+  useEffect(() => {
+    console.log("WHYYY", value, (TSHIRT_SIZE.map((tshirt) => tshirt.size)))
+    if (!value) return;
+    if (TSHIRT_SIZE.map((tshirt) => tshirt.size).indexOf(value) === -1) return;
+
+    setIsSelected({
+      ...SELECTED_TSHIRT,
+      [value]: true,
+    });
+  }, []);
 
   return (
     <SelectableContainer title="тениска" error={error}>
