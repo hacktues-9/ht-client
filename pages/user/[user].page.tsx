@@ -168,9 +168,6 @@ const User = () => {
 
   if (userInfo.status === 401) router.push("/404");
 
-  // if (isUser(authState.userId, user)) // check if you are the user and you have the right to see personal info
-  console.log(userInfo);
-
   return (
     <>
       <Head>

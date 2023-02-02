@@ -1,26 +1,19 @@
-import { useRouter } from "next/router";
-import { useAuthContext } from "../../context/authContext";
-import { inTeam } from "../../utils/auth";
-
 import useSWR from "swr";
+import Image from "next/image";
+import Select from "react-dropdown-select";
+
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { TbUserCheck, TbUserPlus, TbUserX, TbX } from "react-icons/tb";
+
+import Input from "../../components/form/Input";
+
+import { useAuthContext } from "../../context/authContext";
+
+import { ROLES } from "../../constants/teams";
+import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/teams/Team.module.scss";
-import Select from "react-dropdown-select";
-import { TECHNOLOGIES } from "../../constants/technologies";
-import { FunctionComponent, useEffect, useState } from "react";
-import Image from "next/image";
-import {
-  TbBrandGithub,
-  TbGlobe,
-  TbMinus,
-  TbPlus,
-  TbUserCheck,
-  TbUserPlus,
-  TbUserX,
-  TbX,
-} from "react-icons/tb";
-import { ROLES } from "../../constants/teams";
-import Input from "../../components/form/Input";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -32,11 +25,7 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
         технологии
       </label>
       <Select
-        //label="технологии"
-        //classes={["email"]}
-        //id="teamTechnologies"
         name="teamTechnologies"
-        //type="select"
         options={TECHNOLOGIES.map((tech) => {
           return { value: tech.name, label: tech.name, ...tech };
         })}
@@ -50,7 +39,7 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
           })
         }
         className={style.select}
-        placeholder="C++ Java Angular"
+        placeholder={isEditable ? "Изберете технологии" : "Няма избрани технологии"}
         searchBy="label"
         searchable={true}
         multi={true}
@@ -369,8 +358,8 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
             </>
           )}
 
-          {/* // TODO _ IMPORTANT */}
-          {inTeam && (
+          {/* // TODO - VERY FUCKING IMPORTANT */}
+          {true /* some logic to see if user is in team */ && (
             <div
               style={{
                 margin: "0 0 0 auto",
