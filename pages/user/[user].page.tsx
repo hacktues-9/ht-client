@@ -74,7 +74,7 @@ const User = () => {
 
   // check if user has right to see personal info
 
-  const [userInfo, setUserInfo] = useState<USER_INFO | WRONG_INFO | null>(null);
+  const [userInfo, setUserInfo] = useState<USER_INFO | null>(null);
   const [newUserInfo, setNewUserInfo] = useState<USER_INFO | null>(null);
   const [changed, setChanged] = useState(false);
 
