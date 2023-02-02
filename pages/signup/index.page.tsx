@@ -38,56 +38,18 @@ const SignUp = () => {
 
   const { setAuthState } = useAuthContext();
 
-  const validate = () => {
-    const errors_val: SignUpErrors = SIGN_UP_ERRORS;
+  const handleNextStep = async () => {
+    if (step == Steps.initial) await validateInitial(form, setErrors);
+    if (step == Steps.elsys) await validateElsys(form, setErrors);
+    if (step == Steps.preferences) await validatePreferences(form, setErrors);
 
-    step == Steps.initial && validateInitial(form, errors_val);
-    step == Steps.elsys && validateElsys(form, errors_val);
-    step == Steps.preferences && validatePreferences(form, errors_val);
-    step == Steps.technologies && validateTechnologies(form, errors_val);
+    if (Object.values(errors).some((error) => error)) return;
 
-    //console.log(errors)
-    return errors_val;
-  };
-
-  const handleNextStep = () => {
-    // validate current step
-    // if there are errors, exit the function
-    // if not, continue with the next step
-
-    console.log("handleNextStep -> current step", step, step == Steps.elsys);
-
-    /*     validate().then((error_res) => {
-          console.log("validate", error_res)
-          if (error_res) setErrors(error_res);
-          if (errors) console.log("errors in state", errors)
-        }); */
-
-    /*     setErrors(validate());
-        if (errors) console.log("errors in state", errors);
-    
-        if (!Object.values(errors).some((error) => error.length > 0)) */
-    // setStep(step + 1);
-
-    if (step == Steps.initial) validateInitial(form, setErrors);
-    if (step == Steps.elsys) validateElsys(form, setErrors);
-    if (step == Steps.preferences) validatePreferences(form, setErrors);
-    if (step == Steps.technologies) validateTechnologies(form, setErrors);
-
-    //
     // next step
     setNextStep(step + 1);
-    ///
   };
 
   const handlePrevStep = () => {
-    /*     if (Object.values(errors).some((error) => error.length > 0)) {
-          console.log("handlePrevStep with errors")
-          setErrors(SIGN_UP_ERRORS);
-        } */
-
-    // clear errors for the next step and THEN go to the previous step
-
     if (step == Steps.elsys)
       setErrors({
         ...errors,
@@ -111,19 +73,18 @@ const SignUp = () => {
     setNextStep(step - 1);
   };
 
-  const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (event) => {
+  const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = async (
+    event
+  ) => {
     event.preventDefault();
-
     setIsSubmitting(true);
-
-    console.log(form);
 
     // client-side validation
 
-    validateInitial(form, setErrors);
-    validateElsys(form, setErrors);
-    validatePreferences(form, setErrors);
-    validateTechnologies(form, setErrors);
+    await validateInitial(form, setErrors);
+    await validateElsys(form, setErrors);
+    await validatePreferences(form, setErrors);
+    //validateTechnologies(form, setErrors);
 
     // if there are errors, exit the function
 
@@ -164,7 +125,10 @@ const SignUp = () => {
             return;
           }
           setAuthState(data, true);
-          router.push("/signup/success");
+          router
+            .push("/")
+            .then(() => window.scrollTo(0, 0))
+            .then(() => window.location.reload);
         }
       })
       .catch((error) => {
@@ -177,52 +141,6 @@ const SignUp = () => {
 
   // handle step change - after error validation and prevent going next if there are errors
 
-  // TODO: Optimize this shit - it's so down bad, i don't even know how to explain it
-  // fix it during the holidays
-  useEffect(() => {
-    console.log("useEffect step", errors);
-    console.log(!Object.values(errors).some((error) => error.length > 0));
-    if (
-      step !== null &&
-      step !== undefined &&
-      step < 4 &&
-      step >= 0 &&
-      nextStep !== null &&
-      nextStep !== undefined &&
-      nextStep < 4 &&
-      nextStep >= 0
-    ) {
-      if (
-        !Object.values(errors).some((error) => error.length > 0) &&
-        step === nextStep - 1
-      ) {
-        console.log("useEffect step -> setStep");
-        setStep(nextStep);
-      } else if (
-        Object.values(errors).some((error) => error.length > 0) &&
-        step === nextStep
-      ) {
-        console.log("useEffect step -> setStep");
-        setStep(nextStep - 1);
-      } else if (
-        Object.values(errors).some((error) => error.length > 0) &&
-        step === nextStep - 1
-      ) {
-        console.log("useEffect step -> setStep");
-        setStep(nextStep - 1);
-      } else if (
-        !Object.values(errors).some((error) => error.length > 0) &&
-        step === nextStep
-      ) {
-        console.log("useEffect step -> setStep");
-        setStep(nextStep);
-      } else {
-        console.log("useEffect step -> setStep");
-        setStep(nextStep);
-      }
-    }
-  }, [errors]);
-
   useEffect(() => {
     if (step == null) {
       setStep(0);
@@ -233,12 +151,19 @@ const SignUp = () => {
     // }
   }, [step]);
 
-  /*   useEffect(() => {
-        if (nextStep !== null && nextStep !== undefined && nextStep < 4 && nextStep >= 0) {
-          if (step !== nextStep)
-            setStep(nextStep);
-        }
-  }, [nextStep]); */
+  // on error change
+  useEffect(() => {
+    if(step == null) return;
+    if(step == nextStep) return;
+    
+    if (Object.values(errors).some((error) => error.length > 0)) {
+      console.log("ERRORS", step, nextStep)
+      setNextStep(step);
+    } else {
+      console.log("NO ERRORS", step, nextStep)
+      setStep(nextStep);
+    }
+  }, [errors, nextStep, step]);
 
   return (
     <div className={style.sign_container}>
@@ -271,7 +196,7 @@ const SignUp = () => {
           {step < 3 && (
             <button
               className={styles.login}
-              type={step == 3 ? "submit" : "button"}
+              type={"button"}
               onClick={handleNextStep}
             >
               напред
@@ -285,8 +210,7 @@ const SignUp = () => {
                 disabled={isSubmitting}
                 type="submit"
                 onClick={() => handleSubmit}
-                style={{
-                }}
+                style={{}}
               >
                 регистрирай се
               </button>

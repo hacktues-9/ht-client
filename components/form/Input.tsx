@@ -1,5 +1,6 @@
 import { IInput } from "../../constants/form/IInput";
 import { ERRORS_TEXT } from "../../constants/signup/errors";
+
 import style from "../../styles/Input.module.scss";
 
 const Input = ({ label, id, error, ...props }: IInput) => {
