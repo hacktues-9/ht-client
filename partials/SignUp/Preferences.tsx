@@ -3,6 +3,7 @@ import {
   ContainerAlergies,
   ContainerTshirt,
 } from "../../components/form/signup/multipleChoice/Container";
+import { ERRORS_TEXT } from "../../constants/signup/errors";
 
 const PreferencesTab = ({ form, setForm, errors }) => {
   const handleEatingPreferencesChange = (value) => {
@@ -39,17 +40,17 @@ const PreferencesTab = ({ form, setForm, errors }) => {
       <ContainerEatingPreferences
         value={form.eatingPreferences}
         onChange={handleEatingPreferencesChange}
-        error={errors.eatingPreferences}
+        error={ERRORS_TEXT.eatingPreferences[errors.eatingPreferences]}
       />
       <ContainerAlergies
         value={form.alergies}
         onChange={handleAlergiesChange}
-        error={errors.alergies}
+        error={ERRORS_TEXT.alergies[errors.alergies]}
       />
       <ContainerTshirt
         value={form.tshirt}
         onChange={handleTshirtChange}
-        error={errors.tshirt}
+        error={ERRORS_TEXT.shirtSize[errors.shirtSize]}
       />
     </div>
   );

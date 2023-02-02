@@ -8,15 +8,18 @@ import {
 } from "../../../../constants/preferences";
 
 import { TbEgg, TbMilk } from "react-icons/tb";
+import { ERRORS_TEXT } from "../../../../constants/signup/errors";
 
 interface SelectableContainerProps {
   children: React.ReactNode;
   title: string;
+  error?: string;
 }
 
 const SelectableContainer = ({
   children,
   title,
+  error,
   ...props
 }: SelectableContainerProps) => {
   return (
@@ -25,6 +28,7 @@ const SelectableContainer = ({
       <div className={style.container} {...props}>
         {children}
       </div>
+      <p className={style.error}>{error}</p>
     </div>
   );
 };
@@ -49,7 +53,7 @@ export const ContainerEatingPreferences = ({ value, onChange, error }) => {
   };
 
   return (
-    <SelectableContainer title="ядене">
+    <SelectableContainer title="ядене" error={error}>
       {Object.keys(SELECTED_EATING_PREFERENCES).map((preference) => (
         <SelectableTshirt
           key={preference}
@@ -89,7 +93,7 @@ export const ContainerAlergies = ({ value, onChange, error }) => {
 
   return (
     <>
-      <SelectableContainer title="алергии">
+      <SelectableContainer title="алергии" error={error}>
         {Object.keys(SELECTED_ALERGIES).map((alergy) => (
           <SelectableTshirt
             key={alergy}
@@ -100,7 +104,6 @@ export const ContainerAlergies = ({ value, onChange, error }) => {
           />
         ))}
       </SelectableContainer>
-      <p className={style.error}>{error}</p>
     </>
   );
 };
@@ -125,7 +128,7 @@ export const ContainerTshirt = ({ value, onChange, error }) => {
   };
 
   return (
-    <SelectableContainer title="тениска">
+    <SelectableContainer title="тениска" error={error}>
       {TSHIRT_SIZE.map((tshirt) => (
         <SelectableTshirt
           key={tshirt.size}

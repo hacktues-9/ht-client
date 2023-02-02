@@ -5,8 +5,8 @@ import { FormEvent, useEffect, useState } from "react";
 
 import { useAuthContext } from "../../context/authContext";
 
-import ElsysTab from "../../partials/SignUp/Elsys";
 import InitialTab from "../../partials/SignUp/Initial";
+import ElsysTab from "../../partials/SignUp/Elsys";
 import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
@@ -33,20 +33,30 @@ const SignUp = () => {
   const [errors, setErrors] = useState<SignUpErrors>(SIGN_UP_ERRORS);
   const [finalError, setFinalError] = useState<string | null>(null);
   const [step, setStep] = useState<Steps | null>(null);
-  const [nextStep, setNextStep] = useState<Steps | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean | null>(false);
 
   const { setAuthState } = useAuthContext();
 
   const handleNextStep = async () => {
-    if (step == Steps.initial) await validateInitial(form, setErrors);
-    if (step == Steps.elsys) await validateElsys(form, setErrors);
-    if (step == Steps.preferences) await validatePreferences(form, setErrors);
+    // client-side validation
+    let newErrors = null;
+    if (step == Steps.initial) newErrors = await validateInitial(form, errors);
+    if (step == Steps.elsys) newErrors = await validateElsys(form, errors);
+    if (step == Steps.preferences)
+      newErrors = await validatePreferences(form, errors);
 
-    if (Object.values(errors).some((error) => error)) return;
+    console.log("handleNextStep", step);
+    // if there are errors, exit the function
+    if (newErrors == null) return;
+    if (Object.values(newErrors).some((error: string) => error.length > 0)) {
+      console.log("handleNextStep with errors");
+      setErrors(newErrors);
+      return;
+    }
 
-    // next step
-    setNextStep(step + 1);
+    // next step'
+    setErrors(SIGN_UP_ERRORS);
+    setStep(step + 1);
   };
 
   const handlePrevStep = () => {
@@ -70,7 +80,7 @@ const SignUp = () => {
     if (step == Steps.technologies) setErrors({ ...errors, technologies: "" });
 
     // previous step
-    setNextStep(step - 1);
+    setStep(step - 1);
   };
 
   const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = async (
@@ -81,15 +91,16 @@ const SignUp = () => {
 
     // client-side validation
 
-    await validateInitial(form, setErrors);
-    await validateElsys(form, setErrors);
-    await validatePreferences(form, setErrors);
-    //validateTechnologies(form, setErrors);
+    let newErrors = null;
+    newErrors = await validateTechnologies(form, errors);
+    newErrors = await validatePreferences(form, newErrors);
+    newErrors = await validateElsys(form, newErrors);
+    newErrors = await validateInitial(form, newErrors);
 
     // if there are errors, exit the function
-
-    if (Object.values(errors).some((error) => error.length > 0)) {
+    if (Object.values(newErrors).some((error: string) => error.length > 0)) {
       console.log("handleSubmit with errors");
+      setErrors(newErrors);
       setIsSubmitting(false);
       return;
     }
@@ -139,31 +150,11 @@ const SignUp = () => {
     setIsSubmitting(false);
   };
 
-  // handle step change - after error validation and prevent going next if there are errors
-
   useEffect(() => {
     if (step == null) {
       setStep(0);
-      setNextStep(0);
     }
-    // if (step < nextStep) {
-    //   setErrors(SIGN_UP_ERRORS);
-    // }
   }, [step]);
-
-  // on error change
-  useEffect(() => {
-    if(step == null) return;
-    if(step == nextStep) return;
-    
-    if (Object.values(errors).some((error) => error.length > 0)) {
-      console.log("ERRORS", step, nextStep)
-      setNextStep(step);
-    } else {
-      console.log("NO ERRORS", step, nextStep)
-      setStep(nextStep);
-    }
-  }, [errors, nextStep, step]);
 
   return (
     <div className={style.sign_container}>
@@ -183,11 +174,27 @@ const SignUp = () => {
           )}
           {/* <SubmitTab /> */}
         </div>
-        <div className={style.buttons} style={{ marginTop: "1rem" }}>
+        {finalError && (
+          <div className={style.error}>
+            <p>{finalError}</p>
+          </div>
+        )}
+        <div
+          className={style.buttons}
+          style={{
+            marginTop: "1rem",
+            flexDirection: step === 3 ? "column" : "row",
+            gap: step !== 3 ? "1rem" : ".5rem",
+          }}
+        >
           {step > 0 && (
             <button
               className={styles.login}
+              style={{
+                opacity: 0.5,
+              }}
               type="button"
+              disabled={isSubmitting}
               onClick={handlePrevStep}
             >
               назад
