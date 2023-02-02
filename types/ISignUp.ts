@@ -42,8 +42,8 @@ const SIGN_UP_FORM: SignUpForm = {
   lastName: "",
   phone: "",
   elsysEmail: "",
-  classNumber: "",
-  classLetter: "",
+  classNumber: "8",
+  classLetter: "А",
 
   // preferences
 
