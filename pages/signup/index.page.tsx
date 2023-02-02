@@ -131,11 +131,11 @@ const SignUp = () => {
             setIsSubmitting(false);
             return;
           }
-          setAuthState(data, true);
-          router
-            .push("/")
-            .then(() => window.scrollTo(0, 0))
-            .then(() => window.location.reload);
+          if (data.status === 200) {
+            setFinalError("Успешна регистрация! Моля, потвърдете имейла си.");
+            setAuthState(data, true);
+            router.push("/").then(() => window.location.reload);
+          }
         }
       })
       .catch((error) => {

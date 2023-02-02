@@ -151,7 +151,17 @@ const User = () => {
   };
 
   // if user is undefined or empty string or object object, redirect to 404
-  if (user === "undefined" || user === "" || user === "Object object")
+  if (
+    user === "undefined" ||
+    user === "" ||
+    user === "Object object" ||
+    !user ||
+    user === "null" ||
+    user === "NaN" ||
+    user === "[object%20Object]" ||
+    user === "NaN%20NaN" ||
+    user === "[object Object]"
+  )
     router.push("/404");
 
   if (!userInfo) {
