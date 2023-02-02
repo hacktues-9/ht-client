@@ -138,7 +138,7 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
-/*     &::before {
+    /*     &::before {
         content: '';
         top: 0;
         left: 0;
@@ -256,17 +256,22 @@
 .mobile {
     &_dropdown {
         position: fixed;
+        max-height: calc(100vh - 6.5rem);
         top: 4.5rem;
         right: 0;
         width: 100%;
         padding: 1rem;
 
         &_content {
+            height: 100%;
+            max-height: calc(100vh - 6.5rem);
+            overflow-y: auto;
+
             background-color: rgba(151, 151, 151, 0.244);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
 
-/*             &::before {
+            /*             &::before {
                 content: '';
                 position: absolute;
                 top: 0;
