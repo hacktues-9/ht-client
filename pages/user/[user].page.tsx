@@ -1,25 +1,26 @@
 import Head from "next/head";
 import Image from "next/image";
+import Select from "react-dropdown-select";
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Input from "../../components/form/Input";
-import { TITLE } from "../../constants/arc";
-import { useAuthContext } from "../../context/authContext";
-import ProtectedRoute from "../../wrappers/ProtectedRoute";
-
-import Select from "react-dropdown-select";
 import {
   TbBrandDiscord,
   TbBrandGithub,
   TbClock,
   TbShirt,
 } from "react-icons/tb";
+
+import Input from "../../components/form/Input";
+import ProtectedRoute from "../../wrappers/ProtectedRoute";
+
+import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
+
 import style from "../../styles/0/profile/Profile.module.scss";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
-const isUser = (authUserId: string, userId: string) => authUserId === userId;
 
 interface USER_INFO {
   firstName: string;
@@ -48,7 +49,6 @@ interface USER_INFO {
 const User = () => {
   const router = useRouter();
   const { user } = router.query as { user: string };
-  const { authState } = useAuthContext();
 
   const githubClientID = "4f5f1918bf58eb0cccd4";
   const discordClientID = "1009547623637712977";
