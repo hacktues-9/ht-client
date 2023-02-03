@@ -4,7 +4,7 @@ import Select from "react-dropdown-select";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { TbUserCheck, TbUserPlus, TbUserX, TbX } from "react-icons/tb";
+import { TbCrown, TbUserCheck, TbUserPlus, TbUserX, TbX } from "react-icons/tb";
 
 import Input from "../../components/form/Input";
 
@@ -531,8 +531,45 @@ const SearchPeople = ({ teamId }) => {
 };
 
 const ContextMenu = ({ id, kickMember }) => {
+  function makeCaptain(id: any): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
-    <div className={style.context_menu}>
+    <div className={style.context_menu} style={{
+      display: "flex",
+      flexDirection: "column",
+      position: "absolute",
+      top: "calc(100% + 1rem)",
+      right: "0",
+      width: "fit-content",
+      height: "fit-content",
+      borderRadius: "0.5rem",
+      padding: "0.5rem",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      backdropFilter: "blur(10px)",
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+      zIndex: 1,
+    }}>
+      <button
+        type="button"
+        className={style.context_menu_button}
+        style={{
+          // calculete position
+          width: "fit-content",
+          height: "fit-content",
+          borderRadius: "0.5rem",
+          padding: "0.5rem",
+          position: "absolute",
+          top: "calc(100% + 1rem)",
+          right: "0",
+        }}
+        onClick={() => makeCaptain(id)}
+      >
+        <TbCrown />
+        <p>направи капитан</p>
+      </button>
       <button
         type="button"
         className={style.context_menu_button}
