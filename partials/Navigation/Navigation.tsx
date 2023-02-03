@@ -133,8 +133,58 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
   );
 };
 
-const DesktopBar = () => {
-  return <div>Desktop</div>;
+const Information = ({ showDropdown, setShowDropdown }) => {
+  const dropdownButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const handleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleClicked = () => {
+    setShowDropdown(false);
+  };
+
+  useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
+
+  return (
+    <>
+      <li
+        className={
+          !showDropdown
+            ? navbar.information
+            : navbar.information + " " + navbar.information_active
+        }
+        onClick={handleDropdown}
+        ref={dropdownButtonRef}
+        style={{
+          position: "relative",
+        }}
+      >
+        <p style={{
+          margin: "0",
+        }}>информация</p>
+        {showDropdown && (
+          <div
+            className={navbar.dropdown}
+            ref={dropdownRef}
+            style={{
+              left: "-2rem",
+              right: "auto",
+              top: "3.5rem",
+            }}
+          >
+            <Link href="/archive">архив</Link>
+            <Link href="/regulation">регламент</Link>
+            <Link href="/ourteam">нашият екип</Link>
+            <Link href="/tuestalks" style={{
+              borderBottom: "none",
+            }}>TUES Talks</Link>
+          </div>
+        )}
+      </li>
+    </>
+  );
 };
 
 // eslint-disable-next-line react/display-name
@@ -210,8 +260,10 @@ const Navigation = () => {
   ];
 
   const { authState, isUserAuthenticated } = useAuthContext();
+
   const [showMobileDropdown, setShowMobileDropdown] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showInformationDropdown, setShowInformationDropdown] = useState(false);
 
   const mobileDropdownButtonRef = useRef(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
@@ -267,25 +319,15 @@ const Navigation = () => {
                 <Link href="/themes">
                   <li>теми</li>
                 </Link>
-                <Link href="/timetable">
-                  <li>информация</li>
-                </Link>
+                <Information
+                  showDropdown={showInformationDropdown}
+                  setShowDropdown={setShowInformationDropdown}
+                />
                 <Link href="/rankings">
                   <li>класация</li>
                 </Link>
-                {/*             <Link href="/archive">
-              <li>архив</li>
-            </Link>
-            <Link href="/regulation">
-              <li>регламент</li>
-            </Link>
-            <Link href="/ourteam">
-              <li>нашият екип</li>
-            </Link> */}
-                {/*               <Link href="/tuestalks">
-                <li>TUES Talks</li>
-              </Link>
-              {isUserAuthenticated && userId && (
+                {/* 
+                              {isUserAuthenticated && userId && (
                 <Link href="/tinder">
                   <li>tinder</li>
                 </Link>
