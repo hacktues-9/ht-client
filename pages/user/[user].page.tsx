@@ -187,6 +187,8 @@ const User = () => {
                   alt="профилна снимка"
                   priority={true}
                   placeholder={"blur"}
+                  blurDataURL={userInfo.profilePicture}
+                  quality={100}
                 />
               )}
             </div>
