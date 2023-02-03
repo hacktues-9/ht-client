@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
 
 import { useRouter } from "next/router";
-
 import {
   MouseEventHandler,
   forwardRef,
@@ -11,15 +11,15 @@ import {
   useState,
 } from "react";
 
-import TUESTalksNavbar from "../TUESTalks/Navbar";
-
 import { TbMenu2 } from "react-icons/tb";
+
 import { useAuthContext } from "../../context/authContext";
-import navbar from "../../styles/Navbar.module.scss";
 import { useOutsideAlerter } from "./useOutsideAlerter";
 
-import useSWR from "swr";
+import TUESTalksNavbar from "../TUESTalks/Navbar";
 import Notifications from "./Notifications";
+
+import navbar from "../../styles/Navbar.module.scss";
 
 const fetcher = (url) =>
   fetch(url, { credentials: "include" }).then((r) => r.json());
