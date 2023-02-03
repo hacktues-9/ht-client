@@ -131,7 +131,7 @@ const Notifications = ({ userId }) => {
           ref={dropdownRef}
         >
           {!notifications || notifications.length === 0 ? (
-            <p>No notifications</p>
+            <p>нещо е празно тук :(</p>
           ) : (
             notifications.map((notification) => (
               <div
