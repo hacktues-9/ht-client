@@ -34,6 +34,7 @@ const Card = ({
           fill={true}
           priority={true}
           placeholder={"blur"}
+          blurDataURL={backgroundImg}
         />
         <div className={card.overlay} />
       </div>
