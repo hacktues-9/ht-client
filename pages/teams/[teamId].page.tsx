@@ -374,9 +374,10 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
               <button
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: ".5rem",
-                  border: "none",
-                  borderRadius: "5px",
+                  padding: ".5rem 1rem",
+                  borderRadius: ".5rem",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  fontSize: "1rem",
                 }} /* onClick={() => handleLeave()} */
               >
                 напусни
@@ -384,9 +385,10 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
               <button
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: ".5rem",
-                  border: "none",
-                  borderRadius: "5px",
+                  padding: ".5rem 1rem",
+                  borderRadius: ".5rem",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  fontSize: "1rem",
                 }} /* onClick={() => hanldeDelete()} */
               >
                 изтрий
