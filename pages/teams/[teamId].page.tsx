@@ -181,7 +181,7 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
       <div className={style.team_info_information}>
         <div className={style.team_info_information_header}>
           <Image
-            src="/images/team.png"
+            src={team.logo || "/images/team-logo.png"}
             alt="Team Logo"
             width={72} // 4.5 rem
             height={72}
@@ -416,7 +416,7 @@ const handleInvite = (user: any, team: any) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      teamId: team,
+      teamId: parseInt(team),
       userId: user,
     }),
     credentials: "include",
@@ -536,22 +536,25 @@ const ContextMenu = ({ id, kickMember }) => {
   }
 
   return (
-    <div className={style.context_menu} style={{
-      display: "flex",
-      flexDirection: "column",
-      position: "absolute",
-      top: "calc(100% + 1rem)",
-      right: "0",
-      width: "fit-content",
-      height: "fit-content",
-      borderRadius: "0.5rem",
-      padding: "0.5rem",
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      border: "1px solid rgba(255, 255, 255, 0.1)",
-      backdropFilter: "blur(10px)",
-      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-      zIndex: 1,
-    }}>
+    <div
+      className={style.context_menu}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        position: "absolute",
+        top: "calc(100% + 1rem)",
+        right: "0",
+        width: "fit-content",
+        height: "fit-content",
+        borderRadius: "0.5rem",
+        padding: "0.5rem",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(10px)",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+        zIndex: 1,
+      }}
+    >
       <button
         type="button"
         className={style.context_menu_button}
@@ -592,7 +595,7 @@ const ContextMenu = ({ id, kickMember }) => {
   );
 };
 
-const TeamMembers = ({ team, setTeam, isEditable }) => {
+const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
   const [isInviting, setIsInviting] = useState(false);
   const [openContextMenu, setOpenContextMenu] = useState(false);
 
@@ -667,7 +670,7 @@ const TeamMembers = ({ team, setTeam, isEditable }) => {
           );
         })}
       </div>
-      {isInviting && <SearchPeople teamId={team.id} />}
+      {isInviting && <SearchPeople teamId={teamId} />}
     </div>
   );
 };
@@ -785,7 +788,12 @@ const Team = () => {
       </div>
       <div className={style.page_bottom}>
         <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
-        <TeamMembers team={team} setTeam={setTeam} isEditable={editable} />
+        <TeamMembers
+          team={team}
+          setTeam={setTeam}
+          isEditable={editable}
+          teamId={teamId}
+        />
       </div>
     </div>
   );
