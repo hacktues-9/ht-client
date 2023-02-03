@@ -33,6 +33,7 @@ const Card = ({
           alt={shortDescription}
           fill={true}
           priority={true}
+          placeholder={"blur"}
         />
         <div className={card.overlay} />
       </div>

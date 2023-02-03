@@ -184,7 +184,9 @@ const User = () => {
                   src={userInfo.profilePicture}
                   width={200}
                   height={200}
-                  alt="profile picture"
+                  alt="профилна снимка"
+                  priority={true}
+                  placeholder={"blur"}
                 />
               )}
             </div>
