@@ -51,15 +51,36 @@ const Admin = (props: AdminProps) => {
       })
       .catch((err) => console.log(err));
 
-      setLoggedIn(true);
+    setLoggedIn(true);
   };
 
   if (show && loggedIn) {
     return (
-      <div>
-        <h1>Admin Panel</h1>
-        <table>
-          <tr>
+      <div
+        style={{
+          paddingTop: "3rem",
+        }}
+      >
+        <h1>Kur Panel</h1>
+        <table
+          style={{
+            // show border
+            border: "1px solid black",
+            // show borders on every cell
+            //borderCollapse: "collapse",
+            // make table 100% of the page
+
+            width: "100%",
+          }}
+        >
+          <tr
+            style={{
+              backgroundColor: "#f2f2f2",
+              color: "black",
+              padding: "10px",
+              border: "1px solid black",
+            }}
+          >
             <th>Kлас</th>
             <th>Име</th>
             <th>Фамилия</th>
@@ -75,6 +96,39 @@ const Admin = (props: AdminProps) => {
             <th>Потвърдил профилна</th>
             <th>Discord</th>
             <th>GitHub</th>
+            <th>отбор</th>
+          </tr>
+          <tr
+            style={{
+              border: "1px solid black",
+              backgroundColor: "#f2f2f2",
+              color: "black",
+            }}
+          >
+            <td>11</td>
+            <td>Кур</td>
+            <td>Кур</td>
+            <td>
+              <a href="mailto:kur@kur.bg ">kur@kur.bg</a>
+            </td>
+            <td>
+              <a href="mailto:kur@elsys-bg.org">kur@elsys-bg.org</a>
+            </td>
+            <td>0888888888</td>
+            <td>XL</td>
+            <td>Няма</td>
+            <td>Няма</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>
+              <a href="https://discord.com/users/1234567890">Kur#1234</a>
+            </td>
+            <td>
+              <a href="github.com/kur">github.com/kur</a>
+            </td>
+            <td>Кур</td>
           </tr>
         </table>
       </div>
@@ -82,7 +136,11 @@ const Admin = (props: AdminProps) => {
   }
 
   return show && !loggedIn ? (
-    <div>
+    <div
+      style={{
+        paddingTop: "3rem",
+      }}
+    >
       login as kur
       <div>
         <form onSubmit={handleLogin}>
