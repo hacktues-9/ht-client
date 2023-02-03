@@ -262,14 +262,43 @@
         width: 100%;
         padding: 1rem;
 
+        z-index: 10;
+
         &_content {
+            z-index: inherit;
             height: 100%;
             max-height: calc(100vh - 6.5rem);
             overflow-y: auto;
+            list-style: none;
 
             background-color: rgba(151, 151, 151, 0.244);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
+
+            li {
+                display: flex;
+                align-items: center;
+
+                border-radius: .5rem;
+                padding: .5rem 1rem;
+
+                transition: all .1s ease-in-out;
+
+                &:hover {
+                    background-color: rgba(151, 151, 151, 0.244);
+                }
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            a:hover {
+                color: rgb(231, 231, 231);
+            }
 
             /*             &::before {
                 content: '';

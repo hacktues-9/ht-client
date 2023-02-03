@@ -239,40 +239,41 @@ const Navigation = () => {
   return (
     router &&
     !noNav.includes(router.pathname) && (
-      <div className={navbar.container}>
-        <nav className={navbar.nav}>
-          <ul className={navbar.ul}>
-            <div className={navbar.left}>
-              <Link href="/">
-                <li className={navbar.logo}>
-                  <Image
-                    src={"/favicon.png"}
-                    alt={"HackTUES 9 Logo - link to home page"}
-                    width={36}
-                    height={36}
-                    style={{
-                      borderRadius: "50%",
-                      border: "1px solid rgba(171, 171, 171, 0.415)",
-                    }}
-                  />
-                </li>
-              </Link>
-              <Link href="/teams">
-                <li>отбори</li>
-              </Link>
-              <Link href="/mentors">
-                <li>ментори</li>
-              </Link>
-              <Link href="/themes">
-                <li>теми</li>
-              </Link>
-              <Link href="/timetable">
-                <li>информация</li>
-              </Link>
-              <Link href="/rankings">
-                <li>класация</li>
-              </Link>
-              {/*             <Link href="/archive">
+      <>
+        <div className={navbar.container}>
+          <nav className={navbar.nav}>
+            <ul className={navbar.ul}>
+              <div className={navbar.left}>
+                <Link href="/">
+                  <li className={navbar.logo}>
+                    <Image
+                      src={"/favicon.png"}
+                      alt={"HackTUES 9 Logo - link to home page"}
+                      width={36}
+                      height={36}
+                      style={{
+                        borderRadius: "50%",
+                        border: "1px solid rgba(171, 171, 171, 0.415)",
+                      }}
+                    />
+                  </li>
+                </Link>
+                <Link href="/teams">
+                  <li>отбори</li>
+                </Link>
+                <Link href="/mentors">
+                  <li>ментори</li>
+                </Link>
+                <Link href="/themes">
+                  <li>теми</li>
+                </Link>
+                <Link href="/timetable">
+                  <li>информация</li>
+                </Link>
+                <Link href="/rankings">
+                  <li>класация</li>
+                </Link>
+                {/*             <Link href="/archive">
               <li>архив</li>
             </Link>
             <Link href="/regulation">
@@ -281,7 +282,7 @@ const Navigation = () => {
             <Link href="/ourteam">
               <li>нашият екип</li>
             </Link> */}
-              {/*               <Link href="/tuestalks">
+                {/*               <Link href="/tuestalks">
                 <li>TUES Talks</li>
               </Link>
               {isUserAuthenticated && userId && (
@@ -289,50 +290,51 @@ const Navigation = () => {
                   <li>tinder</li>
                 </Link>
               )} */}
-            </div>
-            {showMobileDropdown && (
-              <MobileBar
-                ref={mobileDropdownRef}
-                {...{
-                  handleMobileDropdownClicked: handleClicked,
-                  isUserAuthenticated: isUserAuthenticated(),
-                }}
-              />
-            )}
-            {
-              <div className={navbar.right}>
-                {isUserAuthenticated && userId ? (
-                  <>
-                    <Notifications userId={userId} />
-                    <Profile userId={userId} />
-                  </>
-                ) : (
-                  <>
-                    <Link href="/login">
-                      <li>влез</li>
-                    </Link>
-                    <Link href="/signup">
-                      <li>регистрация</li>
-                    </Link>
-                  </>
-                )}
-                {
-                  // hamburger menu
-                  <li
-                    className={navbar.hamburger_button}
-                    onClick={handleMobileDropdown}
-                    ref={mobileDropdownButtonRef}
-                  >
-                    <div>
-                      <TbMenu2 className={navbar.hamburger_icon} />
-                    </div>
-                  </li>
-                }
               </div>
-            }
-          </ul>
-        </nav>
-      </div>
+              {
+                <div className={navbar.right}>
+                  {isUserAuthenticated && userId ? (
+                    <>
+                      <Notifications userId={userId} />
+                      <Profile userId={userId} />
+                    </>
+                  ) : (
+                    <>
+                      <Link href="/login">
+                        <li>влез</li>
+                      </Link>
+                      <Link href="/signup">
+                        <li>регистрация</li>
+                      </Link>
+                    </>
+                  )}
+                  {
+                    // hamburger menu
+                    <li
+                      className={navbar.hamburger_button}
+                      onClick={handleMobileDropdown}
+                      ref={mobileDropdownButtonRef}
+                    >
+                      <div>
+                        <TbMenu2 className={navbar.hamburger_icon} />
+                      </div>
+                    </li>
+                  }
+                </div>
+              }
+            </ul>
+          </nav>
+          {showMobileDropdown && (
+            <MobileBar
+              ref={mobileDropdownRef}
+              {...{
+                handleMobileDropdownClicked: handleClicked,
+                isUserAuthenticated: isUserAuthenticated(),
+              }}
+            />
+          )}
+        </div>
+      </>
     )
   );
 };
