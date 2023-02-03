@@ -202,6 +202,7 @@ const User = () => {
                 name={""}
                 placeholder={""}
                 required={false}
+                readOnly={true}
               />
               <Input
                 type="lastName"
@@ -212,6 +213,7 @@ const User = () => {
                 name={""}
                 placeholder={""}
                 required={false}
+                readOnly={true}
               />
               <div className={style.immutableinfo}>
                 <div>
@@ -236,6 +238,7 @@ const User = () => {
                 name={""}
                 placeholder={""}
                 required={false}
+                readOnly={true}
               />
               <Input
                 type="email"
@@ -246,6 +249,7 @@ const User = () => {
                 name={""}
                 placeholder={""}
                 required={false}
+                readOnly={true}
               />
               <Input
                 type="phone"
@@ -256,6 +260,7 @@ const User = () => {
                 name={""}
                 placeholder={""}
                 required={false}
+                readOnly={true}
               />
             </div>
             <div className={style.sel}>

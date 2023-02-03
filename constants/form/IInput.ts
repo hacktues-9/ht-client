@@ -10,8 +10,11 @@ export interface IInput {
   error?: string;
   options?: IOption[];
   onChange?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => void;
+  readOnly?: boolean;
 }
 
 export interface IOption {
