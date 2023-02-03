@@ -176,6 +176,8 @@ const Information = ({ showDropdown, setShowDropdown }) => {
           >
             <Link href="/archive">архив</Link>
             <Link href="/regulation">регламент</Link>
+            <Link href="/timetable">график</Link>
+            <Link href="/faq">чзв</Link>
             <Link href="/ourteam">нашият екип</Link>
             <Link href="/tuestalks" style={{
               borderBottom: "none",
