@@ -24,7 +24,7 @@ import Notifications from "./Notifications";
 const fetcher = (url) =>
   fetch(url, { credentials: "include" }).then((r) => r.json());
 
-const Profile = ({ userId }) => {
+const Profile = ({ userId, showDropdown, setShowDropdown }) => {
   // get profile picture and name from api
   const {
     data: user,
@@ -36,7 +36,6 @@ const Profile = ({ userId }) => {
     fetcher
   );
 
-  const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
   const router = useRouter();
@@ -212,6 +211,7 @@ const Navigation = () => {
 
   const { authState, isUserAuthenticated } = useAuthContext();
   const [showMobileDropdown, setShowMobileDropdown] = useState(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   const mobileDropdownButtonRef = useRef(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
@@ -296,7 +296,11 @@ const Navigation = () => {
                   {isUserAuthenticated && userId ? (
                     <>
                       <Notifications userId={userId} />
-                      <Profile userId={userId} />
+                      <Profile
+                        userId={userId}
+                        showDropdown={showProfileDropdown}
+                        setShowDropdown={setShowProfileDropdown}
+                      />
                     </>
                   ) : (
                     <>
