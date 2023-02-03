@@ -313,8 +313,8 @@ const User = () => {
                       );
                 }}
               >
-                {newUserInfo.discord === "#" ||
-                  (newUserInfo.discord === "" && `свържи се с `)}
+                {(newUserInfo.discord === "#" || newUserInfo.discord === "") &&
+                  `свържи се с `}
                 <TbBrandDiscord size={32} />
                 {newUserInfo.discord !== "#" &&
                   newUserInfo.discord !== "" &&
