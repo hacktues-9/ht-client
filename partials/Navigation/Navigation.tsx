@@ -257,7 +257,7 @@ const Navigation = () => {
     "/teams/[teamId]/project/[projectId]",
     "/teams/[teamId]/project/create",
     "/users/",
-    "/forgot-password",
+    "/forgotten-password",
     "/_error",
   ];
 
