@@ -80,6 +80,8 @@ const TeamInfo = ({
     general: null,
   });
 
+  const router = useRouter();
+
   const validateName = async (team, error) => {
     if (!team.name) {
       return {
@@ -182,6 +184,46 @@ const TeamInfo = ({
           console.log("UPDATE TEAM INFO", err);
         });
     }
+  };
+
+  const handleLeave = () => {
+    fetch(`https://api.hacktues.bg/api/team/leave/${teamId}`, {
+      method: "POST",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          router.push("/teams");
+        } else {
+          throw new Error("Something went wrong", {
+            cause: data.error,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("LEAVE TEAM", err);
+      });
+  };
+
+  const handleDelete = () => {
+    fetch(`https://api.hacktues.bg/api/team/delete/${teamId}`, {
+      method: "DELETE",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          router.push("/teams");
+        } else {
+          throw new Error("Something went wrong", {
+            cause: data.error,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("DELETE TEAM", err);
+      });
   };
 
   return (
@@ -387,7 +429,8 @@ const TeamInfo = ({
                   borderRadius: ".5rem",
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                   fontSize: "1rem",
-                }} /* onClick={() => handleLeave()} */
+                }}
+                onClick={() => handleLeave()}
               >
                 напусни
               </button>
@@ -399,7 +442,8 @@ const TeamInfo = ({
                     borderRadius: ".5rem",
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                     fontSize: "1rem",
-                  }} /* onClick={() => hanldeDelete()} */
+                  }}
+                  onClick={() => hanldeDelete()}
                 >
                   изтрий
                 </button>
@@ -790,8 +834,7 @@ const Team = () => {
     if (teamData?.data) setTeam(teamData?.data);
   }, [teamData]);
 
-  if (!team || !teamId || !teamData)
-    return <div>loading...</div>;
+  if (!team || !teamId || !teamData) return <div>loading...</div>;
 
   return (
     <div className={style.page}>
