@@ -124,7 +124,7 @@ const Notifications = ({ userId }) => {
       {/* add handleClickOutside */}
       {showDropdown && (
         <div
-          className={navbar.dropdown}
+          className={navbar.dropdown + " " + navbar.notificationsDropdown}
           style={{
             width: "24rem",
           }}
