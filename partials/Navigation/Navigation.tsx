@@ -79,7 +79,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
         onClick={handleDropdown}
         ref={dropdownButtonRef}
       >
-        <p>{user.firstName}</p>
+        <p className={navbar.name}>{user.firstName}</p>
         <Image
           src={user.profilePicture}
           alt={"Profile Picture"}
