@@ -96,20 +96,20 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
       {showDropdown && (
         <div className={navbar.dropdown} ref={dropdownRef}>
           <Link href={`/user/${userId}`} onClick={handleClicked}>
-            профил
+            Профил
           </Link>
           {team && team?.status === 200 ? (
             <Link href={`/teams/${team?.data}`} onClick={handleClicked}>
-              отбор
+              Отбор
             </Link>
           ) : (
             <Link href={`/teams/create`} onClick={handleClicked}>
-              създай отбор
+              Създай отбор
             </Link>
           )}
           {!team && (
             <Link href={``} onClick={handleClicked}>
-              покани
+              Покани
             </Link>
           )}
           <button
@@ -125,7 +125,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
               });
             }}
           >
-            изход
+            Изход
           </button>
         </div>
       )}
@@ -161,9 +161,13 @@ const Information = ({ showDropdown, setShowDropdown }) => {
           position: "relative",
         }}
       >
-        <p style={{
-          margin: "0",
-        }}>информация</p>
+        <p
+          style={{
+            margin: "0",
+          }}
+        >
+          Информация
+        </p>
         {showDropdown && (
           <div
             className={navbar.dropdown}
@@ -174,14 +178,18 @@ const Information = ({ showDropdown, setShowDropdown }) => {
               top: "3.5rem",
             }}
           >
-            <Link href="/archive">архив</Link>
-            <Link href="/regulation">регламент</Link>
-            <Link href="/timetable">график</Link>
-            <Link href="/faq">чзв</Link>
-            <Link href="/ourteam">нашият екип</Link>
-            <Link href="/tuestalks" style={{
-              borderBottom: "none",
-            }}>TUES Talks</Link>
+            <Link href="/ourteam">Нашият екип</Link>
+            <Link href="/regulation">Регламент</Link>
+            <Link href="/faq">ЧЗВ</Link>
+            <Link href="/tuestalks">TUES Talks</Link>
+            <Link
+              href="/archive"
+              style={{
+                borderBottom: "none",
+              }}
+            >
+              Архив
+            </Link>
           </div>
         )}
       </li>
@@ -204,28 +212,28 @@ const MobileBar = forwardRef<HTMLDivElement>(
       <div className={navbar.mobile_dropdown}>
         <div className={navbar.mobile_dropdown_content} ref={ref}>
           <Link href="/teams" onClick={handleMobileDropdownClicked}>
-            <li>отбори</li>
+            <li>Отбори</li>
           </Link>
           <Link href="/mentors" onClick={handleMobileDropdownClicked}>
-            <li>ментори</li>
+            <li>Ментори</li>
           </Link>
           <Link href="/themes" onClick={handleMobileDropdownClicked}>
-            <li>теми</li>
+            <li>Теми</li>
           </Link>
           <Link href="/timetable" onClick={handleMobileDropdownClicked}>
-            <li>програма</li>
+            <li>Програма</li>
           </Link>
           <Link href="/archive" onClick={handleMobileDropdownClicked}>
-            <li>архив</li>
+            <li>Архив</li>
           </Link>
           <Link href="/regulation" onClick={handleMobileDropdownClicked}>
-            <li>регламент</li>
+            <li>Регламент</li>
           </Link>
           <Link href="/ourteam" onClick={handleMobileDropdownClicked}>
-            <li>нашият екип</li>
+            <li>Нашият екип</li>
           </Link>
           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
-            <li>класация</li>
+            <li>Класация</li>
           </Link>
           {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
@@ -235,10 +243,10 @@ const MobileBar = forwardRef<HTMLDivElement>(
           {!props.isUserAuthenticated && (
             <>
               <Link href="/login" onClick={handleMobileDropdownClicked}>
-                <li>вход</li>
+                <li>Вход</li>
               </Link>
               <Link href="/signup" onClick={handleMobileDropdownClicked}>
-                <li>регистрация</li>
+                <li>Регистрация</li>
               </Link>
             </>
           )}
@@ -313,23 +321,26 @@ const Navigation = () => {
                   </li>
                 </Link>
                 <Link href="/teams">
-                  <li>отбори</li>
+                  <li>Отбори</li>
                 </Link>
                 <Link href="/mentors">
-                  <li>ментори</li>
+                  <li>Ментори</li>
                 </Link>
                 <Link href="/themes">
-                  <li>теми</li>
+                  <li>Теми</li>
+                </Link>
+                <Link href="/timetable">
+                  <li>Програма</li>
                 </Link>
                 <Information
                   showDropdown={showInformationDropdown}
                   setShowDropdown={setShowInformationDropdown}
                 />
-                <Link href="/rankings">
-                  <li>класация</li>
-                </Link>
+                {/*                 <Link href="/rankings">
+                  <li>Класация</li>
+                </Link> */}
                 {/* 
-                              {isUserAuthenticated && userId && (
+              {isUserAuthenticated && userId && (
                 <Link href="/tinder">
                   <li>tinder</li>
                 </Link>
@@ -349,10 +360,10 @@ const Navigation = () => {
                   ) : (
                     <>
                       <Link href="/login">
-                        <li>влез</li>
+                        <li>Влез</li>
                       </Link>
                       <Link href="/signup">
-                        <li>регистрация</li>
+                        <li>Регистрация</li>
                       </Link>
                     </>
                   )}
