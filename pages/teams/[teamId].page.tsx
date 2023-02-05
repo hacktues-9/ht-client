@@ -1,6 +1,6 @@
-import useSWR from "swr";
 import Image from "next/image";
 import Select from "react-dropdown-select";
+import useSWR from "swr";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -63,7 +63,15 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
   );
 };
 
-const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
+const TeamInfo = ({
+  team,
+  setTeam,
+  edit,
+  setEdit,
+  isEditable,
+  inTeam,
+  teamId,
+}) => {
   const [error, setError] = useState({
     name: null,
     description: null,
@@ -361,7 +369,8 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
           )}
 
           {/* // TODO - VERY FUCKING IMPORTANT */}
-          {true /* some logic to see if user is in team */ && (
+          {inTeam ===
+            "user in team" /* some logic to see if user is in team */ && (
             <div
               style={{
                 margin: "0 0 0 auto",
@@ -382,17 +391,19 @@ const TeamInfo = ({ team, setTeam, edit, setEdit, isEditable, teamId }) => {
               >
                 напусни
               </button>
-              <button
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: ".5rem 1rem",
-                  borderRadius: ".5rem",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  fontSize: "1rem",
-                }} /* onClick={() => hanldeDelete()} */
-              >
-                изтрий
-              </button>
+              {isEditable && (
+                <button
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    padding: ".5rem 1rem",
+                    borderRadius: ".5rem",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    fontSize: "1rem",
+                  }} /* onClick={() => hanldeDelete()} */
+                >
+                  изтрий
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -748,15 +759,22 @@ const Team = () => {
 
   let editable = false;
 
-  // api call to https://api.hacktues.bg/api/team/captain/{teamId} -> returns captain id and compare with userId
-  const { data: isCaptainResp } = useSWR(
-    `https://api.hacktues.bg/api/team/captain/${teamId}`,
+  const { data: teamData } = useSWR(
+    teamId ? `https://api.hacktues.bg/api/team/get/${teamId}` : null,
     fetcher
   );
 
-  // Get team info
-  const { data: teamData } = useSWR(
-    `https://api.hacktues.bg/api/team/get/${teamId}`,
+  const { data: inTeam } = useSWR(
+    authState.isLoggedIn && teamId
+      ? `https://api.hacktues.bg/api/team/users/in-team/${teamId}`
+      : null,
+    fetcher
+  );
+
+  const { data: isCaptainResp } = useSWR(
+    authState.isLoggedIn && teamId
+      ? `https://api.hacktues.bg/api/team/captain/${teamId}`
+      : null,
     fetcher
   );
 
@@ -772,7 +790,8 @@ const Team = () => {
     if (teamData?.data) setTeam(teamData?.data);
   }, [teamData]);
 
-  if (!team) return <div>loading...</div>;
+  if (!team || !teamId || !teamData)
+    return <div>loading...</div>;
 
   return (
     <div className={style.page}>
@@ -783,6 +802,7 @@ const Team = () => {
           edit={edit}
           setEdit={setEdit}
           isEditable={editable}
+          inTeam={inTeam?.data}
           teamId={teamId}
         />
       </div>
