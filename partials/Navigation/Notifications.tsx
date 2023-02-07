@@ -1,39 +1,39 @@
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { useOutsideAlerter } from "./useOutsideAlerter";
-
 import useSWR from "swr";
-
 import Image from "next/image";
-import { useRouter } from "next/router";
-import navbar from "../../styles/Navbar.module.scss";
+
+import { useEffect, useRef, useState } from "react";
 import { TbBell, TbBellRinging, TbCheck, TbX } from "react-icons/tb";
 
-const fetcher = async(url) =>
-  await fetch(url, { credentials: "include" }).then((r) => r.json()).catch((err) => {throw err;});
+import { useOutsideAlerter } from "./useOutsideAlerter";
+
+import navbar from "../../styles/Navbar.module.scss";
+
+const fetcher = async (url) =>
+  await fetch(url, { credentials: "include" })
+    .then((r) => r.json())
+    .catch((err) => {
+      throw err;
+    });
 
 const Notifications = ({ userId }) => {
-  // TODO: Fix async bullshit
   const [notifications, setNotifications] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownButtonRef = useRef(null);
   const dropdownRef = useRef(null);
 
   // get notifications from API
-  
+
   const { data: numberOfNotifications, error: error } = useSWR(
     `https://api.hacktues.bg/api/user/notifications`,
     fetcher
   );
 
-
   useEffect(() => {
-    if(numberOfNotifications) {
+    if (numberOfNotifications) {
       console.log("numberOfNotifications", numberOfNotifications);
       setNotifications(numberOfNotifications.data);
     }
-  }, [numberOfNotifications])
-  
+  }, [numberOfNotifications]);
 
   // dropdown menu with profile picture and name
   // and logout button
@@ -47,54 +47,50 @@ const Notifications = ({ userId }) => {
   };
 
   const handleAccept = (teamId) => {
-    console.log("Accept invite for team " + teamId);
-    // TODO: Send request to API to accept invite
-    // remove notification from dropdown menu
-
     fetch(`https://api.hacktues.bg/api/team/accept/${teamId}/${userId}`, {
       method: "POST",
       credentials: "include",
-      })
+    })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.status === 200) {
+          setNotifications(
+            notifications.filter(
+              (notification) => notification.teamId !== teamId
+            )
+          );
+        } else {
+          throw new Error("Error accepting invite", { cause: data });
+        }
+      })
       .catch((err) => console.log(err));
-
-    // TODO: Check if status is 200
-    // TODO: Fix error with useSWR
-    
-    setNotifications(
-      notifications.filter((notification) => notification.teamId !== teamId)
-    );
   };
 
   const handleDecline = (teamId) => {
-    console.log("Decline invite for team " + teamId);
-    // TODO: Send request to API to decline invite
-    // remove notification from dropdown menu
-
     fetch(`https://api.hacktues.bg/api/team/decline/${teamId}/${userId}`, {
       method: "POST",
       credentials: "include",
-      })
+    })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.status === 200) {
+          setNotifications(
+            notifications.filter(
+              (notification) => notification.teamId !== teamId
+            )
+          );
+        } else {
+          throw new Error("Error declining invite", { cause: data });
+        }
+      })
       .catch((err) => console.log(err));
-
-    // TODO: Check if status is 200
-    // TODO: Fix error with useSWR
-
-    setNotifications(
-      notifications.filter((notification) => notification.teamId !== teamId)
-    );
   };
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
 
-  if(error) {
-    console.log("error", error);
-    return null;
-  }
-  
+  if (error) return null;
+  if (!notifications) return null;
+
   return (
     <>
       <div

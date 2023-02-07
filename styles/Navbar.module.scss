@@ -358,9 +358,15 @@
     }
 }
 
+.notifications {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .notificationsDropdown {
     @media screen and (max-width: 640px) {
         width: 100% !important;
     }
-
 }
