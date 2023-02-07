@@ -21,7 +21,15 @@ const validateInitial: validate = async (form, error) => {
     newError = { ...newError, email: "INVALID_EMAIL" };
   } else {
     // await setErrors((prev: any) => ({ ...prev, email: "" }));
-    newError = { ...newError, email: "" };
+    const res = await fetch(`https://api.hacktues.bg/api/auth/check/email/${form.email}`);
+    const data = await res.json();
+    if (data.status === 401) {
+      newError = { ...newError, email: "EMAIL_ALREADY_IN_USE" };
+    } else if (data.status === 200) {
+      newError = { ...newError, email: "" };
+    } else {
+      newError = { ...newError, email: "UNKNOWN_ERROR" };
+    }
   }
 
   // check password if it's at least 8 characters
@@ -122,7 +130,22 @@ const validateElsys: validate = async (form, error) => {
     newError = { ...newError, elsysEmail: "INVALID_ELSYS_EMAIL" };
   } else {
     // await setErrors((prev: any) => ({ ...prev, elsysEmail: "" }));
-    newError = { ...newError, elsysEmail: "" };
+    // const res = await fetch(
+    //   process.env.NEXT_PUBLIC_API_URL + "/api/elsys/checkEmail",
+    const res = await fetch(
+      `https://api.hacktues.bg/api/auth/check/elsys_email/${form.elsysEmail}`
+    );
+    const data = await res.json();
+    if (data.status === 401) {
+      // await setErrors((prev: any) => ({
+      //   ...prev,
+      //   elsysEmail: "EMAIL_NOT_FOUND",
+      // }));
+      newError = { ...newError, elsysEmail: "EMAIL_ALREADY_IN_USE" };
+    } else if (data.status === 200) {
+      // await setErrors((prev: any) => ({ ...prev, elsysEmail: "" }));
+      newError = { ...newError, elsysEmail: "" };
+    }
   }
 
   // check if grade is empty and if it's between 8 and 12

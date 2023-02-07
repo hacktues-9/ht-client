@@ -3,6 +3,7 @@ export const ERRORS_TEXT = {
   email: {
     REQ_EMAIL: "въдете имейл",
     INVALID_EMAIL: "невалиден имейл",
+    EMAIL_ALREADY_IN_USE: "този имейл вече се използва",
   },
   password: {
     REQ_PASS: "въведете парола",
@@ -29,6 +30,7 @@ export const ERRORS_TEXT = {
   elsysEmail: {
     REQ_ELSYS_EMAIL: "въведете elsys имейл",
     INVALID_ELSYS_EMAIL: "невалиден elsys имейл",
+    EMAIL_ALREADY_IN_USE: "този elsys имейл вече се използва",
   },
   classNumber: {
     REQ_GRADE: "изберете клас",
