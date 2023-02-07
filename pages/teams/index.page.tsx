@@ -1,20 +1,30 @@
 import useSWR from "swr";
+import Head from "next/head";
+import Image from "next/image";
+
+import { useEffect, useState } from "react";
+import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 
 import TeamCard from "../../components/teams/Card";
 
-import Head from "next/head";
-import Image from "next/image";
-import { useState } from "react";
-import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 import { TITLE } from "../../constants/arc";
 import { ROLES } from "../../constants/teams";
-import styles from "../../styles/0/teams/Teams.module.scss";
 import { ITeam } from "../../types/ITeam";
 
-const fetcher = (url: string) => fetch(url, { credentials: "include"}).then((res) => res.json());
+import styles from "../../styles/0/teams/Teams.module.scss";
+
+const fetcher = (url: string) =>
+  fetch(url, { credentials: "include" }).then((res) => res.json());
 
 const MemberInfoCard = ({ member, position }) => {
-  const { name, profile_picture, role, class: class_, discord, github } = member;
+  const {
+    name,
+    profile_picture,
+    role,
+    class: class_,
+    discord,
+    github,
+  } = member;
 
   // position is the position of the member's profile picture
   // the card should be positioned relative to the member's profile picture
@@ -57,6 +67,26 @@ const MemberInfoCard = ({ member, position }) => {
   );
 };
 
+const ProgressBar = ({ current, total }) => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setProgress((current / total) * 100);
+  }, [current, total]);
+
+  return (
+    <div className={styles.progress_bar}>
+      <div
+        className={styles.progress_bar__progress}
+        style={{ width: `${progress}%` }}
+      ></div>
+      <p>
+        {current} / {total}
+      </p>
+    </div>
+  );
+};
+
 const Teams = () => {
   const [showMemberInfoCard, setShowMemberInfoCard] = useState({
     show: false,
@@ -64,14 +94,17 @@ const Teams = () => {
     position: { x: 0, y: 0 },
   });
 
-  const { data : resp, isLoading, error } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
+  const {
+    data: resp,
+    isLoading,
+    error,
+  } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;
 
   const { data }: { data: ITeam[] } = resp;
 
-  console.log(data)
   return (
     <>
       <Head>
@@ -96,20 +129,17 @@ const Teams = () => {
         />
       )}
       <div className={styles.teams}>
-        <div>
-          {/* Slider - how many teams out of total number / limit */}
-          {/* <p>1/10</p> */}
-        </div>
+        <ProgressBar current={data.length} total={60} />
         <ul className={styles.cards_grid}>
-          {data && data.map((team: ITeam) => (
-            <TeamCard
-              key={team.id}
-              team={team}
-              showMemberInfoCard={showMemberInfoCard}
-              setShowMemberInfoCard={setShowMemberInfoCard}
-            />
-          ))}
-          
+          {data &&
+            data.map((team: ITeam) => (
+              <TeamCard
+                key={team.id}
+                team={team}
+                showMemberInfoCard={showMemberInfoCard}
+                setShowMemberInfoCard={setShowMemberInfoCard}
+              />
+            ))}
         </ul>
       </div>
     </>
