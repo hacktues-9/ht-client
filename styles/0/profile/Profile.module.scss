@@ -425,9 +425,9 @@ $profilePicSize: 10rem;
 
         display: flex;
         flex-direction: row;
-        justify-content: start !important;
-        align-items: start !important;
-        align-content: start !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        align-content: flex-start !important;
         flex-wrap: wrap;
     }
 
