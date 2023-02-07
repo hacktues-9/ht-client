@@ -86,21 +86,33 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
       >
         <div className={styles.members}>
           {members.map((member) => (
-            <img
+            <Image
               key={member.id}
               src={member.profile_picture}
               alt="profile"
               className="w-10 h-10 rounded-full"
               onMouseEnter={(e) => onHoverMember(e, member)}
+              width={64}
+              height={64}
               //onMouseLeave={onLeaveMember}
             />
           ))}
         </div>
-        <div style={{
-          marginBottom: "0rem",
-          height: "2rem"
-        }}>
-          <div style={{ display: "flex", height: "100%", alignItems: "center", gap: ".25rem" }}>
+        <div
+          style={{
+            marginBottom: "0rem",
+            minHeight: "2rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              height: "100%",
+              alignItems: "center",
+              gap: ".25rem",
+              overflow: "hidden",
+            }}
+          >
             {
               // limit to fit in the card
               technologies &&
@@ -110,9 +122,15 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
                     <Technologies key={tech.id} technology={tech} />
                   ))
             }
-            {technologies && technologies.length === 0 && <p style={{
-              margin: "auto auto",
-            }}>няма технологии :(</p>}
+            {technologies && technologies.length === 0 && (
+              <p
+                style={{
+                  margin: "auto auto",
+                }}
+              >
+                няма технологии :(
+              </p>
+            )}
             {
               // show how many more technologies are there in number
               technologies && technologies.length > 3 && (
