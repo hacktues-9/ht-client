@@ -119,3 +119,43 @@ a {
 .infinity {
   transform: rotate(90deg);
 }
+
+// custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f146;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  display: none;
+}
+
+// fix for safari
+body {
+  overflow: overlay;
+}
+
+// fix for firefox
+
+// add autohide scrollbar
+body {
+  overflow: auto;
+}

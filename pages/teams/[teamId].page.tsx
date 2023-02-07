@@ -38,6 +38,9 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
             technologies: e.map((tech) => tech.value),
           })
         }
+        // disable items X button
+        clearable={!disabled}
+        // disable
         className={style.select}
         placeholder={
           isEditable ? "Изберете технологии" : "Няма избрани технологии"
