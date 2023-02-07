@@ -3,7 +3,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import Input from "../../components/form/Input";
+import Input from "../../../components/form/Input";
 
 import style from "./style.module.scss";
 
@@ -15,6 +15,7 @@ const ResetPage = () => {
   const [working, setWorking] = useState(false);
 
   const router = useRouter();
+  const token = router.query;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
