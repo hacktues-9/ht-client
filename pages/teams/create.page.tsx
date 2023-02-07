@@ -262,7 +262,7 @@ const CreateTeam = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("DATA", data);
-        if (data.satatus !== 200) {
+        if (data.status !== 200) {
           // show error on the page
 
           // if error is 401 redirect to login
@@ -272,11 +272,13 @@ const CreateTeam = () => {
 
           if (data.status === 403) {
             console.log("ALREADY IN TEAM, pushing to team page", data.teamId);
-            // TODO: Marto
-            router.push(`/teams/${data.teamId}`);
+            // TODO: Marto // TODO 
+            // TODO: router.push(`/teams/${data.teamId}`);
+            router.push(`/teams`);
           }
         } else {
-          router.push(`/teams/${data.id}`);
+          console.log("THIS IS FINAL DATA -> ", data);
+          router.push(`/teams/${data.data}`);
         }
       })
       .catch((err) => {
