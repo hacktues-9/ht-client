@@ -35,7 +35,7 @@ const ResetPage = () => {
       return;
     }
 
-    fetch(`https://api.hacktues.bg/api/user/reset//${router.query.token}`, {
+    fetch(`https://api.hacktues.bg/api/user/reset/${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,6 +48,7 @@ const ResetPage = () => {
       .then((data) => {
         if (data.status === 200) {
           setSuccess("Успешно променихте паролата си!");
+          router.push("/login");
         } else {
           setError("Възникна грешка при промяна на паролата!");
         }
