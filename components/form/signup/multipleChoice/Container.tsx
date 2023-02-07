@@ -81,6 +81,7 @@ const SELECTED_ALERGIES = {
   NUTS: false,
   MILK: false,
   GLUTEN: false,
+  NONE: false,
 };
 
 const ICONS_ALERGIES = {
@@ -134,7 +135,6 @@ const SELECTED_TSHIRT = {
   L: false,
   XL: false,
   XXL: false,
-  XXXL: false,
 };
 
 export const ContainerTshirt = ({ value, onChange, error }) => {

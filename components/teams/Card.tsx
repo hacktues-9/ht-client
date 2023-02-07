@@ -20,6 +20,7 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
 
     // calculate the position of the card - doen't work when the page is scrolled
     const { x, y } = e.target.getBoundingClientRect();
+    // eslint-disable-next-line
     const { width, height } = e.target.getBoundingClientRect();
 
     // fix for scrolling
