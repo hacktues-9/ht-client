@@ -324,7 +324,13 @@ const CreateTeam = () => {
       <Head>
         <title>Създай отбор | {TITLE}</title>
       </Head>
-      <div>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "calc(100vh - 100px)",
+        width: "100%",
+      }}>
         <form className={style.form} onSubmit={handleCreateTeam}>
           <h1>Създай отбор</h1>
           <div className={style.team}>
@@ -393,7 +399,6 @@ const CreateTeam = () => {
                     padding: ".5rem",
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                     fontSize: "1.2rem",
-                    width: "24rem",
                     height: "12rem",
                   }}
                 />
