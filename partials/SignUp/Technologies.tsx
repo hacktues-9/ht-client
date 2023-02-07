@@ -35,7 +35,7 @@ const TechnologiesTab = ({ form, setForm, errors }) => {
   }, []);
 
   return (
-    <div className="technologies">
+    <div className={style.technologies}>
       <h2>технологии</h2>
       <div className={style.container}>
         {TECHNOLOGIES.map((technology) => (

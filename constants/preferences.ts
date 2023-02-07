@@ -9,6 +9,7 @@ export const ALERGIES = {
   NUTS: "ядки",
   MILK: "мляко",
   GLUTEN: "глутен",
+  NONE: "няма",
 };
 
 export const TSHIRT_SIZE = [
@@ -17,5 +18,4 @@ export const TSHIRT_SIZE = [
   { size: "L", icon: "👕" },
   { size: "XL", icon: "👕" },
   { size: "XXL", icon: "👕" },
-  { size: "XXXL", icon: "👕" },
 ];
