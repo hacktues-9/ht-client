@@ -1,29 +1,103 @@
-export const REGULATION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in magna eget diam semper hendrerit. Donec sit amet placerat diam, in ullamcorper ipsum. Aenean vitae venenatis turpis. In mollis arcu eget mi efficitur faucibus. Sed euismod facilisis diam, tincidunt cursus elit venenatis eget. Nunc non suscipit leo, in suscipit magna. Nam sed posuere tellus. Maecenas consectetur neque sem, nec viverra eros consequat ut.
+export const REGULATION = `Скъпи съученици, поздравяваме Ви за решението да се включите в предизвикателството, което предлага училищният хакатон. Тук ще намерите цялата информация, необходима за участие в хакатона и неговото провеждане. 
 
-Sed quam sem, fermentum at odio sed, porttitor convallis ligula. Mauris quis tincidunt ipsum. Donec dolor ipsum, feugiat ut blandit eu, gravida eu erat. Quisque vitae feugiat libero. In luctus venenatis nisi, et finibus erat. Suspendisse tincidunt justo a dictum viverra. Fusce nisl ante, varius sit amet elit ac, fermentum interdum lorem. Morbi ornare justo vitae aliquam elementum. Integer gravida finibus nulla, sit amet ultricies mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna, aliquet at blandit ut, pretium sit amet quam.
+КАКВО Е Hack TUES?
+Hack TUES е хакатон (състезание с компютърни проекти), в което отборите имат по-малко от 3 дни да направят авторски софтуерен/хардуерен проект по зададената от организаторите тема, използвайки всякакви технологии. Организира се ежегодно от ученици (най-често в 11 клас) от ТУЕС.
 
-Praesent tempor, sem sed pharetra placerat, mauris nibh vestibulum lorem, id dapibus mauris metus non nulla. Proin vehicula ex libero, eget mattis mauris consectetur quis. Nulla vel ullamcorper nulla. Ut interdum blandit dolor, et ultricies libero ultricies a. Aenean luctus quam non viverra feugiat. Aliquam interdum, magna a tincidunt pulvinar, augue arcu volutpat elit, faucibus semper metus eros quis arcu. In cursus aliquet elit, quis fringilla odio egestas sit amet. Nulla mollis nisl et aliquam venenatis. Praesent dignissim neque non eleifend sagittis. Ut porta turpis arcu, ac varius massa accumsan quis. Pellentesque viverra at odio quis semper. Ut quis metus id ante suscipit tristique. Nunc luctus pharetra nunc. Proin feugiat urna quis dui egestas, in dapibus mi eleifend. Sed pharetra pulvinar risus mollis bibendum. Nullam at enim lorem.
+КАКВО ПРЕДСТОИ ПРЕДИ Hack TUES 9
+Подготвили сме Ви за загрявка преди хакатона -  обучения на различни и интересни теми:
+20.02 Теодор Панайотов - Как да генерираме и реализираме идея
+23.02 Ивайло Каньов, Мартин Божилов - Python 
+27.02 Росен Витанов -  Embedded 
+1.03 Мартин Божилов, Калоян Дойчинов - Git, Github 
+4.03 Калоян Дойчинов - Next.JS 13, WebDEV & TypeScript
+(дата) Кики, Надя - Hack TUES 9 В какво се забърках
+Ще се проведат в Zoom. Формулярите за регистрация ще бъдат пуснати скоро, така че следете социалните мрежи и електронните си пощи.
+* - Цялата си работа от хакатона трябва да съхранявате в GitHub хранилище, което ще ви бъде предоставено от организаторите в началото на времето за работа
 
-Vestibulum venenatis, orci sed lacinia posuere, orci arcu tempor nisi, ac rutrum libero tortor et orci. Aenean vel luctus ipsum. Quisque fermentum vulputate massa sed congue. Aliquam in libero enim. Ut diam orci, hendrerit non tellus ac, malesuada feugiat neque. Nunc ut mollis enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum scelerisque tempor leo sit amet egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque nec consequat lorem.
+(да си напишем нашите лекции и кой ще ги води и да се реши кога ще са, ако може)
 
-Pellentesque dictum sapien fermentum, vehicula lectus et, semper augue. Curabitur efficitur vehicula ultrices. Vestibulum laoreet et justo vitae pellentesque. Phasellus ut hendrerit enim. Nulla ante nisi, pellentesque non commodo eu, congue ut libero. Vivamus ac finibus mi, et posuere nulla. Proin non augue tortor. Morbi malesuada, leo sed commodo fringilla, nisi neque volutpat nisl, ut sollicitudin dui ante non ligula. Nunc lobortis iaculis purus id dictum. Duis id tellus tortor. In hac habitasse platea dictumst. Nullam luctus maximus leo euismod accumsan. Ut sed tortor sit amet purus suscipit faucibus eu quis ex. Maecenas a varius ligula. Donec consequat tempus suscipit. Curabitur mattis tortor ac laoreet egestas.
+Как да участвате?
+Първата стъпка е да се регистрирате:
+Ако сте ученик от 8. до 12. клас в ТУЕС, можете да се регистрирате за участие на страницата за регистрация.
+Регистрацията започва на 08.02 (понеделник) и свършва на 18.02 (четвъртък) 23:59:59. Лимитът на регистрираните отбори е 60, а ако се достигне преди крайния срок, регистрацията ще бъде затворена.
+Когато се регистрирате, ще получите достъп до нова страница от сайта (Дискорд), на която ще получите инструкции за влизане и удостоверяване в Discord сървъра на събитието, което ще ви даде достъп до отборните ви канали. През Discord сървъра ще се осъществи цялата комуникация с организатори и ментори.
 
-Pellentesque mollis sodales convallis. Vestibulum fringilla diam sed augue placerat, vitae posuere ex dapibus. Fusce porta maximus erat vitae finibus. Proin lobortis lorem a diam molestie, eget maximus odio tristique. Phasellus malesuada felis et odio accumsan, nec sodales mauris dictum. Vivamus ex dolor, luctus eu erat ac, auctor feugiat lorem. Sed in tellus non sapien suscipit pulvinar eu ac nisl. Aliquam nec rhoncus lectus, sit amet sollicitudin felis.
+Втората стъпка е да съставите потвърден отбор:
+Лимитът на регистрираните отбори е 60.
+Учениците имат правото сами да съставят отборите си, като в един отбор могат да участват между 3 и 5 човека. Отборът Ви е потвърден, когато в него участват минимум 3-ма души.
+Помислили сме и за хората, които нямат отбор. Ето защо създадохме канал в Discord, чрез който можете да се включите в отбор, търсещ си още съотборници.
+(опишете си тиндъра, ако ще го има)
 
-Ut fermentum neque nulla, nec bibendum tortor rhoncus ac. Vivamus consectetur, quam eu malesuada imperdiet, magna enim tempus odio, ac vulputate nibh urna ac est. Nullam lacinia lacinia nulla eget eleifend. Sed lacus orci, malesuada eget mollis vitae, pellentesque ultrices nibh. Sed eleifend mauris in ex vestibulum, eget lacinia diam porttitor. Duis eu congue libero, sed suscipit neque. Vestibulum in mollis turpis, eget tincidunt urna. In est magna, rutrum luctus mollis vel, cursus sed felis. Praesent ut ligula euismod, ullamcorper orci non, vestibulum ipsum. Nunc ultrices erat hendrerit diam aliquet rutrum.
+ВАЖНО: Ако до 18.02 включително не сте си намерили отбор, няма да можете да участвате на хакатона независимо дали сте се регистрирали като индивидуален участник.
+Всеки индивидуален участник може да участва само в един отбор.
 
-Vivamus sodales lobortis ultrices. Donec dapibus felis ac mi mattis rutrum. Sed porta elementum luctus. Integer iaculis turpis vitae lacinia finibus. Morbi a lobortis felis. Sed vel justo et nibh vulputate egestas. In ac mattis massa. Aenean iaculis scelerisque mollis.
 
-Suspendisse dapibus in augue non venenatis. Morbi sit amet interdum nibh, at congue libero. Quisque tincidunt tincidunt ex nec laoreet. Sed erat libero, euismod scelerisque commodo vitae, tristique nec ex. Suspendisse potenti. Curabitur mattis diam tristique ex tristique congue. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Третата стъпка е предаването на декларация за участие:
+Всеки участник в хакатона трябва да предаде декларация за участие по образец най-късно до 04.03. В противен случай няма да бъде допуснат до участие в Hack TUES 9. Декларациите можете да изтеглите от профила си в сайта.
 
-Maecenas libero metus, ultrices at diam id, vehicula tempor ligula. Quisque mollis erat non tortor ultricies molestie. Duis nunc magna, pharetra non rutrum sit amet, finibus quis turpis. Sed justo eros, faucibus ac mauris vel, aliquet finibus justo. Aenean aliquet justo sed dui congue, vel facilisis nisl dignissim. Praesent vel aliquet nisl, quis molestie ligula. Nulla blandit turpis sit amet libero venenatis, eget rhoncus ipsum dictum. In elementum risus eu orci bibendum, sit amet dictum justo vulputate. Vestibulum condimentum massa in mauris imperdiet, et blandit velit laoreet. Donec laoreet laoreet efficitur.
 
-Aenean cursus lobortis ipsum vitae elementum. Pellentesque faucibus lorem sed diam feugiat lacinia. Sed in dapibus odio, sed vehicula odio. Sed pellentesque porttitor sapien nec fringilla. Praesent vitae ante lectus. Ut lobortis fringilla arcu. Proin efficitur diam justo.
 
-Morbi sagittis, nulla sit amet gravida sagittis, ligula est pellentesque quam, a facilisis lorem sapien ut erat. Aliquam varius nisi vel arcu tempus, eget sagittis velit ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus eleifend enim risus, eu ullamcorper ex consectetur a. Cras sed sapien et libero blandit posuere. Etiam lobortis dui ut sem pulvinar, nec ultricies tellus dapibus. Quisque nec aliquam libero, vel dapibus risus. Proin luctus sollicitudin vehicula. Nam laoreet, mauris vel dapibus elementum, dolor nunc finibus felis, ornare sagittis tortor nunc at neque.
+Декларация
+За да участвате в Hack TUES Infinity, трябва да попълните декларация
+Декларация за пълнолетни (линк)
+Декларация за непълнолетни (линк)
 
-Morbi eu rhoncus urna, vel cursus ipsum. Aliquam at metus non lectus sagittis interdum. Aenean sed augue et nibh condimentum maximus nec sit amet velit. Cras lacinia metus a velit dapibus, id vulputate lectus vestibulum. Nam vulputate tincidunt efficitur. Sed tempor porttitor metus mattis ullamcorper. Curabitur nec lorem odio. Cras dignissim libero sed felis congue, a convallis sapien sagittis. Nulla ut erat enim. Nam imperdiet ac eros sit amet luctus. Ut placerat arcu nunc. Mauris efficitur est quis justo laoreet maximus. Proin facilisis aliquet sapien, quis lacinia arcu vehicula vel. Vivamus a condimentum ipsum. Phasellus pulvinar eros id velit egestas, a porttitor orci tristique. In eleifend sem vitae enim eleifend, vitae eleifend leo congue.
 
-Donec nec posuere magna. Etiam mauris ipsum, efficitur vestibulum iaculis sed, malesuada nec purus. Cras sed mi eu nisl rutrum pellentesque. Mauris ultrices justo quis dolor condimentum, et gravida metus ultricies. Maecenas dapibus sed odio a lacinia. Maecenas ac justo nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla augue nisl, convallis dapibus tempus at, volutpat et nulla. Nullam porta velit nec libero consequat, quis tincidunt ligula aliquet. In ac erat malesuada, efficitur leo eu, ornare magna. Morbi at tristique mi. Praesent quis lectus suscipit, ultricies elit ut, feugiat ligula. Etiam eget justo neque.
 
-Donec hendrerit orci id sem vestibulum tempus. Etiam tristique ligula velit, vitae molestie mi molestie et. Mauris accumsan eget augue eu faucibus. Morbi in dapibus dui, id volutpat sapien. Vestibulum in dignissim ipsum. Nulla orci neque, placerat nec orci eu, congue placerat nunc. Phasellus sodales at orci vel tincidunt. Suspendisse potenti. Curabitur maximus lobortis nisi. Etiam fermentum vehicula faucibus. Nunc id ante libero. Morbi in lacus suscipit, dictum est non, rhoncus ligula. Donec vel nulla vitae nunc mattis tempor vitae in quam. Curabitur non malesuada nisi. Nullam orci arcu, cursus eu risus ut, maximus porta purus.`;
+Програма - - ЛОГИСТИКА
+
+
+
+Тематични ментори?
+Освен чрез специалната си лекция, професионалистите в сферата на темите ще подпомогнат участниците като дадат обратна връзка за идеята на всеки един отбор.
+Консултацията с менторите ще става по график и започва в 9:00 на първия работен ден - 9.03 (четвъртък). Графикът ще бъде пуснат на участниците преди откриването.
+
+
+
+Ментори
+Всеки отбор разполага с един ментор, който е част от отбора.
+В случай, че Вашият ментор не може да помогне с проблем, който имате, всеки друг може да се отзове на помощ, след като опишете проблема си, свързан с проекта. Комуникацията с менторите ще се осъществява чрез нашия Discord сървър.
+Освен ИТ-специалисти сред менторите тази година ще има и тематични ментори. Те няма да Ви помагат с техническите проблеми, но ще бъдат на Ваше разположение, за да доразвиете идеята на проектите си спрямо темата и Вашите цели.
+Ще Ви бъде предоставен график на менторите, за да добиете представа каква активност ще има от тяхна страна в различните времеви диапазони:
+                           10:00 до 14:30
+                           14:30 до 19:00
+Целта на менторите е да Ви напътстват по време на работните дни.
+
+
+
+ОЦЕНЯВАНЕ ОТ ЖУРИТО - СПОНСОРИ ИЛИ ЛОГИСТИКА
+
+
+ОТГОВОРНОСТ  (логистика? За тех парка)
+Участниците са длъжни да се съобразяват с програмата за провеждане на хакатона (откриване, време за работа, представяне пред журито и др.), да спазват всички инструкции на организаторите на събитието и доброволците, които помагат за организирането му.
+Организаторите не носят отговорност за Вашата комуникация със съотборниците Ви по време на хакатона.
+
+
+ДИСКВАЛИФИКАЦИЯ (доп. От спонсори)
+Трябва да знаете, че ще се налага дисквалификация в следните случаи:
+Ако даден проект не е авторски, съответният отбор може да бъде дисквалифициран.
+Организаторите на събитието може да дисквалифицират участник, ако поведението на участника е непристойно или пречи на провеждането на хакатона.
+Организаторите си запазват правото да дисквалифицират отбор, ако проектът им не е подходящ за събитието, има неморално съдържание или зловредна цел.
+Отбор, който не изпълнява инструкциите на организаторите, може да бъде дисквалифициран.
+
+
+
+
+ТОРМОЗ (допълване)
+Не се толерира тормоз над екипа на Hack TUES 9, доброволците и участниците в събитието, под каквато и да е форма.
+Ако сте подложен на тормоз, забележите, че някой друг е подложен на тормоз, или имате някакви други проблеми, моля свържете се с член от екипа на хакатона незабавно.
+
+
+
+ПОЛИТИКА ЗА БИСКВИТКИ И ПОВЕРИТЕЛНОСТ - ИТ
+
+
+
+Искрено се надяваме, че ще се забавлявате и че ще измислите уникални проекти и решения.
+
+
+
+
+
+
+`;
