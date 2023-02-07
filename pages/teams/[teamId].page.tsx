@@ -38,9 +38,6 @@ const Technologies = ({ team, setTeam, disabled, isEditable }) => {
             technologies: e.map((tech) => tech.value),
           })
         }
-        // disable items X button
-        clearable={!disabled}
-        // disable
         className={style.select}
         placeholder={
           isEditable ? "Изберете технологии" : "Няма избрани технологии"
@@ -349,7 +346,7 @@ const TeamInfo = ({
             display: "flex",
           }}
         >
-          {edit ? (
+{/*           {edit ? (
             <>
               <label htmlFor="teamLink">гитгъб</label>
               <input
@@ -411,9 +408,8 @@ const TeamInfo = ({
                 </>
               )}
             </>
-          )}
+          )} */}
 
-          {/* // TODO - VERY FUCKING IMPORTANT */}
           {inTeam ===
             "user in team" /* some logic to see if user is in team */ && (
             <div
