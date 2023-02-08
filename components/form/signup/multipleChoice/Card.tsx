@@ -3,14 +3,12 @@ import style from "../../../../styles/0/login/Selectable.module.scss";
 
 const SelectableCard = ({ children, selected, styles, onClick, ...props }) => {
   const handleClick = () => {
-    console.log("clicked");
     onClick();
   };
 
   const [className, setClassName] = useState(style.card);
 
   useEffect(() => {
-    console.log("selected: ", selected);
     if (selected) {
       setClassName(style.cardSelected);
     } else {

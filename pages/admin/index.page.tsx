@@ -17,8 +17,6 @@ const Admin = (props: AdminProps) => {
   const [userId, setUserId] = useState<string | null>(null);
   const [roleId, setRoleId] = useState<string | null>(null);
 
-  console.log(process.env.OOOPSIE);
-
   const onKeyPress = (event: KeyboardEvent) => {
     setKeyCombo((prevCombo) => prevCombo + event.key);
   };

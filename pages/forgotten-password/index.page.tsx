@@ -34,7 +34,6 @@ const ForgottenPasswordPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.status === 404) {
           alert("Имейлът не е намерен!");
         } else if (data.status === 500) {

@@ -3,7 +3,6 @@ const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (event) => {
 
     setIsSubmitting(true);
 
-    console.log(form);
 
     // client-side validation
 
@@ -156,7 +155,6 @@ const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (event) => {
       },
     })
       .then((response) => {
-        console.log(response);
         if (response.data.error) {
           console.log(response.data.error);
         } else if (response.data.success) {

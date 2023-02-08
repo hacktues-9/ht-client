@@ -165,7 +165,6 @@ const TeamInfo = ({
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.status === 200) {
             setEdit(false);
           } else {
@@ -200,7 +199,6 @@ const TeamInfo = ({
         }
       })
       .catch((err) => {
-        console.log("LEAVE TEAM", err);
       });
   };
 
@@ -220,7 +218,6 @@ const TeamInfo = ({
         }
       })
       .catch((err) => {
-        console.log("DELETE TEAM", err);
       });
   };
 
@@ -473,12 +470,9 @@ const handleInvite = (user: any, team: any) => {
     }),
     credentials: "include",
   }).then((res) => {
-    console.log(res);
 
     if (res.status === 200) {
-      console.log("User invited successfully");
     } else {
-      console.log("Error inviting user");
     }
   });
 };
@@ -493,7 +487,6 @@ const SearchPeople = ({ teamId }) => {
   useEffect(() => {
     fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`).then(
       (res) => {
-        console.log(res);
         if (res?.data) {
           setAlreadyInvited([...alreadyInvited, ...res.data]);
         }
@@ -520,7 +513,6 @@ const SearchPeople = ({ teamId }) => {
           }
         })
         .catch((err) => {
-          console.log(err);
         });
     }
   }, [search]);
@@ -713,11 +705,8 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
 
   const kickMember = (id) => {
     fetcher(`https://api.hacktues.bg/api/team/kick/${id}`).then((res) => {
-      console.log(res);
       if (res.status === 200) {
-        console.log("User kicked successfully");
       } else {
-        console.log("Error kicking user");
       }
     });
 

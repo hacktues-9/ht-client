@@ -80,7 +80,6 @@ const SearchPeople: FunctionComponent<functionFormData> = (
           }
         })
         .catch((err) => {
-          console.log(err);
         });
     }
   }, [search]);
@@ -346,7 +345,6 @@ const CreateTeam = () => {
                   }
                 })
                 .catch((err) => {
-                  console.log(err);
                 });
             }
           }
@@ -357,7 +355,6 @@ const CreateTeam = () => {
       })
       .catch((err) => {
         setCreating(false);
-        console.log(err);
         // if error is 401 redirect to login
         if (err.status === 401) {
           router.push("/login");
@@ -375,7 +372,6 @@ const CreateTeam = () => {
               }
             })
             .catch((err) => {
-              console.log(err);
             });
         }
       });
@@ -395,7 +391,6 @@ const CreateTeam = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
       });
 
     if (userId) {
@@ -410,7 +405,6 @@ const CreateTeam = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
         });
     }
   }, []);
