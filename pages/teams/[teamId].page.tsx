@@ -669,7 +669,7 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
   const contextMenu = (e) => {
     e.preventDefault();
     // TODO: Kalata -> make custom right click menu -> kick member or make captain
-    setOpenContextMenu(true);
+    //setOpenContextMenu(true);
   };
 
   const handleInviteMember = () => {
