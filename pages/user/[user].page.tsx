@@ -98,11 +98,14 @@ const User = () => {
 
       // see if it has a team
       fetcher(`https://api.hacktues.bg/api/team/${user}`)
-        .then((res) => res.json())
         .then((data) => {
-          console.log("THIS DATA", data)
+          console.log("THIS DATA", data);
           if (data.status === 200) {
-            if(data.data !== 0) setHasTeam(true);
+            console.log("YAAAY");
+            if (data.data !== 0) {
+              console.log("YAAAY 2")
+              setHasTeam(true);
+            }
           }
         })
         .catch((err) => {
