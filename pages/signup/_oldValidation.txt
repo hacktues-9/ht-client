@@ -1,0 +1,191 @@
+const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (event) => {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+
+    console.log(form);
+
+    // client-side validation
+
+    const errors: SignUpErrors = SIGN_UP_ERRORS;
+
+    // initial
+
+    // check email if it's email using regex 
+    if (form.email.length === 0) {
+      errors.email = "REQ_EMAIL";
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+      errors.email = "INVALID_EMAIL";
+    } else {
+      errors.email = "";
+    }
+
+    // check password if it's at least 8 characters
+    if (form.password.length === 0) {
+      errors.password = "REQ_PASS";
+    } else if (form.password.length < 8) {
+      errors.password = "SHORT_PASS";
+    } else {
+      errors.password = "";
+    }
+
+    // check if password and confirm password are the same
+    if (form.password !== form.confirmPassword) {
+      errors.confirmPassword = "PASS_NOT_MATCH";
+    }
+
+    // elsys
+
+    // check if first name is empty and if it's not in cyrillic
+    if (form.firstName.length === 0) {
+      errors.firstName = "REQ_FIRST_NAME";
+    } else if (!/^[а-яА-Я]+$/.test(form.firstName)) {
+      errors.firstName = "INVALID_FIRST_NAME";
+    } else {
+      errors.firstName = "";
+    }
+
+    // check if last name is empty
+    if (form.lastName.length === 0) {
+      errors.lastName = "REQ_LAST_NAME";
+    } else if (!/^[а-яА-Я]+$/.test(form.lastName)) {
+      errors.lastName = "INVALID_LAST_NAME";
+    } else {
+      errors.lastName = "";
+    }
+
+    // check if phone number is empty and if it's valid +359 phone number
+    if (form.phone.length === 0) {
+      errors.phone = "REQ_PHONE_NUMBER";
+    } else if (!/^\+359[0-9]{7}$/.test(form.phone)) {
+      errors.phone = "INVALID_PHONE_NUMBER";
+    } else {
+      errors.phone = "";
+    }
+
+    // check if elsys email is empty and if it's valid @elsys-bg.org email
+    if (form.elsysEmail.length === 0) {
+      errors.elsysEmail = "REQ_ELSYS_EMAIL";
+    } else if (!/^[a-zA-Z0-9._-]+@elsys-bg.org$/.test(form.elsysEmail)) {
+      errors.elsysEmail = "INVALID_ELSYS_EMAIL";
+    } else {
+      errors.elsysEmail = "";
+    }
+
+    // check if grade is empty and if it's between 8 and 12
+    let classNumber: number;
+
+    if (form.classNumber.length === 0) {
+      errors.classNumber = "REQ_GRADE";
+    } else if (isNaN(classNumber = parseInt(form.classNumber))) {
+      errors.classNumber = "INVALID_GRADE";
+    } else if (classNumber < 8 || classNumber > 12) {
+      errors.classNumber = "INVALID_GRADE";
+    } else {
+      errors.classNumber = "";
+    }
+
+    // check if class letter is empty and if it's a letter between <А> and <Г>
+    if (form.classLetter.length === 0) {
+      errors.classLetter = "REQ_CLASS_LETTER";
+    } else if (!/^[А-Г]$/.test(form.classLetter) || form.classLetter.length > 1) {
+      errors.classLetter = "INVALID_CLASS_LETTER";
+    } else {
+      errors.classLetter = "";
+    }
+
+    // preferences 
+    // check if food is empty or if it's not valid - within the array
+    if (form.eatingPreferences.length === 0) {
+      errors.eatingPreferences = "REQ_FOOD";
+    } else if (Object.values(EATING_PREFERENCES).indexOf(form.eatingPreferences) < 0) {
+      errors.eatingPreferences = "INVALID_FOOD";
+    } else {
+      errors.eatingPreferences = "";
+    }
+
+    // check if alergies is empty or if it's not valid - within the selecatble multichoice
+    if (form.alergies.length === 0) {
+      errors.alergies = "REQ_ALERGIES";
+    } else {
+      form.alergies.forEach((alergy) => {
+        if (Object.values(ALERGIES).indexOf(alergy) < 0) {
+          errors.alergies = "INVALID_ALERGIES";
+          return;
+        }
+      });
+    }
+
+    // check if shirt size is empty or if it's not valid - within the array
+    if (form.shirtSize.length === 0) {
+      errors.shirtSize = "REQ_SHIRT_SIZE";
+    } else if (Object.values(TSHIRT_SIZE)['size'].indexOf(form.shirtSize) < 0) {
+      errors.shirtSize = "INVALID_SHIRT_SIZE";
+    } else {
+      errors.shirtSize = "";
+    }
+
+    // check if technologies are valid and within the array of accepted technologies (empty is also valid)
+    if (form.technologies.length > 0) {
+      form.technologies.forEach((technology) => {
+        if (Object.values(TECHNOLOGIES)['name'].indexOf(technology) < 0) {
+          errors.technologies = "INVALID_TECHNOLOGIES";
+
+          return;
+        }
+      });
+    } else {
+      errors.technologies = "";
+    }
+
+    // check all errors and if there are any errors, exit the function, if not, continue with api post req
+
+    if (Object.values(errors).some((error) => error.length > 0)) {
+      setErrors(errors);
+      setIsSubmitting(false);
+    } else {
+      setErrors(errors);
+      setIsSubmitting(true);
+    }
+
+    // api post req using axios
+
+    axios.post("/api/signup", JSON.stringify(form), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else if (response.data.success) {
+          console.log(response.data.success);
+          // save user data to context and get authentication token + refresh token
+          const { user, token, refreshToken } = response.data.success;
+          //setAuthState({ user, token, refreshToken });
+          router.push('/signup/success')
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    /*     const response = await fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      console.log(data.error);
+    } else {
+      console.log(data);
+    } */
+
+    setIsSubmitting(false);
+  };

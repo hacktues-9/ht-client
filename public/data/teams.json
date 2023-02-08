@@ -1,0 +1,1180 @@
+{
+    "teams": [{
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        },
+        {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }, {
+            "id": "iusdfhh3eh4h89hwe89rh",
+            "name": "Infinity",
+            "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+            "members": [{
+                    "id": "hfsdhlfsih89rgw89rewhrlw",
+                    "name": "Калоян Георгиев",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "CAPTAIN",
+                    "class": "12Б",
+                    "email": "kaloyan.georgiev@gmail.com",
+                    "discord": "Kaloyan#9651",
+                    "github": ""
+                },
+                {
+                    "id": "dsjfnahipfbreiuf9rfn99h3f",
+                    "name": "Лъчезар Топалов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12В",
+                    "discord": "Lacho#3521",
+                    "github": "ZariProjects"
+                },
+                {
+                    "id": "abfriueuw4pn98f34f02fn93",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                },
+                {
+                    "id": "snf984n2f082nf023f4bnwueos",
+                    "name": "Димитър Христов",
+                    "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                    "role": "MEMBER",
+                    "class": "12Б",
+                    "discord": "Dimitar#0001",
+                    "github": "DimitarHristov"
+                }
+            ],
+            "project": {
+                "id": "fbwfuiw98fn98wn3f29ufn",
+                "name": "HackTUES 9",
+                "description": "HackTUES 9 is the 9th edition of the Hackathon organized by the Technical University of Sofia. The event will take place on the 27th and 28th of February 2021. The event is organized by the students of the Technical University of Sofia and is open to all students and professionals.",
+                "logo": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+                "github": "https://github.com/HackTUES",
+                "website": "https://hacktues.bg/",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "VueJS",
+                    "NodeJS",
+                    "MongoDB"
+                ],
+                "photos": [
+                    "https://infinity.hacktues.bg/content/site-images/our-team/whole-team/all1.avif",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/sponsors/kalina.webp",
+                    "https://infinity.hacktues.bg/content/site-images/our-team/personal-photos/IT/iskren.webp"
+                ]
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "VueJS",
+                "NodeJS",
+                "MongoDB",
+                "Python",
+                "C#",
+                "C++",
+                "Java",
+                "PHP",
+                "SQL",
+                "Swift"
+            ]
+        }
+    ]
+}

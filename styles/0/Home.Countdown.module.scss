@@ -11,6 +11,10 @@
     font-weight: normal;
     text-align: center;
     word-spacing: -15px;
+
+    span {
+        font-family: socium;
+    }
 }
 
 #stack0 {
@@ -88,6 +92,7 @@
 
 .animate {
     animation: countdown-animation 0.75s ease-in forwards;
+    font-family: socium;
 }
 
 @keyframes countdown-animation {
@@ -121,6 +126,8 @@ ul.countdown {
         text-align: center;
         font-family: socium;
         font-weight: normal;
+
+
     }
 
     .label {

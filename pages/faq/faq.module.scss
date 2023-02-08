@@ -1,0 +1,39 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+.qa {
+    list-style: none;
+    padding: 0;
+}
+
+.q {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.a {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}

@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/signup/_oldValidation.txt"  ],
   "exclude": [
     "node_modules"
   ]

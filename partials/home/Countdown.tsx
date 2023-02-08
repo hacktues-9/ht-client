@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import styles from "../../styles/Home.module.scss";
 import countdownStyles from "../../styles/0/Home.Countdown.module.scss";
 
 const THE_DATE = new Date("Mar 8, 2023 17:00:00").getTime();
@@ -132,8 +131,6 @@ const Countdown = () => {
 
   // call countdown function
   useEffect(() => {
-    console.warn("useEffect", getFinalValue("hours"));
-
     startCountdown();
     const interval = setInterval(count, 1000);
     return () => clearInterval(interval);
