@@ -1,0 +1,21 @@
+{
+    "firstName": "Кристиян",
+    "lastName": "Богданов",
+
+    "email": "kristiyan.m.bogdanov.2019@gmail.com",
+    "elsysEmail": "kristiyan.m.bogdanov.2019@@elsys-bg.org",
+
+    "phone": "+359 88 888 8888",
+    "sclass": "11B",
+    "shirtSize": "M",
+
+    "emailVerified": true,
+    "profilePicVerified": true,
+
+    "discord": "Banan4e#3216",
+    "github": "",
+
+    "profilePic": "https://i.imgur.com/6jJZj0L.jpg",
+    "technologies": ["C++", "Java", "Python", "JavaScript", "HTML"]
+
+}

@@ -40,6 +40,8 @@
 }
 
 .front {
+  position: relative;
+  
   height: 100vh;
   margin-top: calc(-15px - 4rem);
   display: flex;
@@ -60,12 +62,18 @@
   text-align: center;
   word-spacing: -15px;
 
+  margin-bottom: 0;
+
   @media screen and (max-width: 600px) {
     font-size: 4rem;
   }
 
   @media screen and (max-width: 480px) {
     font-size: 3.8rem;
+  }
+
+  span {
+    font-family: socium;
   }
 }
 
@@ -258,4 +266,9 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+.sponsors_media {
+  position: relative;
+  width: 100%;
 }

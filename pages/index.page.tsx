@@ -1,12 +1,15 @@
 import Head from "next/head";
+
 import { TbChevronDown } from "react-icons/tb";
 
-import CardContainer from "../partials/Arc/CardsContainer";
+import Medias from "../partials/home/Medias";
+import Sponsors from "../partials/home/Sponsors";
 import Countdown from "../partials/home/Countdown";
+
+import { METADATA, RICH, TITLE } from "../constants/arc";
 
 import styles from "../styles/Home.module.scss";
 
-import { METADATA, RICH, TITLE } from "../constants/arc";
 
 const Home = () => {
   return (
@@ -56,11 +59,14 @@ const Home = () => {
             <span id={styles.stack2}>{TITLE}</span>
           </div>
           <Countdown />
-          <a className={styles.button} href="#arc">
+          <a className={styles.button} href="#sponsors_media">
             <TbChevronDown />
           </a>
         </div>
-        <CardContainer />
+        <section id="sponsors_media" className={styles.sponsors_media}>
+          <Sponsors />
+          <Medias />
+        </section>
       </main>
     </div>
   );
