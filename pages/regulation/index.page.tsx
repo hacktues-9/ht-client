@@ -1,6 +1,12 @@
+import { useEffect } from "react";
+
 import { REGULATION } from "../../constants/regulation";
 
 const Regulation = () => {
+  useEffect(() => {
+    window.location.replace("https://www.youtube.com/shorts/m-RwCuzG-Y8");
+  }, []);
+
   return (
     <div
       style={{
