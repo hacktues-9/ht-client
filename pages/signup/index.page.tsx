@@ -30,12 +30,14 @@ import styles from "../../styles/login/Login.module.scss";
 
 const SignUp = () => {
   const [form, setForm] = useState<SignUpForm>(SIGN_UP_FORM);
+
   const [errors, setErrors] = useState<SignUpErrors>(SIGN_UP_ERRORS);
   const [finalError, setFinalError] = useState<string | null>(null);
+
   const [step, setStep] = useState<Steps | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean | null>(false);
 
-  const { setAuthState } = useAuthContext();
+  const { authState, setAuthState } = useAuthContext();
 
   const handleNextStep = async () => {
     // client-side validation
@@ -133,8 +135,7 @@ const SignUp = () => {
           }
           if (data.status === 200) {
             setFinalError("Успешна регистрация! Моля, потвърдете имейла си.");
-            setAuthState(data, true);
-            router.push("/").then(() => window.location.reload);
+            setAuthState(data.data, true);
           }
         }
       })
@@ -142,8 +143,6 @@ const SignUp = () => {
         setIsSubmitting(false);
         setFinalError("Възникна грешка при регистрацията.");
       });
-
-    setIsSubmitting(false);
   };
 
   useEffect(() => {
@@ -151,6 +150,12 @@ const SignUp = () => {
       setStep(0);
     }
   }, [step]);
+
+  useEffect(() => {
+    if (isSubmitting === true) {
+      router.push("/");
+    }
+  }, [authState.userId]);
 
   // check if user is logged in
   useEffect(() => {
