@@ -165,7 +165,7 @@ const Information = ({ showDropdown, setShowDropdown }) => {
             margin: "0",
           }}
         >
-          Информация за HT9
+          Информация
         </p>
         {showDropdown && (
           <div
