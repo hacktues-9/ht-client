@@ -1,17 +1,16 @@
-import Link from "next/link";
-import Image from "next/image";
+import Head from "next/head";
 
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { useEffect } from "react";
+
+import AuthProvider from "../context/authContext";
+import Navigation from "../partials/Navigation/Navigation";
+
+import { METADATA } from "../constants/arc";
 
 import type { AppProps } from "next/app";
 
-import AuthProvider from "../context/authContext";
-
-
 import "../styles/globals.scss";
-import Navigation from "../partials/Navigation/Navigation";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -20,6 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <link rel="icon" href={METADATA.favicon} />
+      </Head>
       <AuthProvider>
         <Navigation />
         <Component {...pageProps} />
