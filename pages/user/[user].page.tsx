@@ -335,7 +335,7 @@ const User = () => {
                   newUserInfo.discord === "#" || newUserInfo.discord === ""
                     ? connectDiscord()
                     : window.open(
-                        `https://discord.com/users/${newUserInfo.discord}`
+                        `https://discord.gg/UqFRDF6RcN`
                       );
                 }}
               >
