@@ -1,12 +1,15 @@
 import Head from "next/head";
 
 import { TbChevronDown } from "react-icons/tb";
-import { METADATA, TITLE } from "../constants/arc";
 
+import Medias from "../partials/home/Medias";
+import Sponsors from "../partials/home/Sponsors";
 import Countdown from "../partials/home/Countdown";
-import CardContainer from "../partials/Arc/CardsContainer";
+
+import { METADATA, RICH, TITLE } from "../constants/arc";
 
 import styles from "../styles/Home.module.scss";
+
 
 const Home = () => {
   return (
@@ -40,31 +43,13 @@ const Home = () => {
 
         <link rel="icon" href={METADATA.favicon} />
 
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Event",
-              "url": "${METADATA.url}",
-              "logo": "${METADATA.image}",
-              "name": "${TITLE}",
-              "startDate": "2023-03-08T17:00",
-              "endDate": "2023-03-11T21:00",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "email": "hacktuespartners@elsys-bg.org",
-                "contactType": "customer support and partnership"
-              },
-              "location": {
-                "@type": "Place",
-                "name": "TUES",
-              }, 
-              "description": "${METADATA.description}",
-              "image": "${METADATA.image}",
-              "sameAs": ["https://www.facebook.com/HackTUES/", "https://www.linkedin.com/company/hack-tues-%C2%A7-tues-fest/"]
-            }
-          `}
-        </script>
+        <script
+          key="ld:json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(RICH),
+          }}
+        />
       </Head>
       <main className={styles.main}>
         <div className={styles.front}>
@@ -74,11 +59,14 @@ const Home = () => {
             <span id={styles.stack2}>{TITLE}</span>
           </div>
           <Countdown />
-          <a className={styles.button} href="#arc">
+          <a className={styles.button} href="#sponsors_media">
             <TbChevronDown />
           </a>
         </div>
-        <CardContainer />
+        <section id="sponsors_media" className={styles.sponsors_media}>
+          <Sponsors />
+          <Medias />
+        </section>
       </main>
     </div>
   );
