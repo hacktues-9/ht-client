@@ -29,7 +29,7 @@ const Input = ({ label, id, error, ...props }: IInput) => {
               key={option.value}
               value={option.value}
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               {option.label}
@@ -68,7 +68,16 @@ const Input = ({ label, id, error, ...props }: IInput) => {
   return (
     <div className={`${props.classes.map((item) => style[item]).join(" ")}`}>
       <label htmlFor={id}>{label}</label>
-      <input {...props} />
+      <input {...props} style={{
+        paddingRight: props.checkmark ? "40px" : "",
+      }} />
+      {props.checkmark && (
+        <img src="/assets/icons/checkmark.svg" alt="checkmark" style={{
+          position: "absolute",
+          right: "10px",
+          top: "47%",
+        }} />
+      )}
       {error && (
         <p style={{ color: "red" }}>{ERRORS_TEXT[props.name][error]} </p>
       )}

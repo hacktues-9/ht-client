@@ -9,6 +9,7 @@ export interface IInput {
   value?: string;
   error?: string;
   options?: IOption[];
+  checkmark?: boolean;
   onChange?: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
