@@ -34,6 +34,7 @@ interface USER_INFO {
   shirtSize: string;
 
   emailVerified: boolean;
+  elsysEmailVerified: boolean;
   profilePicVerified: boolean;
 
   discord: string;
@@ -162,11 +163,11 @@ const User = () => {
   )
     router.push("/404");
 
-  if (!userInfo) {
+  if (userInfo?.status === 401) router.push("/404");
+
+  if (!userInfo || !userInfo.firstName) {
     return <div>Loading...</div>;
   }
-
-  if (userInfo.status === 401) router.push("/404");
 
   return (
     <>
@@ -239,6 +240,7 @@ const User = () => {
                 placeholder={""}
                 required={false}
                 readOnly={true}
+                checkmark={userInfo?.emailVerified}
               />
               <Input
                 type="email"
@@ -250,6 +252,7 @@ const User = () => {
                 placeholder={""}
                 required={false}
                 readOnly={true}
+                checkmark={userInfo?.elsysEmailVerified}
               />
               <Input
                 type="phone"
