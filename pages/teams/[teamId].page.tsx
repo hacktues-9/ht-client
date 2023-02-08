@@ -603,6 +603,9 @@ const SearchPeople = ({ teamId }) => {
                         fontSize: ".7rem",
                         margin: 0,
                         marginTop: ".1rem",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        width: "90%",
                       }}
                     >
                       {"@" + result?.elsys_email?.split("@")[0]}
