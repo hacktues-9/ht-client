@@ -89,7 +89,7 @@ const Notifications = ({ userId }) => {
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);
 
   if (error) return null;
-  if (!notifications) return null;
+  //if (!notifications) return null;
 
   return (
     <>
