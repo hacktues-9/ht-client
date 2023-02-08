@@ -18,6 +18,7 @@ import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/profile/Profile.module.scss";
+import { json } from "stream/consumers";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -78,6 +79,7 @@ const User = () => {
   const [userInfo, setUserInfo] = useState<USER_INFO | null>(null);
   const [newUserInfo, setNewUserInfo] = useState<USER_INFO | null>(null);
   const [changed, setChanged] = useState(false);
+  const [hasTeam, setHasTeam] = useState(false);
 
   useEffect(() => {
     if (user && user !== "undefined" && user !== "Object object") {
@@ -92,6 +94,22 @@ const User = () => {
         .catch((err) => {
           console.log(err);
           //router.push("/404");
+        });
+
+      // see if it has a team
+      fetcher(`https://api.hacktues.bg/api/team/${user}`)
+        .then((data) => {
+          console.log("THIS DATA", data);
+          if (data.status === 200) {
+            console.log("YAAAY");
+            if (data.data !== 0) {
+              console.log("YAAAY 2")
+              setHasTeam(true);
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
         });
     }
   }, [user]);
@@ -343,11 +361,13 @@ const User = () => {
               </button>
             </div>
             <div className={style.actions}>
-              <button onClick={changeLookingForTeam}>
-                {!newUserInfo.lookingForTeam
-                  ? "търся си отбор"
-                  : "не си търся отбор"}
-              </button>
+              {!hasTeam && (
+                <button onClick={changeLookingForTeam}>
+                  {!newUserInfo.lookingForTeam
+                    ? "търся си отбор"
+                    : "не си търся отбор"}
+                </button>
+              )}
               <button type="submit" disabled={!changed} onClick={hadnleUpdate}>
                 запази
               </button>
