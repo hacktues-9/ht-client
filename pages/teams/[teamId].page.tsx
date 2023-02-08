@@ -780,7 +780,7 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
         alignItems: "center",
       }}
     >
-      за проект са ти нужни теми пръво?
+      за проект са ти нужни теми първо?
     </div>
   );
 };
