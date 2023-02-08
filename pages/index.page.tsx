@@ -1,14 +1,15 @@
 import Head from "next/head";
+
 import { TbChevronDown } from "react-icons/tb";
 
-import CardContainer from "../partials/Arc/CardsContainer";
+import Medias from "../partials/home/Medias";
+import Sponsors from "../partials/home/Sponsors";
 import Countdown from "../partials/home/Countdown";
+
+import { METADATA, RICH, TITLE } from "../constants/arc";
 
 import styles from "../styles/Home.module.scss";
 
-import { METADATA, RICH, TITLE } from "../constants/arc";
-import Medias from "../partials/home/Medias";
-import Sponsors from "../partials/home/Sponsors";
 
 const Home = () => {
   return (
