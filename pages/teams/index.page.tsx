@@ -129,7 +129,7 @@ const Teams = () => {
         />
       )}
       <div className={styles.teams}>
-        <ProgressBar current={data.length} total={60} />
+        <ProgressBar current={data?.length || 0} total={60} />
         <ul className={styles.cards_grid}>
           {data &&
             data.map((team: ITeam) => (
