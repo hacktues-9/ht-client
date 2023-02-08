@@ -11,22 +11,22 @@ import PreferencesTab from "../../partials/SignUp/Preferences";
 import TechnologiesTab from "../../partials/SignUp/Technologies";
 
 import {
-  SIGN_UP_ERRORS,
-  SIGN_UP_FORM,
-  SignUpErrors,
-  SignUpForm,
-  Steps,
-} from "../../types/ISignUp";
-import {
   validateElsys,
   validateInitial,
   validatePreferences,
   validateTechnologies,
 } from "./validation";
 
-import styles from "../../styles/login/Login.module.scss";
+import {
+  SIGN_UP_ERRORS,
+  SIGN_UP_FORM,
+  SignUpErrors,
+  SignUpForm,
+  Steps,
+} from "../../types/ISignUp";
 
 import style from "./style.module.scss";
+import styles from "../../styles/login/Login.module.scss";
 
 const SignUp = () => {
   const [form, setForm] = useState<SignUpForm>(SIGN_UP_FORM);

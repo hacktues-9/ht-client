@@ -1,5 +1,6 @@
-import { useRouter } from "next/router";
 import useSWR from "swr";
+
+import { useRouter } from "next/router";
 
 const fetcher = async (url: string, token: string) => {
   const res = await fetch(url, {

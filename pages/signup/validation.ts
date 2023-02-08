@@ -1,11 +1,10 @@
-import { SignUpForm } from "./../../types/ISignUp";
 import {
   EATING_PREFERENCES,
   ALERGIES,
   TSHIRT_SIZE,
 } from "../../constants/preferences";
+import { SignUpForm } from "./../../types/ISignUp";
 import { TECHNOLOGIES } from "../../constants/technologies";
-import { SignUpErrors } from "../../types/ISignUp";
 
 type validate = (form: SignUpForm, setErrors: any) => Promise<any>;
 
@@ -21,7 +20,9 @@ const validateInitial: validate = async (form, error) => {
     newError = { ...newError, email: "INVALID_EMAIL" };
   } else {
     // await setErrors((prev: any) => ({ ...prev, email: "" }));
-    const res = await fetch(`https://api.hacktues.bg/api/auth/check/email/${form.email}`);
+    const res = await fetch(
+      `https://api.hacktues.bg/api/auth/check/email/${form.email}`
+    );
     const data = await res.json();
     if (data.status === 401) {
       newError = { ...newError, email: "EMAIL_ALREADY_IN_USE" };

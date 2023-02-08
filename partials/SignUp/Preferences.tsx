@@ -3,6 +3,7 @@ import {
   ContainerAlergies,
   ContainerTshirt,
 } from "../../components/form/signup/multipleChoice/Container";
+
 import { ERRORS_TEXT } from "../../constants/signup/errors";
 
 const PreferencesTab = ({ form, setForm, errors }) => {

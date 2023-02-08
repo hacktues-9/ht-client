@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import getConfig from "next/config";
+
+import { useEffect, useState } from "react";
 
 import useKeyPress from "../../hooks/useKeyPress";
 

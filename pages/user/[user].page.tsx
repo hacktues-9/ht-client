@@ -2,14 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import Select from "react-dropdown-select";
 
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import {
   TbBrandDiscord,
   TbBrandGithub,
   TbClock,
   TbShirt,
 } from "react-icons/tb";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import Input from "../../components/form/Input";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";

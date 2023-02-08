@@ -1,8 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import useSWR from "swr";
+import Link from "next/link";
+import Image from "next/image";
 
-import { useRouter } from "next/router";
 import {
   MouseEventHandler,
   forwardRef,
@@ -10,14 +9,14 @@ import {
   useRef,
   useState,
 } from "react";
-
+import { useRouter } from "next/router";
 import { TbMenu2 } from "react-icons/tb";
 
-import { useAuthContext } from "../../context/authContext";
-import { useOutsideAlerter } from "./useOutsideAlerter";
-
-import TUESTalksNavbar from "../TUESTalks/Navbar";
 import Notifications from "./Notifications";
+import TUESTalksNavbar from "../TUESTalks/Navbar";
+
+import { useOutsideAlerter } from "./useOutsideAlerter";
+import { useAuthContext } from "../../context/authContext";
 
 import navbar from "../../styles/Navbar.module.scss";
 

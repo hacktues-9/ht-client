@@ -1,8 +1,11 @@
 import Head from "next/head";
+
 import { TbChevronDown } from "react-icons/tb";
 import { METADATA, TITLE } from "../constants/arc";
-import CardContainer from "../partials/Arc/CardsContainer";
+
 import Countdown from "../partials/home/Countdown";
+import CardContainer from "../partials/Arc/CardsContainer";
+
 import styles from "../styles/Home.module.scss";
 
 const Home = () => {

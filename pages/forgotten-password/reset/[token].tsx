@@ -1,7 +1,7 @@
 // TODO: Marto -> Do it, please
 
-import { useRouter } from "next/router";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 import Input from "../../../components/form/Input";
 

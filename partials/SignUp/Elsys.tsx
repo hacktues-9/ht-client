@@ -1,15 +1,11 @@
 import {
   ChangeEvent,
-  ChangeEventHandler,
   Dispatch,
   SetStateAction,
 } from "react";
+
 import Input from "../../components/form/Input";
-import {
-  ContainerEatingPreferences,
-  ContainerAlergies,
-  ContainerTshirt,
-} from "../../components/form/signup/multipleChoice/Container";
+
 import { IInput } from "../../constants/form/IInput";
 import { SignUpErrors, SignUpForm } from "../../types/ISignUp";
 

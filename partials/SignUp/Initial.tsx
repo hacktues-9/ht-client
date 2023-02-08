@@ -1,9 +1,12 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
+
 import { IInput } from "../../constants/form/IInput";
+
 import Input from "../../components/form/Input";
 
-import style from "../../styles/0/signup/Signup.module.scss";
 import { SignUpErrors } from "../../types/ISignUp";
+
+import style from "../../styles/0/signup/Signup.module.scss";
 
 interface SignUpForm {
     // initial

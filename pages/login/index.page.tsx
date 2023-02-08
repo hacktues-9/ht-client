@@ -1,14 +1,17 @@
 import Link from "next/link";
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
+
 import Input from "../../components/form/Input";
 
+import { useAuthContext } from "../../context/authContext";
+
 import { TITLE } from "../../constants/arc";
+
 import logo from "../../styles/Home.module.scss";
 import style from "../../styles/login/Login.module.scss";
-
-import { useAuthContext } from "../../context/authContext";
 
 const LogIN = () => {
   const [error, setError] = useState<string | null>(null);

@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Image from "next/image";
+import Select from "react-dropdown-select";
+
 import {
   Dispatch,
   FunctionComponent,
@@ -6,18 +9,19 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useRouter } from "next/router";
+import { TbUserCheck } from "react-icons/tb";
+
 import Input from "../../components/form/Input";
+
+import { useAuthContext } from "../../context/authContext";
+
+import ProtectedRoute from "../../wrappers/ProtectedRoute";
+
 import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
-import Image from "next/image";
-import { useRouter } from "next/router";
-
-import Select from "react-dropdown-select";
-import { TbUserCheck } from "react-icons/tb";
 import style from "../../styles/0/teams/Create.module.scss";
-import ProtectedRoute from "../../wrappers/ProtectedRoute";
-import { useAuthContext } from "../../context/authContext";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());

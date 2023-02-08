@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { SelectableTshirt } from "../../components/form/signup/multipleChoice/Card";
+
 import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/signup/Technologies.module.scss";
