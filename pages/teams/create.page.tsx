@@ -17,6 +17,7 @@ import Select from "react-dropdown-select";
 import { TbUserCheck } from "react-icons/tb";
 import style from "../../styles/0/teams/Create.module.scss";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
+import { useAuthContext } from "../../context/authContext";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -143,21 +144,22 @@ const InviteTeammates: FunctionComponent<functionFormData> = (
 };
 
 const CreateTeam = () => {
-  // if in team redirect to team page
-  const [errors, setErrors] = useState({
-    teamName: null,
-    teamDescription: null,
-  });
-
+  const [technologies, setTechnologies] = useState([]);
+  const [creating, setCreating] = useState(false);
   const [form, setForm] = useState<formData>({
     teamName: "",
     teamDescription: "",
     teamTechnologies: [],
     teamInvitees: [],
   });
-  const [technologies, setTechnologies] = useState([]);
+  const [errors, setErrors] = useState({
+    teamName: null,
+    teamDescription: null,
+  });
 
   const router = useRouter();
+  const { authState } = useAuthContext();
+  const { userId } = authState;
 
   const handleTechnologies = (e: any) => {
     setTechnologies(e);
@@ -243,13 +245,11 @@ const CreateTeam = () => {
 
   const handleCreateTeam = async (e: any) => {
     e.preventDefault();
-    console.log(form);
+    setCreating(true);
 
     const newErrors = await validateTeam(form);
     setErrors(newErrors);
-    if (newErrors.teamName || newErrors.teamDescription) {
-      return;
-    }
+    if (newErrors.teamName || newErrors.teamDescription) return;
 
     fetch("https://api.hacktues.bg/api/team/create", {
       method: "POST",
@@ -261,64 +261,76 @@ const CreateTeam = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("DATA", data);
         if (data.status !== 200) {
-          // show error on the page
+          setCreating(false);
 
           // if error is 401 redirect to login
-          if (data.status === 401) {
-            router.push("/login");
-          }
+          if (data.status === 401) router.push("/login");
 
           if (data.status === 403) {
-            console.log("ALREADY IN TEAM, pushing to team page", data.teamId);
-            // TODO: Marto // TODO 
-            // TODO: router.push(`/teams/${data.teamId}`);
-            router.push(`/teams`);
+            if (userId) {
+              fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
+                method: "GET",
+                credentials: "include",
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.status === 200) {
+                    router.push(`/teams/${data.data}`);
+                  }
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }
           }
         } else {
-          console.log("THIS IS FINAL DATA -> ", data);
+          setCreating(false);
           router.push(`/teams/${data.data}`);
         }
       })
       .catch((err) => {
+        setCreating(false);
         console.log(err);
-        // show error on the page
-
         // if error is 401 redirect to login
         if (err.status === 401) {
           router.push("/login");
         }
 
-        if (err.status === 403) {
-          router.push(`/teams/${err.teamId}`);
+        if (userId) {
+          fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
+            method: "GET",
+            credentials: "include",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === 200) {
+                router.push(`/teams/${data.data}`);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
       });
   };
 
-  // TODO: Marto
-  // check if user is in team, if so redirect to team page
   useEffect(() => {
-    fetch("https://api.hacktues.bg/api/team/check", {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("DATA", data);
-        if (data.status === 200) {
-          if (!data.teamId) {
-            console.log("NO TEAM ID");
-          } else {
-            router.push(`/teams/${data.teamId}`);
-          }
-        } else {
-          console.log("NO TEAM");
-        }
+    if (userId) {
+      fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
+        method: "GET",
+        credentials: "include",
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            router.push(`/teams/${data.data}`);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   return (
@@ -326,13 +338,15 @@ const CreateTeam = () => {
       <Head>
         <title>Създай отбор | {TITLE}</title>
       </Head>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "calc(100vh - 100px)",
-        width: "100%",
-      }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 100px)",
+          width: "100%",
+        }}
+      >
         <form className={style.form} onSubmit={handleCreateTeam}>
           <h1>Създай отбор</h1>
           <div className={style.team}>
@@ -376,11 +390,7 @@ const CreateTeam = () => {
                   технологии
                 </label>
                 <Select
-                  //label="технологии"
-                  //classes={["email"]}
-                  //id="teamTechnologies"
                   name="teamTechnologies"
-                  //type="select"
                   options={TECHNOLOGIES.map((tech) => {
                     return { value: tech.name, label: tech.name, ...tech };
                   })}
@@ -413,10 +423,15 @@ const CreateTeam = () => {
               type="button"
               className={style.form_button}
               onClick={returnBack}
+              disabled={creating}
             >
               назад
             </button>
-            <button type="submit" className={style.form_button}>
+            <button
+              type="submit"
+              className={style.form_button}
+              disabled={creating}
+            >
               създай
             </button>
           </div>

@@ -155,7 +155,6 @@ const TeamInfo = ({
         return;
       }
 
-      // TODO: Send request to update team MARTO
       fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
         method: "PUT",
         headers: {
@@ -167,10 +166,8 @@ const TeamInfo = ({
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          // TODO: If successfull, set edit to false
           if (data.status === 200) {
             setEdit(false);
-            // TODO: If not, show error
           } else {
             setError({
               ...error,
@@ -179,9 +176,10 @@ const TeamInfo = ({
           }
         })
         .catch((err) => {
-          // TODO: remove next line in real use
-          setEdit(false);
-          console.log("UPDATE TEAM INFO", err);
+          setError({
+            ...error,
+            general: "нещо май се обърка :(",
+          });
         });
     }
   };
@@ -346,7 +344,7 @@ const TeamInfo = ({
             display: "flex",
           }}
         >
-{/*           {edit ? (
+          {/*           {edit ? (
             <>
               <label htmlFor="teamLink">гитгъб</label>
               <input
@@ -485,15 +483,14 @@ const handleInvite = (user: any, team: any) => {
   });
 };
 
+
+// TODO: Test if already invited works
 const SearchPeople = ({ teamId }) => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [alreadyInvited, setAlreadyInvited] = useState([]);
 
   useEffect(() => {
-    // TODO: get already invited users or members - API
-    // setAlreadyInvited([...alreadyInvited, ...res.data]);
-
     fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`).then(
       (res) => {
         console.log(res);
@@ -654,7 +651,6 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
   const [openContextMenu, setOpenContextMenu] = useState(false);
 
   const kickMember = (id) => {
-    // TODO: kick member from team API
     fetcher(`https://api.hacktues.bg/api/team/kick/${id}`).then((res) => {
       console.log(res);
       if (res.status === 200) {
@@ -729,7 +725,6 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
   );
 };
 
-// TODO: FINISH PROJECTS WITH API AND FRONT
 const TeamProject = ({ team, setTeam, isEditable }) => {
   /*   const [edit, setEdit] = useState(false);
   //const [project, setProject] = useState(team?.project);
@@ -775,8 +770,6 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
       <div className={style.project_technologies}></div>
     </div>
   ); */
-
-  // TODO: Change on the 8th of March
 
   return (
     <div
