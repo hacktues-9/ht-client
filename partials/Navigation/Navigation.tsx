@@ -97,7 +97,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
           <Link href={`/user/${userId}`} onClick={handleClicked}>
             Профил
           </Link>
-          {team && team?.status === 200 ? (
+          {team && team?.status === 200 && team?.data !== 0 ? (
             <Link href={`/teams/${team?.data}`} onClick={handleClicked}>
               Отбор
             </Link>
