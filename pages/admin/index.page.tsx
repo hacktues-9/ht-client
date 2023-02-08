@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import useKeyPress from "../../hooks/useKeyPress";
 
+import { useAuthContext } from "../../context/authContext";
 interface AdminProps {
   secret: string;
 }
@@ -12,7 +13,9 @@ const Admin = (props: AdminProps) => {
   const [show, setShow] = useState<boolean>(false);
   const [keyCombo, setKeyCombo] = useState<string>("");
 
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const { authState, isUserAuthenticated } = useAuthContext();
+  const [userId, setUserId] = useState<string | null>(null);
+  const [roleId, setRoleId] = useState<string | null>(null);
 
   console.log(process.env.OOOPSIE);
 
@@ -23,40 +26,29 @@ const Admin = (props: AdminProps) => {
   useKeyPress("hacktues 9".split(""), onKeyPress);
 
   useEffect(() => {
-    if (keyCombo === "hacktues 9") setShow(true);
+    if (keyCombo === "hacktues 9" && roleId == "5") setShow(true);
+
   }, [keyCombo]);
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    const username = data.get("username");
-    const password = data.get("password");
+  useEffect(() => {
+    if (isUserAuthenticated) {
+      setUserId(authState.userId);
+    }
+  }, [authState.userId, isUserAuthenticated]);
 
-    // api call
-    fetch(`https://api.hacktues.bg/api/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.status === 200) {
-          setLoggedIn(true);
-        }
+  useEffect(() => {
+    fetch(`https://api.hacktues.bg/api/user/get/role/${userId}`, {
+        credentials: "include",
       })
-      .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            setRoleId(data.data);
+          }
+        })
+  }, [userId]);
 
-    setLoggedIn(true);
-  };
-
-  if (show && loggedIn) {
-    return (
+    return show ? (
       <div
         style={{
           paddingTop: "3rem",
@@ -133,25 +125,7 @@ const Admin = (props: AdminProps) => {
           </tr>
         </table>
       </div>
-    );
-  }
-
-  return show && !loggedIn ? (
-    <div
-      style={{
-        paddingTop: "3rem",
-      }}
-    >
-      login as kur
-      <div>
-        <form onSubmit={handleLogin}>
-          <input type="text" name="username" />
-          <input type="password" name="password" />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    </div>
-  ) : (
+    ) : (
     <h1>404</h1>
   );
 };
