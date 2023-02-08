@@ -222,7 +222,7 @@ const User = () => {
                 </div>
                 <div>
                   <TbClock />
-                  <p>{userInfo.class.replace(/\s/g, "")}</p>
+                  <p>{userInfo.class?.replace(/\s/g, "")}</p>
                 </div>
               </div>
             </div>
