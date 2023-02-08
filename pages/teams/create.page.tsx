@@ -109,14 +109,61 @@ const SearchPeople: FunctionComponent<functionFormData> = (
             results.map((result) => (
               <li key={result.id} className={style.person}>
                 <div className={style.person_info}>
-                  <Image
-                    src={result.profile_picture}
-                    alt={result.name}
-                    width={64}
-                    height={64}
-                    className={style.person_avatar}
-                  />
-                  <p>{result.name}</p>
+                  <div
+                    style={{
+                      width: "64px",
+                      height: "64px",
+                      borderRadius: "50%",
+                      position: "relative",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Image
+                      src={result.profile_picture}
+                      alt={result.name}
+                      width={64}
+                      height={64}
+                      className={style.person_avatar}
+                    />
+                    {result.elsys_email_verified && (
+                      <img
+                        src="/assets/icons/checkmark.svg"
+                        alt="потвърден"
+                        style={{
+                          position: "absolute",
+                          top: "-.25rem",
+                          right: "0",
+                          width: "1rem",
+                        }}
+                      />
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      marginLeft: "1rem",
+                      width: "100%",
+                    }}
+                  >
+                    <p style={{
+                      margin: 0,
+                      fontSize: "1rem",
+                    }}>{result.name}</p>
+                    <p
+                      style={{
+                        fontSize: ".7rem",
+                        margin: 0,
+                        marginTop: ".1rem",
+                      }}
+                    >
+                      {"@" + result?.elsys_email?.split("@")[0]}
+                    </p>
+                  </div>
                 </div>
                 <button
                   disabled={result.isInvited}
@@ -126,8 +173,15 @@ const SearchPeople: FunctionComponent<functionFormData> = (
                     handleInvite(result, props.form, props.setForm);
                     result.isInvited = true;
                   }}
+                  style={{
+                    backgroundColor: result.isInvited ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)",
+                    color: result.isInvited ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)",
+                    width: "3rem",
+                    height: "3rem",
+                    aspectRatio: "1/1",
+                  }}
                 >
-                  <TbUserCheck />
+                  <TbUserCheck size={12} />
                 </button>
               </li>
             ))}
