@@ -1,7 +1,8 @@
-import useSWR from "swr";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import useSWR from "swr";
 
+import { useRouter } from "next/router";
 import {
   MouseEventHandler,
   forwardRef,
@@ -9,14 +10,13 @@ import {
   useRef,
   useState,
 } from "react";
-import { useRouter } from "next/router";
 import { TbMenu2 } from "react-icons/tb";
 
-import Notifications from "./Notifications";
 import TUESTalksNavbar from "../TUESTalks/Navbar";
+import Notifications from "./Notifications";
 
-import { useOutsideAlerter } from "./useOutsideAlerter";
 import { useAuthContext } from "../../context/authContext";
+import { useOutsideAlerter } from "./useOutsideAlerter";
 
 import navbar from "../../styles/Navbar.module.scss";
 
@@ -165,7 +165,7 @@ const Information = ({ showDropdown, setShowDropdown }) => {
             margin: "0",
           }}
         >
-          Информация
+          Информация за HT9
         </p>
         {showDropdown && (
           <div
@@ -180,8 +180,8 @@ const Information = ({ showDropdown, setShowDropdown }) => {
             <Link href="/ourteam">Нашият екип</Link>
             <Link href="/regulation">Регламент</Link>
             <Link href="/faq">ЧЗВ</Link>
-            <Link href="/tuestalks">TUES Talks</Link>
-            <Link
+{/*             <Link href="/tuestalks">TUES Talks</Link>
+ */}            <Link
               href="/archive"
               style={{
                 borderBottom: "none",
@@ -213,15 +213,15 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/teams" onClick={handleMobileDropdownClicked}>
             <li>Отбори</li>
           </Link>
-          <Link href="/mentors" onClick={handleMobileDropdownClicked}>
+{/*           <Link href="/mentors" onClick={handleMobileDropdownClicked}>
             <li>Ментори</li>
-          </Link>
+          </Link> */}
           <Link href="/themes" onClick={handleMobileDropdownClicked}>
             <li>Теми</li>
           </Link>
-          <Link href="/timetable" onClick={handleMobileDropdownClicked}>
+{/*           <Link href="/timetable" onClick={handleMobileDropdownClicked}>
             <li>Програма</li>
-          </Link>
+          </Link> */}
           <Link href="/archive" onClick={handleMobileDropdownClicked}>
             <li>Архив</li>
           </Link>
@@ -231,9 +231,9 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/ourteam" onClick={handleMobileDropdownClicked}>
             <li>Нашият екип</li>
           </Link>
-          <Link href="/rankings" onClick={handleMobileDropdownClicked}>
+{/*           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
             <li>Класация</li>
-          </Link>
+          </Link> */}
           {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
           </Link> */}
@@ -323,15 +323,15 @@ const Navigation = () => {
                 <Link href="/teams">
                   <li>Отбори</li>
                 </Link>
-                <Link href="/mentors">
+{/*                 <Link href="/mentors">
                   <li>Ментори</li>
-                </Link>
+                </Link> */}
                 <Link href="/themes">
                   <li>Теми</li>
                 </Link>
-                <Link href="/timetable">
+{/*                 <Link href="/timetable">
                   <li>Програма</li>
-                </Link>
+                </Link> */}
                 <Information
                   showDropdown={showInformationDropdown}
                   setShowDropdown={setShowInformationDropdown}
