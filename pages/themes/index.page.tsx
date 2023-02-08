@@ -1,5 +1,13 @@
+import style from './style.module.scss';
+
 const Theme = () => {
-  return <h1>скоро</h1>;
+  return (
+    <div className={style.page}>
+      <div className={style.container}>
+        <img src="/assets/art/coming_soon.svg" alt="Coming Soon" />
+      </div>
+    </div>
+  );
 };
 
 export default Theme;
