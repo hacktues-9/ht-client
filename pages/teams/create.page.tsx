@@ -150,6 +150,7 @@ const InviteTeammates: FunctionComponent<functionFormData> = (
 const CreateTeam = () => {
   const [technologies, setTechnologies] = useState([]);
   const [creating, setCreating] = useState(false);
+  const [verified, setVerified] = useState(null);
   const [form, setForm] = useState<formData>({
     teamName: "",
     teamDescription: "",
@@ -272,6 +273,13 @@ const CreateTeam = () => {
           if (data.status === 401) router.push("/login");
 
           if (data.status === 403) {
+            if (data.description === "user is not verified") {
+              setErrors({
+                ...errors,
+                teamName: "Моля потвърдете имейла си",
+              });
+              return;
+            }
             if (userId) {
               fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
                 method: "GET",
@@ -320,6 +328,22 @@ const CreateTeam = () => {
   };
 
   useEffect(() => {
+    fetch(`https://api.hacktues.bg/api/auth/isVerified`, {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          setVerified(true);
+        } else {
+          setVerified(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     if (userId) {
       fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
         method: "GET",
@@ -336,6 +360,25 @@ const CreateTeam = () => {
         });
     }
   }, []);
+
+  if (verified === null) return <></>;
+
+  if (!verified)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 100px)",
+          width: "100%",
+        }}
+      >
+        <div className={style.form}>
+          <h1>Моля потвърдете имейла си</h1>
+        </div>
+      </div>
+    );
 
   return (
     <>
