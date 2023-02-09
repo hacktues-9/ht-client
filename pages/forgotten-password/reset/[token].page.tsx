@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import Input from "../../../components/form/Input";
 
-import style from "./style.module.scss";
+import style from "../style.module.scss";
 
 const ResetPage = () => {
   const [password, setPassword] = useState("");
