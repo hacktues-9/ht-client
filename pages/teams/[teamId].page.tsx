@@ -730,7 +730,7 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
     <div className={style.members}>
       <div className={style.members_header}>
         <h2>участници</h2>
-        {isEditable && team?.members?.length < 5 && (
+        {isEditable && team?.members?.length > 2 && team?.members?.length < 5 && (
           <button onClick={handleInviteMember}>
             {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
           </button>

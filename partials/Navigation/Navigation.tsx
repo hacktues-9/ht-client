@@ -102,9 +102,9 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
               Отбор
             </Link>
           ) : (
-            <Link href={`/teams/create`} onClick={handleClicked}>
+/*             <Link href={`/teams/create`} onClick={handleClicked}>
               Създай отбор
-            </Link>
+            </Link> */
           )}
           {!team && (
             <Link href={``} onClick={handleClicked}>
