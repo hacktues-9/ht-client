@@ -87,7 +87,7 @@ const ProgressBar = ({ verified, current, total, loading }) => {
           "взимаме ги..."
         ) : (
           <>
-            {verified} / {current - 1} / {total}
+            няма повече :(
           </>
         )}
       </p>
