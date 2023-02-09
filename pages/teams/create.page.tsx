@@ -22,6 +22,7 @@ import { TITLE } from "../../constants/arc";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/teams/Create.module.scss";
+import Error from "next/error";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -79,8 +80,7 @@ const SearchPeople: FunctionComponent<functionFormData> = (
             setResults([]);
           }
         })
-        .catch((err) => {
-        });
+        .catch((err) => {});
     }
   }, [search]);
 
@@ -149,10 +149,14 @@ const SearchPeople: FunctionComponent<functionFormData> = (
                       width: "100%",
                     }}
                   >
-                    <p style={{
-                      margin: 0,
-                      fontSize: "1rem",
-                    }}>{result.name}</p>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {result.name}
+                    </p>
                     <p
                       style={{
                         fontSize: ".7rem",
@@ -173,8 +177,12 @@ const SearchPeople: FunctionComponent<functionFormData> = (
                     result.isInvited = true;
                   }}
                   style={{
-                    backgroundColor: result.isInvited ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)",
-                    color: result.isInvited ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)",
+                    backgroundColor: result.isInvited
+                      ? "rgba(0, 0, 0, 0.1)"
+                      : "rgba(255, 255, 255, 0.1)",
+                    color: result.isInvited
+                      ? "rgba(0, 0, 0, 0.5)"
+                      : "rgba(255, 255, 255, 0.5)",
                     width: "3rem",
                     height: "3rem",
                     aspectRatio: "1/1",
@@ -344,8 +352,7 @@ const CreateTeam = () => {
                     router.push(`/teams/${data.data}`);
                   }
                 })
-                .catch((err) => {
-                });
+                .catch((err) => {});
             }
           }
         } else {
@@ -371,8 +378,7 @@ const CreateTeam = () => {
                 router.push(`/teams/${data.data}`);
               }
             })
-            .catch((err) => {
-            });
+            .catch((err) => {});
         }
       });
   };
@@ -390,8 +396,7 @@ const CreateTeam = () => {
           setVerified(false);
         }
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
 
     if (userId) {
       fetch(`https://api.hacktues.bg/api/user/get/${userId}`, {
@@ -404,10 +409,11 @@ const CreateTeam = () => {
             router.push(`/teams/${data.data}`);
           }
         })
-        .catch((err) => {
-        });
+        .catch((err) => {});
     }
   }, []);
+
+  return <Error statusCode={404} />;
 
   if (verified === null) return <></>;
 
