@@ -64,8 +64,6 @@ const Home = () => {
           </a>
         </div>
         <section id="sponsors_media" className={styles.sponsors_media}>
-          <Sponsors />
-          <Medias />
         </section>
       </main>
     </div>
