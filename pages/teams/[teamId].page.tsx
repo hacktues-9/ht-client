@@ -469,6 +469,7 @@ const handleInvite = (user: any, team: any) => {
     credentials: "include",
   }).then((res) => {
     if (res.status === 200) {
+      alert("Поканата е изпратена");
     } else {
     }
   });
