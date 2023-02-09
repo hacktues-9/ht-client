@@ -158,9 +158,9 @@ const Admin = (props: AdminProps) => {
         <label htmlFor="eating_preference">Диета : </label>
         <select name="eating_preference" id="eating_preference" onChange={(e) => {setEatingPreference(e.target.value)}}>
           <option value=""></option>
-          <option value="Вегетарианец">Вегетарианец</option>
-          <option value="Веган">Веган</option>
-          <option value="Няма">Няма</option>
+          <option value="VEGETARIAN">Вегетарианец</option>
+          <option value="VEGAN">Веган</option>
+          <option value="NONE">Няма</option>
         </select>
         
         <table
