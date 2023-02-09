@@ -198,8 +198,7 @@ const TeamInfo = ({
           });
         }
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   };
 
   const handleDelete = () => {
@@ -217,8 +216,7 @@ const TeamInfo = ({
           });
         }
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   };
 
   return (
@@ -470,13 +468,11 @@ const handleInvite = (user: any, team: any) => {
     }),
     credentials: "include",
   }).then((res) => {
-
     if (res.status === 200) {
     } else {
     }
   });
 };
-
 
 // TODO: Test if already invited works
 const SearchPeople = ({ teamId }) => {
@@ -512,8 +508,7 @@ const SearchPeople = ({ teamId }) => {
             setResults([]);
           }
         })
-        .catch((err) => {
-        });
+        .catch((err) => {});
     }
   }, [search]);
 
@@ -730,11 +725,13 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
     <div className={style.members}>
       <div className={style.members_header}>
         <h2>участници</h2>
-        {isEditable && team?.members?.length > 2 && team?.members?.length < 5 && (
-          <button onClick={handleInviteMember}>
-            {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
-          </button>
-        )}
+        {isEditable &&
+          team?.members?.length > 2 &&
+          team?.members?.length < 5 && (
+            <button onClick={handleInviteMember}>
+              {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
+            </button>
+          )}
       </div>
       <div className={style.members_list}>
         {team?.members?.map((member) => {
