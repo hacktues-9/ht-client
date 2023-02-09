@@ -5,10 +5,6 @@ import { REGULATION } from "../../constants/regulation";
 import style from "./regulaation.module.scss";
 
 const Regulation = () => {
-  useEffect(() => {
-    window.location.replace("https://www.youtube.com/shorts/m-RwCuzG-Y8");
-  }, []);
-
   return (
     <div
       style={{
