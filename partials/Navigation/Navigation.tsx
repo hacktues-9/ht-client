@@ -105,6 +105,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
 /*             <Link href={`/teams/create`} onClick={handleClicked}>
               Създай отбор
             </Link> */
+            null
           )}
           {!team && (
             <Link href={``} onClick={handleClicked}>
