@@ -74,13 +74,14 @@
 
                 svg {
                     width: 1.5rem;
-                    height: 1.5rem; 
+                    height: 1.5rem;
                     color: #fff;
                 }
             }
 
-            a > li {
+            a>li {
                 cursor: pointer;
+
                 &:hover {
                     background-color: rgba(255, 255, 255, 0.2);
                 }
