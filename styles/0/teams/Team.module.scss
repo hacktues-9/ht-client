@@ -802,7 +802,7 @@
             height: 100%;
             border-radius: 0;
         }
-            
+
 
         h2 {
             font-size: 1.75rem;
@@ -840,6 +840,8 @@
 
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
+
+            color: #ececec;
 
             &:hover {
                 background-color: rgba(255, 255, 255, 0.2);
