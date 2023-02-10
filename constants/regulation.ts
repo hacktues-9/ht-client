@@ -76,8 +76,18 @@ export const REGULATION = [
     data: `
         <p>За да участвате в Hack TUES 9, трябва да попълните декларация.</p>
         <ul>
-            <a href="https://docs.google.com/document/d/16OqsnlpNWuPCe08FRHLCtvSQUjiFhfxNQoK3uPuRbYo/edit?usp=sharing"><li>Декларация за пълнолетни</li></a>
-            <a href="https://docs.google.com/document/d/1qWt5UQUqLfiqDRYr4IylAP_iS-eG3PJjPJwhyKv_vkM/edit?usp=sharing"><li>Декларация за непълнолетни</li></a>
+            <a href="https://docs.google.com/document/d/16OqsnlpNWuPCe08FRHLCtvSQUjiFhfxNQoK3uPuRbYo/edit?usp=sharing"><li>Декларация за пълнолетни<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></li></a>
+            <a href="https://docs.google.com/document/d/1qWt5UQUqLfiqDRYr4IylAP_iS-eG3PJjPJwhyKv_vkM/edit?usp=sharing"><li>Декларация за непълнолетни<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></li></a>
         </ul>
     `,
   },

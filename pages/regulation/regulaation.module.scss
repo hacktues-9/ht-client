@@ -57,10 +57,10 @@
 
             li {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 gap: .5rem;
-                align-items: flex-start;
-
+                align-items: center;
+                justify-content: flex-start;
 
                 background-color: rgba(255, 255, 255, 0.1);
                 padding: 1rem;
@@ -70,6 +70,19 @@
 
                 span {
                     font-weight: 600;
+                }
+
+                svg {
+                    width: 1.5rem;
+                    height: 1.5rem; 
+                    color: #fff;
+                }
+            }
+
+            a > li {
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.2);
                 }
             }
         }
