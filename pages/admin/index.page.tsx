@@ -36,28 +36,10 @@ const Admin = (props: AdminProps) => {
   useKeyPress("hacktues 9".split(""), onKeyPress);
 
   useEffect(() => {
-    if (keyCombo === "hacktues 9" && roleId == "5") setShow(true);
-
-  }, [keyCombo]);
-
-  useEffect(() => {
-    if (isUserAuthenticated) {
-      setUserId(authState.userId);
-    }
-  }, [authState.userId, isUserAuthenticated]);
-
-  useEffect(() => {
-    fetch(`https://api.hacktues.bg/api/user/get/role/${userId}`, {
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === 200) {
-            setRoleId(data.data);
-          }
-        })
-
-    fetch(`https://api.hacktues.bg/api/admin/search`, {
+    if (keyCombo === "hacktues 9" && roleId == "5") {
+      setShow(true);
+      
+      fetch(`https://api.hacktues.bg/api/admin/search`, {
       credentials: "include",
       body: JSON.stringify({
         class: "",
@@ -81,6 +63,28 @@ const Admin = (props: AdminProps) => {
           setUsers(data.data);
         }
       });
+    }
+
+  }, [keyCombo]);
+
+  useEffect(() => {
+    if (isUserAuthenticated) {
+      setUserId(authState.userId);
+    }
+  }, [authState.userId, isUserAuthenticated]);
+
+  useEffect(() => {
+    fetch(`https://api.hacktues.bg/api/user/get/role/${userId}`, {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            setRoleId(data.data);
+          }
+        })
+
+    
   }, [userId]);
 
   useEffect(() => {
