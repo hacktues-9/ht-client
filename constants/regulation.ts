@@ -72,8 +72,8 @@ export const REGULATION = [
     data: `
         <p>За да участвате в Hack TUES 9, трябва да попълните декларация.</p>
         <ul>
-            <li><a href="https://docs.google.com/document/d/16OqsnlpNWuPCe08FRHLCtvSQUjiFhfxNQoK3uPuRbYo/edit?usp=sharing">Декларация за пълнолетни</a></li> 
-            <li><a href="https://docs.google.com/document/d/1qWt5UQUqLfiqDRYr4IylAP_iS-eG3PJjPJwhyKv_vkM/edit?usp=sharing">Декларация за непълнолетни</a></li>
+            <a href="https://docs.google.com/document/d/16OqsnlpNWuPCe08FRHLCtvSQUjiFhfxNQoK3uPuRbYo/edit?usp=sharing"><li>Декларация за пълнолетни</li></a>
+            <a href="https://docs.google.com/document/d/1qWt5UQUqLfiqDRYr4IylAP_iS-eG3PJjPJwhyKv_vkM/edit?usp=sharing"><li>Декларация за непълнолетни</li></a>
         </ul>
     `,
   },
