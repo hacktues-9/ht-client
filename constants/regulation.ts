@@ -6,6 +6,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Какво е HackTUES 9?",
+    id: "what-is-hacktues",
   },
   {
     type: "text",
@@ -14,6 +15,7 @@ export const REGULATION = [
   {
     text: "title",
     data: "Какво предстои преди HackTUES 9?",
+    id: "what-is-hacktues",
   },
   {
     type: "html",
@@ -34,6 +36,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Как да участвате?",
+    id: "how-to-participate",
   },
   {
     type: "html",
@@ -66,6 +69,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Декларация",
+    id: "consent",
   },
   {
     type: "html",
@@ -93,6 +97,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Ментори",
+    id: "mentors",
   },
   /*   {
     type: "html",
@@ -125,6 +130,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Отговорност",
+    id: "responsibility",
   },
   {
     type: "html",
@@ -138,6 +144,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Дискфалификация",
+    id: "disqualification",
   },
   {
     type: "html",
@@ -154,6 +161,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Тормоз",
+    id: "harassment",
   },
   {
     type: "html",
@@ -167,6 +175,7 @@ export const REGULATION = [
   {
     type: "title",
     data: "Политика за бисквитки и поверителност",
+    id: "cookies",
   },
   {
     type: "text",
