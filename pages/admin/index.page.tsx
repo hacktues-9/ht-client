@@ -163,6 +163,10 @@ const Admin = (props: AdminProps) => {
           <option value="NONE">Няма</option>
         </select>
         
+        <br />
+        {/* place a value of the size of the array of users here */}
+        <p>Брой участници: {users?.length}</p> 
+        <br />
         <table
           style={{
             // show border
