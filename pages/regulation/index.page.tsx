@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 import { REGULATION } from "../../constants/regulation";
 
@@ -21,17 +20,22 @@ const Regulation = () => {
         <div className={style.reg} style={{ whiteSpace: "pre-wrap", textAlign: "justify" }}>
           {REGULATION.map((item, index) => {
             if(item.type === "title") {
-              return <h2 key={index}>{item.data}</h2>
+              return <h2 key={index} id={item.id || ""}>{item.data}</h2>
             }
             if(item.type === "text") {
-              return <p key={index}>{item.data}</p>
+              return (
+                <p key={index} id={item.id || ""}>
+                  {item.data}
+                </p>
+              );
             } 
 
             if(item.type === "html") {
               return (
                 <div
                   key={index}
-                  dangerouslySetInnerHTML={{ __html: item.data}}
+                  id={item.id || ""}
+                  dangerouslySetInnerHTML={{ __html: item.data }}
                 />
               );
             }
