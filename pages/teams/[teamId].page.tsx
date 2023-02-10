@@ -3,7 +3,7 @@ import Select from "react-dropdown-select";
 import useSWR from "swr";
 
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TbCrown, TbUserCheck, TbUserPlus, TbUserX, TbX } from "react-icons/tb";
 
 import Input from "../../components/form/Input";
@@ -17,6 +17,77 @@ import style from "../../styles/0/teams/Team.module.scss";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
+
+const ConfirmModal = ({ title, action, setConfirm }) => {
+  // reference to the modal if outside click is needed
+  const modalRef = useRef(null);
+
+  // close modal on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setConfirm({
+          title: null,
+          action: null,
+        });
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef, setConfirm]);
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setConfirm({
+          title: null,
+          action: null,
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [setConfirm]);
+
+  return (
+    <div className={style.modal}>
+      <div className={style.modal_content} ref={modalRef}>
+        <h2>{title}</h2>
+        <div className={style.modal_buttons}>
+          <button
+            onClick={() => {
+              action();
+              setConfirm({
+                title: null,
+                action: null,
+              });
+            }}
+          >
+            Да!
+          </button>
+          <button
+            onClick={() =>
+              setConfirm({
+                title: null,
+                action: null,
+              })
+            }
+          >
+            май размислих
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Technologies = ({ team, setTeam, disabled, isEditable }) => {
   return (
@@ -71,6 +142,7 @@ const TeamInfo = ({
   isEditable,
   inTeam,
   teamId,
+  setConfirm,
 }) => {
   const [error, setError] = useState({
     name: null,
@@ -422,7 +494,12 @@ const TeamInfo = ({
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                   fontSize: "1rem",
                 }}
-                onClick={() => handleLeave()}
+                onClick={() =>
+                  setConfirm({
+                    title: "Сигурен ли си, че искаш да напуснеш 🤔",
+                    action: () => handleLeave(),
+                  })
+                }
               >
                 напусни
               </button>
@@ -435,7 +512,12 @@ const TeamInfo = ({
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                     fontSize: "1rem",
                   }}
-                  onClick={() => handleDelete()}
+                  onClick={() =>
+                    setConfirm({
+                      title: "Сигурен ли си, че искаш да изтриеш отбора си 🤡",
+                      action: () => handleDelete(),
+                    })
+                  }
                 >
                   изтрий
                 </button>
@@ -475,7 +557,6 @@ const handleInvite = (user: any, team: any) => {
   });
 };
 
-// TODO: Test if already invited works
 const SearchPeople = ({ teamId }) => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
@@ -726,12 +807,11 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
     <div className={style.members}>
       <div className={style.members_header}>
         <h2>участници</h2>
-        {isEditable &&
-          team?.members?.length < 5 && (
-            <button onClick={handleInviteMember}>
-              {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
-            </button>
-          )}
+        {isEditable && team?.members?.length < 5 && (
+          <button onClick={handleInviteMember}>
+            {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
+          </button>
+        )}
       </div>
       <div className={style.members_list}>
         {team?.members?.map((member) => {
@@ -838,6 +918,10 @@ const Team = () => {
   const { teamId } = router.query as { teamId: string };
   const { authState } = useAuthContext();
 
+  const [confirm, setConfirm] = useState({
+    title: null,
+    action: null,
+  });
   const [edit, setEdit] = useState(false);
 
   let editable = false;
@@ -876,28 +960,38 @@ const Team = () => {
   if (!team || !teamId || !teamData) return <div>loading...</div>;
 
   return (
-    <div className={style.page}>
-      <div className={style.page_top}>
-        <TeamInfo
-          team={team}
-          setTeam={setTeam}
-          edit={edit}
-          setEdit={setEdit}
-          isEditable={editable}
-          inTeam={inTeam?.data}
-          teamId={teamId}
-        />
+    <>
+      <div className={style.page}>
+        <div className={style.page_top}>
+          <TeamInfo
+            team={team}
+            setTeam={setTeam}
+            edit={edit}
+            setEdit={setEdit}
+            isEditable={editable}
+            inTeam={inTeam?.data}
+            teamId={teamId}
+            setConfirm={setConfirm}
+          />
+        </div>
+        <div className={style.page_bottom}>
+          <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
+          <TeamMembers
+            team={team}
+            setTeam={setTeam}
+            isEditable={editable}
+            teamId={teamId}
+          />
+        </div>
       </div>
-      <div className={style.page_bottom}>
-        <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
-        <TeamMembers
-          team={team}
-          setTeam={setTeam}
-          isEditable={editable}
-          teamId={teamId}
+      {confirm.title && (
+        <ConfirmModal
+          title={confirm.title}
+          action={confirm.action}
+          setConfirm={setConfirm}
         />
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
