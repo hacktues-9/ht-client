@@ -6,9 +6,9 @@ import styles from "../../styles/Arc.module.scss";
 
 const Archive = () => {
   return (
-    <div id="arc" className="">
+    <div id="arc" className={styles.page}>
       <h1 className={styles.title}>
-        <span style={{ fontSize: "2rem" }}>HackTUES</span> през годините
+        <span>HackTUES</span> през годините
       </h1>
       <div className={styles.card_container_grid}>
         {CARDS.map((hackathon) => {

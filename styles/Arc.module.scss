@@ -1,9 +1,21 @@
-.card_container {
-  position: absolute;
-  top: 100vh;
-
+.page {
   width: 100%;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding-top: 1.5rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+}
+
+.card_container {
+  width: 100%;
   padding: 15px;
 
   display: flex;
@@ -42,15 +54,22 @@
 
 .title {
   text-align: center;
-  font-family: chirp, "Rubik Microbe", cursive;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
+  font-size: 2.2rem;
+
+  span {
+    font-family: llpixel;
+    font-weight: 300;
+    font-size: 2.5rem;
+ }
 }
 
 .card_container_grid {
   width: 100%;
   max-width: 1600px;
-/*   display: grid;
+  /*   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(max(23.3rem, calc((100% - 6rem) / 3)), 1fr));
   grid-gap: 2rem;
   align-content: start; */
@@ -61,7 +80,7 @@
   align-items: center;
   gap: 2rem;
 
-/*   @media (max-width: 600px) {
+  /*   @media (max-width: 600px) {
     grid-template-columns: repeat(auto-fill, 100%);
   } */
 }
