@@ -4,7 +4,7 @@ import style from "../../styles/Sponsors.module.scss";
 
 const SPONSORS = [
   {
-    type: "алфа спонсори",
+    type: "alpha",
     sponsors: [
       {
         name: "A1",
@@ -69,7 +69,7 @@ const SPONSORS = [
     ],
   },
   {
-    type: "бета спонсори",
+    type: "beta",
     sponsors: [
       {
         name: "accedia",
@@ -139,7 +139,7 @@ const SPONSORS = [
     ],
   },
   {
-    type: "гама спонсори",
+    type: "gamma",
     sponsors: [
       {
         name: "Astea",

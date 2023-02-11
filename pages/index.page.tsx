@@ -10,7 +10,6 @@ import { METADATA, RICH, TITLE } from "../constants/arc";
 
 import styles from "../styles/Home.module.scss";
 
-
 const Home = () => {
   return (
     <div className={styles.container}>
@@ -64,6 +63,8 @@ const Home = () => {
           </a>
         </div>
         <section id="sponsors_media" className={styles.sponsors_media}>
+          <Sponsors />
+          <Medias />
         </section>
       </main>
     </div>
