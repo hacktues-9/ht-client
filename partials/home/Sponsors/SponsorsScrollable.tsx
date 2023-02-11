@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const SponaoersScrollable = ({ type, sponsors }) => {
   const [firstSponsor, setFirstSponsor] = useState(0);
 
+  // TODO -> Do with Refs
   useEffect(() => {
     const interval = setInterval(() => {
       // if on hover, don't scroll
