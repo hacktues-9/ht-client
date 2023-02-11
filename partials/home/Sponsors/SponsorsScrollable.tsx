@@ -3,6 +3,13 @@ import Sponsor from "./Sponsor";
 import style from "../../../styles/Sponsors.module.scss";
 import { useEffect, useState } from "react";
 
+const TYPE = {
+  alpha: "Алфа спонсори",
+  beta: "Бета спонсори",
+  gamma: "Гама спонсори",
+  partners: "Партньори",
+}
+
 const SponaoersScrollable = ({ type, sponsors }) => {
   const [firstSponsor, setFirstSponsor] = useState(0);
 
@@ -47,7 +54,7 @@ const SponaoersScrollable = ({ type, sponsors }) => {
   return (
     <div className={style.sponsors_scrollable}>
       <div className={style.sponsors_scrollable_title}>
-        <h2>{type}</h2>
+        <h2>{TYPE[type]}</h2>
       </div>
       <ul className={style.sponsors_scrollable_content + " " + type}>
         {sponsors.map((sponsor) => (
