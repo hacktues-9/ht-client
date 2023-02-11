@@ -60,13 +60,12 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
     });
   };
 
+  if(!team) return null
+
   return (
     <Link
       className={styles.card}
-      href={{
-        pathname: "/teams/[team]",
-        query: { team: team.id },
-      }}
+      href={`/teams/${team.id}`}
     >
       <div className={styles.card_header}>
         <Image width={64} height={64} src={logo} alt={"logo"} />
