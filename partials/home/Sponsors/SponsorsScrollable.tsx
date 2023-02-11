@@ -8,6 +8,11 @@ const SponaoersScrollable = ({ type, sponsors }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // if on hover, don't scroll
+      if (document.querySelector(`.${style.sponsor}:hover`)) {
+        return;
+      }
+
       setFirstSponsor(firstSponsor + 1);
       if (firstSponsor > sponsors.length + 1) {
         setFirstSponsor(0);
