@@ -351,7 +351,7 @@ const Navigation = () => {
               </div>
               {
                 <div className={navbar.right}>
-                  {isUserAuthenticated && userId ? (
+                  {isUserAuthenticated() && userId ? (
                     <>
                       <Notifications userId={userId} />
                       <Profile
@@ -360,7 +360,7 @@ const Navigation = () => {
                         setShowDropdown={setShowProfileDropdown}
                       />
                     </>
-                  ) : (
+                  ) : isUserAuthenticated() !== null ? (
                     <>
                       <Link href="/login">
                         <li>Влез</li>
@@ -369,7 +369,7 @@ const Navigation = () => {
                         <li>Регистрация</li>
                       </Link>
                     </>
-                  )}
+                  ) : null}
                   {
                     // hamburger menu
                     <li

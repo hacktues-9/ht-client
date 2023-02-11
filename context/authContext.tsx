@@ -8,7 +8,7 @@ const AuthContext = createContext(
       isLoggedIn: boolean;
     };
     setAuthState: (userId : string, isLoggedIn : boolean) => void;
-    isUserAuthenticated: () => boolean;
+    isUserAuthenticated: () => boolean | null;
   }
 );
 const { Provider } = AuthContext;
@@ -16,7 +16,7 @@ const { Provider } = AuthContext;
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
     userId: "",
-    isLoggedIn: false,
+    isLoggedIn: null,
   });
 
   const setUserAuthInfo = (userId : string, isLoggedIn : boolean) => {
