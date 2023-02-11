@@ -9,7 +9,6 @@
     padding: 1rem;
 
     overflow: hidden;
-
 }
 
 .cards_grid {
@@ -30,6 +29,19 @@
     padding: 1rem;
 }
 
+// pulsing animation
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
 .card {
     position: relative;
     width: 20rem;
@@ -44,6 +56,10 @@
 
     transition: all 0.2s ease-in-out;
 
+    &:_skeleton {
+        animation: pulse 2s infinite;
+    }
+
     &:hover {
         transform: scale(1.05);
     }
@@ -51,7 +67,10 @@
     @media screen and (max-width: 768px) {
         width: 100%;
     }
+}
 
+.card_skeleton {
+    animation: pulse 2s infinite;
 }
 
 .card_header {

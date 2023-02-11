@@ -11,7 +11,7 @@ const TeamCardSkeleton = () => {
   if (isSSR) return null;
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card + " " + styles.card_skeleton}>
       <div className={styles.card_header}>
         <div
           style={{
@@ -81,7 +81,7 @@ const TeamCardSkeleton = () => {
                 <div
                   key={i}
                   style={{
-                    width: `${Math.floor(Math.random() * 4) + 1}rem`,
+                    width: `${Math.floor(Math.random() * 4) + 2.5}rem`,
                     height: "1.5rem",
                     backgroundColor: "#e0e0e0",
                     borderRadius: "0.25rem",
