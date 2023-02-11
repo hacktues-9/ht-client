@@ -65,7 +65,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
   }, [userId]);
 
   if (errUser) return <div>failed to load</div>;
-  if (!user) return <div>loading...</div>;
+  if (!user) return null;
 
   return (
     <>
