@@ -197,6 +197,11 @@ const SPONSORS = [
         url: "https://greencherrycafe.com/",
       },
       {
+        name: "Multivisia",
+        logo: "/assets/sponsors/partners/multivisia.png",
+        url: "https://www.multivisia.com",
+      },
+      {
         name: "Pure Water",
         logo: "/assets/sponsors/partners/pure_water.png",
         url: "https://purewater.bg/",
