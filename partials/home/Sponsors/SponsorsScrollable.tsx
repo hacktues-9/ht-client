@@ -11,7 +11,7 @@ const TYPE = {
 }
 
 const SponaoersScrollable = ({ type, sponsors }) => {
-  const [firstSponsor, setFirstSponsor] = useState(0);
+/*   const [firstSponsor, setFirstSponsor] = useState(0);
 
   // TODO -> Do with Refs
   useEffect(() => {
@@ -44,19 +44,21 @@ const SponaoersScrollable = ({ type, sponsors }) => {
         left: 200 * firstSponsor,
         behavior: "smooth",
       });
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [firstSponsor]);
+  }, [firstSponsor]); */
 
   return (
     <div className={style.sponsors_scrollable}>
       <div className={style.sponsors_scrollable_title}>
         <h2>{TYPE[type]}</h2>
       </div>
-      <ul className={style.sponsors_scrollable_content + " " + type}>
+      <ul className={style.sponsors_scrollable_content + " " + type} style={{
+        flexWrap: 'wrap'
+      }}>
         {sponsors.map((sponsor) => (
           <Sponsor key={sponsor.name} {...sponsor} />
         ))}

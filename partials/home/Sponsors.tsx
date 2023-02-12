@@ -7,11 +7,6 @@ const SPONSORS = [
     type: "alpha",
     sponsors: [
       {
-        name: "A1",
-        logo: "/assets/sponsors/alpha/a1.png",
-        url: "https://www.a1.bg/",
-      },
-      {
         name: "Appolica",
         logo: "/assets/sponsors/alpha/appolica.png",
         url: "https://www.appolica.com/",
@@ -73,7 +68,7 @@ const SPONSORS = [
     sponsors: [
       {
         name: "accedia",
-        logo: "/assets/sponsors/beta/accedia.png",
+        logo: "/assets/sponsors/beta/accedia.svg",
         url: "https://accedia.com/",
       },
       {
@@ -135,7 +130,7 @@ const SPONSORS = [
         name: "Yettel",
         logo: "/assets/sponsors/beta/yettel.png",
         url: "https://yettel.bg/",
-      }
+      },
     ],
   },
   {
@@ -143,13 +138,8 @@ const SPONSORS = [
     sponsors: [
       {
         name: "Astea",
-        logo: "/assets/sponsors/gamma/astea.svg",
+        logo: "/assets/sponsors/gamma/astea.png",
         url: "https://asteasolutions.com",
-      },
-      {
-        name: "cnsys",
-        logo: "/assets/sponsors/gamma/cnsys.png",
-        url: "https://www.cnsys.bg/",
       },
       {
         name: "Devrix",
@@ -170,6 +160,56 @@ const SPONSORS = [
         name: "Nemetcheck",
         logo: "/assets/sponsors/gamma/nemetcheck.png",
         url: "https://nemetcheck.com/",
+      },
+      {
+        name: "Takeaway",
+        logo: "/assets/sponsors/gamma/takeaway.png",
+        url: "https://www.takeaway.com/",
+      },
+    ],
+  },
+  {
+    type: "partners",
+    sponsors: [
+      {
+        name: "A1",
+        logo: "/assets/sponsors/alpha/a1.png",
+        url: "https://www.a1.bg/",
+      },
+      {
+        name: "AZTUES",
+        logo: "/assets/sponsors/partners/aztues.png",
+        url: "https://aztues.bg/",
+      },
+      {
+        name: "Comet Electronics",
+        logo: "/assets/sponsors/partners/comet.png",
+        url: "https://comet.bg/",
+      },
+      {
+        name: "Corporate Gifts",
+        logo: "/assets/sponsors/partners/corporate.png",
+        url: "https://corporategifts.bg",
+      },
+      {
+        name: "Green Cherry Cafe",
+        logo: "/assets/sponsors/partners/green_cherry.png",
+        url: "https://greencherrycafe.com/",
+      },
+      {
+        name: "Pure Water",
+        logo: "/assets/sponsors/partners/pure_water.png",
+        url: "https://purewater.bg/",
+      },
+      {
+        name: "Smartcom",
+        logo: "/assets/sponsors/partners/smartcom.png",
+        url: "https://smartcom.bg/",
+      },
+      {
+        name: "Sofia Tech Park",
+        logo: "/assets/sponsors/partners/sofia-tech-park.png",
+        url: "https://sofiatech.bg/",
       },
     ],
   },

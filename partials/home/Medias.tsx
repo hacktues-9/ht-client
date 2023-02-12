@@ -47,7 +47,7 @@ const Media = ({ title, icon, link, date }) => {
 const Medias = () => {
   return (
     <div className={style.medias}>
-      <h2>медиите за нас</h2>
+      <h2>Медиите за нас</h2>
       <div className={style.medias_grid}>
         {MEDIAS &&
           MEDIAS.map((media) => <Media key={media.title} {...media} />)}
