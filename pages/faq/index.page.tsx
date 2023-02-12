@@ -26,6 +26,8 @@ const FAQPage = () => {
               dangerouslySetInnerHTML={{ __html: faq.A }}
               style={{
                 display: active === index ? "block" : "none",
+                /* show new lines */
+                whiteSpace: "pre-line",
               }}
             />
           </li>
