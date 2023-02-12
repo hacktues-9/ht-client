@@ -32,9 +32,9 @@ const SPONSORS = [
         url: "https://www.experian.com/",
       },
       {
-        name: "M2M Solutions",
+        name: "M2M Services",
         logo: "/assets/sponsors/alpha/m2m.png",
-        url: "https://www.m2msolutions.com/",
+        url: "https://m2mservices.com/",
       },
       {
         name: "SAP",
@@ -74,12 +74,12 @@ const SPONSORS = [
       {
         name: "Amusnet",
         logo: "/assets/sponsors/beta/amusnet.png",
-        url: "https://amusenet.com/",
+        url: "https://www.amusnet.com/",
       },
       {
         name: "Chaos",
         logo: "/assets/sponsors/beta/chaos.jpg",
-        url: "https://chaos.tech/",
+        url: "https://www.chaos.com/",
       },
       {
         name: "Dreamix",
@@ -104,7 +104,7 @@ const SPONSORS = [
       {
         name: "Neterra",
         logo: "/assets/sponsors/beta/neterra.png",
-        url: "https://neterra.com/",
+        url: "https://neterra.net/bg",
       },
       {
         name: "PaySafe",
@@ -124,7 +124,7 @@ const SPONSORS = [
       {
         name: "Strypes",
         logo: "/assets/sponsors/beta/strypes.png",
-        url: "https://strypes.com/",
+        url: "https://www.strypes.eu/",
       },
       {
         name: "Yettel",
@@ -159,7 +159,7 @@ const SPONSORS = [
       {
         name: "Nemetcheck",
         logo: "/assets/sponsors/gamma/nemetcheck.png",
-        url: "https://nemetcheck.com/",
+        url: " https://www.nemetschek.bg/",
       },
       {
         name: "Takeaway",
@@ -194,7 +194,7 @@ const SPONSORS = [
       {
         name: "Green Cherry Cafe",
         logo: "/assets/sponsors/partners/green_cherry.png",
-        url: "https://greencherrycafe.com/",
+        url: "https://bg-bg.facebook.com/greencherrycafe/",
       },
       {
         name: "Multivisia",
