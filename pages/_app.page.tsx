@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 import AuthProvider from "../context/authContext";
 import Navigation from "../partials/Navigation/Navigation";
+import Footer from "../partials/Footer/Footer";
 
 import { METADATA } from "../constants/arc";
 
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <AuthProvider>
         <Navigation />
         <Component {...pageProps} />
+        <Footer />
       </AuthProvider>
       <Analytics />
     </>
