@@ -54,7 +54,7 @@ const SPONSORS = [
       {
         name: "Telebid Pro",
         logo: "/assets/sponsors/alpha/telebid.png",
-        url: "https://telebid-pro.com/",
+        url: "https://telebid-pro.com/careers/",
       },
       {
         name: "Trading 212",
