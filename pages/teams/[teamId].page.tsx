@@ -1026,7 +1026,7 @@ const Team = () => {
     if (isCaptainResp?.data === authState.userId) {
       setEditable(true);
     }
-  }, [authState.userId, isCaptainResp]);
+  }, [authState.userId, isCaptainResp?.data]);
 
   useEffect(() => {
     if (!teamData) return;
