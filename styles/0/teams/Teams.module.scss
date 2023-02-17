@@ -34,9 +34,11 @@
     0% {
         opacity: 0.5;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0.5;
     }
@@ -54,14 +56,14 @@
     border: 1px solid rgba(255, 255, 255, 0.214);
     border-radius: 0.75rem;
 
-    transition: all 0.2s ease-in-out;
-
-    &:_skeleton {
-        animation: pulse 2s infinite;
-    }
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         transform: scale(1.05);
+    }
+
+    &:_skeleton {
+        animation: pulse 2s infinite;
     }
 
     @media screen and (max-width: 768px) {
