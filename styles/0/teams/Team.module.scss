@@ -461,8 +461,11 @@
     }
 
     button {
+        position: relative;
+
         width: 3rem;
         height: 3rem;
+        aspect-ratio: 1/1;
 
         background-color: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -856,6 +859,17 @@
                     background-color: #760000;
                 }
             }
+        }
+    }
+}
+
+.context {
+    button {
+        width: 100%;
+        z-index: 2000;
+        border-radius: .5rem;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
         }
     }
 }
