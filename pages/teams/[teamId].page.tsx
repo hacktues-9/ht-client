@@ -831,7 +831,7 @@ const TeamMember = ({
               border: "none",
               color: "white",
               fontSize: "1rem",
-              cursor: "pointer",
+              cursor: "disabled",
             }}
             disabled={true}
           >
