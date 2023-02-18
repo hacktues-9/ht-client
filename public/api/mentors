@@ -1,0 +1,97 @@
+[{
+        "name": "Виктория Димитрова",
+        "description": "Виктория Димитрова - российская актриса, певица, телеведущая, писательница, продюсер, режиссер, сценарист, ведущая телевизионного шоу «Вечерний Ургант» на канале «Россия 1».",
+        "possition": "Преподавател",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Victoria_Dmitrieva_2015.jpg/220px-Victoria_Dmitrieva_2015.jpg",
+        "technologies": [
+            "Python", "Django", "PostgreSQL", "Web development", "Компютърни мрежи"
+        ],
+        "hours": [{
+            "day": "Понеделник",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Сряда",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Петък",
+            "from": "10:00",
+            "to": "12:00"
+        }],
+        "online": true,
+        "url": "https://www.youtube.com/watch?v=ZQZ1Z2Z3Z4Z"
+    },
+    {
+        "name": "Виктория Димитрова",
+        "description": "Виктория Димитрова - российская актриса, певица, телеведущая, писательница, продюсер, режиссер, сценарист, ведущая телевизионного шоу «Вечерний Ургант» на канале «Россия 1».",
+        "possition": "Преподавател",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Victoria_Dmitrieva_2015.jpg/220px-Victoria_Dmitrieva_2015.jpg",
+        "technologies": [
+            "Python", "Django", "PostgreSQL", "Web development", "Компютърни мрежи"
+        ],
+        "hours": [{
+            "day": "Понеделник",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Сряда",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Петък",
+            "from": "10:00",
+            "to": "12:00"
+        }],
+        "online": true,
+        "url": "https://www.youtube.com/watch?v=ZQZ1Z2Z3Z4Z"
+    },
+    {
+        "name": "Виктория Димитрова",
+        "description": "Виктория Димитрова - российская актриса, певица, телеведущая, писательница, продюсер, режиссер, сценарист, ведущая телевизионного шоу «Вечерний Ургант» на канале «Россия 1».",
+        "possition": "Преподавател",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Victoria_Dmitrieva_2015.jpg/220px-Victoria_Dmitrieva_2015.jpg",
+        "technologies": [
+            "Python", "Django", "PostgreSQL", "Web development", "Компютърни мрежи"
+        ],
+        "hours": [{
+            "day": "Понеделник",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Сряда",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Петък",
+            "from": "10:00",
+            "to": "12:00"
+        }],
+        "online": true,
+        "url": "https://www.youtube.com/watch?v=ZQZ1Z2Z3Z4Z"
+    },
+    {
+        "name": "Виктория Димитрова",
+        "possition": "Преподавател",
+        "description": "Виктория Димитрова - российская актриса, певица, телеведущая, писательница, продюсер, режиссер, сценарист, ведущая телевизионного шоу «Вечерний Ургант» на канале «Россия 1».",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Victoria_Dmitrieva_2015.jpg/220px-Victoria_Dmitrieva_2015.jpg",
+        "technologies": [
+            "Python", "Django", "PostgreSQL", "Web development", "Компютърни мрежи"
+        ],
+        "hours": [{
+            "day": "Понеделник",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Сряда",
+            "from": "10:00",
+            "to": "12:00"
+        }, {
+            "day": "Петък",
+            "from": "10:00",
+            "to": "12:00"
+        }],
+        "online": true,
+        "url": "https://www.youtube.com/watch?v=ZQZ1Z2Z3Z4Z"
+    }
+]
