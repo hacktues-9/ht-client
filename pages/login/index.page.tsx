@@ -193,9 +193,9 @@ const LogIN = () => {
             <p>github</p>
           </button>
         </div>
-        <p className={style.signup}>
+{/*         <p className={style.signup}>
           нямаш акаунт? <Link href="/signup">регистрирай се</Link>
-        </p>
+        </p> */}
       </form>
     </div>
   );
