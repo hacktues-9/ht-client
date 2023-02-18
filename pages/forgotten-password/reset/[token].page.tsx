@@ -15,7 +15,7 @@ const ResetPage = () => {
   const [working, setWorking] = useState(false);
 
   const router = useRouter();
-  const token = router.query;
+  const { token } = router.query;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
