@@ -41,6 +41,12 @@
   @media screen and (max-width: 600px) {
     width: 100%;
   }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
 }
 
 /* p {
@@ -65,6 +71,11 @@
   span {
     font-family: ll_pixel;
     font-weight: normal;
+  }
+
+
+  * {
+    font-family: ll_pixel;
   }
 
   /*   @media screen and (max-width: 600px) {

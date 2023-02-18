@@ -51,7 +51,6 @@ const LogIN = () => {
 
     const data = await response.json();
     if (response.status != 200) {
-      console.log("VERY IMPORTANT", response.status, data);
       if (data.description === "user: find: record not found") {
         setError("Няма такъв потребител");
       } else if (data.description === "password: compare: wrong password") {
@@ -60,7 +59,6 @@ const LogIN = () => {
         setError("Нещо се обърка");
       }
     } else {
-      console.log("VERY IMPORTANT", response);
       // fix safari bug - set cookie and reload
       if (navigator.userAgent.indexOf("Safari") != -1) {
         push("/").then(() => {
@@ -81,7 +79,6 @@ const LogIN = () => {
       setError(null);
       await login(email.value, password.value);
     } catch (error) {
-      console.log("TEST", error);
       if (error.message === "user not found") {
         setError("Няма такъв потребител");
       } else if (error.message === "invalid password") {

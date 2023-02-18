@@ -5,7 +5,7 @@ export const TITLE: string = "HackTUES 9";
 export const METADATA = {
   title: TITLE,
   description:
-    "Hack TUES е единственият хакатон в България, организиран от ученици за ученици.🙌 ",
+    "HackTUES е единственият хакатон в България, организиран от ученици за ученици.🙌 ",
   image: "https://hacktues.bg/favicon.png",
   url: "https://hacktues.bg",
   twitter: "@hacktues",
@@ -33,6 +33,9 @@ export const METADATA = {
     "ученици",
     "студенти",
     "училище",
+    "туес",
+    "Технологично училище Електронни системи",
+    "tuesfest"
   ],
 };
 
@@ -172,7 +175,7 @@ export const CARDS: ICard[] = [
     location: "ТУЕС",
     backgroundImg: "/assets/arc/hacktues_5/cover.png",
     classNames: "hacktues-1",
-    url: "https://hacktues.com/",
+    url: "https://hacktues.bg/",
     sponsors: [],
   },
   {
@@ -234,7 +237,7 @@ export const CARDS: ICard[] = [
     location: "хибриден",
     backgroundImg: "/assets/arc/hacktues_6/cover.png",
     classNames: "hacktues-1",
-    url: "https://hacktues.com/",
+    url: "https://hack-tues-6-remake.vercel.app",
     sponsors: [],
   },
   {
@@ -246,19 +249,19 @@ export const CARDS: ICard[] = [
     location: "онлайн",
     backgroundImg: "/assets/arc/hacktues_7/cover.png",
     classNames: "hacktues-1",
-    url: "https://hacktues.com/",
+    url: "https://gg.hacktues.com/",
     sponsors: [],
   },
   {
     id: 8,
     name: '<div style="display: flex; justify-content: end; align-items: end;"><span style="color:#EBCDDD">HackTUES</span>&nbsp;<span style="transform: rotate(90deg); color: #EBCDDD; self-align: end;">8</span></div>',
-    shortDescription: "Space and beyond",
+    shortDescription: "Beyond the boundaries",
     description: "Hackathon",
     date: "2022",
     location: "онлайн",
     backgroundImg: "/assets/arc/hacktues_8/cover.png",
     classNames: "hacktues-1",
-    url: "https://hacktues.com/",
+    url: "https://infinity.hacktues.bg/",
     sponsors: [],
   },
   {
@@ -270,7 +273,7 @@ export const CARDS: ICard[] = [
     location: "някъде",
     backgroundImg: "/assets/arc/hacktues_5/cover.png",
     classNames: "hacktues-1",
-    url: "https://hacktues.com/",
+    url: "https://hacktues.bg/",
     sponsors: [],
   },
 ];

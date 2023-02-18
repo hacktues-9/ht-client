@@ -30,7 +30,6 @@ const Notifications = ({ userId }) => {
 
   useEffect(() => {
     if (numberOfNotifications) {
-      console.log("numberOfNotifications", numberOfNotifications);
       setNotifications(numberOfNotifications.data);
     }
   }, [numberOfNotifications]);
@@ -63,7 +62,7 @@ const Notifications = ({ userId }) => {
           throw new Error("Error accepting invite", { cause: data });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {});
   };
 
   const handleDecline = (teamId) => {
@@ -83,7 +82,7 @@ const Notifications = ({ userId }) => {
           throw new Error("Error declining invite", { cause: data });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {});
   };
 
   useOutsideAlerter(dropdownRef, dropdownButtonRef, handleClicked);

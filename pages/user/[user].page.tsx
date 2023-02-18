@@ -92,24 +92,19 @@ const User = () => {
           setNewUserInfo(res);
         })
         .catch((err) => {
-          console.log(err);
           //router.push("/404");
         });
 
       // see if it has a team
       fetcher(`https://api.hacktues.bg/api/team/${user}`)
         .then((data) => {
-          console.log("THIS DATA", data);
           if (data.status === 200) {
-            console.log("YAAAY");
             if (data.data !== 0) {
-              console.log("YAAAY 2")
               setHasTeam(true);
             }
           }
         })
         .catch((err) => {
-          console.log(err);
         });
     }
   }, [user]);
@@ -161,7 +156,6 @@ const User = () => {
       credentials: "include",
     }).then((res) => {
       if (res.status === 200) {
-        console.log("success");
       }
     });
 
@@ -335,7 +329,7 @@ const User = () => {
                   newUserInfo.discord === "#" || newUserInfo.discord === ""
                     ? connectDiscord()
                     : window.open(
-                        `https://discord.com/users/${newUserInfo.discord}`
+                        `https://discord.gg/UqFRDF6RcN`
                       );
                 }}
               >

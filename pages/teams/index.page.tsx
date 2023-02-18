@@ -12,6 +12,7 @@ import { ROLES } from "../../constants/teams";
 import { ITeam } from "../../types/ITeam";
 
 import styles from "../../styles/0/teams/Teams.module.scss";
+import TeamCardSkeleton from "../../skeletons/teams/card";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -67,12 +68,14 @@ const MemberInfoCard = ({ member, position }) => {
   );
 };
 
-const ProgressBar = ({ current, total }) => {
+const ProgressBar = ({ verified, current, total, loading }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setProgress((current / total) * 100);
-  }, [current, total]);
+    setProgress((verified / total) * 100);
+  }, [verified, total]);
+
+  // /api/admin/get/teams
 
   return (
     <div className={styles.progress_bar}>
@@ -80,9 +83,7 @@ const ProgressBar = ({ current, total }) => {
         className={styles.progress_bar__progress}
         style={{ width: `${progress}%` }}
       ></div>
-      <p>
-        {current} / {total}
-      </p>
+      <p>{loading ? "взимаме ги..." : <>няма повече :(</>}</p>
     </div>
   );
 };
@@ -100,7 +101,32 @@ const Teams = () => {
     error,
   } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
 
-  if (isLoading) return <div>Loading...</div>;
+  const {
+    data: verifiedTeams,
+    isLoading: verifiedLoading,
+    error: verifiedError,
+  } = useSWR("https://api.hacktues.bg/api/admin/get/teams", fetcher);
+
+  // return a skeleton while loading
+  if (isLoading) {
+    return (
+      <div className={styles.teams}>
+        {!verifiedError && (
+          <ProgressBar
+            verified={verifiedTeams?.data}
+            current={60}
+            total={60}
+            loading={verifiedLoading}
+          />
+        )}
+        <ul className={styles.cards_grid}>
+          {[...Array(15)].map((_, i) => (
+            <TeamCardSkeleton key={i} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
   if (error) return <div>Error...</div>;
 
   const { data }: { data: ITeam[] } = resp;
@@ -129,7 +155,14 @@ const Teams = () => {
         />
       )}
       <div className={styles.teams}>
-        <ProgressBar current={data.length} total={60} />
+        {!verifiedError && (
+          <ProgressBar
+            verified={verifiedTeams?.data}
+            current={data?.length || 0}
+            total={60}
+            loading={verifiedLoading}
+          />
+        )}
         <ul className={styles.cards_grid}>
           {data &&
             data.map((team: ITeam) => (

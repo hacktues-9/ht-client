@@ -14,7 +14,7 @@ const Card = ({
   url,
 }: ICard) => {
   return (
-    <div className={card[classNames]}>
+    <a className={card[classNames]} href={url}>
       <div className={card.title} dangerouslySetInnerHTML={{ __html: name }} />
       <div className={card.desc}>{shortDescription}</div>
       <div className={card.info}>
@@ -38,7 +38,7 @@ const Card = ({
         />
         <div className={card.overlay} />
       </div>
-    </div>
+    </a>
   );
 };
 

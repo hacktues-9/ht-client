@@ -3,8 +3,15 @@ import Select from "react-dropdown-select";
 import useSWR from "swr";
 
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { TbCrown, TbUserCheck, TbUserPlus, TbUserX, TbX } from "react-icons/tb";
+import { useEffect, useRef, useState } from "react";
+import {
+  TbCrown,
+  TbDotsVertical,
+  TbUserCheck,
+  TbUserPlus,
+  TbUserX,
+  TbX,
+} from "react-icons/tb";
 
 import Input from "../../components/form/Input";
 
@@ -17,6 +24,77 @@ import style from "../../styles/0/teams/Team.module.scss";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
+
+const ConfirmModal = ({ title, action, setConfirm }) => {
+  // reference to the modal if outside click is needed
+  const modalRef = useRef(null);
+
+  // close modal on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setConfirm({
+          title: null,
+          action: null,
+        });
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef, setConfirm]);
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setConfirm({
+          title: null,
+          action: null,
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [setConfirm]);
+
+  return (
+    <div className={style.modal}>
+      <div className={style.modal_content} ref={modalRef}>
+        <h2>{title}</h2>
+        <div className={style.modal_buttons}>
+          <button
+            onClick={() => {
+              action();
+              setConfirm({
+                title: null,
+                action: null,
+              });
+            }}
+          >
+            Да!
+          </button>
+          <button
+            onClick={() =>
+              setConfirm({
+                title: null,
+                action: null,
+              })
+            }
+          >
+            май размислих
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Technologies = ({ team, setTeam, disabled, isEditable }) => {
   return (
@@ -71,6 +149,7 @@ const TeamInfo = ({
   isEditable,
   inTeam,
   teamId,
+  setConfirm,
 }) => {
   const [error, setError] = useState({
     name: null,
@@ -165,7 +244,6 @@ const TeamInfo = ({
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.status === 200) {
             setEdit(false);
           } else {
@@ -199,9 +277,7 @@ const TeamInfo = ({
           });
         }
       })
-      .catch((err) => {
-        console.log("LEAVE TEAM", err);
-      });
+      .catch((err) => {});
   };
 
   const handleDelete = () => {
@@ -219,9 +295,7 @@ const TeamInfo = ({
           });
         }
       })
-      .catch((err) => {
-        console.log("DELETE TEAM", err);
-      });
+      .catch((err) => {});
   };
 
   return (
@@ -253,6 +327,7 @@ const TeamInfo = ({
                     padding: "0",
                     outline: "none",
                     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                    width: "100%",
                   }}
                   onChange={(e) => setTeam({ ...team, name: e.target.value })}
                 />
@@ -299,6 +374,7 @@ const TeamInfo = ({
                   name="teamDescription"
                   id="teamDescription"
                   value={team.description}
+                  rows={3}
                   style={{
                     backgroundColor: "transparent",
                     width: "100%",
@@ -427,7 +503,12 @@ const TeamInfo = ({
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                   fontSize: "1rem",
                 }}
-                onClick={() => handleLeave()}
+                onClick={() =>
+                  setConfirm({
+                    title: "Сигурен ли си, че искаш да напуснеш 🤔",
+                    action: () => handleLeave(),
+                  })
+                }
               >
                 напусни
               </button>
@@ -440,7 +521,12 @@ const TeamInfo = ({
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                     fontSize: "1rem",
                   }}
-                  onClick={() => handleDelete()}
+                  onClick={() =>
+                    setConfirm({
+                      title: "Сигурен ли си, че искаш да изтриеш отбора си 🤡",
+                      action: () => handleDelete(),
+                    })
+                  }
                 >
                   изтрий
                 </button>
@@ -473,18 +559,13 @@ const handleInvite = (user: any, team: any) => {
     }),
     credentials: "include",
   }).then((res) => {
-    console.log(res);
-
     if (res.status === 200) {
-      console.log("User invited successfully");
+      alert("Поканата е изпратена");
     } else {
-      console.log("Error inviting user");
     }
   });
 };
 
-
-// TODO: Test if already invited works
 const SearchPeople = ({ teamId }) => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
@@ -493,7 +574,6 @@ const SearchPeople = ({ teamId }) => {
   useEffect(() => {
     fetcher(`https://api.hacktues.bg/api/team/get/invitees/${teamId}`).then(
       (res) => {
-        console.log(res);
         if (res?.data) {
           setAlreadyInvited([...alreadyInvited, ...res.data]);
         }
@@ -519,9 +599,7 @@ const SearchPeople = ({ teamId }) => {
             setResults([]);
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     }
   }, [search]);
 
@@ -549,22 +627,83 @@ const SearchPeople = ({ teamId }) => {
             results.map((result) => (
               <li key={result.id} className={style.person}>
                 <div className={style.person_info}>
-                  <Image
-                    src={result.profile_picture}
-                    alt={result.name}
-                    width={64}
-                    height={64}
-                    className={style.person_avatar}
-                  />
-                  <p>{result.name}</p>
+                  <div
+                    style={{
+                      width: "64px",
+                      height: "64px",
+                      borderRadius: "50%",
+                      position: "relative",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Image
+                      src={result.profile_picture}
+                      alt={result.name}
+                      width={64}
+                      height={64}
+                      className={style.person_avatar}
+                    />
+                    {result.elsys_email_verified && (
+                      <img
+                        src="/assets/icons/checkmark.svg"
+                        alt="потвърден"
+                        style={{
+                          position: "absolute",
+                          top: "-.25rem",
+                          right: "0",
+                          width: "1rem",
+                        }}
+                      />
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      marginLeft: "1rem",
+                      width: "100%",
+                    }}
+                  >
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {result.name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: ".7rem",
+                        margin: 0,
+                        marginTop: ".1rem",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        width: "90%",
+                      }}
+                    >
+                      {"@" + result?.elsys_email?.split("@")[0]}
+                    </p>
+                  </div>
                 </div>
                 <button
                   disabled={result.isInvited}
                   type="button"
                   className={style.person_invite}
                   style={{
+                    backgroundColor: result.isInvited
+                      ? "rgba(0, 0, 0, 0.1)"
+                      : "rgba(255, 255, 255, 0.1)",
+                    color: result.isInvited
+                      ? "rgba(0, 0, 0, 0.5)"
+                      : "rgba(255, 255, 255, 0.5)",
                     width: "3rem",
                     height: "3rem",
+                    aspectRatio: "1/1",
                   }}
                   onClick={() => {
                     handleInvite(result.id, teamId);
@@ -581,95 +720,180 @@ const SearchPeople = ({ teamId }) => {
   );
 };
 
-const ContextMenu = ({ id, kickMember }) => {
-  function makeCaptain(id: any): void {
-    throw new Error("Function not implemented.");
-  }
+const TeamMember = ({
+  id,
+  name,
+  avatar,
+  role,
+  isEditable,
+  kickMember,
+  makeCaptain,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [context, setContext] = useState(false);
+
+  // ref for the context menu
+  const buttonRef = useRef(null);
+  const contextRef = useRef(null);
+
+  // close the context menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        contextRef.current &&
+        !contextRef.current.contains(event.target) &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setContext(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [contextRef]);
 
   return (
     <div
-      className={style.context_menu}
+      className={style.member}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        position: "absolute",
-        top: "calc(100% + 1rem)",
-        right: "0",
-        width: "fit-content",
-        height: "fit-content",
-        borderRadius: "0.5rem",
-        padding: "0.5rem",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(10px)",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-        zIndex: 1,
+        position: "relative",
       }}
     >
-      <button
-        type="button"
-        className={style.context_menu_button}
-        style={{
-          // calculete position
-          width: "fit-content",
-          height: "fit-content",
-          borderRadius: "0.5rem",
-          padding: "0.5rem",
-          position: "absolute",
-          top: "calc(100% + 1rem)",
-          right: "0",
-        }}
-        onClick={() => makeCaptain(id)}
-      >
-        <TbCrown />
-        <p>направи капитан</p>
-      </button>
-      <button
-        type="button"
-        className={style.context_menu_button}
-        style={{
-          // calculete position
-          width: "fit-content",
-          height: "fit-content",
-          borderRadius: "0.5rem",
-          padding: "0.5rem",
-          position: "absolute",
-          top: "calc(100% + 1rem)",
-          right: "0",
-        }}
-        onClick={() => kickMember(id)}
-      >
-        <TbUserX />
-        <p>премахни</p>
-      </button>
+      <div className={style.member_info}>
+        <Image
+          src={avatar}
+          alt={`${name} avatar`}
+          width={48} // 4.5 rem
+          height={48}
+        />
+        <p>{name}</p>
+      </div>
+      <p className={style.member_role}>{ROLES[role]}</p>
+
+      {isEditable && role !== "CAPTAIN" && (
+        <button onClick={() => setContext(!context)} ref={buttonRef}>
+          <TbDotsVertical size={28} />
+        </button>
+      )}
+
+      {isEditable && role !== "CAPTAIN" && context && (
+        <div
+          className={style.context}
+          style={{
+            position: "absolute",
+            display: "flex",
+            flexDirection: "column",
+            top: "calc(100% + .5rem)",
+            right: 0,
+            width: "10rem",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            borderRadius: "0.5rem",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            fontSize: "1rem",
+            padding: "1rem",
+            zIndex: 1001,
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+          ref={contextRef}
+        >
+          <button
+            onClick={() => makeCaptain(id)}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              color: "white",
+              fontSize: "1rem",
+              cursor: "pointer",
+            }}
+          >
+            направи капитан
+          </button>
+          <div
+            style={{
+              height: "1px",
+              width: "100%",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              margin: ".5rem 0",
+            }}
+          />
+          <button
+            onClick={() => kickMember(id)}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              color: "white",
+              fontSize: "1rem",
+              cursor: "pointer",
+            }}
+          >
+            изключи
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
-const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
+const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
   const [isInviting, setIsInviting] = useState(false);
-  const [openContextMenu, setOpenContextMenu] = useState(false);
 
   const kickMember = (id) => {
     fetcher(`https://api.hacktues.bg/api/team/kick/${id}`).then((res) => {
-      console.log(res);
       if (res.status === 200) {
-        console.log("User kicked successfully");
+        setTeam({
+          ...team,
+          members: team.members.filter((member) => member.id !== id),
+        });
       } else {
-        console.log("Error kicking user");
+        console.log(res);
       }
-    });
-
-    setTeam({
-      ...team,
-      members: team.members.filter((member) => member.id !== id),
     });
   };
 
-  const contextMenu = (e) => {
-    e.preventDefault();
-    // TODO: Kalata -> make custom right click menu -> kick member or make captain
-    setOpenContextMenu(true);
+  const makeCaptain = (id) => {
+    fetcher(`https://api.hacktues.bg/api/team/update/captain/${id}`).then(
+      (res) => {
+        if (res.status === 200) {
+          // if captain - set role to member
+          // sort members by role and then by name
+          console.log("HEEEEEY");
+          setTeam({
+            ...team,
+            members: team.members
+              .map((member) => {
+                if (member.id === id) {
+                  return {
+                    ...member,
+                    role: "CAPTAIN",
+                  };
+                }
+                if (member.role === "CAPTAIN") {
+                  return {
+                    ...member,
+                    role: "MEMBER",
+                  };
+                }
+                return member;
+              })
+              .sort((a, b) => {
+                if (a.role === b.role) {
+                  return a.name.localeCompare(b.name);
+                }
+                return a.role === "CAPTAIN" ? -1 : 1;
+              }),
+          });
+          setIsEditable(false);
+        } else {
+          console.log(res);
+        }
+      }
+    );
   };
 
   const handleInviteMember = () => {
@@ -689,34 +913,13 @@ const TeamMembers = ({ team, setTeam, isEditable, teamId }) => {
       <div className={style.members_list}>
         {team?.members?.map((member) => {
           return (
-            <div
-              className={style.member}
-              onContextMenu={contextMenu}
-              key={member}
-              style={{
-                position: "relative",
-              }}
-            >
-              {openContextMenu && (
-                <ContextMenu id={member.id} kickMember={kickMember} />
-              )}
-              <div className={style.member_info}>
-                <Image
-                  src={member.avatar}
-                  alt={`${member.name} avatar`}
-                  width={48} // 4.5 rem
-                  height={48}
-                />
-                <p>{member.name}</p>
-              </div>
-              <p className={style.member_role}>{ROLES[member.role]}</p>
-
-              {isEditable && member.role !== "CAPTAIN" && (
-                <button onClick={() => kickMember(member.id)}>
-                  <TbX size={32} />
-                </button>
-              )}
-            </div>
+            <TeamMember
+              key={member.id}
+              {...member}
+              isEditable={isEditable}
+              kickMember={kickMember}
+              makeCaptain={makeCaptain}
+            />
           );
         })}
       </div>
@@ -780,7 +983,7 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
         alignItems: "center",
       }}
     >
-      за проект са ти нужни теми пръво?
+      за проект са ти нужни теми първо?
     </div>
   );
 };
@@ -791,9 +994,12 @@ const Team = () => {
   const { teamId } = router.query as { teamId: string };
   const { authState } = useAuthContext();
 
+  const [confirm, setConfirm] = useState({
+    title: null,
+    action: null,
+  });
   const [edit, setEdit] = useState(false);
-
-  let editable = false;
+  const [editable, setEditable] = useState(false);
 
   const { data: teamData } = useSWR(
     teamId ? `https://api.hacktues.bg/api/team/get/${teamId}` : null,
@@ -816,41 +1022,66 @@ const Team = () => {
 
   const [team, setTeam] = useState(teamData?.data);
 
-  if (isCaptainResp?.data === authState.userId) {
-    editable = true;
-  }
+  useEffect(() => {
+    if (isCaptainResp?.data === authState.userId) {
+      setEditable(true);
+    }
+  }, [authState.userId, isCaptainResp?.data]);
 
   useEffect(() => {
     if (!teamData) return;
 
-    if (teamData?.data) setTeam(teamData?.data);
+    if (teamData?.data) {
+      // sort members by role and then by name
+      setTeam({
+        ...teamData.data,
+        members: teamData.data.members.sort((a, b) => {
+          if (a.role === b.role) {
+            return a.name.localeCompare(b.name);
+          } else {
+            return a.role === "CAPTAIN" ? -1 : 1;
+          }
+        }),
+      });
+    }
   }, [teamData]);
 
   if (!team || !teamId || !teamData) return <div>loading...</div>;
 
   return (
-    <div className={style.page}>
-      <div className={style.page_top}>
-        <TeamInfo
-          team={team}
-          setTeam={setTeam}
-          edit={edit}
-          setEdit={setEdit}
-          isEditable={editable}
-          inTeam={inTeam?.data}
-          teamId={teamId}
-        />
+    <>
+      <div className={style.page}>
+        <div className={style.page_top}>
+          <TeamInfo
+            team={team}
+            setTeam={setTeam}
+            edit={edit}
+            setEdit={setEdit}
+            isEditable={editable}
+            inTeam={inTeam?.data}
+            teamId={teamId}
+            setConfirm={setConfirm}
+          />
+        </div>
+        <div className={style.page_bottom}>
+          <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
+          <TeamMembers
+            team={team}
+            setTeam={setTeam}
+            isEditable={editable}
+            setIsEditable={setEditable}
+            teamId={teamId}
+          />
+        </div>
       </div>
-      <div className={style.page_bottom}>
-        <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
-        <TeamMembers
-          team={team}
-          setTeam={setTeam}
-          isEditable={editable}
-          teamId={teamId}
+      {confirm.title && (
+        <ConfirmModal
+          title={confirm.title}
+          action={confirm.action}
+          setConfirm={setConfirm}
         />
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

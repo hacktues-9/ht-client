@@ -16,8 +16,6 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
 
     e.stopPropagation();
 
-    console.log("Mouse enter" + e.target);
-
     // calculate the position of the card - doen't work when the page is scrolled
     const { x, y } = e.target.getBoundingClientRect();
     // eslint-disable-next-line
@@ -39,7 +37,6 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
     };
 
     // fix for card out of screen - card width is 320px
-    console.log(posX + 320, window.innerWidth);
     if (posX + 320 > window.innerWidth) {
       posX = x - 320 + width / 2 + scrollX;
     }
@@ -63,13 +60,12 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
     });
   };
 
+  if(!team) return null
+
   return (
     <Link
       className={styles.card}
-      href={{
-        pathname: "/teams/[team]",
-        query: { team: team.id },
-      }}
+      href={`/teams/${team.id}`}
     >
       <div className={styles.card_header}>
         <Image width={64} height={64} src={logo} alt={"logo"} />

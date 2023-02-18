@@ -65,7 +65,7 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
   }, [userId]);
 
   if (errUser) return <div>failed to load</div>;
-  if (!user) return <div>loading...</div>;
+  if (!user) return null;
 
   return (
     <>
@@ -101,11 +101,10 @@ const Profile = ({ userId, showDropdown, setShowDropdown }) => {
             <Link href={`/teams/${team?.data}`} onClick={handleClicked}>
               Отбор
             </Link>
-          ) : (
-            <Link href={`/teams/create`} onClick={handleClicked}>
+          ) : /*             <Link href={`/teams/create`} onClick={handleClicked}>
               Създай отбор
-            </Link>
-          )}
+            </Link> */
+          null}
           {!team && (
             <Link href={``} onClick={handleClicked}>
               Покани
@@ -165,7 +164,7 @@ const Information = ({ showDropdown, setShowDropdown }) => {
             margin: "0",
           }}
         >
-          Информация за HT9
+          Информация
         </p>
         {showDropdown && (
           <div
@@ -180,8 +179,9 @@ const Information = ({ showDropdown, setShowDropdown }) => {
             <Link href="/ourteam">Нашият екип</Link>
             <Link href="/regulation">Регламент</Link>
             <Link href="/faq">ЧЗВ</Link>
-{/*             <Link href="/tuestalks">TUES Talks</Link>
- */}            <Link
+            {/*             <Link href="/tuestalks">TUES Talks</Link>
+             */}{" "}
+            <Link
               href="/archive"
               style={{
                 borderBottom: "none",
@@ -213,13 +213,13 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/teams" onClick={handleMobileDropdownClicked}>
             <li>Отбори</li>
           </Link>
-{/*           <Link href="/mentors" onClick={handleMobileDropdownClicked}>
+          {/*           <Link href="/mentors" onClick={handleMobileDropdownClicked}>
             <li>Ментори</li>
           </Link> */}
           <Link href="/themes" onClick={handleMobileDropdownClicked}>
             <li>Теми</li>
           </Link>
-{/*           <Link href="/timetable" onClick={handleMobileDropdownClicked}>
+          {/*           <Link href="/timetable" onClick={handleMobileDropdownClicked}>
             <li>Програма</li>
           </Link> */}
           <Link href="/archive" onClick={handleMobileDropdownClicked}>
@@ -228,10 +228,13 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/regulation" onClick={handleMobileDropdownClicked}>
             <li>Регламент</li>
           </Link>
+          <Link href="/faq" onClick={handleMobileDropdownClicked}>
+            <li>ЧЗВ</li>
+          </Link>
           <Link href="/ourteam" onClick={handleMobileDropdownClicked}>
             <li>Нашият екип</li>
           </Link>
-{/*           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
+          {/*           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
             <li>Класация</li>
           </Link> */}
           {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
@@ -323,13 +326,13 @@ const Navigation = () => {
                 <Link href="/teams">
                   <li>Отбори</li>
                 </Link>
-{/*                 <Link href="/mentors">
+                {/*                 <Link href="/mentors">
                   <li>Ментори</li>
                 </Link> */}
                 <Link href="/themes">
                   <li>Теми</li>
                 </Link>
-{/*                 <Link href="/timetable">
+                {/*                 <Link href="/timetable">
                   <li>Програма</li>
                 </Link> */}
                 <Information
@@ -348,7 +351,7 @@ const Navigation = () => {
               </div>
               {
                 <div className={navbar.right}>
-                  {isUserAuthenticated && userId ? (
+                  {isUserAuthenticated() && userId ? (
                     <>
                       <Notifications userId={userId} />
                       <Profile
@@ -357,7 +360,7 @@ const Navigation = () => {
                         setShowDropdown={setShowProfileDropdown}
                       />
                     </>
-                  ) : (
+                  ) : isUserAuthenticated() !== null ? (
                     <>
                       <Link href="/login">
                         <li>Влез</li>
@@ -366,7 +369,7 @@ const Navigation = () => {
                         <li>Регистрация</li>
                       </Link>
                     </>
-                  )}
+                  ) : null}
                   {
                     // hamburger menu
                     <li

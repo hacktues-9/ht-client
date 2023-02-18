@@ -6,6 +6,7 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
 
     @media (max-width: 768px) {
         padding: 0 1rem;
@@ -66,9 +67,12 @@
     }
 
     &_content {
+        position: relative;
         display: flex;
         flex-direction: row;
         width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
 
         margin: 0 auto;
         padding: 0 1rem;
@@ -92,6 +96,13 @@
 
         border: 1px solid rgba(135, 135, 135, 0.225);
         border-radius: 1rem;
+
+        @media screen and (max-width: 800px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            padding: .5rem;
+        }
 
         // animate infinite scroll on inner scroll without affecting the outer scroll
         @keyframes scroll {
@@ -127,6 +138,12 @@
     text-align: center;
     transition: all 0.2s ease-in-out;
 
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        max-width: 32rem;
+        padding: 0;
+    }
+
     // infinite scroll
     //animation: scroll 20s linear infinite;
     //animation-direction: alternate;
@@ -144,9 +161,14 @@
         width: 12rem;
         object-fit: contain;
 
-        background-color: rgba(135, 135, 135, 0.116);
+        background-color: white; // щом трябва да е грозно, нека бъде противно 🤡
         border-radius: .5rem;
-        border: 1px solid rgba(135, 135, 135, 0.225);
+        border: 1px solid rgba(255, 255, 255, 0.225);
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            aspect-ratio: 12/8;
+        }
     }
 
     h3 {

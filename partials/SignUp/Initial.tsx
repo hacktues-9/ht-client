@@ -84,11 +84,7 @@ const InitialTab = ({ form, setForm, errors }: ITab) => {
             onChange: (e) => setForm({ ...form, confirmPassword: e.target.value }),
         }
     ];
-
-    useEffect(() => {
-        console.log("TEST -> ", errors)
-    }, [errors])
-
+    
     return (
         <div className={style.tab}>
             <h2>регистрация</h2>
