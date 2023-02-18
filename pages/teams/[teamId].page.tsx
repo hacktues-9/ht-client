@@ -833,6 +833,7 @@ const TeamMember = ({
               fontSize: "1rem",
               cursor: "pointer",
             }}
+            disabled={true}
           >
             изключи
           </button>
