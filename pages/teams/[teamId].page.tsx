@@ -972,6 +972,7 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
               name={team.mentor.name}
               id={team.mentor.id}
               avatar={team.mentor.avatar.replace("https://hacktues.bg", "")}
+              _class={null}
               role="MENTOR"
               isEditable={false}
               kickMember={kickMember}
