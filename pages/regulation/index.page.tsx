@@ -11,6 +11,7 @@ const Regulation = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        marginBottom: "1rem"
       }}
     >
       <div style={{ maxWidth: "1024px" }}>
