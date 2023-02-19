@@ -14,8 +14,8 @@ export const inTeam = async (userId: string, teamId: string) => {
       userTeamId = data.data;
     });
 
-    if (userTeamId !== teamId) return 0;
-  
+  if (userTeamId !== teamId) return 0;
+
   let captainId = "";
   await fetch(`https://api.hacktues.bg/api/team/${teamId}/captain`, {
     method: "GET",
@@ -26,10 +26,9 @@ export const inTeam = async (userId: string, teamId: string) => {
     .then((response) => response.json())
     .then((data) => {
       captainId = data.data;
-      
     });
-    
-    if (userId === captainId) return 2;
+
+  if (userId === captainId) return 2;
 
   return 1;
 };

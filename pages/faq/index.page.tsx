@@ -20,7 +20,9 @@ const FAQPage = () => {
       <ul className={style.qa}>
         {FAQ.map((faq, index) => (
           <li key={faq.Q} style={{}}>
-            <h2 className={style.q} onClick={() => toggle(index)}>{faq.Q}</h2>
+            <h2 className={style.q} onClick={() => toggle(index)}>
+              {faq.Q}
+            </h2>
             <p
               className={style.a}
               dangerouslySetInnerHTML={{ __html: faq.A }}

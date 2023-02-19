@@ -1,8 +1,4 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import Input from "../../components/form/Input";
 

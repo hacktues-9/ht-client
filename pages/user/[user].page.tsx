@@ -104,8 +104,7 @@ const User = () => {
             }
           }
         })
-        .catch((err) => {
-        });
+        .catch((err) => {});
     }
   }, [user]);
 
@@ -328,9 +327,7 @@ const User = () => {
                 onClick={() => {
                   newUserInfo.discord === "#" || newUserInfo.discord === ""
                     ? connectDiscord()
-                    : window.open(
-                        `https://discord.gg/UqFRDF6RcN`
-                      );
+                    : window.open(`https://discord.gg/UqFRDF6RcN`);
                 }}
               >
                 {(newUserInfo.discord === "#" || newUserInfo.discord === "") &&

@@ -36,7 +36,6 @@ $theme: dark;
   font-family: "Montserrat", sans-serif;
 }
 
-
 html,
 body {
   padding: 0;
@@ -53,7 +52,7 @@ body {
 
   font-family: "Montserrat", sans-serif;
 
-  // dark mode -> default <- show browser and extentions 
+  // dark mode -> default <- show browser and extentions
   color-scheme: dark;
 
   @media (prefers-color-scheme: dark) {
@@ -97,7 +96,8 @@ body {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.body {}
+.body {
+}
 
 #__next {
   min-height: 100%;
@@ -109,7 +109,6 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-
 }
 
 * {

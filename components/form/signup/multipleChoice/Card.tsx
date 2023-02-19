@@ -42,7 +42,12 @@ export const SelectableTshirt = ({
   ...props
 }: SelectableTshirtProps) => {
   return (
-    <SelectableCard selected={selected} styles={style} onClick={onClick} {...props}>
+    <SelectableCard
+      selected={selected}
+      styles={style}
+      onClick={onClick}
+      {...props}
+    >
       <div>{size}</div>
       {icon && <div>{icon}</div>}
     </SelectableCard>

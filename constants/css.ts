@@ -1,1 +1,1 @@
-export const TYPE = ['prototype', 'production'];
+export const TYPE = ["prototype", "production"];

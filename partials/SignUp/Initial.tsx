@@ -9,92 +9,92 @@ import { SignUpErrors } from "../../types/ISignUp";
 import style from "../../styles/0/signup/Signup.module.scss";
 
 interface SignUpForm {
-    // initial
+  // initial
 
-    email: string;
-    password: string;
-    confirmPassword: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 
-    // elsys
+  // elsys
 
-    firstName: string;
-    lastName: string;
-    phone: string;
-    elsysEmail: string;
-    classNumber: string;
-    classLetter: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  elsysEmail: string;
+  classNumber: string;
+  classLetter: string;
 
-    // preferences
+  // preferences
 
-    eatingPreferences: string;
-    alergies: string[];
-    shirtSize: string;
+  eatingPreferences: string;
+  alergies: string[];
+  shirtSize: string;
 
-    // technologies
+  // technologies
 
-    technologies: string[];
+  technologies: string[];
 
-    // discord
+  // discord
 
-    isDiscord: string;
+  isDiscord: string;
 }
 
 interface ITab {
-    form: SignUpForm;
-    setForm: Dispatch<SetStateAction<SignUpForm>>;
-    errors: SignUpErrors;
+  form: SignUpForm;
+  setForm: Dispatch<SetStateAction<SignUpForm>>;
+  errors: SignUpErrors;
 }
 
 const InitialTab = ({ form, setForm, errors }: ITab) => {
-    const initial: IInput[] = [
-        {
-            label: "имейл",
-            classes: ["email"],
-            id: "email",
-            name: "email",
-            type: "email",
-            placeholder: "boris.elsys@gmail.com",
-            required: true,
-            value: form.email,
-            error: errors.email,
-            onChange: (e) => setForm({ ...form, email: e.target.value }),
-        },
-        {
-            label: "парола",
-            classes: ["email"],
-            id: "password",
-            name: "password",
-            type: "password",
-            placeholder: "********",
-            required: true,
-            value: form.password,
-            error: errors.password,
-            onChange: (e) => setForm({ ...form, password: e.target.value }),
-        },
-        {
-            label: "потвърди парола",
-            classes: ["email"],
-            id: "confirmPassword",
-            name: "confirmPassword",
-            type: "password",
-            placeholder: "********",
-            required: true,
-            value: form.confirmPassword,
-            error: errors.confirmPassword,
-            onChange: (e) => setForm({ ...form, confirmPassword: e.target.value }),
-        }
-    ];
-    
-    return (
-        <div className={style.tab}>
-            <h2>регистрация</h2>
-            <div className={style.grid}>
-                {initial.map((input) => (
-                    <Input key={input.id} error={input.error} {...input} />
-                ))}
-            </div>
-        </div>
-    );
+  const initial: IInput[] = [
+    {
+      label: "имейл",
+      classes: ["email"],
+      id: "email",
+      name: "email",
+      type: "email",
+      placeholder: "boris.elsys@gmail.com",
+      required: true,
+      value: form.email,
+      error: errors.email,
+      onChange: (e) => setForm({ ...form, email: e.target.value }),
+    },
+    {
+      label: "парола",
+      classes: ["email"],
+      id: "password",
+      name: "password",
+      type: "password",
+      placeholder: "********",
+      required: true,
+      value: form.password,
+      error: errors.password,
+      onChange: (e) => setForm({ ...form, password: e.target.value }),
+    },
+    {
+      label: "потвърди парола",
+      classes: ["email"],
+      id: "confirmPassword",
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "********",
+      required: true,
+      value: form.confirmPassword,
+      error: errors.confirmPassword,
+      onChange: (e) => setForm({ ...form, confirmPassword: e.target.value }),
+    },
+  ];
+
+  return (
+    <div className={style.tab}>
+      <h2>регистрация</h2>
+      <div className={style.grid}>
+        {initial.map((input) => (
+          <Input key={input.id} error={input.error} {...input} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default InitialTab;

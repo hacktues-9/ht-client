@@ -41,7 +41,7 @@
 
 .front {
   position: relative;
-  
+
   height: 100vh;
   margin-top: calc(-15px - 4rem);
   display: flex;
@@ -97,7 +97,8 @@
   --clip-top: calc(var(--stack-height) * var(--index));
   --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
   clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
-  animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards calc(var(--index) * 120ms),
+  animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
+      calc(var(--index) * 120ms),
     glitch 2s ease infinite 2s alternate-reverse;
 }
 
@@ -253,7 +254,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   .card,
   .footer {
     border-color: #222;

@@ -773,7 +773,7 @@ const TeamMember = ({
       </div>
       <div>
         <p className={style.member_role}>{ROLES[role]}</p>
-        { _class &&
+        {_class && (
           <p
             style={{
               fontSize: ".7rem",
@@ -783,7 +783,7 @@ const TeamMember = ({
           >
             от {_class} клас
           </p>
-        }
+        )}
       </div>
 
       {isEditable && role !== "CAPTAIN" && (
