@@ -18,6 +18,7 @@ const MentorCard = ({
   technologies,
   time_frames,
   online,
+  on_site,
   team_id,
   buying,
   setBuying,
@@ -39,8 +40,12 @@ const MentorCard = ({
           openModal("Успешно запазихте ментора!");
         } else {
           setBuying(false);
-          // TODO - Marto Error Handling - if already bought and shit like that
-          openModal("Нещо се обърка, опитайте отново!");
+          if (data.description === "no access token provided") {
+            openModal("Не сте влезли в профила си!");
+            return;
+          } else {
+            openModal("Нещо се обърка, опитайте отново!");
+          }
         }
       })
       .catch(() => {
@@ -52,7 +57,10 @@ const MentorCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.photo}>
-        <img src={profile_picture} alt={name} />
+        <img
+          src={profile_picture.replace("https://hacktues.bg", "")}
+          alt={name}
+        />
       </div>
       <div className={styles.info}>
         <h2>{name}</h2>
@@ -84,7 +92,6 @@ const MentorCard = ({
         <div
           style={{
             display: "flex",
-            height: "100%",
             alignItems: "center",
             gap: ".25rem",
             overflow: "hidden",
@@ -97,25 +104,32 @@ const MentorCard = ({
           ))}
         </div>
       </div>
-      {
-        team_id == 0 && (
-          <>
-            <div
-              style={{
-                width: "100%",
-                height: "1px",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                margin: "1rem 0",
+      {team_id == 0 && (
+        <div style={{
+          width: "100%",
+        }}>
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              margin: "1rem 0",
+            }}
+          />
+          <div className={styles.actions}>
+            <button
+              onClick={() => {
+                handleBuy(id);
               }}
-            />
-            <div className={styles.actions}>
-              <button onClick={()=>{handleBuy(id)}} disabled={buying}>
-                запази {online ? "онлайн" : "присъствено"}
-              </button>
-            </div>
-          </>
-        )
-      }
+              disabled={buying}
+            >
+              запази {online && "онлайн"}
+              {online && on_site && " / "}
+              {on_site && "на място"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -145,7 +159,7 @@ const Mentors = () => {
   }, [authState.userId, isUserAuthenticated]);
 
   const openModal = (message: string) => {
-    console.log("Modal Opened")
+    console.log("Modal Opened");
     setModal({
       open: true,
       message,
@@ -168,7 +182,6 @@ const Mentors = () => {
   }, [userId]);
 
   useEffect(() => {
-
     fetch(`https://api.hacktues.bg/api/mentor/get/mentors?sname=${search}`, {
       credentials: "include",
     })
@@ -181,9 +194,6 @@ const Mentors = () => {
         }
       })
       .catch((err) => console.log(err));
-      
-
-
   }, [search]);
 
   // if (mentorErr) return <div style={{ marginTop: "50px" }}>failed to load</div>;
@@ -205,8 +215,14 @@ const Mentors = () => {
         </div>
       </div>
       <div className={styles.container}>
-        <div className={styles.searchContainer} >
-          <input type="text" placeholder="търси по име или технология" onChange={(e)=>{setSearch(e.target.value)}} />
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            placeholder="търси по име или технология"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
         </div>
         <div className={styles.mentorsContainer}>
           {mentors?.map((mentor) => (
