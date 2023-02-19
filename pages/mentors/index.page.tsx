@@ -21,6 +21,7 @@ const MentorCard = ({
   team_id,
   buying,
   canBuy,
+  setCanBuy,
   setBuying,
   openModal,
 }) => {
@@ -38,6 +39,7 @@ const MentorCard = ({
         if (data.status === 200) {
           setBuying(false);
           openModal("Успешно запазихте ментора!");
+          setCanBuy(false);
         } else {
           setBuying(false);
           if (data.description === "no access token provided") {
@@ -186,7 +188,21 @@ const Mentors = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
-          setCanBuy(data.data === 2);
+          if (data.data === 2) {
+            // check if the team has a mentor - // TODO: Marto - 19-02 11:29
+            fetch(`https://api.hacktues.bg/api/mentor/get/team/${userId}`, {
+              credentials: "include",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.status === 200) {
+                  setCanBuy(false);
+                } else {
+                  setCanBuy(true);
+                }
+              })
+              .catch((err) => console.log(err));
+          }
         } else {
           setCanBuy(false);
         }
@@ -249,6 +265,7 @@ const Mentors = () => {
                 key={mentor.id}
                 {...mentor}
                 canBuy={canBuy}
+                setCanBuy={setCanBuy}
                 buying={buying}
                 setBuying={setBuying}
                 openModal={openModal}
