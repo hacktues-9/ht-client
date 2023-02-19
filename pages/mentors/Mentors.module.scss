@@ -131,7 +131,7 @@
         font-weight: 300;
         color: #ffffffc3;
         max-height: 4rem;
-        overflow-y: scroll;
+        overflow-y: auto;
 
         @media screen and (max-width: 768px) {
             max-height: unset;
