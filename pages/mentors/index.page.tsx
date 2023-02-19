@@ -250,7 +250,7 @@ const Mentors = () => {
         <div className={styles.searchContainer}>
           <input
             type="text"
-            placeholder="търси по име или технология"
+            placeholder="търси по име"
             onChange={(e) => {
               setSearch(e.target.value);
             }}
