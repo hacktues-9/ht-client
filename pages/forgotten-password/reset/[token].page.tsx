@@ -15,7 +15,7 @@ const ResetPage = () => {
   const [working, setWorking] = useState(false);
 
   const router = useRouter();
-  const token = router.query;
+  const { token } = router.query;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,6 +55,15 @@ const ResetPage = () => {
         setWorking(false);
       })
       .catch((err) => {
+        if (err.message === "The string did not match the expected pattern.") {
+          setError("");
+          setSuccess("Успешно променихте паролата си! След 3 секунди ще бъдете пренасочени към страницата за вход.");
+          // after 3 seconds redirect to login
+          setTimeout(() => {
+            router.push("/login");
+          }, 3000);
+          return;
+        }
         setError(err.message);
         setWorking(false);
       });

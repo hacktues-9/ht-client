@@ -190,7 +190,7 @@ const Mentors = () => {
         if (data.status === 200) {
           if (data.data === 2) {
             // check if the team has a mentor - // TODO: Marto - 19-02 11:29
-            fetch(`https://api.hacktues.bg/api/mentor/get/team/${userId}`, {
+            fetch(`https://api.hacktues.bg/api/user/get/mentor/${userId}`, {
               credentials: "include",
             })
               .then((res) => res.json())

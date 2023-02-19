@@ -310,7 +310,7 @@ const TeamInfo = ({
           />
           <h1>
             {isEditable && edit ? (
-              <>
+/*               <>
                 <input
                   type="text"
                   name="teamName"
@@ -345,7 +345,8 @@ const TeamInfo = ({
                     {error.name}
                   </p>
                 )}
-              </>
+              </> */
+              team.name
             ) : (
               team.name
             )}
@@ -420,6 +421,7 @@ const TeamInfo = ({
             display: "flex",
           }}
         >
+          {/* //TODO: Add links on the 8th of march */}
           {/*           {edit ? (
             <>
               <label htmlFor="teamLink">гитгъб</label>
@@ -484,8 +486,8 @@ const TeamInfo = ({
             </>
           )} */}
 
-          {inTeam ===
-            "user in team" /* some logic to see if user is in team */ && (
+          {/*           {inTeam ===
+            "user in team" && (
             <div
               style={{
                 margin: "0 0 0 auto",
@@ -532,7 +534,7 @@ const TeamInfo = ({
                 </button>
               )}
             </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className={style.team_info_technologies}>
@@ -829,8 +831,9 @@ const TeamMember = ({
               border: "none",
               color: "white",
               fontSize: "1rem",
-              cursor: "pointer",
+              cursor: "not-allowed",
             }}
+            disabled={true}
           >
             изключи
           </button>
@@ -904,11 +907,11 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
     <div className={style.members}>
       <div className={style.members_header}>
         <h2>участници</h2>
-        {isEditable && team?.members?.length < 5 && (
+        {/* {isEditable && team?.members?.length < 5 && (
           <button onClick={handleInviteMember}>
             {isInviting ? <TbX size={32} /> : <TbUserPlus size={32} />}
           </button>
-        )}
+        )} */}
       </div>
       <div className={style.members_list}>
         {team?.members?.map((member) => {
@@ -922,7 +925,7 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
             />
           );
         })}
-      </div>
+     </div>
       {/* 
 
               "mentor": {
