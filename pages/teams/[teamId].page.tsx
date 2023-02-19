@@ -925,8 +925,49 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
             />
           );
         })}
-      </div>
-      {/* {isInviting && <SearchPeople teamId={teamId} />} */}
+     </div>
+      {/* 
+
+              "mentor": {
+            "id": 64,
+            "name": "Мартин Божилов",
+            "avatar": "https://hacktues.bg/assets/mentors/"
+        },
+
+
+          id,
+  name,
+  avatar,
+  role,
+  isEditable,
+  kickMember,
+  makeCaptain,
+       */}
+      {team.mentor && team.mentor.id !== 0 && (
+        <>
+          <div className={style.members_header}>
+            <h2>ментор</h2>
+          </div>
+          <div
+            className={style.members_list}
+            style={{
+              height: "unset",
+            }}
+          >
+            <TeamMember
+              key={team.mentor.id}
+              name={team.mentor.name}
+              id={team.mentor.id}
+              avatar={team.mentor.avatar.replace("https://hacktues.bg", "")}
+              role="MENTOR"
+              isEditable={false}
+              kickMember={kickMember}
+              makeCaptain={makeCaptain}
+            />
+          </div>
+        </>
+      )}
+      {isInviting && <SearchPeople teamId={teamId} />}
     </div>
   );
 };

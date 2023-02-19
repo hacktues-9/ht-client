@@ -9,12 +9,13 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
   const { name, logo, members, project, technologies } = team;
 
   const onHoverMember = (e, member) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     // on hover for 0.5s show the member's little info card - name, profile picture, role, class, discord and github
     // MmmberInfoCard
     // stop propagation
     if (showMemberInfoCard.show) return;
-
-    e.stopPropagation();
 
     // calculate the position of the card - doen't work when the page is scrolled
     const { x, y } = e.target.getBoundingClientRect();
@@ -60,13 +61,10 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
     });
   };
 
-  if(!team) return null
+  if (!team) return null;
 
   return (
-    <Link
-      className={styles.card}
-      href={`/teams/${team.id}`}
-    >
+    <Link className={styles.card} href={`/teams/${team.id}`}>
       <div className={styles.card_header}>
         <Image width={64} height={64} src={logo} alt={"logo"} />
         <div>
@@ -89,6 +87,7 @@ const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
               alt="profile"
               className="w-10 h-10 rounded-full"
               onMouseEnter={(e) => onHoverMember(e, member)}
+              onClick={(e) => onHoverMember(e, member)}
               width={64}
               height={64}
               //onMouseLeave={onLeaveMember}
