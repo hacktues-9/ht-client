@@ -62,7 +62,7 @@
     transform: scale(1.05);
   }
 
-  &: _skeleton {
+  &_skeleton {
     animation: pulse 2s infinite;
   }
 
