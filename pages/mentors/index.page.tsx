@@ -10,33 +10,27 @@ import Technologies from "../../components/technologies/Technologies";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const MentorCard = ({
+  id,
   name,
-  photo,
+  profile_picture,
   description,
-  possition,
+  position,
   technologies,
-  hours,
+  time_frames,
   online,
-  bought,
-  canBuy,
+  team_id,
   buying,
   setBuying,
   openModal,
 }) => {
-  const handleBuy = () => {
+  const handleBuy = (mID) => {
     setBuying(true);
 
     // TODO: Marto
 
-    fetch("https://api.hacktues.bg/api/user/mentor/buy", {
+    fetch(`https://api.hacktues.bg/api/mentor/save/${mID}`, {
       method: "POST",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        mentorId: 1,
-      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -58,11 +52,11 @@ const MentorCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.photo}>
-        <img src={photo} alt={name} />
+        <img src={profile_picture} alt={name} />
       </div>
       <div className={styles.info}>
         <h2>{name}</h2>
-        <p className={styles.possition}>{possition}</p>
+        <p className={styles.possition}>{position}</p>
         <p>{description}</p>
         <div
           style={{
@@ -73,7 +67,7 @@ const MentorCard = ({
           }}
         />
         <div>
-          {hours.map((hour, index) => (
+          {time_frames.map((hour, index) => (
             <p key={index}>
               {hour.day} от {hour.from} до {hour.to}
             </p>
@@ -104,7 +98,7 @@ const MentorCard = ({
         </div>
       </div>
       {
-        /* canBuy && !bought */ true && (
+        team_id == 0 && (
           <>
             <div
               style={{
@@ -115,7 +109,7 @@ const MentorCard = ({
               }}
             />
             <div className={styles.actions}>
-              <button onClick={handleBuy} disabled={buying}>
+              <button onClick={()=>{handleBuy(id)}} disabled={buying}>
                 запази {online ? "онлайн" : "присъствено"}
               </button>
             </div>
@@ -127,14 +121,17 @@ const MentorCard = ({
 };
 
 const Mentors = () => {
-  const { data: mentors, error: mentorErr } = useSwr(
-    "http://localhost:3000/api/mentors",
+  const { data: resp } = useSwr(
+    "https://api.hacktues.bg/api/mentor/get/mentors",
     fetcher
   );
+
+  const [mentors, setMentors] = useState(resp?.data);
   const { authState, isUserAuthenticated } = useAuthContext();
   const [userId, setUserId] = useState<string | null>(null);
   const [canBuy, setCanBuy] = useState<boolean | null>(null);
   const [buying, setBuying] = useState(false);
+  const [search, setSearch] = useState("");
   const [modal, setModal] = useState({
     open: false,
     message: "",
@@ -170,8 +167,27 @@ const Mentors = () => {
       .catch((err) => console.log(err));
   }, [userId]);
 
-  if (mentorErr) return <div style={{ marginTop: "50px" }}>failed to load</div>;
-  if (!mentors) return <div style={{ marginTop: "50px" }}>loading...</div>;
+  useEffect(() => {
+
+    fetch(`https://api.hacktues.bg/api/mentor/get/mentors?sname=${search}`, {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          setMentors(data.data);
+        } else {
+          setMentors([]);
+        }
+      })
+      .catch((err) => console.log(err));
+      
+
+
+  }, [search]);
+
+  // if (mentorErr) return <div style={{ marginTop: "50px" }}>failed to load</div>;
+  // if (!mentors) return <div style={{ marginTop: "50px" }}>loading...</div>;
 
   return (
     <>
@@ -189,11 +205,11 @@ const Mentors = () => {
         </div>
       </div>
       <div className={styles.container}>
-        <div className={styles.searchContainer}>
-          <input type="text" placeholder="търси по име или технология" />
+        <div className={styles.searchContainer} >
+          <input type="text" placeholder="търси по име или технология" onChange={(e)=>{setSearch(e.target.value)}} />
         </div>
         <div className={styles.mentorsContainer}>
-          {mentors.map((mentor) => (
+          {mentors?.map((mentor) => (
             <MentorCard
               key={mentor.id}
               {...mentor}
