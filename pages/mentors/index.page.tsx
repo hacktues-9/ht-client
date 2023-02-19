@@ -45,6 +45,9 @@ const MentorCard = ({
           if (data.description === "no access token provided") {
             openModal("Не сте влезли в профила си!");
             return;
+          } else if (data.description === "mentor is not available") {
+            openModal("Менторът вече е запазен!");
+            setCanBuy(false);
           } else {
             openModal("Нещо се обърка, опитайте отново!");
           }
