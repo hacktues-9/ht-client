@@ -5,6 +5,8 @@ import Technologies from "../../components/technologies/Technologies";
 import { useAuthContext } from "../../context/authContext";
 import styles from "./Mentors.module.scss";
 import { TIMES } from "../../constants/time";
+import { TbBrandYoutube } from "react-icons/tb";
+import Link from "next/link";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -12,6 +14,7 @@ const MentorCard = ({
   id,
   name,
   profile_picture,
+  video,
   description,
   position,
   technologies,
@@ -19,12 +22,18 @@ const MentorCard = ({
   online,
   on_site,
   team_id,
+  team_name,
   buying,
   canBuy,
   setCanBuy,
   setBuying,
   openModal,
 }) => {
+  /*   const [team, setTeam] = useState({
+    id: 0,
+    name: "",
+  }); */
+
   const handleBuy = (mID) => {
     setBuying(true);
 
@@ -59,6 +68,21 @@ const MentorCard = ({
       });
   };
 
+  /*   useEffect(() => {
+    if (team_id !== 0) {
+      fetch(`https://api.hacktues.bg/api/team/get/${team_id}`, {
+        method: "GET",
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            setTeam(data.data);
+          }
+        });
+    }
+  }, [team_id]); */
+
   return (
     <div className={styles.card}>
       <div
@@ -71,6 +95,11 @@ const MentorCard = ({
             src={profile_picture.replace("https://hacktues.bg", "")}
             alt={name}
           />
+          {video && (
+            <a href={video} className={styles.video}>
+              <TbBrandYoutube />
+            </a>
+          )}
         </div>
         <h2>{name}</h2>
         <p className={styles.possition}>{position}</p>
@@ -145,6 +174,27 @@ const MentorCard = ({
               {online && on_site && " / "}
               {on_site && "на място"}
             </button>
+          </div>
+        </div>
+      )}
+      {team_id !== 0 && team_name !== "" && (
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              margin: "1rem 0",
+            }}
+          />
+          <div className={styles.actions}>
+            <Link href={`/teams/${team_id}`} className={styles.team}>
+              {team_name}
+            </Link>
           </div>
         </div>
       )}
@@ -263,6 +313,7 @@ const Mentors = () => {
               mentor.name === "Виктория Димитрова"
             )
               return null;
+
             return (
               <MentorCard
                 key={mentor.id}
@@ -272,6 +323,7 @@ const Mentors = () => {
                 buying={buying}
                 setBuying={setBuying}
                 openModal={openModal}
+                golden={mentor.name === "Теодора Йовчева"}
               />
             );
           })}
