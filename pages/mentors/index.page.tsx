@@ -1,11 +1,10 @@
-import Image from "next/image";
 import useSwr from "swr";
 
-import styles from "./Mentors.module.scss";
 import { useEffect, useState } from "react";
-import { useAuthContext } from "../../context/authContext";
-import { TECHNOLOGIES } from "../../constants/technologies";
 import Technologies from "../../components/technologies/Technologies";
+import { useAuthContext } from "../../context/authContext";
+import styles from "./Mentors.module.scss";
+import { TIMES } from "../../constants/time";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -21,6 +20,7 @@ const MentorCard = ({
   on_site,
   team_id,
   buying,
+  canBuy,
   setBuying,
   openModal,
 }) => {
@@ -56,37 +56,47 @@ const MentorCard = ({
 
   return (
     <div className={styles.card}>
-      <div className={styles.photo}>
-        <img
-          src={profile_picture.replace("https://hacktues.bg", "")}
-          alt={name}
-        />
-      </div>
-      <div className={styles.info}>
+      <div
+        style={{
+          width: "100%",
+        }}
+      >
+        <div className={styles.photo}>
+          <img
+            src={profile_picture.replace("https://hacktues.bg", "")}
+            alt={name}
+          />
+        </div>
         <h2>{name}</h2>
         <p className={styles.possition}>{position}</p>
-        <p>{description}</p>
+        <p className={styles.desc}>{description}</p>
         <div
           style={{
             width: "100%",
             height: "1px",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
-            margin: "1rem 0",
+            margin: ".5rem 0",
           }}
         />
-        <div>
-          {time_frames.map((hour, index) => (
-            <p key={index}>
-              {hour.day} от {hour.from} до {hour.to}
-            </p>
-          ))}
-        </div>
+        <ul className={styles.time}>
+          {time_frames.sort().map((hour, index) => {
+            console.log(hour);
+            return (
+              <li key={hour - 1}>
+                {TIMES[hour - 1].day} от {TIMES[hour - 1].from} до{" "}
+                {TIMES[hour - 1].to}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <div className={styles.info}>
         <div
           style={{
             width: "100%",
             height: "1px",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
-            margin: "1rem 0",
+            margin: ".5rem 0",
           }}
         />
         <div
@@ -102,12 +112,15 @@ const MentorCard = ({
           {technologies?.map((tech) => (
             <Technologies key={tech.id} technology={tech} />
           ))}
+          {technologies?.length === 0 && <p>Няма технологии</p>}
         </div>
       </div>
-      {team_id == 0 && (
-        <div style={{
-          width: "100%",
-        }}>
+      {team_id === 0 && canBuy && (
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
           <div
             style={{
               width: "100%",
@@ -225,16 +238,23 @@ const Mentors = () => {
           />
         </div>
         <div className={styles.mentorsContainer}>
-          {mentors?.map((mentor) => (
-            <MentorCard
-              key={mentor.id}
-              {...mentor}
-              canBuy={canBuy}
-              buying={buying}
-              setBuying={setBuying}
-              openModal={openModal}
-            />
-          ))}
+          {mentors?.map((mentor) => {
+            if (
+              mentor.name === "Мартин Божилов" ||
+              mentor.name === "Виктория Димитрова"
+            )
+              return null;
+            return (
+              <MentorCard
+                key={mentor.id}
+                {...mentor}
+                canBuy={canBuy}
+                buying={buying}
+                setBuying={setBuying}
+                openModal={openModal}
+              />
+            );
+          })}
         </div>
       </div>
     </>

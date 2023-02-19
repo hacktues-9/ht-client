@@ -78,6 +78,10 @@
     justify-content: space-between;
     align-items: center;
 
+    @media screen and (max-width: 640px) {
+        width: 100%;
+    }
+
 
     .photo {
         width: 100%;
@@ -111,6 +115,39 @@
         font-size: .8rem;
         font-weight: 300;
         color: #ffffff8c;
+    }
+
+    .desc {
+        margin: 0 0;
+        margin-top: .5rem;
+        font-size: .9rem;
+        font-weight: 300;
+        color: #ffffffc3;
+        max-height: 4rem;
+        overflow-y: scroll;
+
+        @media screen and (max-width: 768px) {
+            max-height: unset;
+            overflow-y: unset;
+        }
+    }
+
+    .time {
+        li {
+            margin: 0;
+            font-size: .9rem;
+            font-weight: 300;
+            color: #ffffffb6;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
     }
 
     .actions {
