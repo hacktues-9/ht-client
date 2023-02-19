@@ -21,7 +21,10 @@ const Technologies = ({ technology }: { technology: string }) => {
   return (
     <div
       className={styles.technology}
-      style={{ backgroundColor: getBackgroundColor(technology), color: getColor(technology) }}
+      style={{
+        backgroundColor: getBackgroundColor(technology),
+        color: getColor(technology),
+      }}
     >
       <div className={styles.technology_icon}>
         {/*         {getIcon(technology) && (

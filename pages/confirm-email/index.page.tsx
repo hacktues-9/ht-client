@@ -26,7 +26,10 @@ const ConfirmEmailPage = () => {
   const router = useRouter();
   const { token } = router.query;
 
-  const { data, error } = useSWR("/api/confirm-email", fetcher.bind(null, token));
+  const { data, error } = useSWR(
+    "/api/confirm-email",
+    fetcher.bind(null, token)
+  );
 
   /*   useEffect(() => {
     if (token) {

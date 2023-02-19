@@ -309,8 +309,8 @@ const TeamInfo = ({
             height={72}
           />
           <h1>
-            {isEditable && edit ? (
-/*               <>
+            {isEditable && edit
+              ? /*               <>
                 <input
                   type="text"
                   name="teamName"
@@ -346,10 +346,8 @@ const TeamInfo = ({
                   </p>
                 )}
               </> */
-              team.name
-            ) : (
-              team.name
-            )}
+                team.name
+              : team.name}
           </h1>
           {isEditable && (
             <button
@@ -726,6 +724,7 @@ const TeamMember = ({
   id,
   name,
   avatar,
+  _class,
   role,
   isEditable,
   kickMember,
@@ -772,7 +771,20 @@ const TeamMember = ({
         />
         <p>{name}</p>
       </div>
-      <p className={style.member_role}>{ROLES[role]}</p>
+      <div>
+        <p className={style.member_role}>{ROLES[role]}</p>
+        {_class && (
+          <p
+            style={{
+              fontSize: ".7rem",
+              margin: 0,
+              color: "rgba(255, 255, 255, 0.5)",
+            }}
+          >
+            от {_class} клас
+          </p>
+        )}
+      </div>
 
       {isEditable && role !== "CAPTAIN" && (
         <button onClick={() => setContext(!context)} ref={buttonRef}>
@@ -919,13 +931,14 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
             <TeamMember
               key={member.id}
               {...member}
+              _class={member?.class}
               isEditable={isEditable}
               kickMember={kickMember}
               makeCaptain={makeCaptain}
             />
           );
         })}
-     </div>
+      </div>
       {/* 
 
               "mentor": {
@@ -959,6 +972,7 @@ const TeamMembers = ({ team, setTeam, isEditable, setIsEditable, teamId }) => {
               name={team.mentor.name}
               id={team.mentor.id}
               avatar={team.mentor.avatar.replace("https://hacktues.bg", "")}
+              _class={null}
               role="MENTOR"
               isEditable={false}
               kickMember={kickMember}

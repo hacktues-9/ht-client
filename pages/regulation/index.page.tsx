@@ -1,4 +1,3 @@
-
 import { REGULATION } from "../../constants/regulation";
 
 import style from "./regulaation.module.scss";
@@ -11,27 +10,36 @@ const Regulation = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: "1rem"
+        marginBottom: "1rem",
       }}
     >
       <div style={{ maxWidth: "1024px" }}>
-        <h1 style={{ fontSize: "2.5rem", textAlign: "center", marginTop: '4rem' }}>
+        <h1
+          style={{ fontSize: "2.5rem", textAlign: "center", marginTop: "4rem" }}
+        >
           Регламент
         </h1>
-        <div className={style.reg} style={{ whiteSpace: "pre-wrap", textAlign: "justify" }}>
+        <div
+          className={style.reg}
+          style={{ whiteSpace: "pre-wrap", textAlign: "justify" }}
+        >
           {REGULATION.map((item, index) => {
-            if(item.type === "title") {
-              return <h2 key={index} id={item.id || ""}>{item.data}</h2>
+            if (item.type === "title") {
+              return (
+                <h2 key={index} id={item.id || ""}>
+                  {item.data}
+                </h2>
+              );
             }
-            if(item.type === "text") {
+            if (item.type === "text") {
               return (
                 <p key={index} id={item.id || ""}>
                   {item.data}
                 </p>
               );
-            } 
+            }
 
-            if(item.type === "html") {
+            if (item.type === "html") {
               return (
                 <div
                   key={index}
@@ -40,8 +48,7 @@ const Regulation = () => {
                 />
               );
             }
-          }
-          )}
+          })}
         </div>
       </div>
     </div>

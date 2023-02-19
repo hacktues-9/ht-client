@@ -57,7 +57,9 @@ const ResetPage = () => {
       .catch((err) => {
         if (err.message === "The string did not match the expected pattern.") {
           setError("");
-          setSuccess("Успешно променихте паролата си! След 3 секунди ще бъдете пренасочени към страницата за вход.");
+          setSuccess(
+            "Успешно променихте паролата си! След 3 секунди ще бъдете пренасочени към страницата за вход."
+          );
           // after 3 seconds redirect to login
           setTimeout(() => {
             router.push("/login");

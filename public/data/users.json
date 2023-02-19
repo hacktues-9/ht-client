@@ -1,34 +1,32 @@
 {
-    "users": [{
+  "users": [
+    {
+      "id": "fsdilfbiufbaidlfbasdjf",
+      "info": {
+        "firstName": "Лъчезар",
+        "lastName": "Топалов",
+        "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
+        "email": "lacho@gmail.com",
+        "elsysEmail": "lachezar.ne_mi_se_proverqva.topalov.2018@elsys-bg.org",
+        "number": "0888888888",
+        "classNumber": "11",
+        "classLetter": "А",
+        "eatingPreferences": "Вегетарианец",
+        "allergies": "Без алергии",
+        "shirtSize": "M",
+        "technologies": ["C#", "Java", "Python"]
+      },
+      "socials": {
+        "github": "ZariProjects",
+        "discord": "Lacho#3521",
+        "facebook": "https://www.facebook.com/lacho.topalov",
+        "linkedin": "https://www.linkedin.com/in/lacho-topalov-5b4b5a1a0/"
+      },
+      "team": {
         "id": "fsdilfbiufbaidlfbasdjf",
-        "info": {
-            "firstName": "Лъчезар",
-            "lastName": "Топалов",
-            "profilePicture": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg",
-            "email": "lacho@gmail.com",
-            "elsysEmail": "lachezar.ne_mi_se_proverqva.topalov.2018@elsys-bg.org",
-            "number": "0888888888",
-            "classNumber": "11",
-            "classLetter": "А",
-            "eatingPreferences": "Вегетарианец",
-            "allergies": "Без алергии",
-            "shirtSize": "M",
-            "technologies": [
-                "C#",
-                "Java",
-                "Python"
-            ]
-        },
-        "socials": {
-            "github": "ZariProjects",
-            "discord": "Lacho#3521",
-            "facebook": "https://www.facebook.com/lacho.topalov",
-            "linkedin": "https://www.linkedin.com/in/lacho-topalov-5b4b5a1a0/"
-        },
-        "team": {
-            "id": "fsdilfbiufbaidlfbasdjf",
-            "name": "HackTUES 9",
-            "icon": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg"
-        }
-    }]
+        "name": "HackTUES 9",
+        "icon": "https://cdn.thebrandingjournal.com/wp-content/uploads/2019/05/chanel_logo_the_branding_journal.jpg"
+      }
+    }
+  ]
 }

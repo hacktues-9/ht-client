@@ -8,10 +8,10 @@ const TYPE = {
   beta: "Бета спонсори",
   gamma: "Гама спонсори",
   partners: "Партньори",
-}
+};
 
 const SponaoersScrollable = ({ type, sponsors }) => {
-/*   const [firstSponsor, setFirstSponsor] = useState(0);
+  /*   const [firstSponsor, setFirstSponsor] = useState(0);
 
   // TODO -> Do with Refs
   useEffect(() => {
@@ -56,9 +56,12 @@ const SponaoersScrollable = ({ type, sponsors }) => {
       <div className={style.sponsors_scrollable_title}>
         <h2>{TYPE[type]}</h2>
       </div>
-      <ul className={style.sponsors_scrollable_content + " " + type} style={{
-        flexWrap: 'wrap'
-      }}>
+      <ul
+        className={style.sponsors_scrollable_content + " " + type}
+        style={{
+          flexWrap: "wrap",
+        }}
+      >
         {sponsors.map((sponsor) => (
           <Sponsor key={sponsor.name} {...sponsor} />
         ))}

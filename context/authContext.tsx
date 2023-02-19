@@ -7,7 +7,7 @@ const AuthContext = createContext(
       userId: string;
       isLoggedIn: boolean;
     };
-    setAuthState: (userId : string, isLoggedIn : boolean) => void;
+    setAuthState: (userId: string, isLoggedIn: boolean) => void;
     isUserAuthenticated: () => boolean | null;
   }
 );
@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     isLoggedIn: null,
   });
 
-  const setUserAuthInfo = (userId : string, isLoggedIn : boolean) => {
+  const setUserAuthInfo = (userId: string, isLoggedIn: boolean) => {
     localStorage.setItem("isLoggedIn", isLoggedIn.toString());
 
     setAuthState({
@@ -38,14 +38,14 @@ const AuthProvider = ({ children }) => {
         method: "GET",
         credentials: "include",
         headers: {
-          "Access-Control-Allow-Origin": "*"
-        }
+          "Access-Control-Allow-Origin": "*",
+        },
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.status === 200) {
             setUserAuthInfo(data.data, true);
-          }else{
+          } else {
             setUserAuthInfo("", false);
           }
         })
@@ -59,7 +59,8 @@ const AuthProvider = ({ children }) => {
     <Provider
       value={{
         authState,
-        setAuthState: (userId : string, isLoggedIn : boolean) => setUserAuthInfo(userId, isLoggedIn),
+        setAuthState: (userId: string, isLoggedIn: boolean) =>
+          setUserAuthInfo(userId, isLoggedIn),
         isUserAuthenticated,
       }}
     >
