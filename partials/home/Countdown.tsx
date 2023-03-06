@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import countdownStyles from "../../styles/0/Home.Countdown.module.scss";
 
-const THE_DATE = new Date("Mar 8, 2023 17:00:00").getTime();
+const THE_DATE = new Date("Mar 8, 2023 18:00:00").getTime();
 
 const Countdown = () => {
   const [countdown, setCountdown] = useState({
