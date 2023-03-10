@@ -21,6 +21,7 @@ import { ROLES } from "../../constants/teams";
 import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/teams/Team.module.scss";
+import Project from "../../partials/teams/Project";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -1122,7 +1123,11 @@ const Team = () => {
           />
         </div>
         <div className={style.page_bottom}>
-          <TeamProject team={team} setTeam={setTeam} isEditable={editable} />
+          <Project
+            team={team}
+            setTeam={setTeam}
+            isEditable={editable}
+          />
           <TeamMembers
             team={team}
             setTeam={setTeam}
