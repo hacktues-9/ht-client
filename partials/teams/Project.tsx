@@ -34,6 +34,7 @@ const Project = ({ team, setTeam, isEditable }) => {
     return (
       <ProjectView
         project={team.project}
+        setTeam={setTeam}
         editProject={editProject}
         isEditing={isEditing}
         saveProject={saveProject}
