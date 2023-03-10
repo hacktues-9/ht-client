@@ -53,11 +53,11 @@ const Project = ({ team, setTeam, isEditable }) => {
         let user = "";
         let repo = "";
         if (team.project.links.github.includes("https://" || "http://")) {
-            let user = team.project.links.github.split("/")[3];
-            let repo = team.project.links.github.split("/")[4];
+            user = team.project.links.github.split("/")[3];
+            repo = team.project.links.github.split("/")[4];
         } else {
-            let user = team.project.links.github.split("/")[1];
-            let repo = team.project.links.github.split("/")[2];
+            user = team.project.links.github.split("/")[1];
+            repo = team.project.links.github.split("/")[2];
         }
 
         fetch(`https://api.github.com/repos/${user}/${repo}`)
