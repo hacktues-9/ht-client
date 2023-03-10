@@ -18,6 +18,7 @@ const Project = ({ team, setTeam, isEditable }) => {
   const createProject = () => {
     // api call to create project - or maybe not - discuss tmrw
     setIsProjectCreated(true);
+    setIsEditing(true);
   };
 
   const editProject = () => {
@@ -98,10 +99,6 @@ const Project = ({ team, setTeam, isEditable }) => {
       setIsProjectCreated(true);
     }
   }, [team]);
-
-  useEffect(() => {
-    setIsEditing(true);
-  }, [isProjectCreated]);
 
   if (isProjectCreated)
     return (
