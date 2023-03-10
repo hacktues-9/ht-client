@@ -4,7 +4,7 @@ import style from "../../styles/0/teams/Team.module.scss";
 import Image from "next/image";
 import { TbBrandGithub, TbWorldWww } from "react-icons/tb";
 
-const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
+const ProjectView = ({ project, isEditing, editProject, saveProject, isEditable }) => {
   return (
     <div
       className={style.project}
@@ -30,7 +30,7 @@ const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
             />
             <textarea
               placeholder="описание на проекта"
-              // value={project?.description}
+              value={project?.description}
               //   onChange={(e) =>
               //     setProject({ ...project, description: e.target.value })
               //   }
@@ -42,7 +42,7 @@ const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
                   type="text"
                   className={style.link}
                   placeholder="https://github.com/edikakvosi/proekt"
-                  value={project?.name}
+                  value={project?.github}
                   //onChange={(e) => setProject({ ...project, name: e.target.value })}
                 />
               </div>
@@ -54,7 +54,7 @@ const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
                   type="text"
                   className={style.link}
                   placeholder="https://example.com"
-                  value={project?.name}
+                  value={project?.link}
                   //onChange={(e) => setProject({ ...project, name: e.target.value })}
                 />
               </div>
@@ -70,7 +70,7 @@ const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
       {isEditable && (
         <button
           className={style.editProject}
-          onClick={() => setIsEditing(!isEditing)}
+          onClick={isEditing ? saveProject : editProject}
         >
           {isEditing ? "запази" : "редактирай"}
         </button>
