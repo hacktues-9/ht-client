@@ -52,7 +52,7 @@ const Project = ({ team, setTeam, isEditable }) => {
       if (team.project.links.github) {
         let user = "";
         let repo = "";
-        if (team.project.links.github.includes("https://" || "http://")) {
+        if (team.project.links.github.includes("https://") || team.project.links.github.includes("http://")) {
             user = team.project.links.github.split("/")[3];
             repo = team.project.links.github.split("/")[4];
         } else {
