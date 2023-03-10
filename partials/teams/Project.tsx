@@ -40,8 +40,8 @@ const Project = ({ team, setTeam, isEditable }) => {
       if (team.project.description.length < 10) {
         setError("описанието на проекта трябва да е поне 10 символа");
         return;
-      } else if (team.project.description.length > 280) {
-        setError("описанието на проекта трябва да е максимум 280 символа");
+      } else if (team.project.description.length > 1024) {
+        setError("описанието на проекта трябва да е максимум 1024 символа");
         return;
       } else {
         setError(null);
