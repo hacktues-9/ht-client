@@ -192,9 +192,19 @@ const SPONSORS = [
         url: "https://corporategifts.bg",
       },
       {
+        name: "Dominos",
+        logo: "/assets/sponsors/partners/dominos.png",
+        url: "https://dominos.bg",
+      },
+      {
         name: "Green Cherry Cafe",
         logo: "/assets/sponsors/partners/green_cherry.png",
         url: "https://bg-bg.facebook.com/greencherrycafe/",
+      },
+      {
+        name: "Harmonica",
+        logo: "/assets/sponsors/partners/harmonica.png",
+        url: "https://harmonica.bg"
       },
       {
         name: "Multivisia",

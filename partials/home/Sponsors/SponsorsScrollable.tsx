@@ -8,6 +8,7 @@ const TYPE = {
   beta: "Бета спонсори",
   gamma: "Гама спонсори",
   partners: "Партньори",
+  mediaPartners: "Медийни партньори"
 };
 
 const SponaoersScrollable = ({ type, sponsors }) => {
