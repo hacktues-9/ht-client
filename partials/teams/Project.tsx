@@ -30,8 +30,8 @@ const Project = ({ team, setTeam, isEditable }) => {
       if (team.project.name.length < 3) {
         setError("името на проекта трябва да е поне 3 символа");
         return;
-      } else if (team.project.name.length > 22) {
-        setError("описанието на проекта трябва да е поне 22 символа");
+      } else if (team.project.name.length > 56) {
+        setError("името на проекта трябва да е под 56 символа");
         return;
       } else {
         setError(null);
