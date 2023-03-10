@@ -47,11 +47,19 @@ const Project = ({ team, setTeam, isEditable }) => {
         setError(null);
       }
 
-      // https://api.github.com/repos/<user>/<repo> - check if repo exists
+      // https://github.com/user/repo
+      // https://api.github.com/<user>/<repo> - check if repo exists
       if (team.project.links.github) {
-        let github = team.project.links.github.split("/");
-        let user = github[github.length - 2];
-        let repo = github[github.length - 1];
+        let user = "";
+        let repo = "";
+        if (team.project.links.github.includes("https://" || "http://")) {
+            let user = team.project.links.github.split("/")[3];
+            let repo = team.project.links.github.split("/")[4];
+        } else {
+            let user = team.project.links.github.split("/")[1];
+            let repo = team.project.links.github.split("/")[2];
+        }
+
         fetch(`https://api.github.com/repos/${user}/${repo}`)
           .then((res) => res.json())
           .then((data) => {
