@@ -591,6 +591,10 @@
       &:focus {
         border-bottom: 1px solid rgba(white, 0.5);
       }
+
+      &:disabled {
+        color: white;
+      }
     }
 
     input {
@@ -608,6 +612,10 @@
 
       &:focus {
         border-bottom: 1px solid rgba(white, 0.5);
+      }
+
+      &:disabled {
+        color: white;
       }
     }
 

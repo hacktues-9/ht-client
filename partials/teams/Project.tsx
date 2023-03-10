@@ -25,7 +25,7 @@ const Project = ({ team, setTeam, isEditable }) => {
     setIsEditing(true);
   };
 
-  const saveProject = () => {
+  const saveProject = async () => {
     if (isEditing) {
       if (team.project.name.length < 3) {
         setError("името на проекта трябва да е поне 3 символа");
@@ -52,27 +52,39 @@ const Project = ({ team, setTeam, isEditable }) => {
       if (team.project.links.github) {
         let user = "";
         let repo = "";
-        if (team.project.links.github.includes("https://") || team.project.links.github.includes("http://")) {
-            user = team.project.links.github.split("/")[3];
-            repo = team.project.links.github.split("/")[4];
+        if (
+          team.project.links.github.includes("https://") ||
+          team.project.links.github.includes("http://")
+        ) {
+          user = team.project.links.github.split("/")[3];
+          repo = team.project.links.github.split("/")[4];
         } else {
-            user = team.project.links.github.split("/")[1];
-            repo = team.project.links.github.split("/")[2];
+          user = team.project.links.github.split("/")[1];
+          repo = team.project.links.github.split("/")[2];
         }
 
-        fetch(`https://api.github.com/repos/${user}/${repo}`)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.message === "Not Found") {
-              setError("това хранилище не съществува");
-              return;
-            } else {
-              setError(null);
-            }
-          })
-          .catch((err) => {
-            setError("нещо май се обърка :(");
-          });
+        // fetch(`https://api.github.com/repos/${user}/${repo}`)
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     if (data.message === "Not Found") {
+        //       setError("това хранилище не съществува");
+        //       return;
+        //     } else {
+        //       setError(null);
+        //     }
+        //   })
+        //   .catch((err) => {
+        //     setError("нещо май се обърка :(");
+        //   });
+        // fetch with await
+        const res = await fetch(`https://api.github.com/repos/${user}/${repo}`);
+        const data = await res.json();
+        if (data.message === "Not Found") {
+          setError("това хранилище не съществува");
+          return;
+        } else {
+          setError(null);
+        }
       }
 
       fetch(`https://api.hacktues.bg/api/team/update/${teamId}`, {
