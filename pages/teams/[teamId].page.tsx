@@ -1123,7 +1123,11 @@ const Team = () => {
           />
         </div>
         <div className={style.page_bottom}>
-          <Project team={team} setTeam={setTeam} isEditable={editable} />
+          <Project
+            team={team}
+            setTeam={setTeam}
+            isEditable={editable}
+          />
           <TeamMembers
             team={team}
             setTeam={setTeam}
