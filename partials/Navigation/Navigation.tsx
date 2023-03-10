@@ -219,9 +219,9 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/themes" onClick={handleMobileDropdownClicked}>
             <li>Теми</li>
           </Link>
-          {/*           <Link href="/timetable" onClick={handleMobileDropdownClicked}>
+          <Link href="/timetable" onClick={handleMobileDropdownClicked}>
             <li>Програма</li>
-          </Link> */}
+          </Link>
           <Link href="/archive" onClick={handleMobileDropdownClicked}>
             <li>Архив</li>
           </Link>
@@ -332,9 +332,9 @@ const Navigation = () => {
                 <Link href="/themes">
                   <li>Теми</li>
                 </Link>
-                {/*                 <Link href="/timetable">
+                <Link href="/timetable">
                   <li>Програма</li>
-                </Link> */}
+                </Link>
                 <Information
                   showDropdown={showInformationDropdown}
                   setShowDropdown={setShowInformationDropdown}
