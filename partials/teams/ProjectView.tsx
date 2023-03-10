@@ -2,10 +2,9 @@ import { useState } from "react";
 import style from "../../styles/0/teams/Team.module.scss";
 
 import Image from "next/image";
+import { TbBrandGithub, TbWorldWww } from "react-icons/tb";
 
-const ProjectView = ({ project, editProject, isEditable }) => {
-  const [isEditing, setIsEditing] = useState(false);
-
+const ProjectView = ({ project, isEditing, editProject, isEditable }) => {
   return (
     <div
       className={style.project}
@@ -20,7 +19,7 @@ const ProjectView = ({ project, editProject, isEditable }) => {
             - description
             - photos
         */}
-      <div className={style.projectInfo}>
+      <div className={style.project_info}>
         {isEditing ? (
           <>
             <input
@@ -31,38 +30,41 @@ const ProjectView = ({ project, editProject, isEditable }) => {
             />
             <textarea
               placeholder="описание на проекта"
-              value={project?.description}
+              // value={project?.description}
               //   onChange={(e) =>
               //     setProject({ ...project, description: e.target.value })
               //   }
             />
+            <div className={style.links}>
+              <div className={style.linkContainer}>
+                <TbBrandGithub size={28} />
+                <input
+                  type="text"
+                  className={style.link}
+                  placeholder="https://github.com/edikakvosi/proekt"
+                  value={project?.name}
+                  //onChange={(e) => setProject({ ...project, name: e.target.value })}
+                />
+              </div>
+              <div className={style.linkContainer}>
+                <TbWorldWww size={28} style={{
+                  fontWeight: '300'
+                }}/>
+                <input
+                  type="text"
+                  className={style.link}
+                  placeholder="https://example.com"
+                  value={project?.name}
+                  //onChange={(e) => setProject({ ...project, name: e.target.value })}
+                />
+              </div>
+            </div>
           </>
         ) : (
           <>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
           </>
-        )}
-      </div>
-      <div className={style.projectPhotos}>
-        {/*
-                - photos - max 3
-            */}
-
-        {project?.photos?.map((photo, index) => {
-          return (
-            <Image
-              key={index}
-              src={photo}
-              width={192}
-              height={108}
-              alt="project photo"
-            />
-          );
-        })}
-        {/* add photo if under 3 */}
-        {project?.photos?.length < 3 && isEditable && (
-          <button className={style.addPhoto}>+</button>
         )}
       </div>
       {isEditable && (

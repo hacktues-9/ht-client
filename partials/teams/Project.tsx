@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectView from "./ProjectView";
 import CreateProject from "./CreateProject";
 
@@ -8,7 +8,7 @@ const Project = ({team, setTeam, isEditable}) => {
     const [isEditing, setIsEditing] = useState(false);
 
     const createProject = () => {
-        // api call to create project
+        // api call to create project - or maybe not - discuss tmrw
         setIsProjectCreated(true);
     }
 
@@ -25,7 +25,12 @@ const Project = ({team, setTeam, isEditable}) => {
         setIsEditing(false);
     }
 
-    if(isProjectCreated) return <ProjectView project={team.project} editProject={editProject} isEditable={isEditable} />
+    useEffect(() => {
+        setIsEditing(true);
+    }, [isProjectCreated])
+    
+
+    if(isProjectCreated) return <ProjectView project={team.project} editProject={editProject} isEditing={isEditing} isEditable={isEditable} />
     
     return <CreateProject createProject={createProject} isEditable={isEditable} />
 };
