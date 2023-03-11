@@ -234,9 +234,9 @@ const MobileBar = forwardRef<HTMLDivElement>(
           <Link href="/ourteam" onClick={handleMobileDropdownClicked}>
             <li>Нашият екип</li>
           </Link>
-          {/*           <Link href="/rankings" onClick={handleMobileDropdownClicked}>
+          <Link href="/rankings" onClick={handleMobileDropdownClicked}>
             <li>Класация</li>
-          </Link> */}
+          </Link>
           {/*           <Link href="/tuestalks" onClick={handleMobileDropdownClicked}>
             <li>tuestalks</li>
           </Link> */}
@@ -339,9 +339,9 @@ const Navigation = () => {
                   showDropdown={showInformationDropdown}
                   setShowDropdown={setShowInformationDropdown}
                 />
-                {/*                 <Link href="/rankings">
+                <Link href="/rankings">
                   <li>Класация</li>
-                </Link> */}
+                </Link>
                 {/* 
               {isUserAuthenticated && userId && (
                 <Link href="/tinder">
