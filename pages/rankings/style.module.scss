@@ -22,6 +22,10 @@
         height: 100%;
         padding: 2rem;
 
+        @media (max-width: 768px) {
+            padding: 0.5rem;
+        }
+
         ul {
             width: 100%;
             list-style: none;
@@ -29,6 +33,7 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            padding: 0 0;
 
             li {
                 position: relative;
