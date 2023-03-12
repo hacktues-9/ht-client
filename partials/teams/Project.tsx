@@ -26,6 +26,7 @@ const Project = ({ team, setTeam, isEditable }) => {
   };
 
   const saveProject = async () => {
+    return 0; // cant call api :)))))
     if (isEditing) {
       if (team.project.name.length < 3) {
         setError("името на проекта трябва да е поне 3 символа");
@@ -108,10 +109,6 @@ const Project = ({ team, setTeam, isEditable }) => {
           setError("нещо май се обърка :(");
         });
     }
-  };
-
-  const cancelEdit = () => {
-    setIsEditing(false);
   };
 
   useEffect(() => {

@@ -351,7 +351,7 @@ const TeamInfo = ({
                 team.name
               : team.name}
           </h1>
-          {isEditable && (
+          {/* {isEditable && (
             <button
               onClick={() => {
                 edit ? handleEdit() : setEdit(true);
@@ -359,7 +359,7 @@ const TeamInfo = ({
             >
               {edit ? "запази" : "промени"}
             </button>
-          )}
+          )} */}
         </div>
         <div className={style.team_info_information_description}>
           <p
@@ -788,11 +788,11 @@ const TeamMember = ({
         )}
       </div>
 
-      {isEditable && role !== "CAPTAIN" && (
+      {/* {isEditable && role !== "CAPTAIN" && (
         <button onClick={() => setContext(!context)} ref={buttonRef}>
           <TbDotsVertical size={28} />
         </button>
-      )}
+      )} */}
 
       {isEditable && role !== "CAPTAIN" && context && (
         <div
