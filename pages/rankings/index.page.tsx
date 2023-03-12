@@ -80,7 +80,7 @@ const Rankings = () => {
   return (
     <>
       <Head>
-        <title>Класация</title>
+        <title>Класация | HackTUES 9</title>
       </Head>
       <div className={style.rankings}>
         <h1 className={style.rankings_title}>Класация</h1>

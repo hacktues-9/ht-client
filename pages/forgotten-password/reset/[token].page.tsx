@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Input from "../../../components/form/Input";
 
 import style from "../style.module.scss";
+import Head from "next/head";
 
 const ResetPage = () => {
   const [password, setPassword] = useState("");
@@ -72,40 +73,45 @@ const ResetPage = () => {
   };
 
   return (
-    <div className={style.forgotten_password}>
-      <div className={style.container}>
-        <h1>Въведи нова парола</h1>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="password"
-            label="Нова парола"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            classes={["email"]}
-            id={"password"}
-            name={"password"}
-            placeholder={"••••••••"}
-            required={false}
-          />
-          <Input
-            type="password"
-            label="Потвърди новата парола"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            classes={["email"]}
-            id={"passwordConfirm"}
-            name={"passwordConfirm"}
-            placeholder={"••••••••"}
-            required={false}
-          />
-          {error && <p className={style.error}>{error}</p>}
-          {success && <p>{success}</p>}
-          <button type="submit" disabled={working}>
-            {working ? "зареждане..." : "промени паролата"}
-          </button>
-        </form>
+    <>
+      <Head>
+        <title>Промяна на парола | HackTUES 9</title>
+      </Head>
+      <div className={style.forgotten_password}>
+        <div className={style.container}>
+          <h1>Въведи нова парола</h1>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="password"
+              label="Нова парола"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              classes={["email"]}
+              id={"password"}
+              name={"password"}
+              placeholder={"••••••••"}
+              required={false}
+            />
+            <Input
+              type="password"
+              label="Потвърди новата парола"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              classes={["email"]}
+              id={"passwordConfirm"}
+              name={"passwordConfirm"}
+              placeholder={"••••••••"}
+              required={false}
+            />
+            {error && <p className={style.error}>{error}</p>}
+            {success && <p>{success}</p>}
+            <button type="submit" disabled={working}>
+              {working ? "зареждане..." : "промени паролата"}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

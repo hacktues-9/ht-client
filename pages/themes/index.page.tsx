@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import style from "./style.module.scss";
+import Head from "next/head";
 
 const THEMES = [
   {
@@ -78,6 +79,9 @@ const ThemePage = () => {
 
   return (
     <>
+    <Head>
+        <title>Теми | HackTUES 9</title>
+    </Head>
       <div className={style.page}>
         <div className={style.container}>
           {THEMES.map((theme, index) => (

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import style from "./style.module.scss";
 
 const TIMETABLE = [
@@ -53,14 +54,19 @@ const Time = ({ content, time, loc }) => {
 
 const Timetable = () => {
   return (
-    <div className={style.page}>
-      <h1 className={style.title}>Програма</h1>
-      <div className={style.timetable}>
-        {TIMETABLE.map((time, index) => (
-          <Time key={index} {...time} />
-        ))}
+    <>
+      <Head>
+        <title>Програма | HackTUES 9</title>
+      </Head>
+      <div className={style.page}>
+        <h1 className={style.title}>Програма</h1>
+        <div className={style.timetable}>
+          {TIMETABLE.map((time, index) => (
+            <Time key={index} {...time} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

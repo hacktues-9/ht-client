@@ -7,6 +7,7 @@ import styles from "./Mentors.module.scss";
 import { TIMES } from "../../constants/time";
 import { TbBrandYoutube } from "react-icons/tb";
 import Link from "next/link";
+import Head from "next/head";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -283,6 +284,9 @@ const Mentors = () => {
 
   return (
     <>
+      <Head>
+        <title>Ментори | HackTUES</title>
+      </Head>
       <div
         className={styles.modal}
         style={{
