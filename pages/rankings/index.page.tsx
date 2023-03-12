@@ -492,6 +492,7 @@ const Rankings = () => {
                           padding: "0.5rem 1rem",
                           height: "2rem",
                           width: "5rem",
+                          aspectRatio: "2/5",
                           textAlign: "center",
                           borderRadius: "0.5rem",
                           display: "flex",
