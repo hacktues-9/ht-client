@@ -108,14 +108,14 @@ const ProjectView = ({
         </div>
       </div>
       {error && <p className={style.error}>{error}</p>}
-      {isEditable && (
+      {/* {isEditable && (
         <button
           className={style.editProject}
           onClick={isEditing ? saveProject : editProject}
         >
           {isEditing ? "запази" : "редактирай"}
         </button>
-      )}
+      )} */}
     </div>
   );
 };

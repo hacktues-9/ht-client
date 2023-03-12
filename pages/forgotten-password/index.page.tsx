@@ -3,6 +3,7 @@ import { useState } from "react";
 import Input from "../../components/form/Input";
 
 import style from "./style.module.scss";
+import Head from "next/head";
 
 const ForgottenPasswordPage = () => {
   const [email, setEmail] = useState("");
@@ -52,28 +53,33 @@ const ForgottenPasswordPage = () => {
   };
 
   return (
-    <div className={style.forgotten_password}>
-      <div className={style.container}>
-        <h1>Забравена парола?</h1>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="email"
-            name="elsysEmail"
-            label="elsys имейл"
-            placeholder="kristiyan.m.bogdanov.2019@elsys-bg.org"
-            classes={["email"]}
-            id={"elsysEmail"}
-            required={true}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {error && <p className={style.error}>{error}</p>}
-          <button disabled={working} type="submit">
-            изпрати имейл
-          </button>
-        </form>
+    <>
+      <Head>
+        <title>Забравена парола | HackTUES 9</title>
+      </Head>
+      <div className={style.forgotten_password}>
+        <div className={style.container}>
+          <h1>Забравена парола?</h1>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="email"
+              name="elsysEmail"
+              label="elsys имейл"
+              placeholder="kristiyan.m.bogdanov.2019@elsys-bg.org"
+              classes={["email"]}
+              id={"elsysEmail"}
+              required={true}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {error && <p className={style.error}>{error}</p>}
+            <button disabled={working} type="submit">
+              изпрати имейл
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

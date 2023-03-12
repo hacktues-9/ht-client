@@ -22,6 +22,7 @@ import { TECHNOLOGIES } from "../../constants/technologies";
 
 import style from "../../styles/0/teams/Team.module.scss";
 import Project from "../../partials/teams/Project";
+import Head from "next/head";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -350,7 +351,7 @@ const TeamInfo = ({
                 team.name
               : team.name}
           </h1>
-          {isEditable && (
+          {/* {isEditable && (
             <button
               onClick={() => {
                 edit ? handleEdit() : setEdit(true);
@@ -358,7 +359,7 @@ const TeamInfo = ({
             >
               {edit ? "запази" : "промени"}
             </button>
-          )}
+          )} */}
         </div>
         <div className={style.team_info_information_description}>
           <p
@@ -787,11 +788,11 @@ const TeamMember = ({
         )}
       </div>
 
-      {isEditable && role !== "CAPTAIN" && (
+      {/* {isEditable && role !== "CAPTAIN" && (
         <button onClick={() => setContext(!context)} ref={buttonRef}>
           <TbDotsVertical size={28} />
         </button>
-      )}
+      )} */}
 
       {isEditable && role !== "CAPTAIN" && context && (
         <div
@@ -1109,6 +1110,9 @@ const Team = () => {
 
   return (
     <>
+      <Head>
+        <title>{team.name} | HackTUES</title>
+      </Head>
       <div className={style.page}>
         <div className={style.page_top}>
           <TeamInfo
@@ -1123,11 +1127,7 @@ const Team = () => {
           />
         </div>
         <div className={style.page_bottom}>
-          <Project
-            team={team}
-            setTeam={setTeam}
-            isEditable={editable}
-          />
+          <Project team={team} setTeam={setTeam} isEditable={editable} />
           <TeamMembers
             team={team}
             setTeam={setTeam}
