@@ -110,21 +110,26 @@ const Teams = () => {
   // return a skeleton while loading
   if (isLoading) {
     return (
-      <div className={styles.teams}>
-        {!verifiedError && (
-          <ProgressBar
-            verified={verifiedTeams?.data}
-            current={60}
-            total={60}
-            loading={verifiedLoading}
-          />
-        )}
-        <ul className={styles.cards_grid}>
-          {[...Array(15)].map((_, i) => (
-            <TeamCardSkeleton key={i} />
-          ))}
-        </ul>
-      </div>
+      <>
+        <Head>
+          <title>Отбори | {TITLE}</title>
+        </Head>
+        <div className={styles.teams}>
+          {!verifiedError && (
+            <ProgressBar
+              verified={verifiedTeams?.data}
+              current={60}
+              total={60}
+              loading={verifiedLoading}
+            />
+          )}
+          <ul className={styles.cards_grid}>
+            {[...Array(15)].map((_, i) => (
+              <TeamCardSkeleton key={i} />
+            ))}
+          </ul>
+        </div>
+      </>
     );
   }
   if (error) return <div>Error...</div>;
