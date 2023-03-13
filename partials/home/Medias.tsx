@@ -5,6 +5,12 @@ import { bg } from "date-fns/locale";
 
 const MEDIAS = [
   {
+    title: "Проведе се Деветото Издание на Hack TUES 9",
+    icon: "/assets/medias/devstyler.png",
+    link: "https://devstyler.bg/blog/2023/03/13/provede-se-devetoto-izdanie-na-hack-tues-9/",
+    date: "13 март 2023 г.",
+  },
+  {
     title: "224 ученици и 25 фирми участват в осмия хакатон на ТУЕС",
     icon: "/assets/medias/bnr.png",
     link: "https://bnr.bg/sofia/post/101613996/tues",
@@ -29,12 +35,6 @@ const MEDIAS = [
     icon: "/assets/medias/bloomberg.png",
     link: "https://www.bloombergtv.bg/a/16-biznes-start/104120-uchenitsi-demonstrirat-znaniya-i-talant-osmoto-izdanie-na-hakatona-hacktues",
     date: "8 март 2022 г.",
-  },
-  {
-    title: "Проведе се Деветото Издание на Hack TUES 9",
-    icon: "/assets/medias/devstyler.png",
-    link: "https://devstyler.bg/blog/2023/03/13/provede-se-devetoto-izdanie-na-hack-tues-9/",
-    date: "13 март 2023 г.",
   },
 ];
 
