@@ -11,6 +11,12 @@ const MEDIAS = [
     date: "13 март 2023 г.",
   },
   {
+    title: "Ученици по технологии ще работят с експерти от 30 ИТ компании на HackTUES",
+    icon: "/assets/medias/karieribg.png",
+    link: "https://www.karieri.bg/news/40146_uchenici-po-tehnologii-shche-rabotyat-s-eksperti-ot-30",
+    date: "23 февруари 2023 г.",
+  },
+  {
     title: "224 ученици и 25 фирми участват в осмия хакатон на ТУЕС",
     icon: "/assets/medias/bnr.png",
     link: "https://bnr.bg/sofia/post/101613996/tues",
