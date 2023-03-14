@@ -192,6 +192,11 @@ const SPONSORS = [
         url: "https://corporategifts.bg",
       },
       {
+        name: "DevStyler",
+        logo: "/assets/sponsors/partners/devstyler.png",
+        url: "https://devstyler.bg/",
+      },
+      {
         name: "Dominos",
         logo: "/assets/sponsors/partners/dominos.png",
         url: "https://dominos.bg",
