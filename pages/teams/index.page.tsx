@@ -197,7 +197,6 @@ export const getStaticProps: GetStaticProps<any> = async () => {
     props: {
       teams: teams.default,
     },
-    revalidate: 1,
   };
 };
 

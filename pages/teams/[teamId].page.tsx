@@ -1175,7 +1175,6 @@ export const getStaticProps: GetStaticProps<any> = async ({params}) => {
     props: {
       team: team.default,
     },
-    revalidate: 1,
   };
 };
 
