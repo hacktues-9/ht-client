@@ -1,0 +1,63 @@
+{
+    "name": "cow power noobies",
+    "description": "game dev for dummies",
+    "logo": "/data/images/cow_power_noobies",
+    "technologies": [
+        "C#",
+        "2D Art",
+        "Git",
+        "Python",
+        "Vim"
+    ],
+    "members": [
+        {
+            "id": 83,
+            "name": "Диляна Василева",
+            "avatar": "/data/images/Диляна_Василева",
+            "role": "STUDENT",
+            "class": "8А"
+        },
+        {
+            "id": 133,
+            "name": "Милена Узунова",
+            "avatar": "/data/images/Милена_Узунова",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 328,
+            "name": "Божидар Лазаров",
+            "avatar": "/data/images/Божидар_Лазаров",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 73,
+            "name": "Александър Кръстев",
+            "avatar": "/data/images/Александър_Кръстев",
+            "role": "CAPTAIN",
+            "class": "8Б"
+        },
+        {
+            "id": 72,
+            "name": "Мартин Филипов",
+            "avatar": "/data/images/Мартин_Филипов",
+            "role": "MEMBER",
+            "class": "8Б"
+        }
+    ],
+    "mentor": {
+        "id": 53,
+        "name": "Иван Трендафилов\t",
+        "avatar": "https://hacktues.bg/assets/mentors/ivanTrendafilov.png"
+    },
+    "project": {
+        "name": "Mellisandra the Cat",
+        "description": "Mellisandra the Cat is on an adventure. She needs to fight her smart home back because an evil hacker has hacked it and all the smart security gadgets inside it. The little cat needs to fight with eval rumbas, puzzled locks, and even drones to prove that even a small cat can fix a big security issue.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/jukfiuune/HackTUES9Game",
+            "website": ""
+        }
+    }
+}

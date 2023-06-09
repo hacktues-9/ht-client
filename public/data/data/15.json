@@ -1,0 +1,57 @@
+{
+    "name": "KvoT TakoA",
+    "description": "Да сме живи и здрави",
+    "logo": "/data/images/KvoT_TakoA",
+    "technologies": [
+        "AWS",
+        "CSS",
+        "Cloud computing",
+        "Django",
+        "Flutter",
+        "JavaScript",
+        "HTML",
+        "Nginx",
+        "IoT",
+        "NodeJS",
+        "Raspberry Pi",
+        "Python",
+        "Компютърни мрежи"
+    ],
+    "members": [
+        {
+            "id": 59,
+            "name": "Даниел  Генев ",
+            "avatar": "/data/images/Даниел__Генев",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 84,
+            "name": "Мариян Видков",
+            "avatar": "/data/images/Мариян_Видков",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 53,
+            "name": "Цветина Джунакова",
+            "avatar": "/data/images/Цветина_Джунакова",
+            "role": "CAPTAIN",
+            "class": "12Г"
+        }
+    ],
+    "mentor": {
+        "id": 35,
+        "name": "Георги Любенов",
+        "avatar": "https://hacktues.bg/assets/mentors/georgiLubenov.png"
+    },
+    "project": {
+        "name": "Google extension for phishing emails",
+        "description": "Google еxtension, който проверява имейлите от gmail и индикира при наличен phishing email и го обозначава. Целта е по този начин да се улесни различаването на атаки и съответно предостратяване на предстоящи проблеми. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/MariVidkov/KvoTTakoA",
+            "website": ""
+        }
+    }
+}

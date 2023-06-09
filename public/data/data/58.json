@@ -1,0 +1,49 @@
+{
+    "name": "PR masterite",
+    "description": "L за кросфитърите",
+    "logo": "/data/images/PR_masterite",
+    "technologies": [
+        "C",
+        "Python",
+        "MySQL",
+        "C#",
+        "Java"
+    ],
+    "members": [
+        {
+            "id": 358,
+            "name": "Николай Горанов",
+            "avatar": "/data/images/Николай_Горанов",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 247,
+            "name": "Виктор Пенев",
+            "avatar": "/data/images/Виктор_Пенев",
+            "role": "CAPTAIN",
+            "class": "10А"
+        },
+        {
+            "id": 246,
+            "name": "Антоан Аргиров",
+            "avatar": "/data/images/Антоан_Аргиров",
+            "role": "MEMBER",
+            "class": "10А"
+        }
+    ],
+    "mentor": {
+        "id": 21,
+        "name": "Нейчо Калайджиев",
+        "avatar": "https://hacktues.bg/assets/mentors/neychoK.jpg"
+    },
+    "project": {
+        "name": "CyberSecT",
+        "description": "Cyber security training simulator - virus prevention tutorials ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/VocoPoco/PR_MASTERITE",
+            "website": ""
+        }
+    }
+}

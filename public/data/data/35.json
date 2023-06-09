@@ -1,0 +1,71 @@
+{
+    "name": "Ohio",
+    "description": "охайовци от оклахома\nhttps://github.com/Banence/Ohio_HackTUES",
+    "logo": "/data/images/Ohio",
+    "technologies": [
+        "Linux",
+        "HTML",
+        "Python",
+        "Raspberry Pi",
+        "CSS",
+        "2D Art",
+        "3D Art",
+        "C",
+        "C++",
+        "IoT",
+        "Unity3D",
+        "Web Development",
+        "Blender"
+    ],
+    "members": [
+        {
+            "id": 197,
+            "name": "Филип Ангелов",
+            "avatar": "/data/images/Филип_Ангелов",
+            "role": "STUDENT",
+            "class": "8В"
+        },
+        {
+            "id": 271,
+            "name": "Борис Маринов",
+            "avatar": "/data/images/Борис_Маринов",
+            "role": "STUDENT",
+            "class": "8В"
+        },
+        {
+            "id": 272,
+            "name": "Антоан  Дамов ",
+            "avatar": "/data/images/Антоан__Дамов",
+            "role": "STUDENT",
+            "class": "8В"
+        },
+        {
+            "id": 371,
+            "name": "Вилиян Балчев",
+            "avatar": "/data/images/Вилиян_Балчев",
+            "role": "STUDENT",
+            "class": "8В"
+        },
+        {
+            "id": 118,
+            "name": "Йоан Михайлов",
+            "avatar": "/data/images/Йоан_Михайлов",
+            "role": "CAPTAIN",
+            "class": "8В"
+        }
+    ],
+    "mentor": {
+        "id": 36,
+        "name": "Гюнеш Шефкедов",
+        "avatar": "https://hacktues.bg/assets/mentors/gyuneshShefkedov.png"
+    },
+    "project": {
+        "name": "Ohio_Security",
+        "description": "pygame 2d игра свързана с IoT и Physical security",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Banence/Ohio_HackTUES",
+            "website": ""
+        }
+    }
+}

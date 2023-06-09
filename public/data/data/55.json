@@ -1,0 +1,61 @@
+{
+    "name": "443",
+    "description": "Better win this",
+    "logo": "/data/images/443",
+    "technologies": [
+        "Embedded",
+        "C",
+        "C#",
+        "C++",
+        "Python",
+        "Arduino",
+        "Raspberry Pi",
+        "3D Art",
+        "Firebase",
+        "IoT"
+    ],
+    "members": [
+        {
+            "id": 245,
+            "name": "Александър Мечкаров",
+            "avatar": "/data/images/Александър_Мечкаров",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 255,
+            "name": "Тодор Колев",
+            "avatar": "/data/images/Тодор_Колев",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 252,
+            "name": "Борис Антов",
+            "avatar": "/data/images/Борис_Антов",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 232,
+            "name": "Димитър Желев",
+            "avatar": "/data/images/Димитър_Желев",
+            "role": "CAPTAIN",
+            "class": "10Г"
+        }
+    ],
+    "mentor": {
+        "id": 48,
+        "name": "Габриела Йончева",
+        "avatar": "https://hacktues.bg/assets/mentors/gabrielaYoncheva.jpg"
+    },
+    "project": {
+        "name": "Doguino",
+        "description": "Нашият проект представлява автоматизирана вратичка, която се отваря при засичане на чип (RFID) от каишката на домашния любимец. Tя се управлява чрез Raspberry pi 4 и драйвър.   Чрез приложение, собственикът може да преглежда и управлява достъпа на животното, както и да следи местоположениeто му. Комуникацията между различните устройства се осъществява чрез Eclipse Mosquitto.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/dimitarNzhelev/Doguino",
+            "website": ""
+        }
+    }
+}

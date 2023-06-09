@@ -1,0 +1,65 @@
+{
+    "name": "Първолаците",
+    "description": "Играхме табла без Виктор",
+    "logo": "/data/images/Първолаците",
+    "technologies": [
+        "Arduino",
+        "3D Art",
+        "C",
+        "C++",
+        "ESP32 / ESP8266",
+        "NodeJS",
+        "Node-RED"
+    ],
+    "members": [
+        {
+            "id": 132,
+            "name": "Борис Стрински",
+            "avatar": "/data/images/Борис_Стрински",
+            "role": "STUDENT",
+            "class": "8Г"
+        },
+        {
+            "id": 126,
+            "name": "Мартин Маринов",
+            "avatar": "/data/images/Мартин_Маринов",
+            "role": "STUDENT",
+            "class": "8Г"
+        },
+        {
+            "id": 498,
+            "name": "Георги Илиев",
+            "avatar": "/data/images/Георги_Илиев",
+            "role": "STUDENT",
+            "class": "8Г"
+        },
+        {
+            "id": 112,
+            "name": "Калоян Янев",
+            "avatar": "/data/images/Калоян_Янев",
+            "role": "CAPTAIN",
+            "class": "8Г"
+        },
+        {
+            "id": 238,
+            "name": "Виктор Алексиев",
+            "avatar": "/data/images/Виктор_Алексиев",
+            "role": "MEMBER",
+            "class": "8В"
+        }
+    ],
+    "mentor": {
+        "id": 18,
+        "name": "Емил Доцев",
+        "avatar": "https://hacktues.bg/assets/mentors/emilDocev.jpg"
+    },
+    "project": {
+        "name": "Smart Backpack",
+        "description": "Раница с bluetooth, сензори за влага и температура на въздуха, LED фенер и д.р ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Georgi15/smartbackpack",
+            "website": ""
+        }
+    }
+}

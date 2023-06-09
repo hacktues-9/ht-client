@@ -1,0 +1,127 @@
+{
+    "name": "HackTUES е велик",
+    "description": "Базирано и нетествано\n\nАко имате проблеми пишете Калата или Марто в Discord :)",
+    "logo": "/data/images/HackTUES_е_велик",
+    "technologies": [
+        "TypeScript",
+        "Vercel",
+        "Vite",
+        "Sass",
+        "Swift",
+        "NextJS"
+    ],
+    "members": [
+        {
+            "id": 19,
+            "name": "Ива Велика",
+            "avatar": "/data/images/Ива_Велика",
+            "role": "ADMIN",
+            "class": "11В"
+        },
+        {
+            "id": 16,
+            "name": "Емилия Чукалева",
+            "avatar": "/data/images/Емилия_Чукалева",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 24,
+            "name": "Мартин Тарлев",
+            "avatar": "/data/images/Мартин_Тарлев",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 43,
+            "name": "Пламена Георгиева",
+            "avatar": "/data/images/Пламена_Георгиева",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 54,
+            "name": "Мартина Бикова",
+            "avatar": "/data/images/Мартина_Бикова",
+            "role": "ADMIN",
+            "class": "10В"
+        },
+        {
+            "id": 182,
+            "name": "Ивайло Каньов",
+            "avatar": "/data/images/Ивайло_Каньов",
+            "role": "ADMIN",
+            "class": "11Б"
+        },
+        {
+            "id": 138,
+            "name": "Ивайла Панайотова",
+            "avatar": "/data/images/Ивайла_Панайотова",
+            "role": "ADMIN",
+            "class": "11В"
+        },
+        {
+            "id": 128,
+            "name": "Сара Жена Мечта",
+            "avatar": "/data/images/Сара_Жена_Мечта",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 213,
+            "name": "Надя Георгиева",
+            "avatar": "/data/images/Надя_Георгиева",
+            "role": "ADMIN",
+            "class": "11В"
+        },
+        {
+            "id": 184,
+            "name": "Росица Йовчева",
+            "avatar": "/data/images/Росица_Йовчева",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 4,
+            "name": "Виктор Димитров",
+            "avatar": "/data/images/Виктор_Димитров",
+            "role": "ADMIN",
+            "class": "11Г"
+        },
+        {
+            "id": 11,
+            "name": "Мартин Божилов",
+            "avatar": "/data/images/Мартин_Божилов",
+            "role": "ADMIN",
+            "class": "11А"
+        },
+        {
+            "id": 441,
+            "name": "Георги Събев",
+            "avatar": "/data/images/Георги_Събев",
+            "role": "ADMIN",
+            "class": "11В"
+        },
+        {
+            "id": 1,
+            "name": "Калоян Дойчинов",
+            "avatar": "/data/images/Калоян_Дойчинов",
+            "role": "ADMIN",
+            "class": "11А"
+        }
+    ],
+    "mentor": {
+        "id": 0,
+        "name": "",
+        "avatar": ""
+    },
+    "project": {
+        "name": "Testov proekt 2",
+        "description": "moje bi hopefully ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/hacktues-9/hacktues-discord-bot",
+            "website": "https://hacktues.bg"
+        }
+    }
+}

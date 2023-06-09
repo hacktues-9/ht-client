@@ -1,0 +1,80 @@
+{
+    "name": "Retro Мafia",
+    "description": "Мафията през ранните години на XX век. Примерно тази в Италия. ",
+    "logo": "/data/images/Retro_Мafia",
+    "technologies": [
+        "C++",
+        "CSS",
+        "Docker",
+        "Django",
+        "Embedded",
+        "Firebase",
+        "Git",
+        "Flutter",
+        "HTML",
+        "Java",
+        "Linux",
+        "ML",
+        "JavaScript",
+        "MySQL",
+        "Nginx",
+        "NodeJS",
+        "Python",
+        "ReactJS",
+        "REST",
+        "TensorFlow",
+        "Unity3D",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 200,
+            "name": "Борис Бачев",
+            "avatar": "/data/images/Борис_Бачев",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 190,
+            "name": "Християн Петков",
+            "avatar": "/data/images/Християн_Петков",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 443,
+            "name": "Бурак Бали",
+            "avatar": "/data/images/Бурак_Бали",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 224,
+            "name": "Ясен Ангелов",
+            "avatar": "/data/images/Ясен_Ангелов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 179,
+            "name": "Кристиян Лозанов",
+            "avatar": "/data/images/Кристиян_Лозанов",
+            "role": "CAPTAIN",
+            "class": "11В"
+        }
+    ],
+    "mentor": {
+        "id": 12,
+        "name": "Теодор Стефанов",
+        "avatar": "https://hacktues.bg/assets/mentors/teodorStefanov.png"
+    },
+    "project": {
+        "name": "Mafia-Pass",
+        "description": "Поредния password manager. Сега с deep learning, който ни оценява силата на паролите и според същия принцип.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/chgrape/HackTues-RetroMafia",
+            "website": "https://retro-mafia.web.app/"
+        }
+    }
+}

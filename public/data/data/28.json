@@ -1,0 +1,54 @@
+{
+    "name": "Janes Romanes Yes Yes Yes",
+    "description": "https://github.com/WaifuPower/HackTues9",
+    "logo": "/data/images/Janes_Romanes_Yes_Yes_Yes",
+    "technologies": [
+        "Java",
+        "Firebase",
+        "Mobile Development"
+    ],
+    "members": [
+        {
+            "id": 283,
+            "name": "Никола Кръстанов",
+            "avatar": "/data/images/Никола_Кръстанов",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 285,
+            "name": "Георги Стоянов",
+            "avatar": "/data/images/Георги_Стоянов",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 156,
+            "name": "Павел Симеонов",
+            "avatar": "/data/images/Павел_Симеонов",
+            "role": "CAPTAIN",
+            "class": "10Г"
+        },
+        {
+            "id": 393,
+            "name": "Злати Златев",
+            "avatar": "/data/images/Злати_Златев",
+            "role": "MEMBER",
+            "class": "10Г"
+        }
+    ],
+    "mentor": {
+        "id": 26,
+        "name": "Павлин Иванов",
+        "avatar": "https://hacktues.bg/assets/mentors/pavlinIvanov.png"
+    },
+    "project": {
+        "name": "Molq promenete",
+        "description": "Мобилно приложение за Android устройства, изцяло направено на Java. Приложението представлява main page с меню, от което  ще можеш да избереш да видиш дали един site е secure или не; да влезнеш в password manager, който да ти съхранява usernam-и и пароли за въведени от теб акаунти, също така ти дава и възможността да генерираш парола за твой акаунт, като можеш и да си я customize-неш. Имаш също така и опцията да разбереш повече за това какво е и за какво е важно Cybersecurity, да разбереш малко повечко за нас и защо трябва да използваш точно нашия проект и ще имаш и опция Настройки (заедно с log in).",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/WaifuPower/HackTues9",
+            "website": ""
+        }
+    }
+}

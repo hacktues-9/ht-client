@@ -1,0 +1,60 @@
+{
+    "name": "Zaloopenite",
+    "description": "Placeholder\nGitHub Repo: https://github.com/KaloyanDim/Zaloopenite",
+    "logo": "/data/images/Zaloopenite",
+    "technologies": [
+        "C",
+        "Git",
+        "Java",
+        "Arduino",
+        "C++",
+        "C#",
+        "HTML",
+        "JavaScript",
+        "Linux"
+    ],
+    "members": [
+        {
+            "id": 14,
+            "name": "Моника  Спасова ",
+            "avatar": "/data/images/Моника__Спасова",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 18,
+            "name": "Теодор  Василев",
+            "avatar": "/data/images/Теодор__Василев",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 70,
+            "name": "Александър Бояджиев",
+            "avatar": "/data/images/Александър_Бояджиев",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 28,
+            "name": "Калоян Димитров ",
+            "avatar": "/data/images/Калоян_Димитров",
+            "role": "CAPTAIN",
+            "class": "11Г"
+        }
+    ],
+    "mentor": {
+        "id": 58,
+        "name": "Георги Стоянов",
+        "avatar": "https://hacktues.bg/assets/mentors/georgiStoyanov.png"
+    },
+    "project": {
+        "name": "Kitsune",
+        "description": "Keystroke Injection Simulation and Prevention",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/KaloyanDim/Zaloopenite",
+            "website": ""
+        }
+    }
+}

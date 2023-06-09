@@ -1,0 +1,68 @@
+{
+    "name": "bobcat",
+    "description": "Кое е това животноооо!!!",
+    "logo": "/data/images/bobcat",
+    "technologies": [
+        "C",
+        "C++",
+        "HTML",
+        "Linux",
+        "Web Development",
+        "CSS",
+        "Google Cloud",
+        "JavaScript",
+        "Python",
+        "Компютърни мрежи"
+    ],
+    "members": [
+        {
+            "id": 360,
+            "name": "Емилиана Петренко",
+            "avatar": "/data/images/Емилиана_Петренко",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 384,
+            "name": "Павел Войков",
+            "avatar": "/data/images/Павел_Войков",
+            "role": "CAPTAIN",
+            "class": "11Б"
+        },
+        {
+            "id": 326,
+            "name": "Лора Апостолова ",
+            "avatar": "/data/images/Лора_Апостолова",
+            "role": "MEMBER",
+            "class": "9Б"
+        },
+        {
+            "id": 354,
+            "name": "Гергана  Кацарова",
+            "avatar": "/data/images/Гергана__Кацарова",
+            "role": "MEMBER",
+            "class": "9Б"
+        },
+        {
+            "id": 375,
+            "name": "Борислава Иванова",
+            "avatar": "/data/images/Борислава_Иванова",
+            "role": "MEMBER",
+            "class": "9Б"
+        }
+    ],
+    "mentor": {
+        "id": 23,
+        "name": "Десислав Христов",
+        "avatar": "https://hacktues.bg/assets/mentors/desislavHristov.jpg"
+    },
+    "project": {
+        "name": "HelpM8",
+        "description": "Гривна за безопасност. Гривната има бутон койот когато бъде натиснат 3 пъти изпраща SOS сигнал съдържащ GPS координати към контакти по избор на потребителя и/или местните спешни служби.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/PavelVoykov/BobcatHackTUESProject",
+            "website": ""
+        }
+    }
+}

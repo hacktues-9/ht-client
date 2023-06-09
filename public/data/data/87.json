@@ -1,0 +1,83 @@
+{
+    "name": "StanaGreshka",
+    "description": "Най-хубавите неща стават случайно... в последния момент",
+    "logo": "/data/images/StanaGreshka",
+    "technologies": [
+        "Web Development",
+        "Swift",
+        "SQL",
+        "Smart contracts",
+        "Solidity",
+        "REST",
+        "ReactJS",
+        "Python",
+        "OOPs",
+        "NodeJS",
+        "MySQL",
+        "Mobile Development",
+        "Linux",
+        "Kotlin",
+        "JavaScript",
+        "IoT",
+        "Java",
+        "HTML",
+        "2D Art",
+        "Arduino",
+        "Blockchain",
+        "C",
+        "CSS",
+        "Django",
+        "Embedded",
+        "Flutter",
+        "Firebase",
+        "ESP32 / ESP8266",
+        "NoSQL",
+        "PHP",
+        "Bootstrap",
+        "Git"
+    ],
+    "members": [
+        {
+            "id": 134,
+            "name": "Иван Станчев",
+            "avatar": "/data/images/Иван_Станчев",
+            "role": "CAPTAIN",
+            "class": "12А"
+        },
+        {
+            "id": 226,
+            "name": "Златина Лилова",
+            "avatar": "/data/images/Златина_Лилова",
+            "role": "MEMBER",
+            "class": "12А"
+        },
+        {
+            "id": 402,
+            "name": "Боряна Стефанова",
+            "avatar": "/data/images/Боряна_Стефанова",
+            "role": "MEMBER",
+            "class": "12А"
+        },
+        {
+            "id": 401,
+            "name": "Елена Върбанова",
+            "avatar": "/data/images/Елена_Върбанова",
+            "role": "MEMBER",
+            "class": "12А"
+        }
+    ],
+    "mentor": {
+        "id": 41,
+        "name": "Огнян Чиков",
+        "avatar": "https://hacktues.bg/assets/mentors/ognyanChikov.jpg"
+    },
+    "project": {
+        "name": "Алармена система за откриване и гасене на пожар",
+        "description": "Засичане на пожар чрез сензор за качество на въздуха, информиране чрез звуков сигнал и SMS, отваряне на пожарен кран. Измерените от сензора данни се записват в блокчейн, за да улесняване на разследването на причините за инцидента. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/IvanStanchev/StanaGreshka",
+            "website": ""
+        }
+    }
+}

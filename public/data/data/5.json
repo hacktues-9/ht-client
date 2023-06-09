@@ -1,0 +1,62 @@
+{
+    "name": "Държавниците",
+    "description": "Защо не...",
+    "logo": "/data/images/Държавниците",
+    "technologies": [
+        "C",
+        "HTML",
+        "JavaScript",
+        "Python"
+    ],
+    "members": [
+        {
+            "id": 26,
+            "name": "Явор Лазаров",
+            "avatar": "/data/images/Явор_Лазаров",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 287,
+            "name": "Никола Бугов",
+            "avatar": "/data/images/Никола_Бугов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 39,
+            "name": "Виктор Христов",
+            "avatar": "/data/images/Виктор_Христов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 322,
+            "name": "Даниел Йорданов",
+            "avatar": "/data/images/Даниел_Йорданов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 7,
+            "name": "Мартин Стоянов",
+            "avatar": "/data/images/Мартин_Стоянов",
+            "role": "CAPTAIN",
+            "class": "8Б"
+        }
+    ],
+    "mentor": {
+        "id": 22,
+        "name": "Алекс Ганев",
+        "avatar": "https://hacktues.bg/assets/mentors/aleksGanev.png"
+    },
+    "project": {
+        "name": "VPN Comparer",
+        "description": "Целта на проекта ни е да помогне на хората, които искат да започнат да използват VPN, но не знаят коя компания ще им предложи най-добра VPN услуга. Чрез нашия \n      проект потребителите могат да придобият \n      обща предства за VPN, да се запознаят с \n      някои от по-популярните VPN-и и да \n      сравняват VPN-и по някои критерии.\n",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Martobgz/VPN-comparer",
+            "website": ""
+        }
+    }
+}

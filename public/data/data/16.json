@@ -1,0 +1,55 @@
+{
+    "name": "Cope Overflow",
+    "description": "Ултра мъже",
+    "logo": "/data/images/Cope_Overflow",
+    "technologies": [
+        "Arduino",
+        "Assembly",
+        "C++",
+        "Python",
+        "ESP32 / ESP8266",
+        "C",
+        "IoT",
+        "Компютърни мрежи",
+        "Raspberry Pi",
+        "HTML",
+        "Embedded"
+    ],
+    "members": [
+        {
+            "id": 162,
+            "name": "Христо  Люцканов ",
+            "avatar": "/data/images/Христо__Люцканов",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 57,
+            "name": "Любомир Станев",
+            "avatar": "/data/images/Любомир_Станев",
+            "role": "CAPTAIN",
+            "class": "11Г"
+        },
+        {
+            "id": 124,
+            "name": "Николай Йорданов",
+            "avatar": "/data/images/Николай_Йорданов",
+            "role": "MEMBER",
+            "class": "11Г"
+        }
+    ],
+    "mentor": {
+        "id": 38,
+        "name": "Йоан Джелекарски",
+        "avatar": "https://hacktues.bg/assets/mentors/yoanDzhelekarski.jpg"
+    },
+    "project": {
+        "name": "LockdIn",
+        "description": "Проектът \"LockdIn\" представлява модерна алармена система, предназначена да пази трезори на банки. Състои се от два модула, които комуникират помежду си с цел непрекъсната обратна връзка. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/i-kratko/HackTUES9",
+            "website": ""
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "name": "Exotic Whip",
+    "description": "Pssssss, do you hear it?",
+    "logo": "/data/images/Exotic_Whip",
+    "technologies": [
+        "HTML",
+        "JavaScript",
+        "CSS",
+        "Python",
+        "MySQL"
+    ],
+    "members": [
+        {
+            "id": 187,
+            "name": "Сашо Александров",
+            "avatar": "/data/images/Сашо_Александров",
+            "role": "CAPTAIN",
+            "class": "10Б"
+        },
+        {
+            "id": 303,
+            "name": "Емил Момчев",
+            "avatar": "/data/images/Емил_Момчев",
+            "role": "MEMBER",
+            "class": "10Б"
+        },
+        {
+            "id": 338,
+            "name": "Мартин Андонов",
+            "avatar": "/data/images/Мартин_Андонов",
+            "role": "MEMBER",
+            "class": "10Б"
+        },
+        {
+            "id": 333,
+            "name": "Николай Иванов",
+            "avatar": "/data/images/Николай_Иванов",
+            "role": "MEMBER",
+            "class": "10Б"
+        },
+        {
+            "id": 352,
+            "name": "Валентин Асенов",
+            "avatar": "/data/images/Валентин_Асенов",
+            "role": "MEMBER",
+            "class": "10Б"
+        }
+    ],
+    "mentor": {
+        "id": 46,
+        "name": "Симеон Георгиев",
+        "avatar": "https://hacktues.bg/assets/mentors/simeonGeorgiev.JPG"
+    },
+    "project": {
+        "name": "ResQMe",
+        "description": "Сайт, в който в случай на бедствие ще следи локацията ти и ще се качва на карта, която всеки човек, който иска да помогне ще може да види.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Martin-Andonov/Hacktues_9",
+            "website": ""
+        }
+    }
+}

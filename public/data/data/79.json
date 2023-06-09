@@ -1,0 +1,71 @@
+{
+    "name": "комисар Иван Арабаджиев",
+    "description": "Арестувам деца в Студентски\n\n",
+    "logo": "/data/images/комисар_Иван_Арабаджиев",
+    "technologies": [
+        "Blockchain",
+        "Web Development",
+        "Security",
+        "Apache",
+        "Assembly",
+        "Arduino",
+        "Raspberry Pi",
+        "Blender",
+        "C",
+        "C++",
+        "Embedded",
+        "IBM cloud",
+        "Компютърни мрежи"
+    ],
+    "members": [
+        {
+            "id": 335,
+            "name": "Георги Динков",
+            "avatar": "/data/images/Георги_Динков",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 348,
+            "name": "Иван Сираков",
+            "avatar": "/data/images/Иван_Сираков",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 336,
+            "name": "Петър Геров",
+            "avatar": "/data/images/Петър_Геров",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 334,
+            "name": "Симеон Симеонов",
+            "avatar": "/data/images/Симеон_Симеонов",
+            "role": "CAPTAIN",
+            "class": "10Б"
+        },
+        {
+            "id": 340,
+            "name": "Александър Златев",
+            "avatar": "/data/images/Александър_Златев",
+            "role": "MEMBER",
+            "class": "10Б"
+        }
+    ],
+    "mentor": {
+        "id": 39,
+        "name": "Мартин Ганев",
+        "avatar": "https://hacktues.bg/assets/mentors/martinGanev.jpg"
+    },
+    "project": {
+        "name": "Overtime escape",
+        "description": "Нашият проект представлява security игра на принципа на dungeon crawler модела. \nЗадачата е изпълнена на програмния език C++.\nИграта е базирана изцяло в Command prompt и има класически ретро дизайн, съставен от основните 255 ASCII символи.\nИграчът трябва да изпълнява мисии, чрез които да добие основни знания в областта на киберсигурността.\nНеобикновеността на играта се изразява в креативния модел на обучение, различаващ се от съществуващите методи.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/MoniMonkata126126/hackTues_9",
+            "website": ""
+        }
+    }
+}

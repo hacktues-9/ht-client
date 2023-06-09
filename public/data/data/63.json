@@ -1,0 +1,62 @@
+{
+    "name": "Insert Team Name Here",
+    "description": "Ajajajajaajaj",
+    "logo": "/data/images/Insert_Team_Name_Here",
+    "technologies": [
+        "C",
+        "C++",
+        "C#",
+        "Unity3D"
+    ],
+    "members": [
+        {
+            "id": 267,
+            "name": "Дерин Ахмед",
+            "avatar": "/data/images/Дерин_Ахмед",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 269,
+            "name": "Александър Найденов",
+            "avatar": "/data/images/Александър_Найденов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 284,
+            "name": "Никол Иванова",
+            "avatar": "/data/images/Никол_Иванова",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 261,
+            "name": "Радослав  Славов",
+            "avatar": "/data/images/Радослав__Славов",
+            "role": "CAPTAIN",
+            "class": "8Б"
+        },
+        {
+            "id": 262,
+            "name": "Ина Петрова",
+            "avatar": "/data/images/Ина_Петрова",
+            "role": "MEMBER",
+            "class": "8Б"
+        }
+    ],
+    "mentor": {
+        "id": 61,
+        "name": "Георги Добрилов\t",
+        "avatar": "https://hacktues.bg/assets/mentors/georgiDobrilov.png"
+    },
+    "project": {
+        "name": "Fit Secure Console",
+        "description": "Измерване на пулс, крачки, сън, тренировки и консумирана вода.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/AlexNay1383/HackTUES_9_Insert-Team-Name-Here",
+            "website": ""
+        }
+    }
+}

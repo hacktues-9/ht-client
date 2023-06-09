@@ -1,0 +1,57 @@
+{
+    "name": "Nqq griji be men",
+    "description": "Jivota e kato aviatora tamun izlitash i neuchakvano gurmi6",
+    "logo": "/data/images/Nqq_griji_be_men",
+    "technologies": [],
+    "members": [
+        {
+            "id": 482,
+            "name": "Мяо Цъ",
+            "avatar": "/data/images/Мяо_Цъ",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 278,
+            "name": "Велизар Йорданов",
+            "avatar": "/data/images/Велизар_Йорданов",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 279,
+            "name": "Андрей Иванов",
+            "avatar": "/data/images/Андрей_Иванов",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 493,
+            "name": "Александър Марковски",
+            "avatar": "/data/images/Александър_Марковски",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 208,
+            "name": "Божидар Попниколов",
+            "avatar": "/data/images/Божидар_Попниколов",
+            "role": "CAPTAIN",
+            "class": "12В"
+        }
+    ],
+    "mentor": {
+        "id": 37,
+        "name": "Пламен Балкански",
+        "avatar": "https://hacktues.bg/assets/mentors/plamenBalkanski.jpg"
+    },
+    "project": {
+        "name": "Chain Voter",
+        "description": "Blockchain система за гласуване",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/BojoPopnikolov/HackTues9",
+            "website": ""
+        }
+    }
+}

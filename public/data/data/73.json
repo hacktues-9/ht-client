@@ -1,0 +1,64 @@
+{
+    "name": "жаба с крик и светещ кон.",
+    "description": "Prodavame kosmo disketi\n",
+    "logo": "/data/images/жаба_с_крик_и_светещ_кон.",
+    "technologies": [
+        "2D Art",
+        "3D Art",
+        "Arduino",
+        "C",
+        "C#",
+        "C++",
+        "HTML",
+        "Java",
+        "JavaScript",
+        "NodeJS",
+        "Python",
+        "TypeScript",
+        "Unity3D"
+    ],
+    "members": [
+        {
+            "id": 327,
+            "name": "Стоян Иванов",
+            "avatar": "/data/images/Стоян_Иванов",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 372,
+            "name": "Стилян Иванов",
+            "avatar": "/data/images/Стилян_Иванов",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 366,
+            "name": "Михаил Георгиев",
+            "avatar": "/data/images/Михаил_Георгиев",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 288,
+            "name": "Антон Христов",
+            "avatar": "/data/images/Антон_Христов",
+            "role": "CAPTAIN",
+            "class": "9Б"
+        }
+    ],
+    "mentor": {
+        "id": 11,
+        "name": "Цветомир Александров",
+        "avatar": "https://hacktues.bg/assets/mentors/tsvetomirAleksandrov.jpg"
+    },
+    "project": {
+        "name": "Data ShielD",
+        "description": "игра, в която пазиш компа си от хакери и вируси",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Misho12345/Data-Shield",
+            "website": ""
+        }
+    }
+}

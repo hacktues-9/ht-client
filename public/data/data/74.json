@@ -1,0 +1,65 @@
+{
+    "name": "Otboronio",
+    "description": "няма описание",
+    "logo": "/data/images/Otboronio",
+    "technologies": [
+        "C++",
+        "CSS",
+        "HTML",
+        "JavaScript",
+        "Python",
+        "ReactJS",
+        "C"
+    ],
+    "members": [
+        {
+            "id": 330,
+            "name": "Боян Герасимов",
+            "avatar": "/data/images/Боян_Герасимов",
+            "role": "STUDENT",
+            "class": "9В"
+        },
+        {
+            "id": 368,
+            "name": "Радослав Димитров",
+            "avatar": "/data/images/Радослав_Димитров",
+            "role": "STUDENT",
+            "class": "9В"
+        },
+        {
+            "id": 435,
+            "name": "Мариян Георгиев",
+            "avatar": "/data/images/Мариян_Георгиев",
+            "role": "STUDENT",
+            "class": "9В"
+        },
+        {
+            "id": 325,
+            "name": "Никола Георгиев",
+            "avatar": "/data/images/Никола_Георгиев",
+            "role": "CAPTAIN",
+            "class": "9В"
+        },
+        {
+            "id": 79,
+            "name": "Димитър Анастасов",
+            "avatar": "/data/images/Димитър_Анастасов",
+            "role": "MEMBER",
+            "class": "8В"
+        }
+    ],
+    "mentor": {
+        "id": 9,
+        "name": "Атанас Иванов",
+        "avatar": "https://hacktues.bg/assets/mentors/atanasIvanov.PNG"
+    },
+    "project": {
+        "name": "VISI",
+        "description": "Във всяка система има уязвимости, предствляващи значителна заплаха за потребителите. Начин за отстраняването им е чрез ъпдейтване на системата. Нашият проект представлява Python приложение, което позволява на потребителите лесно и бързо да поддържат софтуера си, ъпдейтвайки го.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/RKDimitrov/VISI",
+            "website": ""
+        }
+    }
+}

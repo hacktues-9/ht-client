@@ -1,0 +1,66 @@
+{
+    "name": "peperudki",
+    "description": "много приятни деца",
+    "logo": "/data/images/peperudki",
+    "technologies": [
+        "C",
+        "C++",
+        "CSS",
+        "Arduino",
+        "HTML",
+        "JavaScript",
+        "MySQL",
+        "Python"
+    ],
+    "members": [
+        {
+            "id": 268,
+            "name": "Мая Мирчева",
+            "avatar": "/data/images/Мая_Мирчева",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 249,
+            "name": "Кристин Лина Тодорова",
+            "avatar": "/data/images/Кристин_Лина_Тодорова",
+            "role": "STUDENT",
+            "class": "8А"
+        },
+        {
+            "id": 386,
+            "name": "Красимира Димитрова",
+            "avatar": "/data/images/Красимира_Димитрова",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 383,
+            "name": "Вая Илиева",
+            "avatar": "/data/images/Вая_Илиева",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 254,
+            "name": "Магдалена никифорова",
+            "avatar": "/data/images/Магдалена_никифорова",
+            "role": "CAPTAIN",
+            "class": "10Г"
+        }
+    ],
+    "mentor": {
+        "id": 5,
+        "name": "Русана Монева",
+        "avatar": "https://hacktues.bg/assets/mentors/rusanaMoneva.jpg"
+    },
+    "project": {
+        "name": "LockedKey",
+        "description": "Чат със закодирани съобщения с цел защита на личното пространство ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/kartofchence/Crypted-Chat",
+            "website": ""
+        }
+    }
+}

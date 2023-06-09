@@ -1,0 +1,68 @@
+{
+    "name": "C--",
+    "description": "01000011 00101101 00101101",
+    "logo": "/data/images/C--",
+    "technologies": [
+        "Blockchain",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "IoT",
+        "MongoDB",
+        "NodeJS",
+        "NoSQL",
+        "Arduino",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 395,
+            "name": "Петьо Миладинов",
+            "avatar": "/data/images/Петьо_Миладинов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 397,
+            "name": "Павел Шаламанов",
+            "avatar": "/data/images/Павел_Шаламанов",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 400,
+            "name": "Кристиан Николов",
+            "avatar": "/data/images/Кристиан_Николов",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 117,
+            "name": "Иван Иванов",
+            "avatar": "/data/images/Иван_Иванов",
+            "role": "CAPTAIN",
+            "class": "11А"
+        },
+        {
+            "id": 311,
+            "name": "Васил Колев",
+            "avatar": "/data/images/Васил_Колев",
+            "role": "MEMBER",
+            "class": "11А"
+        }
+    ],
+    "mentor": {
+        "id": 59,
+        "name": "Димитър Ряпов\t",
+        "avatar": "https://hacktues.bg/assets/mentors/repi4ka.png"
+    },
+    "project": {
+        "name": "PetSafe",
+        "description": "Тракер за защита на домашни любимци и ценни вещи използващ the helium network чрез LoRaWan комуникация",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/vankata05/HackTues9_C--",
+            "website": ""
+        }
+    }
+}

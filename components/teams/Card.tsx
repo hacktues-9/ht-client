@@ -5,6 +5,9 @@ import Image from "next/image";
 import Technologies from "../technologies/Technologies";
 import Link from "next/link";
 
+// should be a lazy loaded component
+// import TeamCardSkeleton from "../../skeletons/teams/card";
+
 const TeamCard = ({ team, showMemberInfoCard, setShowMemberInfoCard }) => {
   const { name, logo, members, project, technologies } = team;
 

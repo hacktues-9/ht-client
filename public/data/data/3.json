@@ -1,0 +1,45 @@
+{
+    "name": "TariCAD sistema",
+    "description": "бизнес групировка\nhttps://github.com/AnMe3z/BreachSneach",
+    "logo": "/data/images/TariCAD_sistema",
+    "technologies": [
+        "Security"
+    ],
+    "members": [
+        {
+            "id": 74,
+            "name": "Викторио Миланов",
+            "avatar": "/data/images/Викторио_Миланов",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 282,
+            "name": "Димитър Милчев",
+            "avatar": "/data/images/Димитър_Милчев",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 8,
+            "name": "Андрей Ежков",
+            "avatar": "/data/images/Андрей_Ежков",
+            "role": "CAPTAIN",
+            "class": "11Г"
+        }
+    ],
+    "mentor": {
+        "id": 33,
+        "name": "Теодор Добрев",
+        "avatar": "https://hacktues.bg/assets/mentors/teodorDobrev.png"
+    },
+    "project": {
+        "name": "Breach Sneach",
+        "description": "Decentrilized crypto Ai-based crypto attack predicition solution  ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/AnMe3z/BreachSneach",
+            "website": "https://BreachSneach.com/hustle.trust"
+        }
+    }
+}

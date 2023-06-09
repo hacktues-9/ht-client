@@ -1,0 +1,56 @@
+{
+    "name": "Fatcat",
+    "description": "Отбор, подкрепящ --дебелите-- пухкавите котки",
+    "logo": "/data/images/Fatcat",
+    "technologies": [
+        "C++",
+        "C#",
+        "Java",
+        "MySQL",
+        "C"
+    ],
+    "members": [
+        {
+            "id": 76,
+            "name": "Милица Кирякова",
+            "avatar": "/data/images/Милица_Кирякова",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 390,
+            "name": "Лъчезар Станилов",
+            "avatar": "/data/images/Лъчезар_Станилов",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 30,
+            "name": "Искрен Русимов",
+            "avatar": "/data/images/Искрен_Русимов",
+            "role": "CAPTAIN",
+            "class": "11В"
+        },
+        {
+            "id": 36,
+            "name": "Яна Илиева",
+            "avatar": "/data/images/Яна_Илиева",
+            "role": "MEMBER",
+            "class": "11В"
+        }
+    ],
+    "mentor": {
+        "id": 43,
+        "name": "Стоян Тинчев",
+        "avatar": "https://hacktues.bg/assets/mentors/stoyanTinchev.JPG"
+    },
+    "project": {
+        "name": "Fatcat",
+        "description": "Целта ни е да направим система за подобряване на сигурността на стадиони, състезателни писти и други. Това се случва чрез следене на агресивността на посетителите, за да се намери по-оптимално разпретеление на охранителите.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Quant14/Fatcat",
+            "website": ""
+        }
+    }
+}

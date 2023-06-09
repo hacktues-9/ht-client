@@ -1,0 +1,79 @@
+{
+    "name": "Екзотични",
+    "description": "Абед има екзотичен поглед!",
+    "logo": "/data/images/Екзотични",
+    "technologies": [
+        "Git",
+        "Google Cloud",
+        "C++",
+        "CSS",
+        "HTML",
+        "Python",
+        "2D Art",
+        "Blender",
+        "C",
+        "C#",
+        "Bootstrap",
+        "Docker",
+        "Java",
+        "JavaScript",
+        "Linux",
+        "MySQL",
+        "MUI",
+        "Raspberry Pi",
+        "Security",
+        "Web Development",
+        "WordPress"
+    ],
+    "members": [
+        {
+            "id": 129,
+            "name": "Васил Василев",
+            "avatar": "/data/images/Васил_Василев",
+            "role": "CAPTAIN",
+            "class": "8В"
+        },
+        {
+            "id": 71,
+            "name": "Александра Ставрева",
+            "avatar": "/data/images/Александра_Ставрева",
+            "role": "MEMBER",
+            "class": "8В"
+        },
+        {
+            "id": 161,
+            "name": "Александър Харалампиев",
+            "avatar": "/data/images/Александър_Харалампиев",
+            "role": "MEMBER",
+            "class": "8В"
+        },
+        {
+            "id": 469,
+            "name": "Иван Георгиев",
+            "avatar": "/data/images/Иван_Георгиев",
+            "role": "MEMBER",
+            "class": "11А"
+        },
+        {
+            "id": 155,
+            "name": "Мартин Велчев",
+            "avatar": "/data/images/Мартин_Велчев",
+            "role": "MEMBER",
+            "class": "8В"
+        }
+    ],
+    "mentor": {
+        "id": 67,
+        "name": "Кристиян Петров",
+        "avatar": "https://hacktues.bg/assets/mentors/kristiyanPetrov.jpg"
+    },
+    "project": {
+        "name": "DataExotica",
+        "description": "Data Exotica provides advanced data security solutions for all types of user data. Our password manager, security tools, and phishing prevention lectures ensure that users can keep their information safe from potential threats. We offer affordable and easy-to-use solutions for everyone, no matter their technical expertise or budget. Choose Data Exotica for top-notch data security and peace of mind",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/AleksandarHaralampiev/hacktues9",
+            "website": ""
+        }
+    }
+}

@@ -1,11 +1,12 @@
 import useSWR from "swr";
 import Head from "next/head";
 import Image from "next/image";
+import { Suspense, lazy } from "react";
 
 import { useEffect, useState } from "react";
 import { TbBrandDiscord, TbBrandGithub } from "react-icons/tb";
 
-import TeamCard from "../../components/teams/Card";
+const TeamCard = lazy(() => import("../../components/teams/Card"));
 
 import { TITLE } from "../../constants/arc";
 import { ROLES } from "../../constants/teams";
@@ -13,6 +14,7 @@ import { ITeam } from "../../types/ITeam";
 
 import styles from "../../styles/0/teams/Teams.module.scss";
 import TeamCardSkeleton from "../../skeletons/teams/card";
+import { GetStaticProps } from "next";
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -88,53 +90,53 @@ const ProgressBar = ({ verified, current, total, loading }) => {
   );
 };
 
-const Teams = () => {
+const Teams = ({ teams }) => {
   const [showMemberInfoCard, setShowMemberInfoCard] = useState({
     show: false,
     member: null,
     position: { x: 0, y: 0 },
   });
 
-  const {
-    data: resp,
-    isLoading,
-    error,
-  } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
+  // const {
+  //   data: resp,
+  //   isLoading,
+  //   error,
+  // } = useSWR("https://api.hacktues.bg/api/team/get", fetcher);
 
-  const {
-    data: verifiedTeams,
-    isLoading: verifiedLoading,
-    error: verifiedError,
-  } = useSWR("https://api.hacktues.bg/api/admin/get/teams", fetcher);
+  // const {
+  //   data: verifiedTeams,
+  //   isLoading: verifiedLoading,
+  //   error: verifiedError,
+  // } = useSWR("https://api.hacktues.bg/api/admin/get/teams", fetcher);
 
   // return a skeleton while loading
-  if (isLoading) {
-    return (
-      <>
-        <Head>
-          <title>Отбори | {TITLE}</title>
-        </Head>
-        <div className={styles.teams}>
-          {!verifiedError && (
-            <ProgressBar
-              verified={verifiedTeams?.data}
-              current={60}
-              total={60}
-              loading={verifiedLoading}
-            />
-          )}
-          <ul className={styles.cards_grid}>
-            {[...Array(15)].map((_, i) => (
-              <TeamCardSkeleton key={i} />
-            ))}
-          </ul>
-        </div>
-      </>
-    );
-  }
-  if (error) return <div>Error...</div>;
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <Head>
+  //         <title>Отбори | {TITLE}</title>
+  //       </Head>
+  //       <div className={styles.teams}>
+  //         {!verifiedError && (
+  //           <ProgressBar
+  //             verified={verifiedTeams?.data}
+  //             current={60}
+  //             total={60}
+  //             loading={verifiedLoading}
+  //           />
+  //         )}
+  //         <ul className={styles.cards_grid}>
+  //           {[...Array(15)].map((_, i) => (
+  //             <TeamCardSkeleton key={i} />
+  //           ))}
+  //         </ul>
+  //       </div>
+  //     </>
+  //   );
+  // }
+  // if (error) return <div>Error...</div>;
 
-  const { data }: { data: ITeam[] } = resp;
+  const data = teams.data;
 
   return (
     <>
@@ -160,23 +162,28 @@ const Teams = () => {
         />
       )}
       <div className={styles.teams}>
-        {!verifiedError && (
+        {/* {!verifiedError && (
           <ProgressBar
             verified={verifiedTeams?.data}
             current={data?.length || 0}
             total={60}
             loading={verifiedLoading}
           />
-        )}
+        )} */}
         <ul className={styles.cards_grid}>
           {data &&
             data.map((team: ITeam) => (
-              <TeamCard
+              <Suspense
                 key={team.id}
-                team={team}
-                showMemberInfoCard={showMemberInfoCard}
-                setShowMemberInfoCard={setShowMemberInfoCard}
-              />
+                fallback={<TeamCardSkeleton key={team.id} />}
+              >
+                <TeamCard
+                  key={team.id}
+                  team={team}
+                  showMemberInfoCard={showMemberInfoCard}
+                  setShowMemberInfoCard={setShowMemberInfoCard}
+                />
+              </Suspense>
             ))}
         </ul>
       </div>
@@ -184,6 +191,14 @@ const Teams = () => {
   );
 };
 
-// get teams from api
+export const getStaticProps: GetStaticProps<any> = async () => {
+  const teams = await import("../../public/data/teams.json");
+  return {
+    props: {
+      teams: teams.default,
+    },
+    revalidate: 1,
+  };
+};
 
 export default Teams;

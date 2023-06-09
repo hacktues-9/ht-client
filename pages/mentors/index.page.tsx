@@ -8,6 +8,7 @@ import { TIMES } from "../../constants/time";
 import { TbBrandYoutube } from "react-icons/tb";
 import Link from "next/link";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -203,13 +204,13 @@ const MentorCard = ({
   );
 };
 
-const Mentors = () => {
+const Mentors = ({
+  mentors
+}) => {
   const { data: resp } = useSwr(
     "https://api.hacktues.bg/api/mentor/get/mentors",
     fetcher
   );
-
-  const [mentors, setMentors] = useState(resp?.data);
   const { authState, isUserAuthenticated } = useAuthContext();
   const [userId, setUserId] = useState<string | null>(null);
   const [canBuy, setCanBuy] = useState<boolean | null>(null);
@@ -264,20 +265,20 @@ const Mentors = () => {
       .catch((err) => console.log(err));
   }, [userId]);
 
-  useEffect(() => {
-    fetch(`https://api.hacktues.bg/api/mentor/get/mentors?sname=${search}`, {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === 200) {
-          setMentors(data.data);
-        } else {
-          setMentors([]);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, [search]);
+  // useEffect(() => {
+  //   fetch(`https://api.hacktues.bg/api/mentor/get/mentors?sname=${search}`, {
+  //     credentials: "include",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.status === 200) {
+  //         setMentors(data.data);
+  //       } else {
+  //         setMentors([]);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [search]);
 
   // if (mentorErr) return <div style={{ marginTop: "50px" }}>failed to load</div>;
   // if (!mentors) return <div style={{ marginTop: "50px" }}>loading...</div>;
@@ -301,7 +302,7 @@ const Mentors = () => {
         </div>
       </div>
       <div className={styles.container}>
-        <div className={styles.searchContainer}>
+        {/* <div className={styles.searchContainer}>
           <input
             type="text"
             placeholder="търси по име"
@@ -309,7 +310,7 @@ const Mentors = () => {
               setSearch(e.target.value);
             }}
           />
-        </div>
+        </div> */}
         <div className={styles.mentorsContainer}>
           {mentors?.map((mentor) => {
             if (
@@ -336,5 +337,16 @@ const Mentors = () => {
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps<any> = async () => {
+  // get from mentros.json in public folder of nextjs
+  const mentors = await import("../../public/data/mentors.json");
+  return {
+    props: {
+      mentors: mentors.default,
+    },
+  }
+}
+  
 
 export default Mentors;

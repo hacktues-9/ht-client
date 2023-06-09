@@ -1,0 +1,101 @@
+{
+    "name": "Memelitrix",
+    "description": "Universalna substancija\nDigami shtangi\nZob zob zob",
+    "logo": "/data/images/Memelitrix",
+    "technologies": [
+        "CSS",
+        "Embedded",
+        "ExpressJS",
+        "C++",
+        "C#",
+        "CSS",
+        "JavaScript",
+        "Mobile Development",
+        "Arduino",
+        "C",
+        "Unity3D",
+        "Web Development",
+        "ESP32 / ESP8266",
+        "HTML",
+        "ESP32 / ESP8266",
+        "HTML",
+        "JavaScript",
+        "Web Development",
+        "Rust",
+        "Golang",
+        "Rust",
+        "Golang",
+        "Embedded",
+        "ExpressJS",
+        "NodeJS",
+        "Python",
+        "ReactJS",
+        "React Native",
+        "TypeScript",
+        "Unity3D",
+        "Web Development",
+        "Rust",
+        "Golang",
+        "ReactJS",
+        "React Native",
+        "TypeScript",
+        "Unity3D",
+        "Web Development",
+        "Rust",
+        "Golang",
+        "Mobile Development",
+        "NodeJS",
+        "Python"
+    ],
+    "members": [
+        {
+            "id": 230,
+            "name": "Емил Дойчинов",
+            "avatar": "/data/images/Емил_Дойчинов",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 225,
+            "name": "Димитър Николов",
+            "avatar": "/data/images/Димитър_Николов",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 233,
+            "name": "Алекс Огнянов",
+            "avatar": "/data/images/Алекс_Огнянов",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 243,
+            "name": "Венелин Новаков",
+            "avatar": "/data/images/Венелин_Новаков",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 223,
+            "name": "Мартин Наков",
+            "avatar": "/data/images/Мартин_Наков",
+            "role": "CAPTAIN",
+            "class": "11Б"
+        }
+    ],
+    "mentor": {
+        "id": 15,
+        "name": "Валентин Спасов",
+        "avatar": "https://hacktues.bg/assets/mentors/valentinSpasov.jpg"
+    },
+    "project": {
+        "name": "HomeguARD",
+        "description": "HomeguARD е иновативна система за сигурност, използваща съвкупност от сензори, засичащи всяко потенциално неоторизирано влизане във Вашата собственост. Отчетените нарушения биват изпратени към сървър.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/generot/hacktues9-memelitrix",
+            "website": ""
+        }
+    }
+}

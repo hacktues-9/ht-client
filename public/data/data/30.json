@@ -1,0 +1,78 @@
+{
+    "name": "\"team_name\" undefined",
+    "description": "Отбор притежаващ качества в разлини технологии. Притежава завършени и незавършени проекти. Мотивиран и работоспособен отбор!!!",
+    "logo": "/data/images/\"team_name\"_undefined",
+    "technologies": [
+        "Django",
+        "CSS",
+        "Docker",
+        "HTML",
+        "REST",
+        "Security",
+        "SQL",
+        "C",
+        "OOPs",
+        "JavaScript",
+        "C#",
+        "Git",
+        "Vim",
+        "Python",
+        "Java",
+        "Linux",
+        "Embedded",
+        "PostgreSQL",
+        "Unreal Engine",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 177,
+            "name": "Борис Стоянов",
+            "avatar": "/data/images/Борис_Стоянов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 131,
+            "name": "Стоян Бабанов",
+            "avatar": "/data/images/Стоян_Бабанов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 135,
+            "name": "Иван Ламбев",
+            "avatar": "/data/images/Иван_Ламбев",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 160,
+            "name": "Тодор Стоименов",
+            "avatar": "/data/images/Тодор_Стоименов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 136,
+            "name": "Антон Станков",
+            "avatar": "/data/images/Антон_Станков",
+            "role": "CAPTAIN",
+            "class": "9Г"
+        }
+    ],
+    "mentor": {
+        "id": 54,
+        "name": "Теодор Цочев",
+        "avatar": "https://hacktues.bg/assets/mentors/teodorCochev.png"
+    },
+    "project": {
+        "name": "SafeLoot",
+        "description": "SafeLoot is a password and file manager web application that encypts your personal information and prevent others from accessing it without permission.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/AntonStankov/SafeLoot",
+            "website": ""
+        }
+    }
+}

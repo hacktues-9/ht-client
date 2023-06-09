@@ -1,0 +1,66 @@
+{
+    "name": "Pupe6",
+    "description": "Suedinenieto pravi silata!!!",
+    "logo": "/data/images/Pupe6",
+    "technologies": [
+        "Arduino",
+        "Raspberry Pi",
+        "CSS",
+        "Embedded",
+        "HTML",
+        "JavaScript",
+        "ReactJS",
+        "React Native"
+    ],
+    "members": [
+        {
+            "id": 50,
+            "name": "Калоян Анастасов",
+            "avatar": "/data/images/Калоян_Анастасов",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 113,
+            "name": "Александър Шестаков",
+            "avatar": "/data/images/Александър_Шестаков",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 277,
+            "name": "Станислав Иванов",
+            "avatar": "/data/images/Станислав_Иванов",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 115,
+            "name": "Борислав Борисов",
+            "avatar": "/data/images/Борислав_Борисов",
+            "role": "CAPTAIN",
+            "class": "9Г"
+        },
+        {
+            "id": 78,
+            "name": "Ясен Цветков",
+            "avatar": "/data/images/Ясен_Цветков",
+            "role": "MEMBER",
+            "class": "9Б"
+        }
+    ],
+    "mentor": {
+        "id": 42,
+        "name": "Мартин Вайер",
+        "avatar": "https://hacktues.bg/assets/mentors/martinVayer.jpg"
+    },
+    "project": {
+        "name": "Weijrn",
+        "description": "NFC Security Manager",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/bobikenobi12/weijrn",
+            "website": ""
+        }
+    }
+}

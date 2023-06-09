@@ -1,0 +1,67 @@
+{
+    "name": "AS²AP",
+    "description": "Духовен ментор - Могъщия цар Христо Ботев\n\nПП: Обичаме безплатната храна <3",
+    "logo": "/data/images/AS²AP",
+    "technologies": [
+        "Arduino",
+        "C",
+        "CSS",
+        "Git",
+        "HTML",
+        "Python",
+        "Embedded",
+        "Raspberry Pi",
+        "Linux"
+    ],
+    "members": [
+        {
+            "id": 193,
+            "name": "Александър Тодоров",
+            "avatar": "/data/images/Александър_Тодоров",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 248,
+            "name": "Симеон Симеонов",
+            "avatar": "/data/images/Симеон_Симеонов",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 186,
+            "name": "Стилиян Мандалиев",
+            "avatar": "/data/images/Стилиян_Мандалиев",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 403,
+            "name": "Петър Петров",
+            "avatar": "/data/images/Петър_Петров",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 202,
+            "name": "Александър Христов",
+            "avatar": "/data/images/Александър_Христов",
+            "role": "CAPTAIN",
+            "class": "10А"
+        }
+    ],
+    "mentor": {
+        "id": 52,
+        "name": "Любомир Циров",
+        "avatar": "https://hacktues.bg/assets/mentors/lyubomirTsirov.jpg"
+    },
+    "project": {
+        "name": "DO²R",
+        "description": "MFA security система  с двойна верификация, предназначена за врата. Първата верификация е чекиране на карта/чип, а втората - потвърждаване на идентичността на човек по имейл, на който е изпратена снимка на съответния човек.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/BulgarianTee/hacktues9",
+            "website": ""
+        }
+    }
+}

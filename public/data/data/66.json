@@ -1,0 +1,85 @@
+{
+    "name": "120metra",
+    "description": "Hacktues 9 winners",
+    "logo": "/data/images/120metra",
+    "technologies": [
+        "Apache",
+        "Arduino",
+        "Bash",
+        "Blockchain",
+        "C",
+        "Bootstrap",
+        "C#",
+        "C++",
+        "Cloud computing",
+        "CSS",
+        "Docker",
+        "Embedded",
+        "ESP32 / ESP8266",
+        "Git",
+        "IoT",
+        "JavaScript",
+        "Linux",
+        "MySQL",
+        "Nginx",
+        "PHP",
+        "Raspberry Pi",
+        "Python",
+        "Security",
+        "SQL",
+        "Unity3D",
+        "Vim",
+        "Компютърни мрежи"
+    ],
+    "members": [
+        {
+            "id": 273,
+            "name": "Ясен Спасов",
+            "avatar": "/data/images/Ясен_Спасов",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 339,
+            "name": "Любомир Начев",
+            "avatar": "/data/images/Любомир_Начев",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 351,
+            "name": "Георги  Мечев ",
+            "avatar": "/data/images/Георги__Мечев",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 114,
+            "name": "Иво Иванов",
+            "avatar": "/data/images/Иво_Иванов",
+            "role": "CAPTAIN",
+            "class": "12Г"
+        },
+        {
+            "id": 274,
+            "name": "Адриан Стоев",
+            "avatar": "/data/images/Адриан_Стоев",
+            "role": "MEMBER",
+            "class": "12Г"
+        }
+    ],
+    "mentor": {
+        "id": 7,
+        "name": "Пламен Данов",
+        "avatar": "https://hacktues.bg/assets/mentors/plamenDanov.jpg"
+    },
+    "project": {
+        "name": " TUES Protocol",
+        "description": "Изграждане на сензорна мрежа, късаеща физическата сигурност на определна сграда/къща на база на собствен протокол за комуникация между AVR базирани микроконтролери.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/LyubomirNachev/TP_120metra",
+            "website": ""
+        }
+    }
+}

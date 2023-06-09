@@ -1,0 +1,69 @@
+{
+    "name": "404: Not Found",
+    "description": "Ще го допълним",
+    "logo": "/data/images/404:_Not_Found",
+    "technologies": [
+        "C",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "ReactJS",
+        "Python",
+        "Embedded",
+        "ESP32 / ESP8266",
+        "Raspberry Pi",
+        "SQL",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 68,
+            "name": "Мартин Дойчинов",
+            "avatar": "/data/images/Мартин_Дойчинов",
+            "role": "STUDENT",
+            "class": "9Б"
+        },
+        {
+            "id": 211,
+            "name": "Мартин Григоров",
+            "avatar": "/data/images/Мартин_Григоров",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 373,
+            "name": "Габриел Петров",
+            "avatar": "/data/images/Габриел_Петров",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 480,
+            "name": "Симеон Алексиев",
+            "avatar": "/data/images/Симеон_Алексиев",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 34,
+            "name": "Ивайло Русинчовски",
+            "avatar": "/data/images/Ивайло_Русинчовски",
+            "role": "CAPTAIN",
+            "class": "9А"
+        }
+    ],
+    "mentor": {
+        "id": 8,
+        "name": "Антон Янчев",
+        "avatar": "https://hacktues.bg/assets/mentors/antonYanchev.png"
+    },
+    "project": {
+        "name": "APM",
+        "description": "Arduino Password Manager- физически мениджър за пароли.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Ivailo2707/APM",
+            "website": ""
+        }
+    }
+}

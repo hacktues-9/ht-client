@@ -1,0 +1,70 @@
+{
+    "name": "bisi",
+    "description": "izpurjeni 24/8",
+    "logo": "/data/images/bisi",
+    "technologies": [
+        "Embedded",
+        "Firebase",
+        "Git",
+        "IoT",
+        "Java",
+        "Kotlin",
+        "Linux",
+        "Mobile Development",
+        "OOPs",
+        "Raspberry Pi",
+        "Python",
+        "REST"
+    ],
+    "members": [
+        {
+            "id": 214,
+            "name": "Георги Станачков",
+            "avatar": "/data/images/Георги_Станачков",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 151,
+            "name": "Яна Балджиева",
+            "avatar": "/data/images/Яна_Балджиева",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 6,
+            "name": "Йордан Марков",
+            "avatar": "/data/images/Йордан_Марков",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 216,
+            "name": "Мина Славова",
+            "avatar": "/data/images/Мина_Славова",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 175,
+            "name": "Християн Тодоров",
+            "avatar": "/data/images/Християн_Тодоров",
+            "role": "CAPTAIN",
+            "class": "12В"
+        }
+    ],
+    "mentor": {
+        "id": 63,
+        "name": "Кристиян Стоименов",
+        "avatar": "https://hacktues.bg/assets/mentors/kristiyanStoimenov.jpeg"
+    },
+    "project": {
+        "name": "Bisi",
+        "description": "Система, която оценява потенциален риск даден клиент в магазин да извърши кражба.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/georgistan/bisi",
+            "website": ""
+        }
+    }
+}

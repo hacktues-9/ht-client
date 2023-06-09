@@ -1,0 +1,47 @@
+{
+    "name": "ChechnyaStoneLifters",
+    "description": "Кое е това животно?",
+    "logo": "/data/images/ChechnyaStoneLifters",
+    "technologies": [
+        "Flutter",
+        "Firebase",
+        "TypeScript"
+    ],
+    "members": [
+        {
+            "id": 220,
+            "name": "Калоян Чакъров",
+            "avatar": "/data/images/Калоян_Чакъров",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 241,
+            "name": "Александър Георгиев",
+            "avatar": "/data/images/Александър_Георгиев",
+            "role": "STUDENT",
+            "class": "12В"
+        },
+        {
+            "id": 228,
+            "name": "Георги Янакиев",
+            "avatar": "/data/images/Георги_Янакиев",
+            "role": "CAPTAIN",
+            "class": "12В"
+        }
+    ],
+    "mentor": {
+        "id": 34,
+        "name": "Морети Георгиев",
+        "avatar": "https://hacktues.bg/assets/mentors/morettiGeorgiev.png"
+    },
+    "project": {
+        "name": "SecureDrive",
+        "description": "Проекта предоставя възможност за работа като телохранител, при наличие на нужните лицензи или за наемане на такъв, чрез нормален акаунт.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Georgi1914/SecureDrive",
+            "website": ""
+        }
+    }
+}

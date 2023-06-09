@@ -1,0 +1,69 @@
+{
+    "name": "VLAN",
+    "description": "все още няма :(",
+    "logo": "/data/images/VLAN",
+    "technologies": [
+        "Arduino",
+        "C",
+        "C++",
+        "CSS",
+        "Embedded",
+        "HTML",
+        "JavaScript",
+        "Python",
+        "Компютърни мрежи",
+        "SQL",
+        "MySQL"
+    ],
+    "members": [
+        {
+            "id": 207,
+            "name": "Елена Чернева",
+            "avatar": "/data/images/Елена_Чернева",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 3,
+            "name": "Николай Захариев",
+            "avatar": "/data/images/Николай_Захариев",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 201,
+            "name": "Боян Жечев",
+            "avatar": "/data/images/Боян_Жечев",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 398,
+            "name": "Иоан Евгениев",
+            "avatar": "/data/images/Иоан_Евгениев",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 158,
+            "name": "Стефани Пенчева",
+            "avatar": "/data/images/Стефани_Пенчева",
+            "role": "CAPTAIN",
+            "class": "10Г"
+        }
+    ],
+    "mentor": {
+        "id": 45,
+        "name": "Боян Атанасов",
+        "avatar": "https://hacktues.bg/assets/mentors/boyanAtanasov.jpg"
+    },
+    "project": {
+        "name": "Ve-Fi",
+        "description": "Приложение, което показва всички налични за свързване в околността Wi-Fi мрежи. При свързване към някоя от тях апликацията ни предоставя информация за нея - например, колко е достоверна.\nКъм приложението е разработен и сайт.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/StefyVP/Hack_TUES_9_VLAN",
+            "website": ""
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "name": "Жълта картина с котка",
+    "description": " Не не не не не не не не",
+    "logo": "/data/images/Жълта_картина_с_котка",
+    "technologies": [],
+    "members": [
+        {
+            "id": 195,
+            "name": "Йоана Ризова",
+            "avatar": "/data/images/Йоана_Ризова",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 121,
+            "name": "Борис Беличев ",
+            "avatar": "/data/images/Борис_Беличев",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 391,
+            "name": "Калоян Венков",
+            "avatar": "/data/images/Калоян_Венков",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 192,
+            "name": "Габриел Мартинов",
+            "avatar": "/data/images/Габриел_Мартинов",
+            "role": "CAPTAIN",
+            "class": "9Г"
+        },
+        {
+            "id": 63,
+            "name": "Билян Костадинов",
+            "avatar": "/data/images/Билян_Костадинов",
+            "role": "MEMBER",
+            "class": "9Г"
+        }
+    ],
+    "mentor": {
+        "id": 66,
+        "name": "Виолета Кабаджова",
+        "avatar": "https://hacktues.bg/assets/mentors/violetaKabadzhova.jpg"
+    },
+    "project": {
+        "name": "Security Breach",
+        "description": "Аркадна игра, която има за цел  da учи играчa по ненатраплив начин на опасностите от компютърните вируси и осигурява почивка от дългия ден!\n",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/MartinovG/Proekt-HT9-Julta-kartina-s-kotka",
+            "website": ""
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "name": "Unlocked isolation",
+    "description": "БАЛАДЖАНООООВ",
+    "logo": "/data/images/Unlocked_isolation",
+    "technologies": [],
+    "members": [
+        {
+            "id": 442,
+            "name": "Анна Мариа Димитрова",
+            "avatar": "/data/images/Анна_Мариа_Димитрова",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 460,
+            "name": "Даниел Димитрив",
+            "avatar": "/data/images/Даниел_Димитрив",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 419,
+            "name": "Анна Ерин  Михалкова ",
+            "avatar": "/data/images/Анна_Ерин__Михалкова",
+            "role": "CAPTAIN",
+            "class": "9В"
+        },
+        {
+            "id": 332,
+            "name": "Лора Иванова",
+            "avatar": "/data/images/Лора_Иванова",
+            "role": "MEMBER",
+            "class": "9В"
+        },
+        {
+            "id": 421,
+            "name": "Калина Терзийска",
+            "avatar": "/data/images/Калина_Терзийска",
+            "role": "MEMBER",
+            "class": "9В"
+        }
+    ],
+    "mentor": {
+        "id": 20,
+        "name": "Калоян Манолов",
+        "avatar": "https://hacktues.bg/assets/mentors/kaloyanManolov.jpg"
+    },
+    "project": {
+        "name": "Password lizard ",
+        "description": "Password manager ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/BlepAn/HACKTUES9",
+            "website": ""
+        }
+    }
+}

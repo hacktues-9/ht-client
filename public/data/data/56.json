@@ -1,0 +1,63 @@
+{
+    "name": "113",
+    "description": "4akalite shte 4akalstvat i tozi hakaton",
+    "logo": "/data/images/113",
+    "technologies": [
+        "2D Art",
+        "C",
+        "MongoDB",
+        "MySQL",
+        "Python"
+    ],
+    "members": [
+        {
+            "id": 256,
+            "name": "Михаил Василев",
+            "avatar": "/data/images/Михаил_Василев",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 434,
+            "name": "Теодор Тотев",
+            "avatar": "/data/images/Теодор_Тотев",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 477,
+            "name": "Камен Кошутански",
+            "avatar": "/data/images/Камен_Кошутански",
+            "role": "STUDENT",
+            "class": "11Б"
+        },
+        {
+            "id": 234,
+            "name": "Мартин Карабонев",
+            "avatar": "/data/images/Мартин_Карабонев",
+            "role": "CAPTAIN",
+            "class": "11Б"
+        },
+        {
+            "id": 387,
+            "name": "Калоян Димитров",
+            "avatar": "/data/images/Калоян_Димитров",
+            "role": "MEMBER",
+            "class": "11Б"
+        }
+    ],
+    "mentor": {
+        "id": 60,
+        "name": "Георги Тончев",
+        "avatar": "https://hacktues.bg/assets/mentors/georgiTonchev.png"
+    },
+    "project": {
+        "name": "1-1-3 Security",
+        "description": "Face recognition система, която разпознава лица. Ако лицето е в списъка, то ще се отбелязва със зелен квадрат. Ако не е в списъка, се отбелязва в червен квадрат и се пуска аларма в помещението + нотификация на собственика.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/ToxicSDev/HackTues-Team113",
+            "website": ""
+        }
+    }
+}

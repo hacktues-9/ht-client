@@ -1,0 +1,74 @@
+{
+    "name": "TtT",
+    "description": "ние още вечеряме",
+    "logo": "/data/images/TtT",
+    "technologies": [
+        "Nginx",
+        "Ruby on Rails",
+        "Vim",
+        "C",
+        "C++",
+        "CSS",
+        "Docker",
+        "Embedded",
+        "ESP32 / ESP8266",
+        "IoT",
+        "MicroPython",
+        "ML",
+        "Компютърни мрежи",
+        "Git",
+        "Raspberry Pi",
+        "Python"
+    ],
+    "members": [
+        {
+            "id": 205,
+            "name": "Виктор Ханджиев",
+            "avatar": "/data/images/Виктор_Ханджиев",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 96,
+            "name": "Радослав Филипов",
+            "avatar": "/data/images/Радослав_Филипов",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 251,
+            "name": "Йоан Иванов",
+            "avatar": "/data/images/Йоан_Иванов",
+            "role": "STUDENT",
+            "class": "11В"
+        },
+        {
+            "id": 64,
+            "name": "Живко Нушев",
+            "avatar": "/data/images/Живко_Нушев",
+            "role": "CAPTAIN",
+            "class": "11В"
+        },
+        {
+            "id": 41,
+            "name": "Димитър Димитров",
+            "avatar": "/data/images/Димитър_Димитров",
+            "role": "MEMBER",
+            "class": "11В"
+        }
+    ],
+    "mentor": {
+        "id": 2,
+        "name": "Денис Иванов",
+        "avatar": "https://hacktues.bg/assets/mentors/denisIvanov.jpg"
+    },
+    "project": {
+        "name": "TtT IoT Firewall",
+        "description": "Firewall за IoT устройства",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/y0608/TtTHackTUES9",
+            "website": ""
+        }
+    }
+}

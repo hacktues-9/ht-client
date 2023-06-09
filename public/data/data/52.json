@@ -1,0 +1,74 @@
+{
+    "name": "AASquad",
+    "description": "Let the coding started",
+    "logo": "/data/images/AASquad",
+    "technologies": [
+        "Python",
+        "Java",
+        "HTML",
+        "Django",
+        "CSS",
+        "C++",
+        "C",
+        "OOPs",
+        "Rust",
+        "Swift",
+        "Web Development",
+        "Mobile Development",
+        "Kotlin",
+        "JavaScript",
+        "Git",
+        "Firebase"
+    ],
+    "members": [
+        {
+            "id": 196,
+            "name": "Станислав Иванов",
+            "avatar": "/data/images/Станислав_Иванов",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 229,
+            "name": "Александра Станчева",
+            "avatar": "/data/images/Александра_Станчева",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 172,
+            "name": "Авигея Илиева",
+            "avatar": "/data/images/Авигея_Илиева",
+            "role": "CAPTAIN",
+            "class": "12А"
+        },
+        {
+            "id": 263,
+            "name": "Ивайло Генчев",
+            "avatar": "/data/images/Ивайло_Генчев",
+            "role": "CAPTAIN",
+            "class": "12А"
+        },
+        {
+            "id": 257,
+            "name": "Ясен Ефремов",
+            "avatar": "/data/images/Ясен_Ефремов",
+            "role": "MEMBER",
+            "class": "12А"
+        }
+    ],
+    "mentor": {
+        "id": 50,
+        "name": "Юлия Тенинчева",
+        "avatar": "https://hacktues.bg/assets/mentors/yuliaTenincheva.jpg"
+    },
+    "project": {
+        "name": "BeSafe",
+        "description": "Мобилно приложение - личен треньор за онлайн хигиена, което ще помогне да оцените своите онлайн навици, да разберете реалните рискове и как да се защитите.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/YassenEfremov/BeSafe",
+            "website": ""
+        }
+    }
+}

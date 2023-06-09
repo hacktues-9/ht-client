@@ -1,0 +1,67 @@
+{
+    "name": "Лостаджиите",
+    "description": "Все още няма",
+    "logo": "/data/images/Лостаджиите",
+    "technologies": [
+        "HTML",
+        "C",
+        "C++",
+        "CSS",
+        "Git",
+        "JavaScript",
+        "NodeJS",
+        "Python",
+        "ReactJS"
+    ],
+    "members": [
+        {
+            "id": 204,
+            "name": "Константин Златев",
+            "avatar": "/data/images/Константин_Златев",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 227,
+            "name": "Васил Велев",
+            "avatar": "/data/images/Васил_Велев",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 422,
+            "name": "Кристиан Николов",
+            "avatar": "/data/images/Кристиан_Николов",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 203,
+            "name": "Виктор Златев",
+            "avatar": "/data/images/Виктор_Златев",
+            "role": "CAPTAIN",
+            "class": "9А"
+        },
+        {
+            "id": 218,
+            "name": "Ясен Димчов",
+            "avatar": "/data/images/Ясен_Димчов",
+            "role": "MEMBER",
+            "class": "9А"
+        }
+    ],
+    "mentor": {
+        "id": 28,
+        "name": "Светлана Пройчева",
+        "avatar": "https://hacktues.bg/assets/mentors/svetlanaProycheva.jpg"
+    },
+    "project": {
+        "name": "CypherEye",
+        "description": "web app s vtora stepen na sigurnost (2 fa) i obuchenie po security",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/KonstantinZlatew/HackTues_9",
+            "website": ""
+        }
+    }
+}

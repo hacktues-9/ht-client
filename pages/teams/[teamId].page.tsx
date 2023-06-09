@@ -23,6 +23,10 @@ import { TECHNOLOGIES } from "../../constants/technologies";
 import style from "../../styles/0/teams/Team.module.scss";
 import Project from "../../partials/teams/Project";
 import Head from "next/head";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { set } from "date-fns";
+import { stringify } from "querystring";
+
 
 const fetcher = (url: string) =>
   fetch(url, { credentials: "include" }).then((res) => res.json());
@@ -1048,7 +1052,7 @@ const TeamProject = ({ team, setTeam, isEditable }) => {
   );
 };
 
-const Team = () => {
+const Team = ({team}) => {
   const router = useRouter();
 
   const { teamId } = router.query as { teamId: string };
@@ -1061,52 +1065,52 @@ const Team = () => {
   const [edit, setEdit] = useState(false);
   const [editable, setEditable] = useState(false);
 
-  const { data: teamData } = useSWR(
-    teamId ? `https://api.hacktues.bg/api/team/get/${teamId}` : null,
-    fetcher
-  );
+  // const { data: teamData } = useSWR(
+  //   teamId ? `https://api.hacktues.bg/api/team/get/${teamId}` : null,
+  //   fetcher
+  // );
 
-  const { data: inTeam } = useSWR(
-    authState.isLoggedIn && teamId
-      ? `https://api.hacktues.bg/api/team/users/in-team/${teamId}`
-      : null,
-    fetcher
-  );
+  // const { data: inTeam } = useSWR(
+  //   authState.isLoggedIn && teamId
+  //     ? `https://api.hacktues.bg/api/team/users/in-team/${teamId}`
+  //     : null,
+  //   fetcher
+  // );
 
-  const { data: isCaptainResp } = useSWR(
-    authState.isLoggedIn && teamId
-      ? `https://api.hacktues.bg/api/team/captain/${teamId}`
-      : null,
-    fetcher
-  );
+  // const { data: isCaptainResp } = useSWR(
+  //   authState.isLoggedIn && teamId
+  //     ? `https://api.hacktues.bg/api/team/captain/${teamId}`
+  //     : null,
+  //   fetcher
+  // );
 
-  const [team, setTeam] = useState(teamData?.data);
+  const [teamData, setTeamData] = useState(team);
 
-  useEffect(() => {
-    if (isCaptainResp?.data === authState.userId) {
-      setEditable(true);
-    }
-  }, [authState.userId, isCaptainResp?.data]);
+  // useEffect(() => {
+  //   if (isCaptainResp?.data === authState.userId) {
+  //     setEditable(true);
+  //   }
+  // }, [authState.userId, isCaptainResp?.data]);
 
-  useEffect(() => {
-    if (!teamData) return;
+  // useEffect(() => {
+  //   if (!teamData) return;
 
-    if (teamData?.data) {
-      // sort members by role and then by name
-      setTeam({
-        ...teamData.data,
-        members: teamData.data.members.sort((a, b) => {
-          if (a.role === b.role) {
-            return a.name.localeCompare(b.name);
-          } else {
-            return a.role === "CAPTAIN" ? -1 : 1;
-          }
-        }),
-      });
-    }
-  }, [teamData]);
+  //   if (teamData?.data) {
+  //     // sort members by role and then by name
+  //     setTeam({
+  //       ...teamData.data,
+  //       members: teamData.data.members.sort((a, b) => {
+  //         if (a.role === b.role) {
+  //           return a.name.localeCompare(b.name);
+  //         } else {
+  //           return a.role === "CAPTAIN" ? -1 : 1;
+  //         }
+  //       }),
+  //     });
+  //   }
+  // }, [teamData]);
 
-  if (!team || !teamId || !teamData) return <div>loading...</div>;
+  // if (!team || !teamId || !teamData) return <div>loading...</div>;
 
   return (
     <>
@@ -1116,21 +1120,21 @@ const Team = () => {
       <div className={style.page}>
         <div className={style.page_top}>
           <TeamInfo
-            team={team}
-            setTeam={setTeam}
+            team={/* team */teamData}
+            setTeam={/* setTeam */setTeamData}
             edit={edit}
             setEdit={setEdit}
             isEditable={editable}
-            inTeam={inTeam?.data}
+            inTeam={/* inTeam?.data} */false}
             teamId={teamId}
             setConfirm={setConfirm}
           />
         </div>
         <div className={style.page_bottom}>
-          <Project team={team} setTeam={setTeam} isEditable={editable} />
+          <Project team={/* team */teamData} setTeam={/* setTeam */setTeamData} isEditable={editable} />
           <TeamMembers
-            team={team}
-            setTeam={setTeam}
+            team={/* team */teamData}
+            setTeam={/* setTeam */setTeamData}
             isEditable={editable}
             setIsEditable={setEditable}
             teamId={teamId}
@@ -1146,6 +1150,33 @@ const Team = () => {
       )}
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const teams = await import(`../../public/data/teams.json`);
+  const paths = teams.default.data.map((team) => ({
+    params: { teamId: team.id.toString() },
+  }));
+
+  return { paths, fallback: "blocking" };
+}
+
+export const getStaticProps: GetStaticProps<any> = async ({params}) => {
+  let team = null;
+  try {
+    team = await import(`../../public/data/data/${params.teamId}.json`);
+  } catch (err) {
+    // return 404
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      team: team.default,
+    },
+    revalidate: 1,
+  };
 };
 
 export default Team;

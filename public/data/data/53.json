@@ -1,0 +1,56 @@
+{
+    "name": "S.I.M.P",
+    "description": "Ми да то да",
+    "logo": "/data/images/S.I.M.P",
+    "technologies": [
+        "C",
+        "C++",
+        "CSS",
+        "HTML",
+        "C#",
+        "Java",
+        "JavaScript",
+        "Python",
+        "Arduino",
+        "Unity3D",
+        "Bootstrap",
+        "MySQL"
+    ],
+    "members": [
+        {
+            "id": 374,
+            "name": "Чавдара Белева",
+            "avatar": "/data/images/Чавдара_Белева",
+            "role": "STUDENT",
+            "class": "10Г"
+        },
+        {
+            "id": 235,
+            "name": "Емилия Ушева",
+            "avatar": "/data/images/Емилия_Ушева",
+            "role": "CAPTAIN",
+            "class": "11В"
+        },
+        {
+            "id": 55,
+            "name": "Димитър  Костенаров",
+            "avatar": "/data/images/Димитър__Костенаров",
+            "role": "MEMBER",
+            "class": "11А"
+        }
+    ],
+    "mentor": {
+        "id": 32,
+        "name": "Кристиан Томов",
+        "avatar": "https://hacktues.bg/assets/mentors/krisTomov.jpg"
+    },
+    "project": {
+        "name": "Piccurity",
+        "description": "Приложение, което криптира текст/текстов файл (някаква важна информация). След това тази информация се закодира в изображение, като може и да се декодира, показвайки скритата информация в него.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/kostenarov/Data_encryption",
+            "website": ""
+        }
+    }
+}

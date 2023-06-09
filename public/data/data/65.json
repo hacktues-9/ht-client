@@ -1,0 +1,59 @@
+{
+    "name": "ekran 7mici",
+    "description": "jenen za parata 4i4o koko mi e kum.\nbebeta vnos ot ispaniq 30 evra deteto mi.\nmbt airlines\nescape the matrix!!!",
+    "logo": "/data/images/ekran_7mici",
+    "technologies": [
+        "Blockchain"
+    ],
+    "members": [
+        {
+            "id": 301,
+            "name": "Никола Петров",
+            "avatar": "/data/images/Никола_Петров",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 299,
+            "name": "Мартин Йорданов",
+            "avatar": "/data/images/Мартин_Йорданов",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 298,
+            "name": "Тодор Кулчев",
+            "avatar": "/data/images/Тодор_Кулчев",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 357,
+            "name": "Стефан Касамаков",
+            "avatar": "/data/images/Стефан_Касамаков",
+            "role": "STUDENT",
+            "class": "12Г"
+        },
+        {
+            "id": 297,
+            "name": "Борис Кисьов",
+            "avatar": "/data/images/Борис_Кисьов",
+            "role": "CAPTAIN",
+            "class": "12Г"
+        }
+    ],
+    "mentor": {
+        "id": 27,
+        "name": "Калина Николова",
+        "avatar": "https://hacktues.bg/assets/mentors/kalinaNikolova.jpg"
+    },
+    "project": {
+        "name": "Trips Asa System",
+        "description": "Система за наблюдение",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/BorisKisyov/Trips-Asa-System",
+            "website": ""
+        }
+    }
+}

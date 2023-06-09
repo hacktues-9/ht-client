@@ -1,0 +1,56 @@
+{
+    "name": "Murdaboyz",
+    "description": "Murdaboyz > MBT",
+    "logo": "/data/images/Murdaboyz",
+    "technologies": [
+        "C",
+        "Python",
+        "HTML",
+        "CSS",
+        "JavaScript"
+    ],
+    "members": [
+        {
+            "id": 174,
+            "name": "Габриел Ненов",
+            "avatar": "/data/images/Габриел_Ненов",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 178,
+            "name": "Таня Колева",
+            "avatar": "/data/images/Таня_Колева",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 359,
+            "name": "Самуил Стоянов",
+            "avatar": "/data/images/Самуил_Стоянов",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 355,
+            "name": "Даниел Блъсков",
+            "avatar": "/data/images/Даниел_Блъсков",
+            "role": "CAPTAIN",
+            "class": "9А"
+        }
+    ],
+    "mentor": {
+        "id": 55,
+        "name": "Антонио Милев",
+        "avatar": "https://hacktues.bg/assets/mentors/antonioMilev.png"
+    },
+    "project": {
+        "name": "SecureU",
+        "description": "Cybersecurity website",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/amazingdanny/Hacktues",
+            "website": ""
+        }
+    }
+}

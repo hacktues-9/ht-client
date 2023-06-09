@@ -1,0 +1,64 @@
+{
+    "name": "Chervenata shapchica",
+    "description": "Nosim ochila, za da chuvame po dobre",
+    "logo": "/data/images/Chervenata_shapchica",
+    "technologies": [
+        "C",
+        "Web Development",
+        "Python",
+        "JavaScript",
+        "HTML",
+        "CSS"
+    ],
+    "members": [
+        {
+            "id": 49,
+            "name": "Кристиян Кулеков",
+            "avatar": "/data/images/Кристиян_Кулеков",
+            "role": "STUDENT",
+            "class": "8А"
+        },
+        {
+            "id": 97,
+            "name": "Калоян Гаврилов",
+            "avatar": "/data/images/Калоян_Гаврилов",
+            "role": "CAPTAIN",
+            "class": "8А"
+        },
+        {
+            "id": 27,
+            "name": "Александър  Йосифов ",
+            "avatar": "/data/images/Александър__Йосифов",
+            "role": "MEMBER",
+            "class": "8А"
+        },
+        {
+            "id": 45,
+            "name": "Дариан Ганев",
+            "avatar": "/data/images/Дариан_Ганев",
+            "role": "MEMBER",
+            "class": "8А"
+        },
+        {
+            "id": 381,
+            "name": "Кирил Рангелов",
+            "avatar": "/data/images/Кирил_Рангелов",
+            "role": "MEMBER",
+            "class": "8А"
+        }
+    ],
+    "mentor": {
+        "id": 16,
+        "name": "Йоан Серафимов",
+        "avatar": "https://hacktues.bg/assets/mentors/yoanSerafimov.jpeg"
+    },
+    "project": {
+        "name": "Guard.Me",
+        "description": "Подтема - physical security; Проекта ни е платформа, на която можеш да наемаш бодигардове и да работиш като бодигардове като freelancer",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/kaloyan-gavrilov/HackTues---Guard.Me-BackUp-",
+            "website": ""
+        }
+    }
+}

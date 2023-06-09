@@ -1,0 +1,76 @@
+{
+    "name": "C_e_za_dinozavri",
+    "description": "Ne sme vegitarianci, a gi qdem. Ne znaem nisho ot neshata, koito sme napisali, no e vasho uchastieto",
+    "logo": "/data/images/C_e_za_dinozavri",
+    "technologies": [
+        "C",
+        "Bootstrap",
+        "C++",
+        "CSS",
+        "ExpressJS",
+        "HTML",
+        "JavaScript",
+        "Linux",
+        "MongoDB",
+        "MySQL",
+        "NodeJS",
+        "PostgreSQL",
+        "Python",
+        "ReactJS",
+        "Sass",
+        "Web Development",
+        "SQL",
+        "Tailwind"
+    ],
+    "members": [
+        {
+            "id": 95,
+            "name": "Радослав  Цветанов",
+            "avatar": "/data/images/Радослав__Цветанов",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 101,
+            "name": "Илина Цанова",
+            "avatar": "/data/images/Илина_Цанова",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 212,
+            "name": "Сияна  Рачева ",
+            "avatar": "/data/images/Сияна__Рачева",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 289,
+            "name": "Моника Георгиева ",
+            "avatar": "/data/images/Моника_Георгиева",
+            "role": "STUDENT",
+            "class": "9А"
+        },
+        {
+            "id": 52,
+            "name": "Боримир Ганчев",
+            "avatar": "/data/images/Боримир_Ганчев",
+            "role": "CAPTAIN",
+            "class": "9А"
+        }
+    ],
+    "mentor": {
+        "id": 6,
+        "name": "Теодора Йовчева",
+        "avatar": "https://hacktues.bg/assets/mentors/teodoraYovcheva.jpg"
+    },
+    "project": {
+        "name": "Safe Trave",
+        "description": "Safe Travel е web-application, който ти позволява по-спокойно и безопасно пътуване. Чрез имплементирането на Google Maps API, могат да се зъздадат различни геометрични фигури, които да обозночат оасните места около или на дестинацията, която потрепитялят е въвел.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/BorimirGanchev/HackTues-9",
+            "website": ""
+        }
+    }
+}

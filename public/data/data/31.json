@@ -1,0 +1,46 @@
+{
+    "name": "Кехлибаровци",
+    "description": "Описание нЕма",
+    "logo": "/data/images/Кехлибаровци",
+    "technologies": [
+        "Java",
+        "JavaScript"
+    ],
+    "members": [
+        {
+            "id": 194,
+            "name": "Атанас Кънев",
+            "avatar": "/data/images/Атанас_Кънев",
+            "role": "STUDENT",
+            "class": "8Г"
+        },
+        {
+            "id": 385,
+            "name": "Калоян Георгиев",
+            "avatar": "/data/images/Калоян_Георгиев",
+            "role": "STUDENT",
+            "class": "8Г"
+        },
+        {
+            "id": 152,
+            "name": "Цветомир  Дунев",
+            "avatar": "/data/images/Цветомир__Дунев",
+            "role": "CAPTAIN",
+            "class": "8Г"
+        }
+    ],
+    "mentor": {
+        "id": 19,
+        "name": "Александър Гълъбов",
+        "avatar": "https://hacktues.bg/assets/mentors/alexanderGalabov.jpg"
+    },
+    "project": {
+        "name": "Encryption101",
+        "description": "Система за демонстриране на ефекта от различни механизми за криптиране на текст",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/KaloyanGrigorovGeorgiev/Kehlibarovci",
+            "website": ""
+        }
+    }
+}

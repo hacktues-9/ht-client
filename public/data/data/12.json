@@ -1,0 +1,51 @@
+{
+    "name": "Dream team",
+    "description": "Мотивирани \"млади богати тарикати (брат мии)\", готови да се докоснат до обществото на туесарите и да научат нови неща. ",
+    "logo": "/data/images/Dream_team",
+    "technologies": [
+        "JavaScript",
+        "CSS",
+        "HTML",
+        "Bootstrap",
+        "ReactJS",
+        "Web Development",
+        "Firebase"
+    ],
+    "members": [
+        {
+            "id": 42,
+            "name": "Петър  Керезов",
+            "avatar": "/data/images/Петър__Керезов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 33,
+            "name": "Георги Баладжанов",
+            "avatar": "/data/images/Георги_Баладжанов",
+            "role": "STUDENT",
+            "class": "8Б"
+        },
+        {
+            "id": 10,
+            "name": "Владимир  Демирев",
+            "avatar": "/data/images/Владимир__Демирев",
+            "role": "CAPTAIN",
+            "class": "8Б"
+        }
+    ],
+    "mentor": {
+        "id": 29,
+        "name": "Виктор Стамов",
+        "avatar": "https://hacktues.bg/assets/mentors/viktorStamoff.jpg"
+    },
+    "project": {
+        "name": "QWERTY",
+        "description": "Password manager",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/1RedGuy/QWERTY-password-manager",
+            "website": ""
+        }
+    }
+}

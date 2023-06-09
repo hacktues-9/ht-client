@@ -1,0 +1,65 @@
+{
+    "name": "AdvancedBegginersGuide",
+    "description": "Some text.",
+    "logo": "/data/images/AdvancedBegginersGuide",
+    "technologies": [
+        "Arduino",
+        "C",
+        "CSS",
+        "HTML",
+        "JavaScript",
+        "Python",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 312,
+            "name": "Мартин Раднев",
+            "avatar": "/data/images/Мартин_Раднев",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 456,
+            "name": "Владимир Барев",
+            "avatar": "/data/images/Владимир_Барев",
+            "role": "STUDENT",
+            "class": "10А"
+        },
+        {
+            "id": 314,
+            "name": "Росен Маринов",
+            "avatar": "/data/images/Росен_Маринов",
+            "role": "CAPTAIN",
+            "class": "10А"
+        },
+        {
+            "id": 316,
+            "name": "Алекса Рашова",
+            "avatar": "/data/images/Алекса_Рашова",
+            "role": "MEMBER",
+            "class": "10А"
+        },
+        {
+            "id": 315,
+            "name": "Силвия Антова",
+            "avatar": "/data/images/Силвия_Антова",
+            "role": "MEMBER",
+            "class": "10А"
+        }
+    ],
+    "mentor": {
+        "id": 13,
+        "name": "Тосил Велков",
+        "avatar": "https://hacktues.bg/assets/mentors/tosilVelkov.jpg"
+    },
+    "project": {
+        "name": "Garage tronic",
+        "description": "Garage tronic представлява система, с която да следите какво разстояние ви остава от всички страни около колата ви до гаража ви, когато я паркирате, като по този начин ви улеснява паркирането всеки път.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/ADASisi/AdvancedBegginersGuide",
+            "website": ""
+        }
+    }
+}

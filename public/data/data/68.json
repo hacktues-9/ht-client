@@ -1,0 +1,55 @@
+{
+    "name": "Hustle brigada",
+    "description": "Трябва хъс, злоба и бутаме до ...",
+    "logo": "/data/images/Hustle_brigada",
+    "technologies": [
+        "Компютърни мрежи",
+        "Arduino",
+        "C++",
+        "ESP32 / ESP8266",
+        "IoT",
+        "Python",
+        "C",
+        "Embedded",
+        "Git",
+        "Linux",
+        "Vim"
+    ],
+    "members": [
+        {
+            "id": 389,
+            "name": "Деян Атанасов",
+            "avatar": "/data/images/Деян_Атанасов",
+            "role": "STUDENT",
+            "class": "11Г"
+        },
+        {
+            "id": 310,
+            "name": "Иван Иванов",
+            "avatar": "/data/images/Иван_Иванов",
+            "role": "CAPTAIN",
+            "class": "11Г"
+        },
+        {
+            "id": 69,
+            "name": "Веселин Владимиров",
+            "avatar": "/data/images/Веселин_Владимиров",
+            "role": "MEMBER",
+            "class": "11Г"
+        }
+    ],
+    "mentor": {
+        "id": 40,
+        "name": "Петър Иванов",
+        "avatar": "https://hacktues.bg/assets/mentors/petarIvanov.jpg"
+    },
+    "project": {
+        "name": "Smart-Bar",
+        "description": "Smart лост за щанга, предотвратяващ контузии по време на тренировка.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/ivan23GG/Smart-Bar",
+            "website": ""
+        }
+    }
+}

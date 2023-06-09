@@ -1,0 +1,52 @@
+{
+    "name": "Dooobre",
+    "description": "Posle she e opisanie na proekta",
+    "logo": "/data/images/Dooobre",
+    "technologies": [
+        "Django",
+        "ML",
+        "MySQL",
+        "NoSQL",
+        "Python",
+        "TensorFlow",
+        "Git",
+        "Java"
+    ],
+    "members": [
+        {
+            "id": 392,
+            "name": "Веско Спасов",
+            "avatar": "/data/images/Веско_Спасов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 367,
+            "name": "Константин Щерев",
+            "avatar": "/data/images/Константин_Щерев",
+            "role": "CAPTAIN",
+            "class": "11А"
+        },
+        {
+            "id": 388,
+            "name": "Стенли Христов",
+            "avatar": "/data/images/Стенли_Христов",
+            "role": "MEMBER",
+            "class": "11Б"
+        }
+    ],
+    "mentor": {
+        "id": 44,
+        "name": "Боян Миланов",
+        "avatar": "https://hacktues.bg/assets/mentors/boyanMilanov.JPG"
+    },
+    "project": {
+        "name": "Password manager",
+        "description": "Web приложение за защитено хранилище на пароли. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/KokoShterev/HackTuesSecurity",
+            "website": ""
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "name": "гъски с ръце",
+    "description": "гъски с ръце >>>>> котки с палци",
+    "logo": "/data/images/гъски_с_ръце",
+    "technologies": [
+        "Blockchain",
+        "ReactJS",
+        "Embedded",
+        "Django"
+    ],
+    "members": [
+        {
+            "id": 180,
+            "name": "Йосиф Салтиел",
+            "avatar": "/data/images/Йосиф_Салтиел",
+            "role": "STUDENT",
+            "class": "10Б"
+        },
+        {
+            "id": 20,
+            "name": "Николай Лазаров",
+            "avatar": "/data/images/Николай_Лазаров",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 12,
+            "name": "Йосиф Хамед",
+            "avatar": "/data/images/Йосиф_Хамед",
+            "role": "STUDENT",
+            "class": "12Б"
+        },
+        {
+            "id": 21,
+            "name": "Ива Маринова",
+            "avatar": "/data/images/Ива_Маринова",
+            "role": "CAPTAIN",
+            "class": "10В"
+        }
+    ],
+    "mentor": {
+        "id": 24,
+        "name": "Самуил Георгиев",
+        "avatar": "https://hacktues.bg/assets/mentors/samuilGeorgiev.jpg"
+    },
+    "project": {
+        "name": "MediChain",
+        "description": "Децентрализиран медеицински картон.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/NikolayLazarov/hacktues1001",
+            "website": ""
+        }
+    }
+}

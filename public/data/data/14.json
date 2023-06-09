@@ -1,0 +1,48 @@
+{
+    "name": "RealEngine",
+    "description": "Игра от мрежари..",
+    "logo": "/data/images/RealEngine",
+    "technologies": [
+        "2D Art",
+        "C#",
+        "Git",
+        "Unity3D"
+    ],
+    "members": [
+        {
+            "id": 47,
+            "name": "Велизар Цикловски",
+            "avatar": "/data/images/Велизар_Цикловски",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 80,
+            "name": "Кристиан Кирилов",
+            "avatar": "/data/images/Кристиан_Кирилов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 5,
+            "name": "Никола Алексов",
+            "avatar": "/data/images/Никола_Алексов",
+            "role": "CAPTAIN",
+            "class": "9Г"
+        }
+    ],
+    "mentor": {
+        "id": 25,
+        "name": "Виктор Костадинов",
+        "avatar": "https://hacktues.bg/assets/mentors/victorKostadinov.png"
+    },
+    "project": {
+        "name": "Security Office",
+        "description": "Игра в която вие сте Security Manager на голяма компания и вашата цел е да създадете мощен софтуер за защита на фаиловете им.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/HubaBoy/HackTues-9",
+            "website": ""
+        }
+    }
+}

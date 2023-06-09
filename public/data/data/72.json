@@ -1,0 +1,75 @@
+{
+    "name": "Sector C",
+    "description": "Отбор от 9ти В клас. Ще използваме js and python.",
+    "logo": "/data/images/Sector_C",
+    "technologies": [
+        "2D Art",
+        "CSS",
+        "Docker",
+        "Git",
+        "HTML",
+        "JavaScript",
+        "Linux",
+        "Nginx",
+        "OOPs",
+        "Python",
+        "Django",
+        "MongoDB",
+        "MySQL",
+        "NodeJS",
+        "ReactJS",
+        "TypeScript",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 369,
+            "name": "Евгения Голубева",
+            "avatar": "/data/images/Евгения_Голубева",
+            "role": "STUDENT",
+            "class": "9В"
+        },
+        {
+            "id": 370,
+            "name": "Антонио Готея",
+            "avatar": "/data/images/Антонио_Готея",
+            "role": "STUDENT",
+            "class": "9В"
+        },
+        {
+            "id": 324,
+            "name": "Светослав Илиев",
+            "avatar": "/data/images/Светослав_ИЛИЕВ",
+            "role": "CAPTAIN",
+            "class": "9В"
+        },
+        {
+            "id": 221,
+            "name": "Дарий Топузов",
+            "avatar": "/data/images/Дарий_Топузов",
+            "role": "MEMBER",
+            "class": "9В"
+        },
+        {
+            "id": 364,
+            "name": "Дамян Мяшков",
+            "avatar": "/data/images/Дамян_Мяшков",
+            "role": "MEMBER",
+            "class": "9В"
+        }
+    ],
+    "mentor": {
+        "id": 31,
+        "name": "Мадлен Саркисян",
+        "avatar": "https://hacktues.bg/assets/mentors/madlenSarkisian.jpg"
+    },
+    "project": {
+        "name": "Shush!",
+        "description": "Anonymous chat app",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/dr-programmer/HackTues9---SectorC",
+            "website": ""
+        }
+    }
+}

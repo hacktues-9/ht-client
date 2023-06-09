@@ -1,0 +1,50 @@
+{
+    "name": "кой как се уреди",
+    "description": "кой как се уреди",
+    "logo": "/data/images/кой_как_се_уреди",
+    "technologies": [],
+    "members": [
+        {
+            "id": 242,
+            "name": "Крис Петков",
+            "avatar": "/data/images/Крис_Петков",
+            "role": "STUDENT",
+            "class": "10В"
+        },
+        {
+            "id": 239,
+            "name": "Иван Матев",
+            "avatar": "/data/images/Иван_Матев",
+            "role": "STUDENT",
+            "class": "10В"
+        },
+        {
+            "id": 481,
+            "name": "Стоян Стоянов",
+            "avatar": "/data/images/Стоян_Стоянов",
+            "role": "STUDENT",
+            "class": "10В"
+        },
+        {
+            "id": 240,
+            "name": "Виктор Велков",
+            "avatar": "/data/images/Виктор_Велков",
+            "role": "CAPTAIN",
+            "class": "10В"
+        }
+    ],
+    "mentor": {
+        "id": 51,
+        "name": "Димитър Симов",
+        "avatar": "https://hacktues.bg/assets/mentors/dimiterSimov.jpg"
+    },
+    "project": {
+        "name": "Cyfense",
+        "description": "Пазач на сървър, който се бие срещу вирус, по един или друг начин.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/sswegy/HackTues9",
+            "website": ""
+        }
+    }
+}

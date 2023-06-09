@@ -1,0 +1,70 @@
+{
+    "name": "Баладжинатор",
+    "description": "БАЛАДЖАНООООВ",
+    "logo": "/data/images/Баладжинатор",
+    "technologies": [
+        "Flutter",
+        "Golang",
+        "Java",
+        "MySQL",
+        "Python",
+        "Raspberry Pi",
+        "JavaScript",
+        "ML",
+        "OOPs",
+        "Arduino",
+        "Bootstrap",
+        "Dart"
+    ],
+    "members": [
+        {
+            "id": 206,
+            "name": "Никола Керезов",
+            "avatar": "/data/images/Никола_Керезов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 137,
+            "name": "Крум Стефанов",
+            "avatar": "/data/images/Крум_Стефанов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 464,
+            "name": "Симеон  Ангелов",
+            "avatar": "/data/images/Симеон__Ангелов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 463,
+            "name": "Кристиян Богданов",
+            "avatar": "/data/images/Кристиян_Богданов",
+            "role": "STUDENT",
+            "class": "11А"
+        },
+        {
+            "id": 65,
+            "name": "Алеко Георгиев",
+            "avatar": "/data/images/Алеко_Георгиев",
+            "role": "CAPTAIN",
+            "class": "11А"
+        }
+    ],
+    "mentor": {
+        "id": 56,
+        "name": "Мартин Дацев",
+        "avatar": "https://hacktues.bg/assets/mentors/martinD.jpg"
+    },
+    "project": {
+        "name": "RoadHaze",
+        "description": "Нашият проект има за цел да даде в реално време състоянието на пътната настилка по пътищата. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Baladjinator/RoadHaze-main",
+            "website": ""
+        }
+    }
+}

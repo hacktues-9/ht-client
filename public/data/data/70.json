@@ -1,0 +1,55 @@
+{
+    "name": "Heisenberg",
+    "description": "Ние сме противоположното на добри в програмиране!",
+    "logo": "/data/images/Heisenberg",
+    "technologies": [
+        "C",
+        "HTML",
+        "JavaScript",
+        "CSS"
+    ],
+    "members": [
+        {
+            "id": 209,
+            "name": "Георги Григоров",
+            "avatar": "/data/images/Георги_Григоров",
+            "role": "CAPTAIN",
+            "class": "8А"
+        },
+        {
+            "id": 317,
+            "name": "Георги Манев",
+            "avatar": "/data/images/Георги_Манев",
+            "role": "MEMBER",
+            "class": "8А"
+        },
+        {
+            "id": 318,
+            "name": "Стефан Стоянов",
+            "avatar": "/data/images/Стефан_Стоянов",
+            "role": "MEMBER",
+            "class": "8А"
+        },
+        {
+            "id": 313,
+            "name": "Венелин  Желев",
+            "avatar": "/data/images/Венелин__Желев",
+            "role": "MEMBER",
+            "class": "8А"
+        }
+    ],
+    "mentor": {
+        "id": 3,
+        "name": "Васил Палигоров",
+        "avatar": "https://hacktues.bg/assets/mentors/vasilPaligorov.jpeg"
+    },
+    "project": {
+        "name": "Password Checker",
+        "description": "This project is about checking if your password is strong enough. If it isn't, you can generate a new secure one.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/VenelinZhelev/HackTues9-Heisenberg",
+            "website": ""
+        }
+    }
+}

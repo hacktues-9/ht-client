@@ -1,0 +1,75 @@
+{
+    "name": "c plis plqs",
+    "description": "mnogo qk otbor.",
+    "logo": "/data/images/c_plis_plqs",
+    "technologies": [
+        "Компютърни мрежи",
+        "Unreal Engine",
+        "Unity3D",
+        "Arduino",
+        "ESP32 / ESP8266",
+        "HTML",
+        "Java",
+        "JavaScript",
+        "Python",
+        "C",
+        "C++",
+        "C#",
+        "CSS",
+        "Django",
+        "Raspberry Pi",
+        "Embedded",
+        "Linux"
+    ],
+    "members": [
+        {
+            "id": 25,
+            "name": "Мария  Конева ",
+            "avatar": "/data/images/Мария__Конева",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 13,
+            "name": "Иван Петков",
+            "avatar": "/data/images/Иван_Петков",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 38,
+            "name": "Александър Асенов",
+            "avatar": "/data/images/Александър_Асенов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 62,
+            "name": "Иван Генов",
+            "avatar": "/data/images/Иван_Генов",
+            "role": "STUDENT",
+            "class": "9Г"
+        },
+        {
+            "id": 15,
+            "name": "Ирен Коларова",
+            "avatar": "/data/images/Ирен_Коларова",
+            "role": "CAPTAIN",
+            "class": "9Г"
+        }
+    ],
+    "mentor": {
+        "id": 10,
+        "name": "Даниел Димитров",
+        "avatar": "https://hacktues.bg/assets/mentors/danielDimitrov.png"
+    },
+    "project": {
+        "name": "Gixi",
+        "description": "Проектът ни е робот, който автоматизира процеса на патрулиране.",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/irenkolarova/c-plis-plqs",
+            "website": ""
+        }
+    }
+}

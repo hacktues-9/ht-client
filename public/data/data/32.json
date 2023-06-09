@@ -1,0 +1,87 @@
+{
+    "name": "2loops",
+    "description": "Тулупите \nМлади момчета, влече ни програмирането и Клуб 33",
+    "logo": "/data/images/2loops",
+    "technologies": [
+        "AWS",
+        "C",
+        "Bootstrap",
+        "Django",
+        "HTML",
+        "IoT",
+        "MySQL",
+        "Python",
+        "PostgreSQL",
+        "OOPs",
+        "ReactJS",
+        "React Native",
+        "Ruby on Rails",
+        "Ruby",
+        "Smart contracts",
+        "SQL",
+        "TypeScript",
+        "CSS",
+        "Azure",
+        "Blockchain",
+        "C#",
+        "Git",
+        "Java",
+        "JavaScript",
+        "Sass",
+        "Security",
+        "Solidity",
+        "Tailwind",
+        "Web Development"
+    ],
+    "members": [
+        {
+            "id": 168,
+            "name": "Данаил Божков",
+            "avatar": "/data/images/Данаил_Божков",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 183,
+            "name": "Алекс Гечовски",
+            "avatar": "/data/images/Алекс_Гечовски",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 159,
+            "name": "Симеон Христов",
+            "avatar": "/data/images/Симеон_Христов",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 244,
+            "name": "Иваело Кръстев",
+            "avatar": "/data/images/Иваело_Кръстев",
+            "role": "STUDENT",
+            "class": "12А"
+        },
+        {
+            "id": 166,
+            "name": "Александър Христов",
+            "avatar": "/data/images/Александър_Христов",
+            "role": "CAPTAIN",
+            "class": "12Б"
+        }
+    ],
+    "mentor": {
+        "id": 30,
+        "name": "Крум Йорданов",
+        "avatar": "https://hacktues.bg/assets/mentors/krumYordanov.jpg"
+    },
+    "project": {
+        "name": "Secure Social Media",
+        "description": "Secure Social Media\n",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/DBozhkovV/HackTUES9",
+            "website": ""
+        }
+    }
+}

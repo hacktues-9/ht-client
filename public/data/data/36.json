@@ -1,0 +1,60 @@
+{
+    "name": "Boberovo ezero",
+    "description": "No bio yet ",
+    "logo": "/data/images/Boberovo_ezero",
+    "technologies": [
+        "C",
+        "C++"
+    ],
+    "members": [
+        {
+            "id": 417,
+            "name": "Иванета Иванова",
+            "avatar": "/data/images/Иванета_Иванова",
+            "role": "STUDENT",
+            "class": "8А"
+        },
+        {
+            "id": 467,
+            "name": "Анджелина Светлозарова",
+            "avatar": "/data/images/Анджелина_Светлозарова",
+            "role": "STUDENT",
+            "class": "8А"
+        },
+        {
+            "id": 188,
+            "name": "Мария Стефанова ",
+            "avatar": "/data/images/Мария_Стефанова",
+            "role": "CAPTAIN",
+            "class": "8В"
+        },
+        {
+            "id": 122,
+            "name": "Борис Феликс",
+            "avatar": "/data/images/Борис_Феликс",
+            "role": "MEMBER",
+            "class": "8А"
+        },
+        {
+            "id": 185,
+            "name": "Демира Любенова",
+            "avatar": "/data/images/Демира_Любенова",
+            "role": "MEMBER",
+            "class": "8В"
+        }
+    ],
+    "mentor": {
+        "id": 17,
+        "name": "Димитър Боянов",
+        "avatar": "https://hacktues.bg/assets/mentors/dimitarBoyanov.png"
+    },
+    "project": {
+        "name": "Protect your space",
+        "description": "Целта е да се създаде сейф за пароли с master парола за достъп. ",
+        "logo": "",
+        "links": {
+            "github": "https://github.com/Ivaneta08/HackTues9-Boberovo-ezero",
+            "website": ""
+        }
+    }
+}

@@ -242,16 +242,16 @@ const MobileBar = forwardRef<HTMLDivElement>(
           </Link> */}
           {/* tinder if logged in */}
           {/* login or registration */}
-          {!props.isUserAuthenticated && (
+          {/* {!props.isUserAuthenticated && (
             <>
               <Link href="/login" onClick={handleMobileDropdownClicked}>
                 <li>Вход</li>
               </Link>
-              {/*               <Link href="/signup" onClick={handleMobileDropdownClicked}>
+                            <Link href="/signup" onClick={handleMobileDropdownClicked}>
                 <li>Регистрация</li>
-              </Link> */}
+              </Link>
             </>
-          )}
+          )} */}
         </div>
       </div>
     );
@@ -351,7 +351,7 @@ const Navigation = () => {
               </div>
               {
                 <div className={navbar.right}>
-                  {isUserAuthenticated() && userId ? (
+                  {/* {isUserAuthenticated() && userId ? (
                     <>
                       <Notifications userId={userId} />
                       <Profile
@@ -365,11 +365,11 @@ const Navigation = () => {
                       <Link href="/login">
                         <li>Влез</li>
                       </Link>
-                      {/*                       <Link href="/signup">
+                                            <Link href="/signup">
                         <li>Регистрация</li>
-                      </Link> */}
+                      </Link>
                     </>
-                  ) : null}
+                  ) : null} */}
                   {
                     // hamburger menu
                     <li
