@@ -1,0 +1,222 @@
+.screen {
+    width: 500px;
+    display: flex;
+    border: 3px solid rgb(var(--primary-rgb) / 80%);
+    aspect-ratio: 10 / 16;
+    border-radius: 1rem;
+    background-color: rgb(var(--primary-rgb) / 15%);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.screen:before {
+    width: 15%;
+    top: 0rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.screen:after {
+    width: 25%;
+    bottom: 0rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+@keyframes pan-overlay {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 0% -100%;
+    }
+}
+
+.screen_overlay {
+    background: linear-gradient(rgb(var(--primary-rgb) / 0.15),
+            rgb(var(--primary-rgb) / 0.15) 3px,
+            transparent 3px,
+            transparent 9px);
+    background-size: 100% 9px;
+    height: 100%;
+    width: 100%;
+    animation: pan-overlay 22s infinite linear;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+}
+
+.screen>.screen_image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.screen>.screen_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 4rem;
+    position: relative;
+    z-index: 3;
+    margin: 1rem;
+    padding-bottom: 6rem;
+    border: 1px solid rgb(var(--primary-rgb) / 50%);
+    border-radius: 0.6rem;
+}
+
+.screen>.screen_content>.screen_icon {
+    color: white;
+    font-size: 4rem;
+    text-shadow: 0px 0px 0.5rem white;
+}
+
+.screen>.screen_content>.screen_user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.screen>.screen_content>.screen_user:before,
+.screen>.screen_content>.screen_user:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    background-color: rgb(var(--primary-rgb));
+    border-radius: 1rem;
+    box-shadow: 0px 0px 8px 3px rgb(var(--primary-rgb) / 60%);
+}
+
+.screen>.screen_content>.screen_user:before {
+    height: 2px;
+    width: 50px;
+    translate: -20px -1rem;
+    opacity: 0.75;
+}
+
+.screen>.screen_content>.screen_user:after {
+    height: 3px;
+    width: 30px;
+    translate: 26px calc(-1rem - 0.5px);
+}
+
+.screen>.screen_content>.screen_user> :is(.name, .link) {
+    font-family: "Source Code Pro", monospace;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.screen>.screen_content>.screen_user>.name {
+    position: relative;
+    font-size: 4.25rem;
+    font-weight: 400;
+}
+
+.screen>.screen_content>.screen_user>.name:before,
+.screen>.screen_content>.screen_user>.name:after {
+    content: "";
+    height: 4px;
+    width: 4px;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 2px;
+}
+
+.screen>.screen_content>.screen_user>.name:before {
+    top: 55%;
+    right: -1.5rem;
+}
+
+.screen>.screen_content>.screen_user>.name:after {
+    top: 45%;
+    left: -1.5rem;
+}
+
+.screen>.screen_content>.screen_user>.link {
+    opacity: 0.8;
+    font-size: 1.5rem;
+    text-shadow: 0px 0px 0.5rem white;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+}
+
+.screen>.screen_content>.screen_user>.role {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+    opacity: 0.8;
+    text-shadow: 0px 0px 0.5rem white;
+    // margin-top: 1rem;
+}
+
+.screen>.screen_content>.screen_user>.link:is(:hover, :focus) {
+    text-decoration: underline;
+}
+
+// media queries
+
+@media screen and (max-width: 768px) {
+    .screen {
+        width: 100%;
+        aspect-ratio: 9 / 14;
+    }
+
+    .screen:before,
+    .screen:after {
+        display: none;
+    }
+
+    .screen>.screen_content {
+        padding-bottom: 3rem;
+    }
+
+    .screen>.screen_content>.screen_icon {
+        font-size: 3rem;
+    }
+
+    .screen>.screen_content>.screen_user>.name {
+        font-size: 3rem;
+    }
+
+    .screen>.screen_content>.screen_user>.link {
+        font-size: 1rem;
+    }
+
+    .screen>.screen_content>.screen_user>.role {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .screen>.screen_content>.screen_icon {
+        font-size: 2rem;
+    }
+
+    .screen>.screen_content>.screen_user>.name {
+        font-size: 2rem;
+    }
+
+    .screen>.screen_content>.screen_user>.link {
+        font-size: 0.75rem;
+    }
+
+    .screen>.screen_content>.screen_user>.role {
+        font-size: 0.5rem;
+    }
+}

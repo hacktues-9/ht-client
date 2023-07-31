@@ -162,6 +162,7 @@ const Information = ({ showDropdown, setShowDropdown }) => {
         <p
           style={{
             margin: "0",
+            cursor: "pointer",
           }}
         >
           Информация

@@ -1,3 +1,14 @@
+:root {
+  --background-rgb: 29 30 34;
+
+  --blue-rgb: 135 81 113;
+  --primary-rgb: var(--blue-rgb);
+
+  --blob-color-1: rgb(var(--blue-rgb));
+  --blob-color-2: dodgerblue;
+
+}
+
 @font-face {
   font-family: socium;
   src: url(/assets/fonts/socium.otf);
@@ -96,8 +107,7 @@ body {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.body {
-}
+.body {}
 
 #__next {
   min-height: 100%;
